@@ -53,27 +53,17 @@ namespace Pudge.RunningBinding.FromUnity
             floor.transform.position = Vector3.zero;
             floor.transform.rotation = Quaternion.Euler(0, 180, 0);
             floor.transform.localScale = new Vector3(17 * Metrics.Pudge, 10, 17 * Metrics.Pudge) / 10;
-            floor.GetComponent<Renderer>().material.mainTexture = _grassTexture;
-            floor.GetComponent<Renderer>().material.mainTexture.wrapMode = TextureWrapMode.Repeat;
+            var material = new Material(Shader.Find("Diffuse")) {mainTexture = _grassTexture};
+            floor.GetComponent<Renderer>().material = material;
             floor.GetComponent<Renderer>().material.SetFloat("_Glossiness", 0);
             floor.name = "floor";
-
-            Debug.Log("11111======================================");
-
             var mainLight = GameObject.Find("Main Light");
             mainLight.transform.rotation = Quaternion.Euler(65, 10, 0);
             mainLight.GetComponent<Light>().intensity = 0.9f;
             mainLight.GetComponent<Light>().shadowStrength = 1;
-
-
-            Debug.Log("2222222222======================================");
-
             var camera = GameObject.Find("Camera");
             camera.transform.rotation = Quaternion.Euler(70, 270, 0);
             camera.transform.position = new Vector3(13, 29, 0);
-
-
-            Debug.Log("33333333333333======================================");
         }
 
         /*private void CreateForestRect(int top, int bottom, int left, int right, System.Random random)

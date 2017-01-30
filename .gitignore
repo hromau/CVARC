@@ -1,0 +1,13 @@
+obj
+bin
+*.suo
+/packages
+/Competitions/Pudge/PudgeUnityBundleBuilder/[Ll]ibrary/
+/Competitions/Pudge/PudgeUnityBundleBuilder/[Tt]emp/
+
+/uCVARC/[Ll]ibrary/
+/uCVARC/[Tt]emp/
+/uCVARC/GameLogs/
+/uCVARC/log.txt
+/uCVARC/Assets/CVARC Assets/
+/uCVARC/Assets/AssetBundles/

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d2aa663d8aadf804894d405160514c50
+timeCreated: 1443815260
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - menuBackground: {fileID: 2800000, guid: 444507afc5146b249b5e85273201194b, type: 3}
+  - button: {fileID: 2800000, guid: 54988868e5334ba45bcbcee2c2194bb4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

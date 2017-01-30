@@ -1,0 +1,1315 @@
+fileFormatVersion: 2
+guid: 5c0730a00bd75fb4bafbe573d4571483
+timeCreated: 1459354464
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bicep_L
+    100002: bicep_R
+    100004: bottom_dorso
+    100006: bottom_dorso_end
+    100008: clavicle_L
+    100010: clavicle_R
+    100012: Cube
+    100014: Cube.001
+    100016: Cube.002
+    100018: Cube.003
+    100020: Cube.004
+    100022: Cube.005
+    100024: Cube.006
+    100026: Cube.007
+    100028: Cube.008
+    100030: Cube.009
+    100032: Cube.010
+    100034: Cube.011
+    100036: Cube.012
+    100038: Cube.013
+    100040: Cube.014
+    100042: ear2_0_A_L
+    100044: ear2_0_A_L_end
+    100046: ear3_0_A_R
+    100048: ear3_0_A_R_end
+    100050: elbow_L
+    100052: elbow_R
+    100054: Head_0
+    100056: Head_1
+    100058: index_finger2_0
+    100060: index_finger2_1
+    100062: index_finger2_2
+    100064: index_finger2_2_end
+    100066: jaw
+    100068: jaw_end
+    100070: L_antenna0_0_L
+    100072: L_antenna0_1_L
+    100074: L_antenna0_2_L
+    100076: L_antenna0_2_L_end
+    100078: mid_dorso
+    100080: mid_dorso_end
+    100082: R_antenna1_0_R
+    100084: R_antenna1_1_R
+    100086: R_antenna1_2_R
+    100088: R_antenna1_2_R_end
+    100090: Root_0
+    100092: slardar_base_lod1_skeleton
+    100094: //RootNode
+    100096: slardar_weapon_lod1
+    100098: Spine_0
+    100100: Spine_1
+    100102: Spine_2
+    100104: Spine_3
+    100106: Tail0_0
+    100108: Tail0_1
+    100110: Tail0_2
+    100112: Tail0_3
+    100114: Tail0_4
+    100116: Tail0_4_end
+    100118: thumb3_0
+    100120: thumb3_0_end
+    100122: top_antenna1_0
+    100124: top_antenna1_1
+    100126: top_antenna1_2
+    100128: top_antenna1_2_end
+    100130: top_dorso
+    100132: top_dorso_end
+    100134: top_dorso_end_end
+    100136: weapon_1
+    100138: weapon_1_end
+    100140: wrist_L
+    100142: wrist_L_end
+    100144: wrist_R
+    400000: bicep_L
+    400002: bicep_R
+    400004: bottom_dorso
+    400006: bottom_dorso_end
+    400008: clavicle_L
+    400010: clavicle_R
+    400012: Cube
+    400014: Cube.001
+    400016: Cube.002
+    400018: Cube.003
+    400020: Cube.004
+    400022: Cube.005
+    400024: Cube.006
+    400026: Cube.007
+    400028: Cube.008
+    400030: Cube.009
+    400032: Cube.010
+    400034: Cube.011
+    400036: Cube.012
+    400038: Cube.013
+    400040: Cube.014
+    400042: ear2_0_A_L
+    400044: ear2_0_A_L_end
+    400046: ear3_0_A_R
+    400048: ear3_0_A_R_end
+    400050: elbow_L
+    400052: elbow_R
+    400054: Head_0
+    400056: Head_1
+    400058: index_finger2_0
+    400060: index_finger2_1
+    400062: index_finger2_2
+    400064: index_finger2_2_end
+    400066: jaw
+    400068: jaw_end
+    400070: L_antenna0_0_L
+    400072: L_antenna0_1_L
+    400074: L_antenna0_2_L
+    400076: L_antenna0_2_L_end
+    400078: mid_dorso
+    400080: mid_dorso_end
+    400082: R_antenna1_0_R
+    400084: R_antenna1_1_R
+    400086: R_antenna1_2_R
+    400088: R_antenna1_2_R_end
+    400090: Root_0
+    400092: slardar_base_lod1_skeleton
+    400094: //RootNode
+    400096: slardar_weapon_lod1
+    400098: Spine_0
+    400100: Spine_1
+    400102: Spine_2
+    400104: Spine_3
+    400106: Tail0_0
+    400108: Tail0_1
+    400110: Tail0_2
+    400112: Tail0_3
+    400114: Tail0_4
+    400116: Tail0_4_end
+    400118: thumb3_0
+    400120: thumb3_0_end
+    400122: top_antenna1_0
+    400124: top_antenna1_1
+    400126: top_antenna1_2
+    400128: top_antenna1_2_end
+    400130: top_dorso
+    400132: top_dorso_end
+    400134: top_dorso_end_end
+    400136: weapon_1
+    400138: weapon_1_end
+    400140: wrist_L
+    400142: wrist_L_end
+    400144: wrist_R
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Cube.005
+    2300012: Cube.006
+    2300014: Cube.007
+    2300016: Cube.008
+    2300018: Cube.009
+    2300020: Cube.010
+    2300022: Cube.011
+    2300024: Cube.012
+    2300026: Cube.013
+    2300028: Cube.014
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Cube.005
+    3300012: Cube.006
+    3300014: Cube.007
+    3300016: Cube.008
+    3300018: Cube.009
+    3300020: Cube.010
+    3300022: Cube.011
+    3300024: Cube.012
+    3300026: Cube.013
+    3300028: Cube.014
+    4300000: Cube.004
+    4300002: Cube.003
+    4300004: Cube.002
+    4300006: Cube.001
+    4300008: Cube.010
+    4300010: Cube.011
+    4300012: Cube
+    4300014: Cube.014
+    4300016: Cube.012
+    4300018: Cube.013
+    4300020: Cube.005
+    4300022: Cube.006
+    4300024: Cube.007
+    4300026: Cube.008
+    4300028: Cube.009
+    4300030: slardar_weapon_lod1
+    7400000: slardar_base_lod1_skeleton|BindPose
+    7400002: slardar_base_lod1_skeleton|crush
+    7400004: slardar_base_lod1_skeleton|death
+    7400006: slardar_base_lod1_skeleton|idle
+    7400008: slardar_base_lod1_skeleton|run
+    7400010: slardar_base_lod1_skeleton|stun
+    9500000: //RootNode
+    13700000: slardar_weapon_lod1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|BindPose
+      takeName: slardar_base_lod1_skeleton|BindPose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|crush
+      takeName: slardar_base_lod1_skeleton|crush
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|death
+      takeName: slardar_base_lod1_skeleton|death
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|idle
+      takeName: slardar_base_lod1_skeleton|idle
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|run
+      takeName: slardar_base_lod1_skeleton|run
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: slardar_base_lod1_skeleton|stun
+      takeName: slardar_base_lod1_skeleton|stun
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: slardar_base_lod1_skeleton
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Cube.004
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Cube.003
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/bottom_dorso/bottom_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Cube.002
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/Cube.010
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/Cube.011
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_L/bicep_L/elbow_L/wrist_L/wrist_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/Cube.012
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/Cube.013
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/index_finger2_0/index_finger2_1/index_finger2_2/index_finger2_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/thumb3_0/thumb3_0_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/clavicle_R/bicep_R/elbow_R/wrist_R/weapon_1/weapon_1_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Cube.001
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/Cube
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear2_0_A_L/ear2_0_A_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/ear3_0_A_R/ear3_0_A_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/jaw/jaw_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/L_antenna0_0_L/L_antenna0_1_L/L_antenna0_2_L/L_antenna0_2_L_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/R_antenna1_0_R/R_antenna1_1_R/R_antenna1_2_R/R_antenna1_2_R_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/Cube.014
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/Head_0/Head_1/top_antenna1_0/top_antenna1_1/top_antenna1_2/top_antenna1_2_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/mid_dorso/mid_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Spine_0/Spine_1/Spine_2/Spine_3/top_dorso/top_dorso_end/top_dorso_end_end
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Cube.005
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Cube.006
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Cube.007
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Cube.008
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Cube.009
+        weight: 1
+      - path: slardar_base_lod1_skeleton/Root_0/Tail0_0/Tail0_1/Tail0_2/Tail0_3/Tail0_4/Tail0_4_end
+        weight: 1
+      - path: slardar_weapon_lod1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

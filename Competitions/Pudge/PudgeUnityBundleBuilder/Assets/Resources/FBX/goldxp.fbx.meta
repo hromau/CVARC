@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: ef17dab2956cc404eae183a5e8b3b198
+timeCreated: 1455550047
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: //RootNode
+    100004: joint1
+    100006: joint2
+    100008: joint2_end
+    100010: joint3_rings
+    100012: joint3_rings_end
+    100014: root
+    100016: rune
+    100018: rune_doubledamage01_reference_skeleton
+    100020: rune_end
+    100022: rune_goldxp_reference
+    400000: Camera
+    400002: //RootNode
+    400004: joint1
+    400006: joint2
+    400008: joint2_end
+    400010: joint3_rings
+    400012: joint3_rings_end
+    400014: root
+    400016: rune
+    400018: rune_doubledamage01_reference_skeleton
+    400020: rune_end
+    400022: rune_goldxp_reference
+    4300000: rune_goldxp_reference
+    7400000: rune_doubledamage01_reference_skeleton|rune_doubledamage_anim
+    7400002: rune_doubledamage01_reference_skeleton|rune_goldxp_anim
+    7400004: rune_doubledamage01_reference_skeleton|rune_haste_idle
+    9500000: //RootNode
+    13700000: rune_goldxp_reference
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: rune_doubledamage01_reference_skeleton|rune_doubledamage_anim
+      takeName: rune_doubledamage01_reference_skeleton|rune_doubledamage_anim
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2/joint2_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings/joint3_rings_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune/rune_end
+        weight: 1
+      - path: rune_goldxp_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rune_doubledamage01_reference_skeleton|rune_goldxp_anim
+      takeName: rune_doubledamage01_reference_skeleton|rune_goldxp_anim
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2/joint2_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings/joint3_rings_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune/rune_end
+        weight: 1
+      - path: rune_goldxp_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rune_doubledamage01_reference_skeleton|rune_haste_idle
+      takeName: rune_doubledamage01_reference_skeleton|rune_haste_idle
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint2/joint2_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/joint1/joint3_rings/joint3_rings_end
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune
+        weight: 1
+      - path: rune_doubledamage01_reference_skeleton/root/rune/rune_end
+        weight: 1
+      - path: rune_goldxp_reference
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

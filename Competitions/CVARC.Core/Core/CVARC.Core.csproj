@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7B5021F-09E8-4388-97A2-4B44B9770D03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CVARC.Core</RootNamespace>
+    <AssemblyName>CVARC.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\uCVARC\Assets\CVARC Assets\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>5</LangVersion>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Infrastructure">
+      <HintPath>..\Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AIRLabs\Form3D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Angle.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Circle2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Frame2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Frame3D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Line2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Line3D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Matrix.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Plane.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Point2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Point3D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\PolarPoint2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Quat.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Segment2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\Angem\Structuries\Triangle2D.cs" />
+    <Compile Include="AIRLabs\Mathematics\ArythmeticProgressionFunctions.cs" />
+    <Compile Include="AIRLabs\Mathematics\CalcResearch\MathFunction.cs" />
+    <Compile Include="AIRLabs\Mathematics\CommonFunctions.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\Geometry.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\GeometryFunctions.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\Mechanics.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\TestGeometry.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\Trigonometry.cs" />
+    <Compile Include="AIRLabs\Mathematics\Common\Vectors.cs" />
+    <Compile Include="AIRLabs\Mathematics\RandomExtensions.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\Implementation\ArrayEnumerator.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\Implementation\HashVector.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\Implementation\Linearizer.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\Implementation\RealVector.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Locked.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\ReadOnlyVector.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Unlocked.cs" />
+    <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Vector.cs" />
+    <Compile Include="AIRLabs\Tuple.cs" />
+    <Compile Include="Client\DelegatedCvarcTest.cs" />
+    <Compile Include="Client\EmptyAsserter.cs" />
+    <Compile Include="Client\IAsserter.cs" />
+    <Compile Include="Client\CvarcClient.cs" />
+    <Compile Include="Client\CvarcTest.cs" />
+    <Compile Include="Client\ICvarcTest.cs" />
+    <Compile Include="Controllers\Network\CvarcClient.cs" />
+    <Compile Include="Controllers\Network\KickOutException.cs" />
+    <Compile Include="Engine\FIXME\Animation.cs" />
+    <Compile Include="Engine\FIXME\Entitiy.cs" />
+    <Compile Include="Engine\ICommonEngine.cs" />
+    <Compile Include="Loading\Configuration\MyNullable.cs" />
+    <Compile Include="Loading\Proxy\BotsOnlyProxy.cs" />
+    <Compile Include="Loading\Proxy\IProxy.cs" />
+    <Compile Include="Loading\Proxy\MultiplayerProxy.cs" />
+    <Compile Include="Loading\Proxy\SoloNetworkProxy.cs" />
+    <Compile Include="Sensors\Implementation\DeathSensor.cs" />
+    <Compile Include="Tests\Asserters\DelegatedAsserter.cs" />
+    <Compile Include="Tests\Asserters\ISensorAsserter.cs" />
+    <Compile Include="Tests\Asserters\AbstractLocationAsserter.cs" />
+    <Compile Include="Tests\ReflectableCvarcTest\ReflectableAsserter.cs" />
+    <Compile Include="Tests\TestCase\CvarcTestMethod.cs" />
+    <Compile Include="Tests\TestCase\CvarcTestCase.cs" />
+    <Compile Include="Tests\ReflectableCvarcTest\IReflectableTestAction.cs" />
+    <Compile Include="Tests\ReflectableCvarcTest\ReflectableTestAction.cs" />
+    <Compile Include="Tests\TestAction.cs" />
+    <Compile Include="Tests\TestBuilder.cs" />
+    <Compile Include="Tests\DataDrivenCvarcTest.cs" />
+    <Compile Include="Tests\ReflectableCvarcTest\ReflectableTestBuilder.cs" />
+    <Compile Include="Tests\ITestAction.cs" />
+    <Compile Include="Tests\TestData.cs" />
+    <Compile Include="Tests\TestCase\TestSettings.cs" />
+    <Compile Include="Loading\Competitions\ActorFactory.cs" />
+    <Compile Include="Loading\Competitions\LogicPartHelper.cs" />
+    <Compile Include="Loading\Configuration\IWorldState.cs" />
+    <Compile Include="Loading\ControllerFactory\NetTournamentControllerFactory.cs" />
+    <Compile Include="Loading\ControllerFactory\TournamentControllerFactory.cs" />
+    <Compile Include="Loading\Loader\INetworkData.cs" />
+    <Compile Include="Loading\Loader\Loader.Levels.cs" />
+    <Compile Include="Debugger.cs" />
+    <Compile Include="Loading\Loader\Loader.SimpleMode.cs" />
+    <Compile Include="Loading\Loader\NetworkData.cs" />
+    <Compile Include="Loading\Loader\NetworkServerData.cs" />
+    <Compile Include="Client\MSAsserter.cs" />
+    <Compile Include="Clocks\ControlTrigger.cs" />
+    <Compile Include="Clocks\OneTimeTrigger.cs" />
+    <Compile Include="Clocks\RenewableTrigger.cs" />
+    <Compile Include="Clocks\TimerTrigger.cs" />
+    <Compile Include="Clocks\Trigger.cs" />
+    <Compile Include="Clocks\WorldClocks.cs" />
+    <Compile Include="CollisionDetector\CollisionDetector.cs" />
+    <Compile Include="CompatibilityException.cs" />
+    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\Keyboard\IKeyboard.cs" />
+    <Compile Include="Controllers\Keyboard\KeyboardController.cs" />
+    <Compile Include="Controllers\Keyboard\WinformsKey.cs" />
+    <Compile Include="Controllers\LogPlayController.cs" />
+    <Compile Include="Controllers\Network\IMessagingClient.cs" />
+    <Compile Include="Controllers\Network\INetworkController.cs" />
+    <Compile Include="Controllers\Network\ISerializer.cs" />
+    <Compile Include="Controllers\Network\JSonSerializer.cs" />
+    <Compile Include="Controllers\Network\NetworkController.cs" />
+    <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Loading\Competitions\Competitions.cs" />
+    <Compile Include="Loading\Configuration\ConfigurationProposal.cs" />
+    <Compile Include="Loading\Configuration\IConfigurationPull.cs" />
+    <Compile Include="Loading\Configuration\LoadingData.cs" />
+    <Compile Include="Loading\Configuration\Settings.cs" />
+    <Compile Include="Loading\Competitions\LogicPart.cs" />
+    <Compile Include="Loading\Configuration\CommandLineData.cs" />
+    <Compile Include="Loading\Configuration\Configuration.cs" />
+    <Compile Include="Loading\Configuration\SettingsOrSettingsProposal.cs" />
+    <Compile Include="Loading\Configuration\SettingsProposal.cs" />
+    <Compile Include="Loading\ControllerFactory\BotDemoControllerFactory.cs" />
+    <Compile Include="Loading\ControllerFactory\ControllerFactory.cs" />
+    <Compile Include="Loading\ControllerFactory\LogPlayerControllerFactory.cs" />
+    <Compile Include="Loading\ControllerFactory\SoloNetworkControllerFactory.cs" />
+    <Compile Include="Loading\ControllerFactory\TutorialControllerFactory.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sensors\FromSensorAttribute.cs" />
+    <Compile Include="Sensors\Implementation\Location\ILocationSensorData.cs" />
+    <Compile Include="Sensors\Implementation\EncodersSensor.cs" />
+    <Compile Include="Sensors\Implementation\GAXData.cs" />
+    <Compile Include="Sensors\Implementation\GAXSensor.cs" />
+    <Compile Include="Sensors\Implementation\Location\LocatorItem.cs" />
+    <Compile Include="Sensors\Implementation\Location\LocatorSensor.cs" />
+    <Compile Include="Sensors\Implementation\Location\RobotLocationSensor.cs" />
+    <Compile Include="Sensors\Implementation\SelfIdSensor.cs" />
+    <Compile Include="Sensors\ISensor.cs" />
+    <Compile Include="Sensors\Sensor.cs" />
+    <Compile Include="Sensors\SensorPack.cs" />
+    <Compile Include="Tests\TestLoadableLogicPartHelper.cs" />
+    <Compile Include="Units\Bot.cs" />
+    <Compile Include="Units\DeathUnit.cs" />
+    <Compile Include="Units\GripperUnit\BaseGripperUnit.cs" />
+    <Compile Include="Units\DWMUnit\DifWheelMovement.cs" />
+    <Compile Include="Units\DWMUnit\DWMDistortionCommandFilter.cs" />
+    <Compile Include="Units\DWMUnit\DWMUnit.cs" />
+    <Compile Include="Units\DWMUnit\IDWMCommand.cs" />
+    <Compile Include="Units\DWMUnit\IDWMRobot.cs" />
+    <Compile Include="Units\DWMUnit\IDWMRules.cs" />
+    <Compile Include="Units\DWMUnit\RulesExtension.cs" />
+    <Compile Include="Units\GripperUnit\RulesExtensions.cs" />
+    <Compile Include="Units\GripperUnit\GripperAction.cs" />
+    <Compile Include="Units\GripperUnit\GripperUnit.cs" />
+    <Compile Include="Units\GripperUnit\GripperSensor.cs" />
+    <Compile Include="Units\GripperUnit\IGrippableRobot.cs" />
+    <Compile Include="Units\GripperUnit\IGripperCommand.cs" />
+    <Compile Include="Units\GripperUnit\IGripperRules.cs" />
+    <Compile Include="Units\CommandBuilder.cs" />
+    <Compile Include="Units\IRules.cs" />
+    <Compile Include="Units\IUnit.cs" />
+    <Compile Include="Units\MoveAndGrip\MoveAndGripCommand.cs" />
+    <Compile Include="Units\MoveAndGrip\MoveAndGripRobot.cs" />
+    <Compile Include="Units\MoveAndGrip\MoveAndGripRules.cs" />
+    <Compile Include="Units\SimpleMovementUnit\RulesExtensions.cs" />
+    <Compile Include="Units\SimpleMovementUnit\ISimpleMovementCommand.cs" />
+    <Compile Include="Units\SimpleMovementUnit\SimpleMovement.cs" />
+    <Compile Include="Units\SimpleMovementUnit\SimpleMovementRules.cs" />
+    <Compile Include="Units\SimpleMovementUnit\SimpleMovementUnit.cs" />
+    <Compile Include="Units\TwoPlayersId.cs" />
+    <Compile Include="Units\UnitResponse.cs" />
+    <Compile Include="World\Actor.cs" />
+    <Compile Include="World\CommandFilterSet.cs" />
+    <Compile Include="World\CommandFilter.cs" />
+    <Compile Include="World\IActor.cs" />
+    <Compile Include="World\ICommand.cs" />
+    <Compile Include="World\ICommandFilter.cs" />
+    <Compile Include="World\IdGenerator.cs" />
+    <Compile Include="World\IWorld.cs" />
+    <Compile Include="World\Robot.cs" />
+    <Compile Include="World\Scores\ScoreRecord.cs" />
+    <Compile Include="World\Scores\Scores.cs" />
+    <Compile Include="World\World.cs" />
+    <Compile Include="__other\HelpExtensions.cs" />
+    <Compile Include="__other\IImageSensorData.cs" />
+    <Compile Include="__other\ImageSensorData.cs" />
+    <Compile Include="__other\ISceneSettings.cs" />
+    <Compile Include="__other\ISensorData.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

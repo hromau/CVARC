@@ -1,0 +1,6 @@
+﻿{
+  "CurrentBundle": "pudge",
+  "CurrentLevel": "Level2",
+  "BundleEntryPointClassName": "Pudge.RunningBinding.BundleEntryPoint",
+  "PudgeCoreClassName": "Pudge"
+}

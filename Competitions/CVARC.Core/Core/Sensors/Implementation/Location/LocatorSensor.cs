@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AIRLab;
+﻿using System.Linq;
 using AIRLab.Mathematics;
+using Infrastructure;
 
 namespace CVARC.V2
 {

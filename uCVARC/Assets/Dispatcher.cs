@@ -7,7 +7,6 @@ using UnityEngine;
 using Assets;
 using Assets.Bundles;
 using Assets.Servers;
-using Assets.Tools;
 using CVARC.Core;
 using Pudge.RunningBinding;
 using UnityEngineInternal;
@@ -56,14 +55,9 @@ public static class Dispatcher
 
             Debugger.Logger = Debug.Log;
 
-        WebInfo.InitWebConfigsFromFile(File.Exists(UnityConstants.PathToConfigFile)
-            ? UnityConstants.PathToConfigFile
-            : UnityConstants.AlternativeConfigPath);
-
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);
-
-        HttpWorker.SayStatus(true);
+        
 
         Loader = new Loader();
         Debugger.Log(DebuggerMessageType.Initialization, "Loader ready. Starting: adding levels");
@@ -98,13 +92,7 @@ public static class Dispatcher
         networkServer = new NetworkServer(UnityConstants.NetworkPort);
         Action networkServerAction = () => networkServer.StartThread();
         networkServerAction.BeginInvoke(null, null);
-
-        if (UnityConstants.NeedToOpenServicePort)
-        {
-            serviceServer = new PriorityGameServer(UnityConstants.ServicePort);
-            Action startServer = () => serviceServer.StartThread();
-            startServer.BeginInvoke(null, null);
-        }
+        
 
         if (UnityConstants.NeedToOpenLogPort)
         {
@@ -203,7 +191,6 @@ public static class Dispatcher
         if (CurrentRunner != null)
             CurrentRunner.Dispose();
         queue.DisposeRunners();
-        HttpWorker.SayStatus(false);
         UnityShutdown = true;
     }
 

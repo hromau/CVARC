@@ -123,6 +123,10 @@
     <Compile Include="World\SlardarId.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Commons\Infrastructure\Infrastructure.csproj">
+      <Project>{aee36e9e-5c5a-494d-95b8-b2c19294cc6a}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\CVARC.Core\Core\CVARC.Core.csproj">
       <Project>{f7b5021f-09e8-4388-97a2-4b44b9770d03}</Project>
       <Name>CVARC.Core</Name>

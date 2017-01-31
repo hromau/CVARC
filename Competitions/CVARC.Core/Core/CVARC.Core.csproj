@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Infrastructure">
-      <HintPath>..\Infrastructure.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -83,7 +80,6 @@
     <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\ReadOnlyVector.cs" />
     <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Unlocked.cs" />
     <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Vector.cs" />
-    <Compile Include="AIRLabs\Tuple.cs" />
     <Compile Include="Client\DelegatedCvarcTest.cs" />
     <Compile Include="Client\EmptyAsserter.cs" />
     <Compile Include="Client\IAsserter.cs" />
@@ -226,6 +222,12 @@
     <Compile Include="__other\ImageSensorData.cs" />
     <Compile Include="__other\ISceneSettings.cs" />
     <Compile Include="__other\ISensorData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Commons\Infrastructure\Infrastructure.csproj">
+      <Project>{aee36e9e-5c5a-494d-95b8-b2c19294cc6a}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

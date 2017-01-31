@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Infrastructure;
 
 namespace Assets.Bundles
 {
@@ -31,12 +32,7 @@ namespace Assets.Bundles
 
         private static SettingsPreloader LoadSettingsJson()
         {
-            SettingsPreloader settinsPreloader;
-            using (var stream = File.Open(Constants.PathToSettingsJson, FileMode.Open, FileAccess.Read))
-            {
-                settinsPreloader = (SettingsPreloader)CVARC.Infrastructure.Serializer.Deserialize(typeof(SettingsPreloader), stream);
-            }
-            return settinsPreloader;
+            return Serializer.Deserialize<SettingsPreloader>(File.ReadAllText(Constants.PathToSettingsJson));
         }
     }
 

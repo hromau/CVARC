@@ -6,6 +6,7 @@ using AIRLab;
 using AIRLab.Mathematics;
 using CVARC.V2;
 using UnityEngine;
+using Infrastructure;
 
 namespace UnityCommons
 {
@@ -158,7 +159,7 @@ namespace UnityCommons
         }
 
 
-        Dictionary<GameObject, AIRLab.Tuple<float, float>> attachedParams = new Dictionary<GameObject, AIRLab.Tuple<float, float>>();
+        Dictionary<GameObject, Tuple<float, float>> attachedParams = new Dictionary<GameObject, Tuple<float, float>>();
 
         [ToLog]
         public void Attach(string objectToAttach, string host, Frame3D relativePosition)
@@ -182,7 +183,7 @@ namespace UnityCommons
             joint.breakForce = Single.PositiveInfinity;
             joint.enablePreprocessing = false;
 
-            attachedParams.Add(attachment, new AIRLab.Tuple<float, float>(attachment.GetComponent<Rigidbody>().drag, attachment.GetComponent<Rigidbody>().angularDrag));
+            attachedParams.Add(attachment, new Tuple<float, float>(attachment.GetComponent<Rigidbody>().drag, attachment.GetComponent<Rigidbody>().angularDrag));
             attachment.GetComponent<Rigidbody>().drag = attachment.GetComponent<Rigidbody>().angularDrag = 0;
         }
 

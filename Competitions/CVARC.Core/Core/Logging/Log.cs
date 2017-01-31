@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using AIRLab;
 using AIRLab.Mathematics;
+using Infrastructure;
 
 namespace CVARC.V2
 {

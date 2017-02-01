@@ -50,8 +50,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
     <Compile Include="ClientClasses\HeroData.cs" />
     <Compile Include="ClientClasses\RuneData.cs" />
+    <Compile Include="Entitiy.cs" />
     <Compile Include="GameExceptions\PudgeIsDeadException.cs" />
     <Compile Include="IPudgeWorldEngine.cs" />
     <Compile Include="Player\ActorExtensions.cs" />

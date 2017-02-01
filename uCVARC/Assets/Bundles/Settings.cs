@@ -24,10 +24,7 @@ namespace Assets.Bundles
             DebugTypes = new List<string> { "XXX" };
         }
 
-
         public static readonly Settings Current;
-
-
 
         static Settings()
         {
@@ -62,6 +59,4 @@ namespace Assets.Bundles
             return settings;
         }
     }
-
-
 }

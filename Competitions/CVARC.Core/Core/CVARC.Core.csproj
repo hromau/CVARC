@@ -93,8 +93,6 @@
     <Compile Include="Client\ICvarcTest.cs" />
     <Compile Include="Controllers\Network\CvarcClient.cs" />
     <Compile Include="Controllers\Network\KickOutException.cs" />
-    <Compile Include="Engine\FIXME\Animation.cs" />
-    <Compile Include="Engine\FIXME\Entitiy.cs" />
     <Compile Include="Engine\ICommonEngine.cs" />
     <Compile Include="Loading\Configuration\MyNullable.cs" />
     <Compile Include="Loading\Proxy\BotsOnlyProxy.cs" />

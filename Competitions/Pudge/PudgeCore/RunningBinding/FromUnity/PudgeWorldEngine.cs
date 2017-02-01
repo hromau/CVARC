@@ -27,21 +27,13 @@ namespace Pudge.RunningBinding.FromUnity
         {
             _commonEngine = commonEngine;
 
-            _treePrefab = GetPrefab<GameObject>("Tree");
-            _wardPrefab = GetPrefab<GameObject>("Ward");
-            _hookPrefab = GetPrefab<GameObject>("Hook");
-            _daggerExplosionPrefab = GetPrefab<GameObject>("DaggerExplosion");
-            _pudgePrefab = GetPrefab<GameObject>("PudgePrefab");
-            _slardarPrefab = GetPrefab<GameObject>("Slardar");
-            _grassTexture = GetPrefab<Texture>("GrassTexture");
-        }
-
-        public T GetPrefab<T>(string name) where T : UnityEngine.Object
-        {
-            var prefab = PrefabLoader.InstantiatePrefab(name);
-            if (prefab == null)
-                throw new ApplicationException();
-            return (T)prefab;
+            _treePrefab = PrefabLoader.GetPrefab<GameObject>("Tree");
+            _wardPrefab = PrefabLoader.GetPrefab<GameObject>("Ward");
+            _hookPrefab = PrefabLoader.GetPrefab<GameObject>("Hook");
+            _daggerExplosionPrefab = PrefabLoader.GetPrefab<GameObject>("DaggerExplosion");
+            _pudgePrefab = PrefabLoader.GetPrefab<GameObject>("PudgePrefab");
+            _slardarPrefab = PrefabLoader.GetPrefab<GameObject>("Slardar");
+            _grassTexture = PrefabLoader.GetPrefab<Texture>("GrassTexture");
         }
 
         [ToLog]
@@ -150,7 +142,7 @@ namespace Pudge.RunningBinding.FromUnity
         {
             if (runesPrefabs.Keys.Count == 0)
                 foreach (var runeType in Enum.GetValues(typeof(RuneType)).Cast<RuneType>())
-                    runesPrefabs[runeType] = GetPrefab<GameObject>(runeType + "Rune");  //Resources.Load<GameObject>("Prefabs/" + runeType + "Rune");
+                    runesPrefabs[runeType] = PrefabLoader.GetPrefab<GameObject>(runeType + "Rune");  //Resources.Load<GameObject>("Prefabs/" + runeType + "Rune");
         }
 
         [ToLog]

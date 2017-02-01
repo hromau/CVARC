@@ -13,7 +13,8 @@ namespace HoMM.Engine
             {MapObject.Mine, 0 },
             {MapObject.Dwelling, 0 },
             {MapObject.ResourcesPile, 0 },
-            {MapObject.NeutralArmy, 0 }
+            {MapObject.NeutralArmy, 0 },
+            {MapObject.Wall, 0 }
         };
 
         public static void Connect(Round round, HommEngine e) {
@@ -56,6 +57,15 @@ namespace HoMM.Engine
                 if (tileObject is NeutralArmy) {
                     tileObject.unityID = $"Neutral army {objects[MapObject.NeutralArmy]++}";
                     engine.CreateObject(tileObject.unityID, MapObject.NeutralArmy, x, y);
+                }
+                if (tileObject is Wall) {
+                    tileObject.unityID = $"Wall {objects[MapObject.Wall]}";
+                    engine.CreateObject(tileObject.unityID, MapObject.Wall, x, y);
+                }
+
+                if (tileObject.unityID == null)
+                {
+                    throw new ArgumentException($"Got TileObject of unknown type: {tileObject.GetType().Name}");
                 }
 
                 engine.SetSize(tileObject.unityID, 0.5f, 0.5f, 0.5f);

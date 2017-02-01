@@ -48,7 +48,7 @@ public static class Dispatcher
     public static void Start()
     {
         Time.timeScale = TimeScale;
-        Debugger.DisableByDefault = false;
+        Debugger.DisableByDefault = true;
         Debugger.EnabledTypes.Add(DebuggerMessageType.Unity);
         Debugger.EnabledTypes.Add(DebuggerMessageType.UnityTest);
         Debugger.EnabledTypes.Add(DebuggerMessageType.Error);
@@ -117,8 +117,9 @@ public static class Dispatcher
     public static void FillLoader()
     {
         var level = new BundleEntryPoint().GetLevels()
-            .Where(x => x.LevelName == Assets.Bundles.Settings.CurrentLevel)
-            .ToList()[0];
+            .Where(x => x.CompetitionsName == Settings.CurrentBundle)
+            .Where(x => x.LevelName == Settings.CurrentLevel)
+            .Single();
 
         Loader.AddLevel("Pudge", Assets.Bundles.Settings.CurrentLevel, () => level);
         IsAssetBundleLoaded = true;

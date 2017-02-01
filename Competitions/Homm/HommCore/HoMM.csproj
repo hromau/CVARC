@@ -155,12 +155,10 @@
       <Name>UnityCommons</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntryPoint\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(SolutionDir)\Competitions\Homm\HommCore\bin\Debug\HoMM.dll" "$(SolutionDir)\Competitions\Homm\HommUnityBundleBuilder\Assets\Homm.bytes" /Y
+    <PostBuildEvent>copy "$(SolutionDir)\Competitions\Homm\HommCore\bin\Debug\HoMM.dll" "$(SolutionDir)\Competitions\Homm\HommUnityBundleBuilder\Assets\homm.bytes" /Y
 xcopy "$(SolutionDir)\Competitions\Homm\HommUnityBundleBuilder\Assets\AssetBundles\*.*" "$(SolutionDir)\uCVARC\Assets\AssetBundles\" /Y /I /E</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

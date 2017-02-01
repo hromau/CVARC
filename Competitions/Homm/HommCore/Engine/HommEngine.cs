@@ -1,14 +1,14 @@
 ﻿using CVARC.V2;
 using System;
 using System.Collections.Generic;
+using UnityCommons;
 using UnityEngine;
-
 
 namespace HoMM.Engine {
     public class HommEngine : IHommEngine {
         //setspeed(enum), commonengine, coords, del color, коллайдеры, перейти на раунд, heroes
         private Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>() {
-            {"hex",  Resources.Load<GameObject>("hex")}
+            {"hex",  PrefabLoader.GetPrefab<GameObject>("hex")}
         };
 
         ICommonEngine commonEngine;
@@ -47,8 +47,12 @@ namespace HoMM.Engine {
         private static Dictionary<string, Color> playersColors = new Dictionary<string, Color>();
 
         public void CreatePlayers(string[] players) {
-            playersColors[players[0]] = Color.red;
-            playersColors[players[1]] = Color.blue;
+
+            var playerColorsMapping = new Color[] { Color.red, Color.blue };
+
+            for (var i = 0; i < players.Length; ++i)
+                playersColors[players[i]] = playerColorsMapping[i];
+
             playersColors[""] = Color.gray;
 
             foreach(var name in players) {
@@ -115,11 +119,11 @@ namespace HoMM.Engine {
         }
         
         public void SetCamera(float w, float h) {
-            var camera = GameObject.Find("Main Camera");
+            var camera = GameObject.Find("Camera");
             //SetPosition("Main Camera", w / 2, 10, -h / 2);
             //camera.transform.Rotate(90, 0, 0);
 
-            SetPosition("Main Camera", new Vector3(w / 2, 6, -(h + 3)));
+            SetPosition("Camera", new Vector3(w / 2, 6, -(h + 3)));
             camera.transform.Rotate(45, 0, 0);
         }
 

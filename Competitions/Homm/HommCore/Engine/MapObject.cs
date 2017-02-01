@@ -7,6 +7,7 @@
         ResourcesPile,
         Hexagon,
         Flag,
-        Hero
+        Hero,
+        Wall
     }
 }

@@ -13,9 +13,9 @@ namespace Assets.Bundles
     [Serializable]
     public class Settings
     {
-        public string CurrentBundle { get; private set; }
-        public string CurrentLevel { get; private set; }
-        public List<string> DebugTypes = new List<string>();
+        public string CurrentBundle { get; set; }
+        public string CurrentLevel { get; set; }
+        public List<string> DebugTypes { get; set; }
 
         private Settings()
         {

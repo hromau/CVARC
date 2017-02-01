@@ -48,7 +48,7 @@ namespace CVARC.V2
         public double Time { get; set; }
         public GameLogEntryType Type { get; set; }
         public IncomingCommandLogEntry IncomingCommand { get; set; }
-        public EngineInvocationLogEntry EngineCommand { get; set; }
+        public EngineInvocationLogEntry EngineInvocation { get; set; }
         public LocationCorrectionLogEntry LocationCorrection { get; set; }
         public ScoresUpdate ScoresUpdate { get; set; }
     }

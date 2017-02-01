@@ -60,7 +60,7 @@ public static class Dispatcher
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
-        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle));
+        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.Current.CurrentBundle));
 
         
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
@@ -104,11 +104,11 @@ public static class Dispatcher
     public static void FillLoader()
     {
         var level = new BundleEntryPoint().GetLevels()
-            .Where(x => x.CompetitionsName == Settings.CurrentBundle)
-            .Where(x => x.LevelName == Settings.CurrentLevel)
+            .Where(x => x.CompetitionsName == Settings.Current.CurrentBundle)
+            .Where(x => x.LevelName == Settings.Current.CurrentLevel)
             .Single();
 
-        Loader.AddLevel("Pudge", Assets.Bundles.Settings.CurrentLevel, () => level);
+        Loader.AddLevel("Pudge", Assets.Bundles.Settings.Current.CurrentLevel, () => level);
         IsAssetBundleLoaded = true;
     }
 

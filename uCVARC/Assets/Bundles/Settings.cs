@@ -10,46 +10,52 @@ using Infrastructure;
 
 namespace Assets.Bundles
 {
-    public static class Settings
+    [Serializable]
+    public class Settings
     {
-        public static string CurrentBundle { get; private set; } // lowerCase, bundle file name 
-        public static string CurrentLevel { get; private set; } // competitions name, template is "Level{0}" by default
+        public string CurrentBundle { get; private set; }
+        public string CurrentLevel { get; private set; }
+        public List<string> DebugTypes = new List<string>();
 
-        private static SettingsPreloader SettinsPreloader { get; set; }
+        private Settings()
+        {
+            CurrentBundle = "pudge";
+            CurrentLevel = "Level1";
+            DebugTypes = new List<string> { "XXX" };
+        }
 
-        public static List<string> DebugTypes { get; private set; }
+
+        public static readonly Settings Current;
+
+
 
         static Settings()
         {
             // загрузка settings.json перед всей дальнейшей работой
-            SettinsPreloader = TryLoadSettingsJson();
-
-            CurrentBundle = SettinsPreloader.CurrentBundle;
-            CurrentLevel = SettinsPreloader.CurrentLevel;
-            DebugTypes = SettinsPreloader.DebugTypes;
+            Current = TryLoadSettingsJson();
         }
 
-        private static SettingsPreloader LoadSettingsJson()
+        private static Settings LoadSettingsJson()
         {
-            return Serializer.Deserialize<SettingsPreloader>(File.ReadAllText(Constants.PathToSettingsJson));
+            return Serializer.Deserialize<Settings>(File.ReadAllText(Constants.PathToSettingsJson));
         }
 
-        private static void SaveSettingsJson(SettingsPreloader settings)
+        private static void SaveSettingsJson(Settings settings)
         {
             File.WriteAllText(Constants.PathToSettingsJson, Serializer.Serialize(settings));
         }
 
-        private static SettingsPreloader TryLoadSettingsJson()
+        private static Settings TryLoadSettingsJson()
         {
-            SettingsPreloader settings;
+            Settings settings;
 
             try
             {
                 settings = LoadSettingsJson();
             }
-            catch(FileNotFoundException)
+            catch (FileNotFoundException)
             {
-                settings = new SettingsPreloader();
+                settings = new Settings();
                 SaveSettingsJson(settings);
             }
 
@@ -57,11 +63,5 @@ namespace Assets.Bundles
         }
     }
 
-    [Serializable]
-    public class SettingsPreloader
-    {
-        public string CurrentBundle = "pudge";
-        public string CurrentLevel = "Level1";
-        public List<string> DebugTypes = new List<string>();
-    }
+
 }

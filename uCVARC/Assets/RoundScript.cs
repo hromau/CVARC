@@ -28,9 +28,9 @@ public partial class RoundScript : PlayScript
         timeLimit = Dispatcher.CurrentRunner.World.Configuration.Settings.TimeLimit;
         //Debugger.Log(DebuggerMessageType.Unity,timeLimit);
         if (world != null)
-            Debugger.Log(DebuggerMessageType.Unity, "World loaded");
+            Debugger.Log("World loaded");
         else
-            Debugger.Log(DebuggerMessageType.Unity, "Fail. World not loaded");
+            Debugger.Log("Fail. World not loaded");
 
         CollisionInfo = new Tuple<string, string, int>(null, null, 0);
         //Time.timeScale = 1; // переехало в диспатчер
@@ -46,7 +46,7 @@ public partial class RoundScript : PlayScript
 
         if (curWorldTime > timeLimit)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Time is Up");
+            Debugger.Log("Time is Up");
             Dispatcher.SetGameOver();
             gameOver = true;
             return;

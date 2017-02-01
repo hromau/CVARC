@@ -14,7 +14,7 @@ namespace Assets
        
         protected override void HandleClient(CvarcClient client)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "started handle client");
+            Debugger.Log("started handle client");
             if (runner == null)
                 InitRunner(client);
             else
@@ -24,22 +24,22 @@ namespace Assets
 
             if (runner.CanStart)
             {
-                Debugger.Log(DebuggerMessageType.Unity, "preparing runner start");
+                Debugger.Log("preparing runner start");
                 runner.PrepareStart();
             }
         }
 
         private void InitRunner(CvarcClient client)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "started runner init");
-            Debugger.Log(DebuggerMessageType.Unity, "reading loading data");
+            Debugger.Log("started runner init");
+            Debugger.Log("reading loading data");
             var loadingData = client.Read<LoadingData>();
-            Debugger.Log(DebuggerMessageType.Unity, "taking competitions from dispatcher");
+            Debugger.Log("taking competitions from dispatcher");
             var competitions = Dispatcher.Loader.GetCompetitions(loadingData);
             var worldSettingsType = competitions.Logic.WorldStateType;
-            Debugger.Log(DebuggerMessageType.Unity, "reading worldState");
+            Debugger.Log("reading worldState");
             var worldState = (IWorldState)client.Read(worldSettingsType);
-            Debugger.Log(DebuggerMessageType.Unity, "reading controller settings");
+            Debugger.Log("reading controller settings");
             var clientsData = client.Read<List<ControllerSettings>>();
             var settings = competitions.Logic.CreateDefaultSettings(); // таким образом игнорируются все настйроки пользователя сейчас.
             foreach (var e in clientsData)
@@ -50,7 +50,7 @@ namespace Assets
                 LoadingData = loadingData,
                 Settings = settings
             };
-            Debugger.Log(DebuggerMessageType.Unity, "all OK, creating runner");
+            Debugger.Log("all OK, creating runner");
             messagingClient = client;
             runner = new NetworkRunner(worldState, configuration, this);
             Dispatcher.AddRunner(runner);
@@ -64,7 +64,7 @@ namespace Assets
 
         protected override void Print(string str)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Network server: " + str);
+            Debugger.Log("Network server: " + str);
         }
     }
 }

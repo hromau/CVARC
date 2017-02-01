@@ -45,7 +45,7 @@ namespace CVARC.V2
         public override UnitResponse ProcessCommand(object _cmd)
         {
             var cmd = Compatibility.Check<IGripperCommand>(this, _cmd);
-            Debugger.Log(DebuggerMessageType.Workflow,"Command comes to gripper, "+cmd.GripperCommand.ToString());
+            Debugger.Log("Command comes to gripper, "+cmd.GripperCommand.ToString());
             switch (cmd.GripperCommand)
             {
                 case GripperAction.No: return UnitResponse.Denied();

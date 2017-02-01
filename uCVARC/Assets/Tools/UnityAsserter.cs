@@ -17,14 +17,14 @@ class UnityAsserter : IAsserter
     {
         if (expected != actual)
         {
-            Debugger.Log(DebuggerMessageType.UnityTest, testName+": Expected " + expected + ", but was " + actual);
+            Debugger.Log(testName+": Expected " + expected + ", but was " + actual);
             Failed = true;
         }
     }
 
     public void Fail(string str)
     {
-        Debugger.Log(DebuggerMessageType.UnityTest, testName + " failed:" + str);
+        Debugger.Log(testName + " failed:" + str);
         Failed = true;
     }
 
@@ -33,7 +33,7 @@ class UnityAsserter : IAsserter
         var difference = Math.Abs(expected - actual);
         if (difference > delta)
         {
-            Debugger.Log(DebuggerMessageType.UnityTest, testName+": Expected " + expected + "+- " + delta + ", but was " + actual);
+            Debugger.Log(testName+": Expected " + expected + "+- " + delta + ", but was " + actual);
             Failed = true;
         }
     }
@@ -41,6 +41,6 @@ class UnityAsserter : IAsserter
 
     public void DebugOkMessage()
     {
-        if (!Failed) Debugger.Log(DebuggerMessageType.UnityTest, testName + " PASSED");
+        if (!Failed) Debugger.Log(testName + " PASSED");
     }
 }

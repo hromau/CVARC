@@ -27,7 +27,7 @@ namespace Assets
 
         protected override void Print(string str)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Multiplayer server: " + str);
+            Debugger.Log("Multiplayer server: " + str);
         }
     }
 }

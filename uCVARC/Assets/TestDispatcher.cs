@@ -11,7 +11,7 @@ namespace Assets
 
         public static void RunOneTest(LoadingData data, string testName)
         {
-            Debugger.Log(DebuggerMessageType.UnityTest, "Starting test " + testName);
+            Debugger.Log("Starting test " + testName);
             var test = Dispatcher.Loader.GetTest(data, testName);
             var asserter = new UnityAsserter(testName);
 
@@ -30,16 +30,16 @@ namespace Assets
 
         static void ExecuteTests(IEnumerable<string> testNames, LoadingData data)
         {
-            Debugger.Log(DebuggerMessageType.UnityTest, "staring tests");
+            Debugger.Log("staring tests");
             foreach (var testName in testNames)
             {
                 if (Dispatcher.UnityShutdown)
                 {
-                    Debugger.Log(DebuggerMessageType.UnityTest, "unity shutdown! stop testing");
+                    Debugger.Log("unity shutdown! stop testing");
                     break;
                 }
                 var asserter = new UnityAsserter(testName);
-                Debugger.Log(DebuggerMessageType.UnityTest, "Test is ready");
+                Debugger.Log("Test is ready");
                 var test = Dispatcher.Loader.GetTest(data, testName);
                 ExecuteTest(testName, test, asserter, MakeServerInfo(data));
             }

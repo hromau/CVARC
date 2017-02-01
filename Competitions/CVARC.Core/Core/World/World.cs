@@ -53,8 +53,8 @@ namespace CVARC.V2
 
         public void Initialize(Competitions competitions, Configuration configuration, ControllerFactory controllerFactory, IWorldState worldState)
         {
-            Debugger.Log(DebuggerMessageType.Initialization, "World initialization");
-            Debugger.Log(DebuggerMessageType.Initialization, "Starting basic fields");
+            Debugger.Log("World initialization");
+            Debugger.Log("Starting basic fields");
 
             Competitions = competitions;
             Configuration = configuration;
@@ -77,18 +77,18 @@ namespace CVARC.V2
             Clocks.TimeLimit = Configuration.Settings.TimeLimit;
 
 
-            Debugger.Log(DebuggerMessageType.Initialization, "About to init engines");
+            Debugger.Log("About to init engines");
             //Initializing world
             this.Engines = competitions.EnginesFactory();
-            Debugger.Log(DebuggerMessageType.Initialization, "Init engines OK");
+            Debugger.Log("Init engines OK");
 
-            Debugger.Log(DebuggerMessageType.Initialization, "Complete: basic fields. Starting engine");
+            Debugger.Log("Complete: basic fields. Starting engine");
             GetEngine<ICommonEngine>().Initialize(this);
-            Debugger.Log(DebuggerMessageType.Initialization, "Complete: engine. Starting controller factory");
+            Debugger.Log("Complete: engine. Starting controller factory");
             controllerFactory.Initialize(this);
-            Debugger.Log(DebuggerMessageType.Initialization, "Complete: controller factory. Creating world");
+            Debugger.Log("Complete: controller factory. Creating world");
             CreateWorld();
-            Debugger.Log(DebuggerMessageType.Initialization, "World created");
+            Debugger.Log("World created");
             
 
             //Initializing actors
@@ -111,35 +111,35 @@ namespace CVARC.V2
                   
             }
 
-            Debugger.Log(DebuggerMessageType.Initialization, "Additional world initialization");
+            Debugger.Log("Additional world initialization");
             AdditionalInitialization();
         }
 
 
         void InitializeActor(Competitions competitions, string id, ActorFactory factory, Func<string,IActor,IController> controllerFactory )
         {
-            Debugger.Log(DebuggerMessageType.Initialization, "Actor " + id + " initialization");
-            Debugger.Log(DebuggerMessageType.Initialization, "Creating actor");
+            Debugger.Log("Actor " + id + " initialization");
+            Debugger.Log("Creating actor");
             //var factory = competitions.Logic.Actors[id];
             var e = factory.CreateActor();
             var actorObjectId = IdGenerator.CreateNewId(e);
-            Debugger.Log(DebuggerMessageType.Initialization, "Complete: actor. Creating manager");
+            Debugger.Log("Complete: actor. Creating manager");
             //var manager = competitions.Manager.CreateActorManagerFor(e);
             var rules = factory.CreateRules();
             var preprocessor = factory.CreateCommandFilterSet();
             e.Initialize(/*manager, */this, rules, preprocessor, actorObjectId, id);
-            Debugger.Log(DebuggerMessageType.Initialization, "Comlete: manager creation. Initializing manager");
+            Debugger.Log("Comlete: manager creation. Initializing manager");
             Compatibility.Check<IActor>(this, e);
-            Debugger.Log(DebuggerMessageType.Initialization, "Comlete: manager initialization. Creating actor body");
+            Debugger.Log("Comlete: manager initialization. Creating actor body");
 
-            Debugger.Log(DebuggerMessageType.Initialization, "Complete: body. Starting controller");
+            Debugger.Log("Complete: body. Starting controller");
 
             var controller = controllerFactory(e.ControllerId, e);
             controller.Initialize(e);
 
             Clocks.AddTrigger(new ControlTrigger(controller, e, preprocessor));
             actors.Add(e);
-            Debugger.Log(DebuggerMessageType.Initialization, "Actor " + id + " is initialized");
+            Debugger.Log("Actor " + id + " is initialized");
         }
 
 

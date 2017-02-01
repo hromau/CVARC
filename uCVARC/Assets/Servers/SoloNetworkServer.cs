@@ -14,7 +14,7 @@ namespace Assets
 
         protected override void Print(string str)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "network server: " + str);
+            Debugger.Log("network server: " + str);
         }
     }
 }

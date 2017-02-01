@@ -38,7 +38,7 @@ namespace Assets.Servers
 
         protected override void Print(string str)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Log server: " + str);
+            Debugger.Log("Log server: " + str);
         }
     }
 }

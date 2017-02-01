@@ -35,11 +35,11 @@ namespace CVARC.V2
 
         public override void ExecuteCommand(TCommand command, out double duration)
         {
-            Debugger.Log( DebuggerMessageType.Workflow, "Command comes to robot, " + Units.Count()+" units");
+            Debugger.Log("Command comes to robot, " + Units.Count()+" units");
             
             foreach (var e in Units)
             {
-                Debugger.Log( DebuggerMessageType.Workflow, "Starting unit "+e.GetType().Name);
+                Debugger.Log("Starting unit "+e.GetType().Name);
                 
                 var response = e.ProcessCommand(command);
                 if (response.Processed)

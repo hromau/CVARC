@@ -42,7 +42,7 @@ namespace Assets.Bundles
             PrefabLoader.SetAssetBundle(_bundle);
             Dispatcher.FillLoader();
 
-            Debugger.Log(DebuggerMessageType.Initialization, "WORLD: " + Application.dataPath);
+            Debugger.Log("WORLD: " + Application.dataPath);
         }
     }
 }

@@ -19,17 +19,17 @@ namespace Assets
 
         public SoloNetworkRunner(CvarcClient client)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: started");
+            Debugger.Log("Runner setup: started");
             this.client = client;
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: client loaded");
+            Debugger.Log("Runner setup: client loaded");
             factory = new SoloNetworkControllerFactory(client);
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: factory done");
+            Debugger.Log("Runner setup: factory done");
             var configProposal = client.Read<ConfigurationProposal>();
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: configProposal has been read");
+            Debugger.Log("Runner setup: configProposal has been read");
             var loadingData = configProposal.LoadingData;
             var competitions = Dispatcher.Loader.GetCompetitions(loadingData);
             var settings = competitions.Logic.CreateDefaultSettings();
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: settings set");
+            Debugger.Log("Runner setup: settings set");
             if (configProposal.SettingsProposal != null)
                 configProposal.SettingsProposal.Push(settings, true);
             configuration = new Configuration
@@ -37,18 +37,18 @@ namespace Assets
                 LoadingData = loadingData,
                 Settings = settings
             };
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: Config created");
+            Debugger.Log("Runner setup: Config created");
 
             //configuration.Settings.EnableLog = true;
             //configuration.Settings.LogFile = UnityConstants.LogFolderRoot + "CvarcTestLog";
 
             var worldSettingsType = competitions.Logic.WorldStateType;
             worldState = (IWorldState)client.Read(worldSettingsType);
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: world state has been read");
+            Debugger.Log("Runner setup: world state has been read");
             Name = loadingData.AssemblyName + loadingData.Level;
             CanInterrupt = true;
             CanStart = true;
-            Debugger.Log(DebuggerMessageType.Unity, "Runner setup: done");
+            Debugger.Log("Runner setup: done");
         }
 
         public void InitializeWorld()
@@ -56,7 +56,7 @@ namespace Assets
             if (configuration.Settings.SpeedUp)
             {
                 Time.timeScale = 2;
-                Debugger.Log(DebuggerMessageType.Unity, "LOL");
+                Debugger.Log("LOL");
             }
             if (World == null)
                 World = Dispatcher.Loader.CreateWorld(configuration, factory, worldState);

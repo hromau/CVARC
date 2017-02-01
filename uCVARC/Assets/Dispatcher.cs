@@ -47,10 +47,9 @@ public static class Dispatcher
     public static void Start()
     {
         Time.timeScale = TimeScale;
-        Debugger.DisableByDefault = false;
-        Debugger.EnabledTypes.Add(DebuggerMessageType.Unity);
-        Debugger.EnabledTypes.Add(DebuggerMessageType.UnityTest);
-        Debugger.EnabledTypes.Add(DebuggerMessageType.Error);
+
+        Debugger.Settings.EnableType(typeof(Dispatcher));
+        
         //if (Debug.isDebugBuild)
 
             Debugger.Logger = Debug.Log;
@@ -60,8 +59,8 @@ public static class Dispatcher
         
 
         Loader = new Loader();
-        Debugger.Log(DebuggerMessageType.Initialization, "Loader ready. Starting: adding levels");
-        Debugger.Log(DebuggerMessageType.Initialization, "=======================" + UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle));
+        Debugger.Log("Loader ready. Starting: adding levels");
+        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle));
 
         
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
@@ -179,7 +178,7 @@ public static class Dispatcher
             return;
         }
 
-        Debugger.Log(DebuggerMessageType.Unity, "GLOBAL EXIT");
+        Debugger.Log("GLOBAL EXIT");
         if (soloNetworkServer != null)
             soloNetworkServer.RequestExit();
         torunamentServer.RequestExit();

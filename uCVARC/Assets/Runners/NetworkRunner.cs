@@ -54,7 +54,7 @@ namespace Assets
             controllerIds = clientControllers.Select(x => x.ControllerId).ToArray();
             requiredCountOfPlayers = clientControllers.Count();
 
-            Debugger.Log(DebuggerMessageType.Unity, "network runner created for " + requiredCountOfPlayers + " players");
+            Debugger.Log("network runner created for " + requiredCountOfPlayers + " players");
 
             Name = configuration.LoadingData.AssemblyName + configuration.LoadingData.Level;//"Tournament";
             CanInterrupt = false;
@@ -68,7 +68,7 @@ namespace Assets
             foreach (var pl in curPlayers)
                 if (!pl.Client.IsAlive())
                 {
-                    Debugger.Log(DebuggerMessageType.Unity, "one of players disconnected before game started");
+                    Debugger.Log("one of players disconnected before game started");
                     players.Remove(pl);
                 }
             players.Add(player);
@@ -91,7 +91,7 @@ namespace Assets
 
         public void Dispose()
         {
-            Debugger.Log(DebuggerMessageType.Unity, "dispose tournament...");
+            Debugger.Log("dispose tournament...");
             foreach (var cvarcClient in players)
                 cvarcClient.Client.Close();
 

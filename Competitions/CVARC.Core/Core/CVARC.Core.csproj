@@ -11,7 +11,8 @@
     <AssemblyName>CVARC.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.9.0.2-beta2\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -96,6 +101,7 @@
     <Compile Include="Loading\Proxy\IProxy.cs" />
     <Compile Include="Loading\Proxy\MultiplayerProxy.cs" />
     <Compile Include="Loading\Proxy\SoloNetworkProxy.cs" />
+    <Compile Include="Logging\LogEntity.cs" />
     <Compile Include="Sensors\Implementation\DeathSensor.cs" />
     <Compile Include="Tests\Asserters\DelegatedAsserter.cs" />
     <Compile Include="Tests\Asserters\ISensorAsserter.cs" />
@@ -227,6 +233,9 @@
       <Project>{aee36e9e-5c5a-494d-95b8-b2c19294cc6a}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

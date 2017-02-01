@@ -29,7 +29,7 @@ namespace CVARC.V2
             var command = controller.GetCommand();
 			if (command == null) return false;
             Debugger.Log("Command accepted in ControlTrigger");
-			controllable.World.Logger.AccountCommand(controllable.ControllerId, command);
+			controllable.World.Logger.AddIncomingCommand(controllable.ControllerId, command);
 
             filterSet.ProcessCommand(controllable, command);
             if (!filterSet.CommandAvailable)

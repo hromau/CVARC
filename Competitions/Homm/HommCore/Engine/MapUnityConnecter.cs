@@ -43,6 +43,7 @@ namespace HoMM.Engine
                 var x = tileObject.location.X;
                 var y = tileObject.location.Y;
                 if (tileObject is Mine) {
+                    return;
                     tileObject.unityID = $"Mine {objects[MapObject.Mine]++}";
                     engine.CreateObject(tileObject.unityID, MapObject.Mine, x, y);
                 }
@@ -51,6 +52,7 @@ namespace HoMM.Engine
                     engine.CreateObject(tileObject.unityID, MapObject.Dwelling, x, y);
                 }
                 if (tileObject is ResourcePile) {
+                    return;
                     tileObject.unityID = $"Resources pile {objects[MapObject.ResourcesPile]++}";
                     engine.CreateObject(tileObject.unityID, MapObject.ResourcesPile, x, y);
                 }
@@ -59,7 +61,7 @@ namespace HoMM.Engine
                     engine.CreateObject(tileObject.unityID, MapObject.NeutralArmy, x, y);
                 }
                 if (tileObject is Wall) {
-                    tileObject.unityID = $"Wall {objects[MapObject.Wall]}";
+                    tileObject.unityID = $"Wall {objects[MapObject.Wall]++}";
                     engine.CreateObject(tileObject.unityID, MapObject.Wall, x, y);
                 }
 

@@ -24,8 +24,9 @@ namespace HoMM.MapViewer
             WindowState = FormWindowState.Maximized;
 
             DoubleBuffered = true;
-            
-            var r = new Random();
+
+            var seed = 0;
+            var r = new Random(seed);
 
             var easyTier = new SpawnerConfig(HoMM.Location.Zero, 3, 30, 0.5);
             var mediumTier = new SpawnerConfig(HoMM.Location.Zero, 30, 1000, 0.5);

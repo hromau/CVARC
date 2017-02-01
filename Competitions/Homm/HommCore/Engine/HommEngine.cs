@@ -23,7 +23,7 @@ namespace HoMM.Engine {
             switch (mapObject) {
                 case MapObject.Hexagon:
                     obj = GameObject.Instantiate<GameObject>(prefabs["hex"]);
-                    obj.transform.Rotate(90, 0 ,0);
+                    obj.transform.Rotate(90, 90, 0);
                     break;
                 case MapObject.Mine: obj = GameObject.CreatePrimitive(PrimitiveType.Cube); break;
                 case MapObject.Flag: obj = GameObject.CreatePrimitive(PrimitiveType.Sphere); break;
@@ -101,7 +101,7 @@ namespace HoMM.Engine {
         }
 
         public void SetPosition(string id, int x, int y) {
-            SetPosition(id, new Vector3(x, 0, y).ToUnityBasis(hexHeight));
+            SetPosition(id, new Vector3(y, 0, x).ToUnityBasis(hexHeight));
         }
 
         private void SetPosition(string id, Vector3 position) {
@@ -120,10 +120,7 @@ namespace HoMM.Engine {
         
         public void SetCamera(float w, float h) {
             var camera = GameObject.Find("Camera");
-            //SetPosition("Main Camera", w / 2, 10, -h / 2);
-            //camera.transform.Rotate(90, 0, 0);
-
-            SetPosition("Camera", new Vector3(w / 2, 6, -(h + 3)));
+            SetPosition("Camera", new Vector3(w/2, 17, h/2));
             camera.transform.Rotate(45, 0, 0);
         }
 
@@ -152,9 +149,10 @@ namespace HoMM.Engine {
 
     public static class CoordsConverter {
         public static Vector3 ToUnityBasis(this Vector3 pos, float hexSize = 1) {
-            return new Vector3((3 * hexSize * pos.x) / (2 * (float)Math.Sqrt(3)),
+            return new Vector3((pos.x * hexSize + (pos.z % 2 == 0 ? 0 : hexSize / 2)),
                                0,
-                               0 - (pos.z * hexSize + (pos.x % 2 == 0 ? 0 : hexSize / 2)));
+                               (3 * hexSize * pos.z) / (2 * (float)Math.Sqrt(3))
+                               );
         }
     }
 }

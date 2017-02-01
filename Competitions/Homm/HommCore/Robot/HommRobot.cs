@@ -15,8 +15,10 @@ namespace HoMM.Robot
         IHommRobot
     {
         public override IEnumerable<IUnit> Units { get; }
-        
-        public Player Player { get; }
+
+        private Player player;
+
+        public Player Player { get; private set; }
         public IHommEngine HommEngine { get; }
         public Map Map => World.Round.Map;
 
@@ -24,9 +26,6 @@ namespace HoMM.Robot
 
         public HommRobot()
         {
-            if (World != null)
-                Player = World.Players.Where(p => p.Name == ControllerId).Single();
-
             Units = new List<IUnit>
             {
                 new HexMovUnit(this),
@@ -34,8 +33,19 @@ namespace HoMM.Robot
             };
         }
 
+        public override void AdditionalInitialization()
+        {
+            base.AdditionalInitialization();
+
+            if (World != null)
+                Player = World.Players.Where(p => p.Name == ControllerId).Single();
+        }
+
         public void Die()
         {
+            Debugger.Settings.EnableType<HommRobot>();
+            Debugger.Log("Die!");
+
             World.CommonEngine.DeleteObject(ControllerId);
             var respawnTime = World.Clocks.CurrentTime + HommRules.Current.RespawnInterval;
             

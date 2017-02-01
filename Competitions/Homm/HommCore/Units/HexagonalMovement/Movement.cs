@@ -21,7 +21,7 @@ namespace HoMM.Units.HexagonalMovement
             var turnDuration = GetTravelDuration(player, map);
 
             var travelIsPossible = newLocation.IsInside(map.Size) &&
-                (map[newLocation].tileObject?.IsPassable ?? false);
+                (map[newLocation].tileObject?.IsPassable ?? true);
 
             if (travelIsPossible)
             {

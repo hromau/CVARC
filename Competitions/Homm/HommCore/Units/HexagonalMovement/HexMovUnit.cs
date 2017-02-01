@@ -18,6 +18,10 @@ namespace HoMM.Units.HexagonalMovement
             var movement = Compatibility.Check<IHexMovCommand>(this, command).Movement;
             if (movement == null) return UnitResponse.Denied();
 
+            Debugger.Settings.EnableType<HexMovUnit>();
+
+            Debugger.Log(movement.ToString());
+
             var movementResult = movement.TryMoveHero(
                 actor.World.HommEngine, actor.Player, actor.World.Round.Map);
 
@@ -27,7 +31,7 @@ namespace HoMM.Units.HexagonalMovement
             actor.World.Clocks.AddTrigger(actor.LocationTrigger = new LocationTrigger(
                 actor.World.Clocks.CurrentTime, movementDuration / 2, actor, newLocation));
 
-            return UnitResponse.Accepted(double.PositiveInfinity);
+            return UnitResponse.Accepted(movementDuration);
         }
     }
 }

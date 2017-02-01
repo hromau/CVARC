@@ -25,18 +25,22 @@ namespace HoMM.World
 
         public override void CreateWorld()
         {
-            Random = new Random(WorldState.Seed);
-            CombatResolver = new CombatResolver();
+            Debugger.Settings.EnableType<HommWorld>();
+            Debugger.Log(WorldState.Seed);
+
             CommonEngine = GetEngine<ICommonEngine>();
             HommEngine = GetEngine<HommEngine>();
+            CombatResolver = new CombatResolver();
+
+            Random = new Random(WorldState.Seed);
 
             var map = MapHelper.CreateMap(Random);
-            Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();            
+            Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);
 
             MapUnityConnecter.Connect(Round, HommEngine);
 
-            Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
+            //Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
         }
 
         public Location GetRespawnLocation(string controllerId)

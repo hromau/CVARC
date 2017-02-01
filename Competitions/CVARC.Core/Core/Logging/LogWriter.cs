@@ -68,7 +68,7 @@ namespace CVARC.V2
             {
                 Time = CurrentTime,
                 Type = GameLogEntryType.EngineInvocation,
-                EngineCommand = new EngineInvocationLogEntry
+                EngineInvocation = new EngineInvocationLogEntry
                 {
                     EngineName = engine.Name,
                     MethodName = method,

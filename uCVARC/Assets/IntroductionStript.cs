@@ -15,7 +15,7 @@ public class IntroductionStript : MonoBehaviour
     //const string AssemblyName = "Demo";
     //const string Level = "Level1";
     const string AssemblyName = "Pudge";
-    string Level = Settings.CurrentLevel;
+    string Level = Settings.Current.CurrentLevel;
     //const string Level = "Test";
 
     private bool openWindowTests = false;

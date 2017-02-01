@@ -15,7 +15,7 @@ namespace Assets.Bundles
 
         public void Start()
         {
-            _bundleUrl = UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle);
+            _bundleUrl = UriConstructor.GetUriFileLocationPath(Settings.Current.CurrentBundle);
             StartCoroutine(Work());
         }
 

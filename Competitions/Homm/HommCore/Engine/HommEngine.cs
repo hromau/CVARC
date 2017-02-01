@@ -18,6 +18,8 @@ namespace HoMM.Engine {
             this.commonEngine = commonEngine;
         }
 
+        public LogWriter LogWriter { get; set; }
+
         public GameObject CreateObject(string id, MapObject mapObject, int x = 0, int y = 0) {
             GameObject obj = null;
             switch (mapObject) {

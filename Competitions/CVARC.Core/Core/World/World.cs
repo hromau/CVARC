@@ -19,7 +19,7 @@ namespace CVARC.V2
         public IdGenerator IdGenerator { get; private set; }
         public WorldClocks Clocks { get; private set; }
         public Scores Scores { get; private set; }
-        public Logger Logger { get; private set; }
+        public LogWriter Logger { get; private set; }
         public Configuration Configuration { get; private set; }
         public Competitions Competitions { get; private set; }
         public TWorldState WorldState { get; private set; }
@@ -63,16 +63,11 @@ namespace CVARC.V2
             Clocks = new WorldClocks();
             IdGenerator = new IdGenerator();
             Scores = new Scores(this);
-            Logger = new Logger(this);
+            Logger = new LogWriter(this, Configuration.Settings.EnableLog, Configuration.Settings.LogFile, Configuration, WorldState);
             Keyboard = competitions.KeyboardFactory();
             LoggingPositionObjectIds = new List<string>();
 
             // setting up the parameters
-            Logger.SaveLog = Configuration.Settings.EnableLog;
-
-            Logger.LogFileName = Configuration.Settings.LogFile;
-            Logger.Log.Configuration = Configuration;
-            Logger.Log.WorldState = WorldState;
 
             Clocks.TimeLimit = Configuration.Settings.TimeLimit;
 
@@ -95,7 +90,6 @@ namespace CVARC.V2
             actors = new List<IActor>();
             foreach (var id in competitions.Logic.Actors.Keys)
             {
-                Logger.AddId(id);
                 InitializeActor(
                     competitions,
                     id,

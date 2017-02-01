@@ -19,7 +19,7 @@ namespace CVARC.V2
         Configuration Configuration { get; }
         Competitions Competitions { get; }
         IKeyboard Keyboard { get; }
-        Logger Logger { get; }
+        LogWriter Logger { get; }
         void CreateWorld();
         IWorldState WorldState { get;  }
         List<string> LoggingPositionObjectIds { get; }

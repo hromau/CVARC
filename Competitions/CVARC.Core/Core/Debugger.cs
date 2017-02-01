@@ -33,6 +33,12 @@ namespace CVARC.V2
                 enabledTypes.Add(t);
                 return this;
             }
+
+            public SettingsClass EnableType(string  typeName)
+            {
+                enabledTypes.Add(Assembly.GetExecutingAssembly().GetType(typeName));
+                return this;
+            }
         }
 
         public static readonly SettingsClass Settings = new Debugger.SettingsClass();

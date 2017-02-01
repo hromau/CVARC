@@ -39,7 +39,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void CreateEmptyMap()
         {
-            //Dispatcher.CurrentLog.Log("CreateEmptyMap");
+            this.Log("CreateEmptyMap");
 
             var floor = GameObject.CreatePrimitive(PrimitiveType.Plane);
             floor.transform.position = Vector3.zero;
@@ -67,7 +67,7 @@ namespace Pudge.RunningBinding.FromUnity
 
         public void CreateTree(int x, int z, float angle)
         {
-            //Dispatcher.CurrentLog.Log("CreateTree", x, z, angle);
+            this.Log("CreateTree", x, z, angle);
 
             var tree = GameObject.Instantiate<GameObject>(_treePrefab);
             tree.transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
@@ -77,7 +77,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void PlayAnimation(string actorId, Pudge.Animation animation)
         {
-            //Dispatcher.CurrentLog.Log("PlayAnimation", actorId, animation);
+            this.Log("PlayAnimation", actorId, animation);
 
             var actor = GameObject.Find(actorId);
             if (actor != null) actor.GetComponent<Animator>().Play(animation.ToString());
@@ -86,7 +86,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void SetTransparent(string actorId, bool isTransparent)
         {
-            //Dispatcher.CurrentLog.Log("SetTransparent", actorId, isTransparent);
+            this.Log("SetTransparent", actorId, isTransparent);
 
             var actor = GameObject.Find(actorId);
 
@@ -103,7 +103,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void TurnIntoCorpse(string actorId, string corpseId)
         {
-            //Dispatcher.CurrentLog.Log("TurnIntoCorpse", actorId, corpseId);
+            this.Log("TurnIntoCorpse", actorId, corpseId);
 
             var actorBody = ObjectsCache.FindGameObject(actorId);
 
@@ -125,7 +125,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void SpawnHook(double x, double y, double yawGrad, string id)
         {
-            //Dispatcher.CurrentLog.Log("SpawnHook", x, y, yawGrad, id);
+            this.Log("SpawnHook", x, y, yawGrad, id);
 
             var location = new Frame3D(x, y, 13, Angle.Zero, Angle.FromGrad(yawGrad), Angle.Zero).ToUnityBasis();
 
@@ -148,7 +148,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void SpawnRune(RuneType type, RuneSize size, double x, double y, double z, string id)
         {
-            //Dispatcher.CurrentLog.Log("SpawnRune", type, size, x, y, z, id);
+            this.Log("SpawnRune", type, size, x, y, z, id);
 
             EnsureRunesAreReady();
 
@@ -163,7 +163,7 @@ namespace Pudge.RunningBinding.FromUnity
 
         [ToLog]
         public void MakeDaggerExplosion(Frame3D location) {
-            //Dispatcher.CurrentLog.Log("MakeDaggerExplosion", location);
+            this.Log("MakeDaggerExplosion", location);
 
             var unityExpLoc = location.ToUnityBasis();
 
@@ -185,7 +185,7 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void CreatePudgeBody(string actorId, string controllerId)
         {
-            //Dispatcher.CurrentLog.Log("CreatePudgeBody", actorId, controllerId);
+            this.Log("CreatePudgeBody", actorId, controllerId);
 
             ActorInitializer.SetUpActor(BuildPudgeBody(controllerId), actorId);
             _commonEngine.SetAbsoluteSpeed(actorId, Frame3D.Identity);
@@ -243,13 +243,18 @@ namespace Pudge.RunningBinding.FromUnity
         [ToLog]
         public void CreateSlardarBody(string actorId, string controllerId, bool debug)
         {
-            //Dispatcher.CurrentLog.Log("CreateSlardarBody", actorId, controllerId, debug);
+            this.Log("CreateSlardarBody", actorId, controllerId, debug);
 
             ActorInitializer.SetUpActor(BuildSlardarBody(controllerId, debug), actorId);
             _commonEngine.SetAbsoluteSpeed(actorId, Frame3D.Identity);
         }
 
         private float slardarScale = 0.01f;
+
+        public LogWriter LogWriter
+        {
+            get;set;
+        }
 
         private GameObject BuildSlardarBody(string controllerId, bool debug)
         {

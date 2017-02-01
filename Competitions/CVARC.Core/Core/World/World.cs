@@ -28,6 +28,8 @@ namespace CVARC.V2
         public List<string> LoggingPositionObjectIds { get; private set; }
         public abstract void CreateWorld();
 
+        
+
         public void OnExit()
         {
             if (Exit != null) Exit();
@@ -38,6 +40,14 @@ namespace CVARC.V2
         public IEnumerable<IActor> Actors
         {
             get { return actors; }
+        }
+
+        public virtual double LoggingPositionTimeInterval
+        {
+            get
+            {
+                return 0.1;
+            }
         }
 
         public TEngine GetEngine<TEngine>()
@@ -75,10 +85,11 @@ namespace CVARC.V2
             Debugger.Log("About to init engines");
             //Initializing world
             this.Engines = competitions.EnginesFactory();
+            
             Debugger.Log("Init engines OK");
 
             Debugger.Log("Complete: basic fields. Starting engine");
-            GetEngine<ICommonEngine>().Initialize(this);
+            foreach (var engine in Engines) engine.LogWriter = Logger;
             Debugger.Log("Complete: engine. Starting controller factory");
             controllerFactory.Initialize(this);
             Debugger.Log("Complete: controller factory. Creating world");

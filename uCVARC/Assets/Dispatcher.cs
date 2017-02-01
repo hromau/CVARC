@@ -49,10 +49,13 @@ public static class Dispatcher
     {
         Time.timeScale = TimeScale;
 
-        Debugger.Settings.EnableType(typeof(LogWriter));
-        //if (Debug.isDebugBuild)
-
-            Debugger.Logger = Debug.Log;
+        Debug.Log("Logging types...");
+        foreach(var e in Settings.Current.DebugTypes)
+        {
+            Debug.Log(e);
+            Debugger.Settings.EnableType(e);
+        }
+        Debugger.Logger = Debug.Log;
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);

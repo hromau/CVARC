@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace CVARC.Infrastructure
+namespace Infrastructure
 {
+    // deprecated
     [DataContract]
     [Serializable]
+    [Obsolete]
     public class GameResultInfo
     {
         [DataMember]

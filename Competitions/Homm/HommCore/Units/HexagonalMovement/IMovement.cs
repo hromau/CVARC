@@ -1,4 +1,4 @@
-﻿using AIRLab;
+﻿using Infrastructure;
 using HoMM.Engine;
 
 namespace HoMM.Units.HexagonalMovement

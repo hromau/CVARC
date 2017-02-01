@@ -43,7 +43,7 @@ namespace Pudge.World
             CreateForestBorders(32, 32);
             CreateCentralWoods();
             CreateCornerForestRooms();
-            Debugger.Log(DebuggerMessageType.Always, "World initialization finished!");
+            Debugger.Log("World initialization finished!");
         }
 
 

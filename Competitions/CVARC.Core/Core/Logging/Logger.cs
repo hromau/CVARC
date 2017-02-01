@@ -3,89 +3,115 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using AIRLab;
+using Infrastructure;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
-    [Serializable]
-     public class PositionLogItem
+
+
+
+    public class LogWriter
     {
-        public double Time { get; set; }
-        public Frame3D Location { get; set; }
-        public bool Exists { get; set; }
-    }
-
-
-
-    public class Logger
-    {
-        public double LoggingDeltaTime = 0.1;
-        public string LogFileName { get; set; }
-        public bool SaveLog { get; set; }
-        public Log Log { get; private set; }
         
         IWorld world;
-        public Logger(IWorld world)
+        private bool enableLog;
+        private string logFile;
+        private Configuration configuration;
+        private object worldState;
+
+        public LogWriter(IWorld world, bool enableLog, string logFile, Configuration configuration, object worldState) 
         {
             this.world = world;
-            Log=new V2.Log();
-            Log.LoggingDeltaTime = LoggingDeltaTime;
-            world.Clocks.AddTrigger(new TimerTrigger(UpdatePositions, LoggingDeltaTime));
-            world.Exit += world_Exit;
+            this.enableLog = enableLog;
+            this.logFile = logFile;
+            this.configuration = configuration;
+            this.worldState = worldState;
+
+            world.Scores.ScoresChanged += Scores_ScoresChanged;
+            world.Exit += World_Exit;
+            
         }
 
-        void world_Exit()
+        private void World_Exit()
         {
-            if (!SaveLog) return;
-            string filename=world.Configuration.Settings.LogFile;
-            if (filename == null)
+            if (enableLog)
+                File.WriteAllLines(logFile, log.ToArray());
+        }
+
+        private void Scores_ScoresChanged(string controllerId, int count, string reason, int total)
+        {
+            var entry = new GameLogEntry
             {
-                for (int i = 0; ; i++)
+                Time = CurrentTime,
+                Type = GameLogEntryType.ScoresUpdate,
+                ScoresUpdate = new ScoresUpdate
                 {
-                    filename = "log" + i + ".cvarclog";
-                    if (!File.Exists(filename))
-                        break;
+                    ControllerId = controllerId,
+                    Added = count,
+                    Reason = reason,
+                    Total = total
                 }
-            }
-            //Log.Save(filename);
+            };
+            AddEntry(entry);
         }
+        
 
-        public void AccountCommand(string controllerId, ICommand command)
-        {
-            if (!Log.Commands.Any(x => x.Item1 == controllerId))
-                return;
-            Log.Commands.First(x => x.Item1 == controllerId).Item2.Add(command);
-        }
+        List<string> log = new List<string>();
 
-        public void AddId(string controllerId)
+        public double CurrentTime { get; set; }
+
+        public void AddMethodInvocation(Type engine, string method, params object[] arguments)
         {
-            if (!Log.Commands.Any(x => x.Item1 == controllerId))
+            var entry = new GameLogEntry
             {
-                Log.Commands.Add(new Tuple<string, List<ICommand>>(controllerId, new List<ICommand>()));
-            }
-        }
-
-        void UpdatePositions(double tick)
-        {
-            var engine = world.GetEngine<ICommonEngine>();
-            foreach (var e in world.LoggingPositionObjectIds)
-            {
-                if (!Log.Positions.Any(x => x.Item1 == e))
-                    Log.Positions.Add(new Tuple<string, List<PositionLogItem>>(e, new List<PositionLogItem>()));
-                var item = new PositionLogItem { Time = tick };
-                if (!engine.ContainBody(e))
-                    item.Exists = false;
-                else
+                Time = CurrentTime,
+                Type = GameLogEntryType.EngineInvocation,
+                EngineCommand = new EngineInvocationLogEntry
                 {
-                    item.Exists = true;
-                    item.Location = engine.GetAbsoluteLocation(e);
+                    EngineName = engine.Name,
+                    MethodName = method,
+                    Arguments = arguments.Select(z => z.ToString()).ToArray()
                 }
-                Log.Positions.First(x => x.Item1 == e).Item2.Add(item);
-            }
+            };
+            AddEntry(entry);
         }
 
+        private void AddEntry(GameLogEntry entry)
+        {
+            var str = JsonConvert.SerializeObject(entry, Formatting.None);
+            Debugger.Log(str);
+            log.Add(str);
+        }
 
+        public void AddIncomingCommand(string controllerId, object command)
+        {
+            var entry = new GameLogEntry
+            {
+                Time = CurrentTime,
+                Type = GameLogEntryType.IncomingCommand,
+                IncomingCommand = new IncomingCommandLogEntry
+                {
+                    Command = JObject.FromObject(command),
+                    ControllerId = controllerId
+                }
+            };
+            AddEntry(entry);
+        }
+
+        public void AddLocationCorrection(Dictionary<string, Frame3D> correction)
+        {
+            var entry = new GameLogEntry
+            {
+                Time = CurrentTime,
+                Type = GameLogEntryType.LocationCorrection,
+                LocationCorrection = new LocationCorrectionLogEntry
+                {
+                    Locations = correction
+                }
+            };
+            AddEntry(entry);
+        }
     }
 }

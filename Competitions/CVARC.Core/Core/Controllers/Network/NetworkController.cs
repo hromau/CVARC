@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using AIRLab;
+using Infrastructure;
 
 namespace CVARC.V2
 {
@@ -67,18 +67,18 @@ namespace CVARC.V2
                 var result = @delegate.EndInvoke(async);
                 if (result.Item2 != null)
                 {
-                    Debugger.Log(DebuggerMessageType.Always, "Exception: " + result.Item2.Message);
+                    Debugger.Log("Exception: " + result.Item2.Message);
                     return null;
                 }
                 
-                Debugger.Log(DebuggerMessageType.Workflow,"Command accepted in controller");
+                Debugger.Log("Command accepted in controller");
                 return result.Item1;
             }
 
             Thread.Sleep(100);//without this sleep, if computer performs badly and units contain multiple triggers, the server will be stopped before test client receives data, hence client will throw exception.
        
 			client.Close();
-			Debugger.Log(DebuggerMessageType.Error, "Can't get command");
+			Debugger.Log("Can't get command");
             return null;
 
         }

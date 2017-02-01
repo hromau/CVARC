@@ -1,4 +1,4 @@
-﻿using AIRLab;
+﻿using Infrastructure;
 using HoMM.Engine;
 using HoMM.Rules;
 using System;

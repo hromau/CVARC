@@ -1,5 +1,5 @@
 ﻿using System;
-using AIRLab.Mathematics;
+using Infrastructure;
 
 namespace AIRLab.Mathematics
 {

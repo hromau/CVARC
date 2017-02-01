@@ -36,7 +36,7 @@ public class IntroductionStript : MonoBehaviour
     {
         if (UnityConstants.Reloading && (DateTime.Now - startedAt > TimeSpan.FromSeconds(UnityConstants.ReloadingTime)))
         {
-            Debugger.Log(DebuggerMessageType.Unity, "shutdown unity...");
+            Debugger.Log("shutdown unity...");
             Application.Quit();
         }
         Dispatcher.IntroductionTick();

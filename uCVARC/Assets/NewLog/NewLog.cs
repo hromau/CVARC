@@ -8,6 +8,7 @@ using AIRLab;
 using AIRLab.Mathematics;
 using CVARC.Core;
 using CVARC.V2;
+using Infrastructure;
 using Ionic.Zlib;
 
 namespace Assets
@@ -20,9 +21,9 @@ namespace Assets
             //using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
             //    return (NewLog)(new BinaryFormatter().Deserialize(stream));
 
-            using (var stream = new Ionic.Zlib.GZipStream(File.Open(fileName, FileMode.Open, FileAccess.Read), CompressionMode.Decompress))            
+            using (var stream = new Ionic.Zlib.GZipStream(File.Open(fileName, FileMode.Open, FileAccess.Read), CompressionMode.Decompress))
             {
-                return (NewLog) CVARC.Infrastructure.Serializer.Deserialize(typeof (NewLog), stream);
+                return null; //todo
             }
         }
 
@@ -33,7 +34,7 @@ namespace Assets
             //    new BinaryFormatter().Serialize(stream, this);
             using (var stream = new Ionic.Zlib.GZipStream(File.Open(fileName, FileMode.Create, FileAccess.Write), CompressionMode.Compress))
             {
-                CVARC.Infrastructure.Serializer.Serialize(log, stream);
+                //todo //Infrastructure.Serializer.Serialize(log, stream);
 
             } //ToTextFile(fileName + ".txt");
         }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using AIRLab;
+using Infrastructure;
 
 namespace CVARC.V2
 {
+
+    public delegate void ScoresAddEventHandler(string controllerId, int count, string reason, int total);
+
     public class Scores
     {
         IWorld world;
@@ -17,14 +19,14 @@ namespace CVARC.V2
         }
 
         public Dictionary<string, List<ScoreRecord>> Records { get; private set; } 
-        public event Action ScoresChanged;
+        public event ScoresAddEventHandler ScoresChanged;
         
-        public void Add(string controllerId, int count, string reason, RecordType type=RecordType.Permanent)
+        public void Add(string controllerId, int count, string reason)
         {
             if (!Records.ContainsKey(controllerId))
                 Records[controllerId] = new List<ScoreRecord>();
-            Records[controllerId].Add(new ScoreRecord(count, reason, world.Clocks.CurrentTime, type));
-            if (ScoresChanged != null) ScoresChanged();
+            Records[controllerId].Add(new ScoreRecord(count, reason, world.Clocks.CurrentTime));
+            if (ScoresChanged != null) ScoresChanged(controllerId,count,reason, GetTotalScore(controllerId));
         }
         
         public IEnumerable<Tuple<string, int>> GetAllScores()
@@ -37,15 +39,6 @@ namespace CVARC.V2
             if (!Records.ContainsKey(controllerId))
                 return 0;
             return Records[controllerId].Sum(x => x.Count);
-        }
-
-        public void DeleteTemporaryRecords()
-        {
-            Records = Records
-                .ToDictionary(kv => kv.Key, kv => kv.Value
-                    .Where(r => r.Type == RecordType.Permanent)
-                    .ToList());
-            if (ScoresChanged != null) ScoresChanged();
         }
     }
 }

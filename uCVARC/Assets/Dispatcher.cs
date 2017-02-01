@@ -7,10 +7,10 @@ using UnityEngine;
 using Assets;
 using Assets.Bundles;
 using Assets.Servers;
-using Assets.Tools;
 using CVARC.Core;
 using Pudge.RunningBinding;
 using UnityEngineInternal;
+
 using Settings = Assets.Bundles.Settings;
 
 
@@ -48,26 +48,19 @@ public static class Dispatcher
     public static void Start()
     {
         Time.timeScale = TimeScale;
-        Debugger.DisableByDefault = true;
-        Debugger.EnabledTypes.Add(DebuggerMessageType.Unity);
-        Debugger.EnabledTypes.Add(DebuggerMessageType.UnityTest);
-        Debugger.EnabledTypes.Add(DebuggerMessageType.Error);
+
+        Debugger.Settings.EnableType(typeof(LogWriter));
         //if (Debug.isDebugBuild)
 
             Debugger.Logger = Debug.Log;
 
-        WebInfo.InitWebConfigsFromFile(File.Exists(UnityConstants.PathToConfigFile)
-            ? UnityConstants.PathToConfigFile
-            : UnityConstants.AlternativeConfigPath);
-
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);
-
-        HttpWorker.SayStatus(true);
+        
 
         Loader = new Loader();
-        Debugger.Log(DebuggerMessageType.Initialization, "Loader ready. Starting: adding levels");
-        Debugger.Log(DebuggerMessageType.Initialization, "=======================" + UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle));
+        Debugger.Log("Loader ready. Starting: adding levels");
+        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.CurrentBundle));
 
         
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
@@ -98,13 +91,7 @@ public static class Dispatcher
         networkServer = new NetworkServer(UnityConstants.NetworkPort);
         Action networkServerAction = () => networkServer.StartThread();
         networkServerAction.BeginInvoke(null, null);
-
-        if (UnityConstants.NeedToOpenServicePort)
-        {
-            serviceServer = new PriorityGameServer(UnityConstants.ServicePort);
-            Action startServer = () => serviceServer.StartThread();
-            startServer.BeginInvoke(null, null);
-        }
+        
 
         if (UnityConstants.NeedToOpenLogPort)
         {
@@ -192,7 +179,7 @@ public static class Dispatcher
             return;
         }
 
-        Debugger.Log(DebuggerMessageType.Unity, "GLOBAL EXIT");
+        Debugger.Log("GLOBAL EXIT");
         if (soloNetworkServer != null)
             soloNetworkServer.RequestExit();
         torunamentServer.RequestExit();
@@ -204,7 +191,6 @@ public static class Dispatcher
         if (CurrentRunner != null)
             CurrentRunner.Dispose();
         queue.DisposeRunners();
-        HttpWorker.SayStatus(false);
         UnityShutdown = true;
     }
 

@@ -22,12 +22,12 @@ namespace Assets
                 LoadingData = loadingData,
                 Settings = settings
             };
-            MultiplayerPool.AddPlayerToPool(client, configuration, worldState, configProposal.SettingsProposal.CvarcTag);
+            //MultiplayerPool.AddPlayerToPool(client, configuration, worldState, configProposal.SettingsProposal.CvarcTag);
         }
 
         protected override void Print(string str)
         {
-            Debugger.Log(DebuggerMessageType.Unity, "Multiplayer server: " + str);
+            Debugger.Log("Multiplayer server: " + str);
         }
     }
 }

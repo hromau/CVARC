@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Infrastructure;
+
 
 namespace Assets.Bundles
 {
@@ -29,20 +31,12 @@ namespace Assets.Bundles
 
         private static SettingsPreloader LoadSettingsJson()
         {
-            SettingsPreloader settinsPreloader;
-            using (var stream = File.Open(Constants.PathToSettingsJson, FileMode.Open, FileAccess.Read))
-            {
-                settinsPreloader = (SettingsPreloader)CVARC.Infrastructure.Serializer.Deserialize(typeof(SettingsPreloader), stream);
-            }
-            return settinsPreloader;
+            return Serializer.Deserialize<SettingsPreloader>(File.ReadAllText(Constants.PathToSettingsJson));
         }
 
         private static void SaveSettingsJson(SettingsPreloader settings)
         {
-            using (var stream = File.Open(Constants.PathToSettingsJson, FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                CVARC.Infrastructure.Serializer.Serialize(settings, stream);
-            }
+            File.WriteAllText(Constants.PathToSettingsJson, Serializer.Serialize(settings));
         }
 
         private static SettingsPreloader TryLoadSettingsJson()

@@ -28,8 +28,8 @@ namespace CVARC.V2
             controller.SendSensorData(sensorData);
             var command = controller.GetCommand();
 			if (command == null) return false;
-            Debugger.Log(DebuggerMessageType.Workflow, "Command accepted in ControlTrigger");
-			controllable.World.Logger.AccountCommand(controllable.ControllerId, command);
+            Debugger.Log("Command accepted in ControlTrigger");
+			controllable.World.Logger.AddIncomingCommand(controllable.ControllerId, command);
 
             filterSet.ProcessCommand(controllable, command);
             if (!filterSet.CommandAvailable)
@@ -49,7 +49,7 @@ namespace CVARC.V2
                 }
             var currentCommand = filterSet.GetNextCommand();
             double duration;
-            Debugger.Log(DebuggerMessageType.Workflow, "Command goes to robot");
+            Debugger.Log("Command goes to robot");
             controllable.ExecuteCommand(currentCommand, out duration);
             nextTime = base.ThisCall +  duration;
         }

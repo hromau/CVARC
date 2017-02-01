@@ -2,49 +2,59 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CVARC.V2
 {
-    public enum DebuggerMessageType
-    {
-        Unity,
-        UnityTest,
-        Protocol,
-        Error,
-        Workflow,
-        Drawing,
-        Initialization,
-        Always
-    }
+
     public static class Debugger
     {
-        public static bool DisableByDefault { get; set; }
-        public static List<object> EnabledTypes { get; private set; }
-
         static object lockObject = new object();
+        static HashSet<Type> enabledTypes = new HashSet<Type>();
+        static HashSet<MethodBase> enabledMethods = new HashSet<MethodBase>();
 
-        static Debugger()
+        public class SettingsClass
         {
-            EnabledTypes = new List<object>();
-            File.Delete("log.txt");
-        }
-        public static void Log(object messageType, object obj)
-        {
-            lock (lockObject)
+            public SettingsClass EnableType<T>()
             {
-                var str = obj.ToString();
-                if (DisableByDefault && !EnabledTypes.Contains(messageType) && !messageType.Equals(DebuggerMessageType.Always))
-                    return;
-                if (Logger != null)
-                    Logger(str);
-                File.AppendAllText("log.txt", str + "\n");
+                Debugger.enabledTypes.Add(typeof(T));
+                return this;
+            }
+
+            public SettingsClass EnabledMethod<T>(string methodName)
+            {
+                Debugger.enabledMethods.Add(typeof(T).GetMethod(methodName));
+                return this;
+            }
+
+            public SettingsClass EnableType(Type t)
+            {
+                enabledTypes.Add(t);
+                return this;
             }
         }
 
-        public static void Mark()
+        public static readonly SettingsClass Settings = new Debugger.SettingsClass();
+        
+
+
+
+
+        public static void Log(object message)
         {
-            Log(DebuggerMessageType.Always, "!");
+            lock (lockObject)
+            {
+                var stack = new System.Diagnostics.StackTrace().GetFrame(1);
+                var method = stack.GetMethod();
+                var type = method.DeclaringType;
+                if (Logger != null && (enabledTypes.Contains(type) || enabledMethods.Contains(method)))
+                {
+                    var str = message.ToString();
+                    Logger(str);
+                    File.AppendAllText("log.txt", str + "\n");
+                }
+            }
         }
 
         public static Action<string> Logger;

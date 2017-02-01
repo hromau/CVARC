@@ -49,7 +49,7 @@ namespace CVARC.V2
         public UnitResponse ProcessCommand(object _command)
         {
             var command = Compatibility.Check<ISimpleMovementCommand>(this, _command);
-            Debugger.Log(DebuggerMessageType.Workflow, "Command accepted in SMUnit");
+            Debugger.Log("Command accepted in SMUnit");
             var c = command.SimpleMovement;
             if (c == null)
             {

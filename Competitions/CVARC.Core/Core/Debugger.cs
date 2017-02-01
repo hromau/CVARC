@@ -50,7 +50,7 @@ namespace CVARC.V2
                 var type = method.DeclaringType;
                 if (Logger != null && (enabledTypes.Contains(type) || enabledMethods.Contains(method)))
                 {
-                    var str = message.ToString();
+                    var str = message == null ? "null" : message.ToString();
                     Logger(str);
                     File.AppendAllText("log.txt", str + "\n");
                 }

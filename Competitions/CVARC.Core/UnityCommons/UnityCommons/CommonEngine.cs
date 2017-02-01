@@ -17,15 +17,13 @@ namespace UnityCommons
 
         System.Random rand = new System.Random(10);
 
-        public void Initialize(CVARC.V2.IWorld world)
-        {
 
-        }
 
         [ToLog]
         public void Stop()
         {
-        //    Dispatcher.CurrentLog.Log("Stop");
+            this.Log("Stop");
+
 
             foreach (var id in requestedAbsoluteSpeed.Keys.ToArray())
             {
@@ -37,7 +35,8 @@ namespace UnityCommons
         [ToLog]
         public void SetRelativeSpeed(string id, Frame3D speed)
         {
-        //    Dispatcher.CurrentLog.Log("SetRelativeSpeed", id, speed);
+            this.Log("SetRelativeSpeed", id, speed);
+
             requestedRelativeSpeed[id] = speed;
 
             if (requestedAbsoluteSpeed.ContainsKey(id))
@@ -47,7 +46,8 @@ namespace UnityCommons
         [ToLog]
         public void SetAbsoluteSpeed(string id, Frame3D speed)
         {
-         //   Dispatcher.CurrentLog.Log("SetAbsoluteSpeed", id, speed);
+            this.Log("SetAbsoluteSpeed", id, speed);
+
             requestedAbsoluteSpeed[id] = speed.ToUnityBasis();
 
             if (requestedRelativeSpeed.ContainsKey(id))
@@ -129,7 +129,7 @@ namespace UnityCommons
         [ToLog]
         public void SetAbsoluteLocation(string id, Frame3D location)
         {
-        //    Dispatcher.CurrentLog.Log("SetAbsoluteLocation", id, location);
+            this.Log("SetAbsoluteLocation", id, location);
 
             var obj = ObjectsCache.FindGameObject(id);
             var unityLocation = location.ToUnityBasis();
@@ -161,10 +161,12 @@ namespace UnityCommons
 
         Dictionary<GameObject, Tuple<float, float>> attachedParams = new Dictionary<GameObject, Tuple<float, float>>();
 
+        public LogWriter LogWriter { get; set; }
+
         [ToLog]
         public void Attach(string objectToAttach, string host, Frame3D relativePosition)
         {
-        //    Dispatcher.CurrentLog.Log("Attach", objectToAttach, host, relativePosition);
+            this.Log("Attach", objectToAttach, host, relativePosition);
 
             var parent = GameObject.Find(host);
             var attachment = GameObject.Find(objectToAttach);
@@ -190,7 +192,7 @@ namespace UnityCommons
         [ToLog]
         public void Detach(string objectToDetach, Frame3D absolutePosition)
         {
-         //   Dispatcher.CurrentLog.Log("Detach", objectToDetach, absolutePosition);
+            this.Log("Detach", objectToDetach, absolutePosition);
 
             var attachment = GameObject.Find(objectToDetach);
 
@@ -210,7 +212,7 @@ namespace UnityCommons
         [ToLog]
         public void DeleteObject(string objectId)
         {
-        //    Dispatcher.CurrentLog.Log("DeleteObject", objectId);
+            this.Log("DeleteObject", objectId);
 
             GameObject.Destroy(GameObject.Find(objectId));
             if (requestedAbsoluteSpeed.ContainsKey(objectId))

@@ -75,10 +75,11 @@ namespace CVARC.V2
             Debugger.Log("About to init engines");
             //Initializing world
             this.Engines = competitions.EnginesFactory();
+            
             Debugger.Log("Init engines OK");
 
             Debugger.Log("Complete: basic fields. Starting engine");
-            GetEngine<ICommonEngine>().Initialize(this);
+            foreach (var engine in Engines) engine.LogWriter = Logger;
             Debugger.Log("Complete: engine. Starting controller factory");
             controllerFactory.Initialize(this);
             Debugger.Log("Complete: controller factory. Creating world");

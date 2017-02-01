@@ -9,7 +9,6 @@ namespace CVARC.V2
 {
     public interface ICommonEngine : IEngine
     {
-        void Initialize(IWorld world);
         void SetAbsoluteSpeed(string id, Frame3D speed);
         void SetRelativeSpeed(string id, Frame3D speed);
         Frame3D GetSpeed(string id);

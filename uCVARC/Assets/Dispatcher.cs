@@ -48,7 +48,7 @@ public static class Dispatcher
     {
         Time.timeScale = TimeScale;
 
-        Debugger.Settings.EnableType(typeof(Dispatcher));
+        Debugger.Settings.EnableType(typeof(LogWriter));
         
         //if (Debug.isDebugBuild)
 

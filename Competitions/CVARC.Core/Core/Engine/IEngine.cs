@@ -8,6 +8,7 @@ using CVARC.Basic.Sensors;
 
 namespace CVARC.V2
 {
-    public interface IEngine { }
+    public interface IEngine
+    {}
 
 }

@@ -30,7 +30,14 @@ namespace CVARC.V2
             this.worldState = worldState;
 
             world.Scores.ScoresChanged += Scores_ScoresChanged;
+            world.Exit += World_Exit;
             
+        }
+
+        private void World_Exit()
+        {
+            if (enableLog)
+                File.WriteAllLines(logFile, log.ToArray());
         }
 
         private void Scores_ScoresChanged(string controllerId, int count, string reason, int total)
@@ -73,7 +80,9 @@ namespace CVARC.V2
 
         private void AddEntry(GameLogEntry entry)
         {
-            log.Add(JsonConvert.SerializeObject(entry, Formatting.None));
+            var str = JsonConvert.SerializeObject(entry, Formatting.None);
+            Debugger.Log(str);
+            log.Add(str);
         }
 
         public void AddIncomingCommand(string controllerId, object command)
@@ -103,11 +112,6 @@ namespace CVARC.V2
                 }
             };
             AddEntry(entry);
-        }
-
-        public void Write(string filename)
-        {
-            File.WriteAllLines(filename, log.ToArray());
         }
     }
 }

@@ -23,6 +23,7 @@ namespace CVARC.V2
         void CreateWorld();
         IWorldState WorldState { get;  }
         List<string> LoggingPositionObjectIds { get; }
+        double LoggingPositionTimeInterval { get; }
     }
 
 }

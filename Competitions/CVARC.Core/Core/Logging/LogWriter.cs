@@ -29,9 +29,35 @@ namespace CVARC.V2
             this.configuration = configuration;
             this.worldState = worldState;
 
+            world.Clocks.AddTrigger(new TimerTrigger(LogPositions, world.LoggingPositionTimeInterval));
+
             world.Scores.ScoresChanged += Scores_ScoresChanged;
             world.Exit += World_Exit;
+
             
+        }
+
+        private void LogPositions(double time)
+        {
+            if (world.LoggingPositionObjectIds.Count == 0) return;
+
+
+            Debugger.Log("Logging positions at " + CurrentTime);
+            var engine = world.GetEngine<ICommonEngine>();
+            var data = world.LoggingPositionObjectIds
+                .Where(z=>engine.ContainBody(z))
+                .ToDictionary(z => z, z => engine.GetAbsoluteLocation(z));
+
+            var entry = new GameLogEntry
+            {
+                Time = CurrentTime,
+                Type = GameLogEntryType.LocationCorrection,
+                LocationCorrection = new LocationCorrectionLogEntry
+                {
+                    Locations = data
+                }
+            };
+            AddEntry(entry);
         }
 
         private void World_Exit()
@@ -60,7 +86,7 @@ namespace CVARC.V2
 
         List<string> log = new List<string>();
 
-        public double CurrentTime { get; set; }
+        public double CurrentTime { get { return world.Clocks.CurrentTime; } }
 
         public void AddMethodInvocation(Type engine, string method, params object[] arguments)
         {

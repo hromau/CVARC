@@ -28,6 +28,8 @@ namespace CVARC.V2
         public List<string> LoggingPositionObjectIds { get; private set; }
         public abstract void CreateWorld();
 
+        
+
         public void OnExit()
         {
             if (Exit != null) Exit();
@@ -38,6 +40,14 @@ namespace CVARC.V2
         public IEnumerable<IActor> Actors
         {
             get { return actors; }
+        }
+
+        public virtual double LoggingPositionTimeInterval
+        {
+            get
+            {
+                return 0.1;
+            }
         }
 
         public TEngine GetEngine<TEngine>()

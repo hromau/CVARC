@@ -12,7 +12,6 @@ using CVARC.V2;
 using Infrastructure;
 using Pudge;
 using UnityCommons;
-using ToLogAttribute = Assets.ToLogAttribute;
 
 public static class C
 {

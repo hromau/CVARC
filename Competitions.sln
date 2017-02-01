@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCommon", "Commons\Prox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleplayerProxy", "Commons\SingleplayerProxy\SingleplayerProxy.csproj", "{7000F54A-A68B-41FC-99E3-A411FF03183A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudgeClient", "PudgeClient\PudgeClient.csproj", "{D2DEE891-53FE-47AF-B249-98038C42DAB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

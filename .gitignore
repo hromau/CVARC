@@ -2,8 +2,12 @@ obj
 bin
 *.suo
 /packages
+
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Ll]ibrary/
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Tt]emp/
+
+/Competitions/Homm/HommUnityBundleBuilder/[Ll]ibrary/
+/Competitions/Homm/HommUnityBundleBuilder/[Tt]emp/
 
 /uCVARC/[Ll]ibrary/
 /uCVARC/[Tt]emp/

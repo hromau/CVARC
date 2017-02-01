@@ -13,7 +13,7 @@ namespace CVARC.V2
 
     public abstract class Trigger
     {
-        public double ScheduledTime { get; protected set; }
+        public double ScheduledTime { get; set; }
 
         public abstract TriggerKeep  Act(double time);
     }

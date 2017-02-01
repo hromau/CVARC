@@ -16,5 +16,6 @@ namespace CVARC.V2
         void ExecuteCommand(ICommand command, out double commandDuration);
         object GetSensorData();
         IRules Rules { get; }
+        ControlTrigger ControlTrigger { get; set; }
     }
 }

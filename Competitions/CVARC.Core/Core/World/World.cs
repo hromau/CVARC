@@ -137,7 +137,10 @@ namespace CVARC.V2
             var controller = controllerFactory(e.ControllerId, e);
             controller.Initialize(e);
 
-            Clocks.AddTrigger(new ControlTrigger(controller, e, preprocessor));
+            var controlTrigger = new ControlTrigger(controller, e, preprocessor);
+            e.ControlTrigger = controlTrigger;
+
+            Clocks.AddTrigger(controlTrigger);
             actors.Add(e);
             Debugger.Log(DebuggerMessageType.Initialization, "Actor " + id + " is initialized");
         }

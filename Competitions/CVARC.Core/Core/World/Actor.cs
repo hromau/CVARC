@@ -17,6 +17,7 @@ namespace CVARC.V2
         public string ObjectId { get; private set; }
         public bool IsDisabled { get { return !World.GetEngine<ICommonEngine>().ContainBody(ObjectId); } }
         public Type ExpectedCommandType { get { return typeof(TCommand); } }
+        public ControlTrigger ControlTrigger { get; set; }
 
         public TRules Rules { get; private set; }
         IRules IActor.Rules { get { return Rules; } }

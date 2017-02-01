@@ -60,6 +60,10 @@
       <Project>{5876deff-3555-4754-bace-74eded2b8551}</Project>
       <Name>UnityCommons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Homm\HommCore\HoMM.csproj">
+      <Project>{8ef744af-6898-4bc1-94e9-863348599360}</Project>
+      <Name>HoMM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pudge\PudgeCore\Pudge.csproj">
       <Project>{37c71e9d-157e-42bf-9770-4dcb1ffdb240}</Project>
       <Name>Pudge</Name>

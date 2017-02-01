@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cvarc.Library", "Competitio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityCommons", "Competitions\CVARC.Core\UnityCommons\UnityCommons\UnityCommons.csproj", "{5876DEFF-3555-4754-BACE-74EDED2B8551}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM", "Competitions\Homm\HommCore\HoMM.csproj", "{8EF744AF-6898-4BC1-94E9-863348599360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,9 +13,11 @@ namespace CVARC.V2
         public readonly Func<IKeyboard> KeyboardFactory;
         public readonly Func<List<IEngine>> EnginesFactory;
         public readonly string LevelName;
+        public readonly string CompetitionsName;
 
-        public Competitions(string levelName, LogicPartHelper logicPartHelper, Func<IKeyboard> keyboardFactory, Func<List<IEngine>> enginesFactory)
+        public Competitions(string competitionName, string levelName, LogicPartHelper logicPartHelper, Func<IKeyboard> keyboardFactory, Func<List<IEngine>> enginesFactory)
         {
+            CompetitionsName = competitionName;
             LevelName = levelName;
             Logic = logicPartHelper.Create();
             EnginesFactory = enginesFactory;

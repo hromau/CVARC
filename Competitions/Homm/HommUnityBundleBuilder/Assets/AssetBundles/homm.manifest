@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 1177075434
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8a3fe1aedfe1316de71d84fa4683416f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 883861e733137e5e670a80d4ed2799d9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/homm.bytes
+- Assets/Resources/hex.prefab
+Dependencies: []

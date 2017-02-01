@@ -9,5 +9,7 @@ bin
 /uCVARC/[Tt]emp/
 /uCVARC/GameLogs/
 /uCVARC/log.txt
+/uCVARC/uCVARC.csproj
+/uCVARC/uCVARC.sln
 /uCVARC/Assets/CVARC Assets/
 /uCVARC/Assets/AssetBundles/

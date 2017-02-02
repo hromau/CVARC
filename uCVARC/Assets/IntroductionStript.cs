@@ -9,14 +9,6 @@ using Assets;
 
 public class IntroductionStript : MonoBehaviour
 {
-    //const string AssemblyName = "TheBeachBots";
-    //const string AssemblyName = "RoboMovies";
-    //const string AssemblyName = "Demo";
-    //const string Level = "Level1";
-    const string AssemblyName = "Pudge";
-    string Level = Settings.Current.CurrentLevel;
-    //const string Level = "Test";
-
     private bool openWindowTests = false;
     static bool serverIsRunned = false;
     static string[] tests;
@@ -123,8 +115,8 @@ public class IntroductionStript : MonoBehaviour
         GUI.DrawTexture(menuRect, menuBackground);
 
         LoadingData data = new LoadingData();
-        data.AssemblyName = AssemblyName;
-        data.Level = Level;
+        data.AssemblyName = Settings.Current.TutorialCompetitions;
+        data.Level = Settings.Current.TutorialLevel;
 
         //if (!folderIsLoad && UnityConstants.ShowDevelopmentButtons)
         //{

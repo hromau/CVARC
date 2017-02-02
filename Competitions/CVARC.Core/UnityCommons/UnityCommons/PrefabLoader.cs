@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CVARC.V2;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -6,38 +8,48 @@ namespace UnityCommons
 {
     public class PrefabNotFoundException : ApplicationException
     {
-        static string messageTemplate = "Prefab `{0}` not found in bundle `{1}`!";
+        static string messageTemplate = "Prefab `{0}` is not found in bundle `{1}`!";
 
         public PrefabNotFoundException(string prefabName, string bundleName)
             : base(string.Format(messageTemplate, prefabName, bundleName)) { }
     }
 
+    public class BundleNotFoundException : ApplicationException
+    {
+        static string messageTemplate = "Bundle `{0}` is not loaded!";
+
+        public BundleNotFoundException(string bundleName)
+            : base(string.Format(messageTemplate, bundleName)) { }
+    }
+
     public static class PrefabLoader
     {
-        private static AssetBundle _assetBundle;
+        private static Dictionary<string, AssetBundle> _assetBundles;
 
-        public static void SetAssetBundle(AssetBundle assetBundle)
+        public static void SetAssetBundles(Dictionary<string, AssetBundle> bundles)
         {
-            _assetBundle = assetBundle;
+            _assetBundles = bundles;
         }
 
-        private static Object InstantiatePrefab(string name)
+        private static Object InstantiatePrefab(string bundle, string name)
         {
-            if (_assetBundle == null)
+            if (_assetBundles == null)
             {
-                Debug.Log("====+++ not loaded module" + name);
+                Debugger.Log($"Bundles are not loaded: `{nameof(_assetBundles)}` is null");
                 return null;
             }
 
-            Debug.Log("====+++ using UnityEngine; name: " + name);
-            return _assetBundle.LoadAsset(name);
+            if (!_assetBundles.ContainsKey(bundle))
+                throw new BundleNotFoundException(bundle);
+
+            return _assetBundles[bundle].LoadAsset(name);
         }
 
-        public static T GetPrefab<T>(string name) where T : UnityEngine.Object
+        public static T GetPrefab<T>(string bundle, string name) where T : UnityEngine.Object
         {
-            var prefab = InstantiatePrefab(name);
+            var prefab = InstantiatePrefab(bundle, name);
             if (prefab == null)
-                throw new PrefabNotFoundException(name, _assetBundle.name);
+                throw new PrefabNotFoundException(name, bundle);
             return (T)prefab;
         }
     }

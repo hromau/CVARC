@@ -14,7 +14,7 @@ namespace HoMM.Engine
 
         private static Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>
         {
-            { "hex",  PrefabLoader.GetPrefab<GameObject>("hex") }
+            { "hex",  PrefabLoader.GetPrefab<GameObject>("homm", "hex") }
         };
 
         private Dictionary<MapObject, Func<GameObject>> objectFactory = new Dictionary<MapObject, Func<GameObject>>

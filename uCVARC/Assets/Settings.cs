@@ -11,14 +11,16 @@ using Infrastructure;
 [Serializable]
 public class Settings
 {
-    public string CurrentBundle { get; set; }
-    public string CurrentLevel { get; set; }
+    public string TutorialCompetitions { get; set; }
+    public string TutorialLevel { get; set; }
+    public List<string> BundlesToLoad { get; set; }
     public List<string> DebugTypes { get; set; }
 
     private Settings()
     {
-        CurrentBundle = "pudge";
-        CurrentLevel = "Level1";
+        TutorialCompetitions = "Pudge";
+        TutorialLevel = "Level2";
+        BundlesToLoad = new List<string> { "pudge" };
         DebugTypes = new List<string> { "XXX" };
     }
 

@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Bundles
+public static class Constants
 {
-    public static class Constants
-    {
-        public const string PathToAssetBundles = "Assets/AssetBundles";
-        public const string PathToSettingsJson = "settings.json";
-    }
+    public const string PathToAssetBundles = "Assets/AssetBundles";
+    public const string PathToSettingsJson = "settings.json";
 }

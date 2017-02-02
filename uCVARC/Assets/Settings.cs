@@ -8,55 +8,52 @@ using UnityEngine;
 using Infrastructure;
 
 
-namespace Assets.Bundles
+[Serializable]
+public class Settings
 {
-    [Serializable]
-    public class Settings
+    public string CurrentBundle { get; set; }
+    public string CurrentLevel { get; set; }
+    public List<string> DebugTypes { get; set; }
+
+    private Settings()
     {
-        public string CurrentBundle { get; set; }
-        public string CurrentLevel { get; set; }
-        public List<string> DebugTypes { get; set; }
+        CurrentBundle = "pudge";
+        CurrentLevel = "Level1";
+        DebugTypes = new List<string> { "XXX" };
+    }
 
-        private Settings()
+    public static readonly Settings Current;
+
+    static Settings()
+    {
+        // загрузка settings.json перед всей дальнейшей работой
+        Current = TryLoadSettingsJson();
+    }
+
+    private static Settings LoadSettingsJson()
+    {
+        return Serializer.Deserialize<Settings>(File.ReadAllText(Constants.PathToSettingsJson));
+    }
+
+    private static void SaveSettingsJson(Settings settings)
+    {
+        File.WriteAllText(Constants.PathToSettingsJson, Serializer.Serialize(settings));
+    }
+
+    private static Settings TryLoadSettingsJson()
+    {
+        Settings settings;
+
+        try
         {
-            CurrentBundle = "pudge";
-            CurrentLevel = "Level1";
-            DebugTypes = new List<string> { "XXX" };
+            settings = LoadSettingsJson();
+        }
+        catch (FileNotFoundException)
+        {
+            settings = new Settings();
+            SaveSettingsJson(settings);
         }
 
-        public static readonly Settings Current;
-
-        static Settings()
-        {
-            // загрузка settings.json перед всей дальнейшей работой
-            Current = TryLoadSettingsJson();
-        }
-
-        private static Settings LoadSettingsJson()
-        {
-            return Serializer.Deserialize<Settings>(File.ReadAllText(Constants.PathToSettingsJson));
-        }
-
-        private static void SaveSettingsJson(Settings settings)
-        {
-            File.WriteAllText(Constants.PathToSettingsJson, Serializer.Serialize(settings));
-        }
-
-        private static Settings TryLoadSettingsJson()
-        {
-            Settings settings;
-
-            try
-            {
-                settings = LoadSettingsJson();
-            }
-            catch (FileNotFoundException)
-            {
-                settings = new Settings();
-                SaveSettingsJson(settings);
-            }
-
-            return settings;
-        }
+        return settings;
     }
 }

@@ -11,8 +11,6 @@ using CVARC.Core;
 using Pudge.RunningBinding;
 using UnityEngineInternal;
 
-using Settings = Assets.Bundles.Settings;
-
 
 public static class Dispatcher
 {
@@ -111,7 +109,7 @@ public static class Dispatcher
             .Where(x => x.LevelName == Settings.Current.CurrentLevel)
             .Single();
 
-        Loader.AddLevel("Pudge", Assets.Bundles.Settings.Current.CurrentLevel, () => level);
+        Loader.AddLevel("Pudge", Settings.Current.CurrentLevel, () => level);
         IsAssetBundleLoaded = true;
     }
 

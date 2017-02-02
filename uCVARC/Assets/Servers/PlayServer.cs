@@ -22,7 +22,7 @@ namespace Assets.Servers
             listener.Start();
         }
 
-        public Dictionary<string, TcpClient> CheckGame()
+        public NetTournamentControllerFactory CheckGame()
         {
             if (!listener.Pending() || gameStarted)
                 return null;
@@ -35,7 +35,7 @@ namespace Assets.Servers
 
             gameStarted = true;
 
-            return players;
+            return new NetTournamentControllerFactory(null); // players
         }
 
         public void EndGame(GameResult gameResult)

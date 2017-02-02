@@ -41,7 +41,7 @@ namespace HoMM.Engine
         [ToLog]
         public void SetScale(string id, float x, float y, float z)
         {
-            this.Log($"{nameof(SetPosition)}", id, x, y, z);
+            this.Log($"{nameof(SetScale)}", id, x, y, z);
             engine.SetScale(ObjectsCache.FindGameObject(id), x, y, z);
         }
 

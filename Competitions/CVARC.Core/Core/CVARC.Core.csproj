@@ -152,7 +152,6 @@
     <Compile Include="Loading\Competitions\Competitions.cs" />
     <Compile Include="Loading\Configuration\ConfigurationProposal.cs" />
     <Compile Include="Loading\Configuration\IConfigurationPull.cs" />
-    <Compile Include="Loading\Configuration\LoadingData.cs" />
     <Compile Include="Loading\Configuration\Settings.cs" />
     <Compile Include="Loading\Competitions\LogicPart.cs" />
     <Compile Include="Loading\Configuration\CommandLineData.cs" />

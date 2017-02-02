@@ -1,4 +1,6 @@
-﻿namespace CVARC.V2
+﻿using Infrastructure;
+
+namespace CVARC.V2
 {
     public interface INetworkData
     {

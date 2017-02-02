@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Infrastructure;
 
 namespace CVARC.V2
 {

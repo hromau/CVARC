@@ -11,8 +11,8 @@ namespace MultiplayerProxy
 {
     public static class Pool
     {
-        private static readonly ConcurrentDictionary<string, ConcurrentQueue<ClientWithSettings>> pool = 
-            new ConcurrentDictionary<string, ConcurrentQueue<ClientWithSettings>>();
+        private static readonly ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>> pool = 
+            new ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>>();
         private static bool needToCheck;
         private static readonly ILog log = LogManager.GetLogger(nameof(Pool));
 
@@ -26,7 +26,7 @@ namespace MultiplayerProxy
         {
             log.Debug("CreatePlayerInPool call");
             var settings = await client.ReadJsonAsync<GameSettings>();
-            var levelName = settings.LevelName;
+            var levelName = settings.LoadingData;
             var errorMessage = CheckForErrors(settings);
             if (!string.IsNullOrEmpty(errorMessage))
             {
@@ -76,8 +76,8 @@ namespace MultiplayerProxy
 
         private static string CheckForErrors(GameSettings settings)
         {
-            if (!MultiplayerProxyConfigurations.LevelToControllerIds.ContainsKey(settings.LevelName))
-                return $"This LevelName doesn't exists in proxy settings: {settings.LevelName}";
+            if (!MultiplayerProxyConfigurations.LevelToControllerIds.ContainsKey(settings.LoadingData))
+                return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)
                 return "All players except one must be bots.";

@@ -1,16 +1,8 @@
-﻿using System;
-using System.Runtime.Serialization;
-
-
-namespace CVARC.V2
+﻿namespace Infrastructure
 {
-    [Serializable]
-    [DataContract]
     public class LoadingData
     {
-        [DataMember]
         public string AssemblyName { get; set; }
-        [DataMember]
         public string Level { get; set; }
 
         public override bool Equals(object obj)

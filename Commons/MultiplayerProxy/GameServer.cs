@@ -11,7 +11,7 @@ namespace MultiplayerProxy
     {
         private static readonly ILog log = LogManager.GetLogger(nameof(GameServer));
 
-        public static async Task StartGame(ClientWithSettings[] clientsWithSettings, string levelName)
+        public static async Task StartGame(ClientWithSettings[] clientsWithSettings, LoadingData levelName)
         {
             log.Debug("StartGame call");
 
@@ -25,13 +25,13 @@ namespace MultiplayerProxy
             await GetResultAndSendToWeb(mainConnection);
         }
 
-        private static GameSettings CreateGameSettings(ClientWithSettings[] settings, string levelName)
+        private static GameSettings CreateGameSettings(ClientWithSettings[] settings, LoadingData levelName)
         {
             var controllerList = MultiplayerProxyConfigurations.LevelToControllerIds[levelName];
 
             return new GameSettings
             {
-                LevelName = levelName,
+                LoadingData = levelName,
                 ActorSettings = controllerList.Select((t, i) => new ActorSettings
                 {
                     ControllerId = t,

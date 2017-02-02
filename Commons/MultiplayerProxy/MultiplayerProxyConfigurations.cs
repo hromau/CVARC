@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using Infrastructure;
 
 namespace MultiplayerProxy
 {
@@ -11,9 +12,9 @@ namespace MultiplayerProxy
         public static readonly string UriToCvarcTagList = "http://e1.ru/CvarcTag/Get";
         public static readonly string WebPassword = "SECRET";
         public static readonly TimeSpan CvarcTagListTimeToLive = TimeSpan.FromMinutes(5);
-        public static readonly Dictionary<string, string[]> LevelToControllerIds = new Dictionary<string, string[]>
+        public static readonly Dictionary<LoadingData, string[]> LevelToControllerIds = new Dictionary<LoadingData, string[]>
         {
-            ["PudgeLevel1"] = new[] {"Left", "Right"}
+            [new LoadingData {AssemblyName = "Pudge", Level = "Level1"}] = new[] {"Left", "Right"}
         };
     }
 }

@@ -10,36 +10,39 @@ namespace Assets.Bundles
 {
     public class BundleLoader : MonoBehaviour
     {
-        private string _bundleUrl;
-        private AssetBundle _bundle;
-
         public void Start()
         {
-            _bundleUrl = UriConstructor.GetUriFileLocationPath(Settings.Current.CurrentBundle);
-            StartCoroutine(Work());
+            var bundleUrl = UriConstructor.GetUriFileLocationPath(Settings.Current.CurrentBundle);
+
+            if (!Bundles.Cache.ContainsKey(bundleUrl))
+                StartCoroutine(LoadBundle(bundleUrl));
         }
 
-        private IEnumerator Work()
+        private IEnumerator LoadBundle(string bundleUrl)
         {
-            if (_bundleUrl == null)
-            {
-                Debug.Log("Trouble with bundleUrl");
-                yield break;
-            }
-            WWW www = new WWW(_bundleUrl);
+            if (bundleUrl == null)
+                throw new ArgumentException("Expected bundleUrl to be string, got null");
+
+            WWW www = new WWW(bundleUrl);
+
             yield return www;
+
             if (www.error != null)
-                throw new Exception("Was error:" + www.error);
+                throw new Exception("WWW error:" + www.error);
+
             if (!www.isDone)
                 yield break;
-            _bundle = www.assetBundle;
-            SendBundle();
+
+            var loadedBundle = www.assetBundle;
+            Bundles.Cache[bundleUrl] = loadedBundle;
+
+            SendBundle(loadedBundle);
         }
 
-        public void SendBundle()
+        private void SendBundle(AssetBundle bundle)
         {
             // именно в таком порядке !
-            PrefabLoader.SetAssetBundle(_bundle);
+            PrefabLoader.SetAssetBundle(bundle);
             Dispatcher.FillLoader();
 
             Debugger.Log("WORLD: " + Application.dataPath);

@@ -15,7 +15,8 @@ packages
 /uCVARC/log.txt
 /uCVARC/uCVARC.csproj
 /uCVARC/uCVARC.sln
-/uCVARC/Assets/CVARC Assets/
-/uCVARC/Assets/AssetBundles/
+/uCVARC/Assets/CVARC/
+/uCVARC/Dlc/Assemblies/
+/uCVARC/Dlc/Bundles/
 
-uCVARC/settings.json*
+uCVARC/settings.json

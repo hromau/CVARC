@@ -5,12 +5,11 @@ using System.Linq;
 using CVARC.V2;
 using UnityEngine;
 using Assets;
-using Assets.Bundles;
+using Assets.Dlc;
 using Assets.Servers;
 using CVARC.Core;
-using Pudge.RunningBinding;
 using UnityEngineInternal;
-
+using UnityCommons;
 
 public static class Dispatcher
 {
@@ -19,7 +18,6 @@ public static class Dispatcher
     public static IRunner CurrentRunner { get; private set; }
     public static bool UnityShutdown { get; private set; }
     static NewLog currentLog;
-    public static bool IsLoaderFull = false;
     public static NewLog CurrentLog
     {
         get
@@ -61,7 +59,7 @@ public static class Dispatcher
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
-        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.Current.TutorialCompetitions));
+        Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
@@ -102,17 +100,12 @@ public static class Dispatcher
         }
     }
 
-    public static void FillLoader()
+    public static void FillLoader(IDlcEntryPoint entryPoint)
     {
-        if (!IsLoaderFull)
+        foreach (var level in entryPoint.GetLevels())
         {
-            foreach (var level in new BundleEntryPoint().GetLevels())
-            {
-                Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
-            }
+            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
         }
-
-        IsLoaderFull = true;
     }
 
     public static void AddRunner(IRunner runner)

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\uCVARC\Dlc\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -54,6 +54,7 @@
     <Compile Include="ClientClasses\HeroData.cs" />
     <Compile Include="ClientClasses\RuneData.cs" />
     <Compile Include="Entitiy.cs" />
+    <Compile Include="DlcEntryPoint.cs" />
     <Compile Include="GameExceptions\PudgeIsDeadException.cs" />
     <Compile Include="IPudgeWorldEngine.cs" />
     <Compile Include="Player\ActorExtensions.cs" />
@@ -140,7 +141,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\Competitions\Pudge\PudgeUnityBundleBuilder\Assets\AssetBundles\*.*" "$(SolutionDir)\uCVARC\Assets\AssetBundles\" /Y /I /E</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\Competitions\Pudge\PudgeUnityBundleBuilder\Assets\AssetBundles\*.*" "$(SolutionDir)\uCVARC\Dlc\Bundles\" /Y /I /E</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,15 +13,21 @@ public class Settings
 {
     public string TutorialCompetitions { get; set; }
     public string TutorialLevel { get; set; }
-    public List<string> BundlesToLoad { get; set; }
+    public List<string> DlcBundles { get; set; }
+    public List<string> DlcAssemblies { get; set; }
     public List<string> DebugTypes { get; set; }
+
+    static string defaultDlcBundle = "pudge";
+    static string defaultDlcAssembly = "Pudge.dll";
+    static string defaultDebugType = "XXX";
 
     private Settings()
     {
         TutorialCompetitions = "Pudge";
         TutorialLevel = "Level2";
-        BundlesToLoad = new List<string> { "pudge" };
-        DebugTypes = new List<string> { "XXX" };
+        DlcBundles = new List<string>();
+        DlcAssemblies = new List<string>();
+        DebugTypes = new List<string>();
     }
 
     public static readonly Settings Current;
@@ -53,6 +59,11 @@ public class Settings
         catch (FileNotFoundException)
         {
             settings = new Settings();
+
+            settings.DebugTypes.Add(defaultDebugType);
+            settings.DlcAssemblies.Add(defaultDlcAssembly);
+            settings.DlcBundles.Add(defaultDlcBundle);
+
             SaveSettingsJson(settings);
         }
 

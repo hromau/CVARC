@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVARC.Core", "Competitions\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pudge", "Competitions\Pudge\PudgeCore\Pudge.csproj", "{37C71E9D-157E-42BF-9770-4DCB1FFDB240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cvarc.Library", "Competitions\Cvarc.Library\Cvarc.Library.csproj", "{3437461B-31C0-4B82-A158-E5DCBB5E9633}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityCommons", "Competitions\CVARC.Core\UnityCommons\UnityCommons\UnityCommons.csproj", "{5876DEFF-3555-4754-BACE-74EDED2B8551}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM", "Competitions\Homm\HommCore\HoMM.csproj", "{8EF744AF-6898-4BC1-94E9-863348599360}"
@@ -39,10 +37,6 @@ Global
 		{37C71E9D-157E-42BF-9770-4DCB1FFDB240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37C71E9D-157E-42BF-9770-4DCB1FFDB240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37C71E9D-157E-42BF-9770-4DCB1FFDB240}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3437461B-31C0-4B82-A158-E5DCBB5E9633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3437461B-31C0-4B82-A158-E5DCBB5E9633}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3437461B-31C0-4B82-A158-E5DCBB5E9633}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3437461B-31C0-4B82-A158-E5DCBB5E9633}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5876DEFF-3555-4754-BACE-74EDED2B8551}.Release|Any CPU.ActiveCfg = Release|Any CPU

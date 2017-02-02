@@ -12,9 +12,7 @@ namespace HoMM
     {
         public static List<IEngine> CreateEngines()
         {
-            var commonEngine = new CommonEngine();
-            var hommEngine = new HommEngine(commonEngine);
-            return new List<IEngine> { commonEngine, hommEngine };
+            return new List<IEngine> { new CommonEngine(), new HommEngine() };
         }
     }
 }

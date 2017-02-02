@@ -14,6 +14,8 @@ namespace HoMM.World
         public Random Random { get; private set; }
         public CombatResolver CombatResolver { get; private set; }
 
+        private RoundToUnityConnecter connecter;
+
         public Player[] Players { get; private set; }
 
         private string[] players;
@@ -38,7 +40,8 @@ namespace HoMM.World
             Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);
 
-            MapUnityConnecter.Connect(Round, HommEngine);
+            connecter = new RoundToUnityConnecter(HommEngine, CommonEngine);
+            connecter.Connect(Round);
 
             //Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
         }

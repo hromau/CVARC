@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\HommEngineHighLevelApi.cs" />
+    <Compile Include="Engine\InternalHommEngine.cs" />
     <Compile Include="Engine\TerrainType.cs" />
     <Compile Include="HommEnginesMaker.cs" />
     <Compile Include="Robot\HommRobot.cs" />
@@ -64,7 +66,7 @@
     <Compile Include="Engine\HommEngine.cs" />
     <Compile Include="Engine\IHommEngine.cs" />
     <Compile Include="Engine\MapObject.cs" />
-    <Compile Include="Engine\MapUnityConnecter.cs" />
+    <Compile Include="Engine\RoundToUnityConnecter.cs" />
     <Compile Include="Model\Combat.cs" />
     <Compile Include="Generators\Common\ISigmaMap.cs" />
     <Compile Include="Generators\Common\RandomGenerator.cs" />
@@ -87,7 +89,7 @@
     <Compile Include="Generators\Terrain\VoronoiMap.cs" />
     <Compile Include="Generators\Terrain\VoronoiTerrainGenerator.cs" />
     <Compile Include="Common\Graph.cs" />
-    <Compile Include="Common\IEnumerableExtensions.cs" />
+    <Compile Include="Common\Helpers.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Units\UnitConstants.cs" />

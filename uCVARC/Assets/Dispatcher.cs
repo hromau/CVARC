@@ -147,7 +147,7 @@ public static class Dispatcher
     public static void SetGameOver()
     {
         isGameOver = true;
-        
+      
     }
 
     static void SwitchScene(string sceneName)
@@ -156,19 +156,5 @@ public static class Dispatcher
         switchingScenes = true;
         Application.LoadLevel(sceneName);
     }
-
-    public static GameObject FindGameObject(string id)
-    {
-        // тут вроде все как надо.
-        // для оптимизации можно вызывать этот метод, но не обязательно.
-        if (objectsCache.ContainsKey(id))
-            if (objectsCache[id] == null || objectsCache[id].name != id) // у GameObject перегружен оператор == так, что он возвращает true в сравнении с null, если объект уничтожен GameObject.Destroy
-                objectsCache.Remove(id);
-            else
-                return objectsCache[id];
-        var obj = GameObject.Find(id);
-        if (obj != null)
-            objectsCache.Add(id, obj);
-        return obj;
-    }
+   
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Infrastructure;
+using System.Net.Sockets;
 
 namespace CVARC.V2
 {
@@ -11,15 +12,14 @@ namespace CVARC.V2
     public class NetworkController<TCommand> : INetworkController
         where TCommand : ICommand
     {
-        IMessagingClient client;
+        TcpClient client;
 
         double OperationalTime;
         double OperationalTimeLimit;
 
-        public void InitializeClient(IMessagingClient client)
+        public void InitializeClient(TcpClient client)
         {
             this.client = client;
-			client.EnableDebug = true;
         }
 
         public void Initialize(IActor controllableActor)
@@ -34,8 +34,8 @@ namespace CVARC.V2
         {
             try
             {
-                client.Write(sensorData);
-                var command = (ICommand)client.Read(commandType);
+                client.WriteJson(sensorData);
+                var command = (ICommand)client.ReadJson(commandType);
 			    return new Tuple<ICommand,Exception>(command,null);
             }
             catch (Exception e)
@@ -57,9 +57,7 @@ namespace CVARC.V2
             {
                 if (async.IsCompleted) break;
                 OperationalTime += 0.001;
-                Thread.Sleep(1);
-               // Debugger.Log(DebuggerMessageType.Unity, OperationalTime +"/" + OperationalTimeLimit);
-         
+                Thread.Sleep(1);              
             }
 
             if (OperationalTime < OperationalTimeLimit)

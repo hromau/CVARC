@@ -41,6 +41,13 @@ namespace Infrastructure
             return Serializer.Deserialize<T>(Encoding.UTF8.GetString(client.ReadLine()));
         }
 
+        public static object ReadJson(this TcpClient client, Type type)
+        {
+            return Serializer.Deserialize(Encoding.UTF8.GetString(client.ReadLine()),type);
+        }
+
+
+
         public static void WriteJson(this TcpClient client, object obj)
         {
             client.WriteLine(Encoding.UTF8.GetBytes(Serializer.Serialize(obj)));

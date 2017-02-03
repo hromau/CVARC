@@ -86,7 +86,6 @@
     <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Unlocked.cs" />
     <Compile Include="AIRLabs\Mathematics\Vectors\VectorBase\Vector.cs" />
     <Compile Include="Client\CvarcClient.cs" />
-    <Compile Include="Controllers\Network\CvarcClient.cs" />
     <Compile Include="Controllers\Network\KickOutException.cs" />
     <Compile Include="Engine\ICommonEngine.cs" />
     <Compile Include="Logging\LogEntity.cs" />
@@ -94,12 +93,9 @@
     <Compile Include="Sensors\Implementation\DeathSensor.cs" />
     <Compile Include="Loading\Competitions\ActorFactory.cs" />
     <Compile Include="Loading\Competitions\LogicPartHelper.cs" />
-    <Compile Include="Loading\Loader\INetworkData.cs" />
     <Compile Include="Loading\Loader\Loader.Levels.cs" />
     <Compile Include="Debugger.cs" />
     <Compile Include="Loading\Loader\Loader.SimpleMode.cs" />
-    <Compile Include="Loading\Loader\NetworkData.cs" />
-    <Compile Include="Loading\Loader\NetworkServerData.cs" />
     <Compile Include="Clocks\ControlTrigger.cs" />
     <Compile Include="Clocks\OneTimeTrigger.cs" />
     <Compile Include="Clocks\RenewableTrigger.cs" />
@@ -114,10 +110,7 @@
     <Compile Include="Controllers\Keyboard\KeyboardController.cs" />
     <Compile Include="Controllers\Keyboard\WinformsKey.cs" />
     <Compile Include="Controllers\LogPlayController.cs" />
-    <Compile Include="Controllers\Network\IMessagingClient.cs" />
     <Compile Include="Controllers\Network\INetworkController.cs" />
-    <Compile Include="Controllers\Network\ISerializer.cs" />
-    <Compile Include="Controllers\Network\JSonSerializer.cs" />
     <Compile Include="Controllers\Network\NetworkController.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Loading\Competitions\Competitions.cs" />

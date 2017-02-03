@@ -9,28 +9,22 @@ using System.Threading;
 
 namespace CVARC.V2
 {
-	public class CvarcClient<TSensorData, TCommand>
+	public class CvarcClient<TSensorData, TCommand, TWorldState>
 		where TSensorData : class
+        where TWorldState : IWorldState
 	{
-		CvarcClient client;
+		TcpClient client;
 
-		public static void StartKrorServer(int port)
-		{
-			var process = new Process();
-			process.StartInfo.FileName = "CVARC.exe";
-			process.StartInfo.Arguments = "Debug " + port.ToString();
-			process.Start();
-			Thread.Sleep(100);
-		}
 
-		public TSensorData Configurate(int port, GameSettings configuration, IWorldState state, string ip = "127.0.0.1")
+
+		public TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
 		{
-			var tcpClient = new TcpClient();
-			tcpClient.Connect(ip, port);
-			client = new CvarcClient(tcpClient);
-			client.Write(configuration);
-			client.Write(state);
-            var sensorData=client.Read<TSensorData>();
+            client = new TcpClient();
+            client.Connect(ip, port);
+
+			client.WriteJson(configuration);
+			client.WriteJson(state);
+            var sensorData=client.ReadJson<TSensorData>();
 			OnSensorDataReceived(sensorData);
 			return sensorData;
 		}
@@ -39,8 +33,8 @@ namespace CVARC.V2
 
 		public TSensorData Act(TCommand command)
 		{
-			client.Write(command);
-			var sensorData = client.Read<TSensorData>(); // 11!!!
+			client.WriteJson(command);
+			var sensorData = client.ReadJson<TSensorData>(); // 11!!!
 			//if (sensorData == null)
 			//	Environment.Exit(0);
 				OnSensorDataReceived(sensorData);

@@ -9,7 +9,7 @@ using System;
 
 namespace Pudge
 {
-    public abstract class PudgeClient<TSensorData> : CvarcClient<TSensorData, PudgeCommand>
+    public abstract class PudgeClient<TSensorData> : CvarcClient<TSensorData, PudgeCommand, PudgeWorldState>
         where TSensorData : class
     {
         public const string AssemblyName = "Pudge";

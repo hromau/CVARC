@@ -44,7 +44,7 @@ namespace Assets.Dlc
 
         private void LoadAssembly(string assemblyName)
         {
-            var assembly = Assembly.LoadFrom(assemblyName);
+            var assembly = Assembly.Load(File.ReadAllBytes(assemblyName));
 
             var entryPointType = assembly.GetExportedTypes()
                 .Where(t => !t.IsAbstract || !t.IsInterface)

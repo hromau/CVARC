@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
 using ProxyCommon;
+using CVARC.V2;
 
 namespace MultiplayerProxy
 {
@@ -18,6 +19,8 @@ namespace MultiplayerProxy
             var settings = CreateGameSettings(clientsWithSettings, levelName);
             var mainConnection = ConnnectToServer();
             mainConnection.WriteJson(settings);
+
+            //mainConnection.WriteJson(WorldState.MakeUndefined());
 
             foreach (var client in clientsWithSettings.Select(c => c.Client))
                 CreateConnectionBetweenPlayerAndServer(client);

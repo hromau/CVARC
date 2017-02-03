@@ -85,8 +85,10 @@ namespace SingleplayerProxy
         static void PlayGame(TcpClient client)
         {
             var gameSettings = client.ReadJson<GameSettings>();
+            // var worldState = client.ReadLine/ReadJObject()
             var mainConnection = ConnectToServer();
             mainConnection.WriteJson(gameSettings);
+            //mainConnection.WriteLine/JObject(worldState)
             var server = ConnectToServer();
             Proxy.CreateChainAndStart(server, client);
             var result = mainConnection.ReadJson<GameResult>();

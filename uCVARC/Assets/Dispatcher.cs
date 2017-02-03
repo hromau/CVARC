@@ -107,7 +107,7 @@ public static class Dispatcher
         isGameOver = true;
     }
 
-    static void SwitchScene(string sceneName)
+    public static void SwitchScene(string sceneName) // public очень плохо
     {
         switchingScenes = true;
         Application.LoadLevel(sceneName);

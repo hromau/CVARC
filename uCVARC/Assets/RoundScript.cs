@@ -9,11 +9,9 @@ using UnityCommons;
 
 public partial class RoundScript : PlayScript
 {
-    public static Tuple<string, string, int> CollisionInfo { get; set; }
     IWorld world;
     float curWorldTime;
     float timeOnStartSession;
-    private long lastStart;
     bool gameOver;
     private double timeLimit = 0; // in seconds
 
@@ -26,14 +24,12 @@ public partial class RoundScript : PlayScript
 
         world = Dispatcher.CurrentWorld;
         timeLimit = Dispatcher.CurrentWorld.Configuration.TimeLimit;
-        //Debugger.Log(DebuggerMessageType.Unity,timeLimit);
+        
         if (world != null)
             Debugger.Log("World loaded");
         else
             Debugger.Log("Fail. World not loaded");
 
-        CollisionInfo = new Tuple<string, string, int>(null, null, 0);
-        //Time.timeScale = 1; // переехало в диспатчер
         gameOver = false;
     }
 
@@ -52,12 +48,6 @@ public partial class RoundScript : PlayScript
             return;
         }
 
-        if (CollisionInfo.Item3 == 2)
-        {
-            ((CommonEngine)world.GetEngine<ICommonEngine>()).CollisionSender(CollisionInfo.Item1, CollisionInfo.Item2);
-            CollisionInfo.Item3 = 0;
-        }
-
         foreach (var player in world.Scores.GetAllScores())
         {
             if (player.Item1 == "Left")
@@ -69,9 +59,7 @@ public partial class RoundScript : PlayScript
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс
     {
-        var engine = world.GetEngine<ICommonEngine>();
         curWorldTime = Time.fixedTime - timeOnStartSession;
-
         world.Clocks.Tick(curWorldTime);
         ((CommonEngine)world.GetEngine<ICommonEngine>()).UpdateSpeeds();
     }

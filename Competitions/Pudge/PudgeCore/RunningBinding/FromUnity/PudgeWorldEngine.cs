@@ -209,6 +209,7 @@ namespace Pudge.RunningBinding.FromUnity
 
         private GameObject BuildPudgeBody(string controllerId)
         {
+            Debugger.Log(Metrics.Pudge);
             switch (controllerId)
             {
                 case TwoPlayersId.Left:

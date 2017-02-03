@@ -11,7 +11,7 @@ namespace HoMM.Units.HexagonalMovement
     {
         public Tuple<Location, double> TryMoveHero(IHommEngine engine, Player player, Map map)
         {
-            Debugger.Settings.EnabledMethod<Wait>(nameof(TryMoveHero));
+            Debugger.Settings.EnableType<Wait>();
 
             Debugger.Log(player.Location);
             Debugger.Log(HommRules.Current);

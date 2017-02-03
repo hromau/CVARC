@@ -15,13 +15,24 @@ namespace CVARC.V2
         ICommonEngine commonEngine;
 
         IEnumerator<string> lines;
-        string lastLine;
+        
 
 
-        bool Play(double currentTime)
+        public LogPlayer(string[] data, List<IEngine> engines)
+        {
+            this.engines = engines.ToDictionary(z => z.GetType().Name, z=>z);
+            commonEngine = engines.OfType<ICommonEngine>().Single();
+            lines = data.Cast<string>().GetEnumerator();
+            if (!lines.MoveNext())
+                throw new Exception("Empty log");
+        }
+
+
+        public bool Play(double currentTime)
         {
             while(true)
             {
+                
                 var obj = JsonConvert.DeserializeObject<GameLogEntry>(lines.Current);
                 if (obj.Time <= currentTime)
                 {
@@ -76,6 +87,8 @@ namespace CVARC.V2
             if (parameterType.IsEnum) return Enum.Parse(parameterType, v);
             if (parameterType == typeof(int)) return int.Parse(v);
             if (parameterType == typeof(double)) return double.Parse(v);
+            if (parameterType == typeof(Single)) return Single.Parse(v);
+            if (parameterType == typeof(bool)) return bool.Parse(v);
             throw new Exception("Parameter type " + parameterType.Name + " is not supported");
         }
     }

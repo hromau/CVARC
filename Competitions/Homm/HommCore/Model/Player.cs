@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace HoMM
@@ -76,6 +76,8 @@ namespace HoMM
                 return false;
 
             var d = (Dwelling)map[Location].tileObject;
+            if (d.Owner != this)
+                return false;
             if (d.AvailableUnits < unitsToBuy)
                 return false;
             foreach (var kvp in d.Recruit.UnitCost)
@@ -86,6 +88,35 @@ namespace HoMM
             AddUnits(d.Recruit.UnitType, unitsToBuy);
             return true;
         }
+
+        //exchange units, positive amounts give to garrison, negative take from garrison
+        public bool TryExchangeUnitsWithGarrison(Dictionary<UnitType, int> unitsToExchange)
+        {
+            if (!(map[Location].tileObject is Garrison))
+                return false;
+            var g = (Garrison)map[Location].tileObject;
+            if (g.Owner != this)
+                return false;
+
+            foreach (var stack in unitsToExchange)
+            {
+                if (stack.Value >= 0 && Army[stack.Key] >= stack.Value) 
+                {
+                    if (!g.Army.ContainsKey(stack.Key))
+                        g.Army.Add(stack.Key, 0);
+                    g.Army[stack.Key] += stack.Value;
+                    Army[stack.Key] -= stack.Value;
+                }
+                else if (stack.Value < 0 && g.Army.ContainsKey(stack.Key) && g.Army[stack.Key] >= -stack.Value)
+                {
+                    g.Army[stack.Key] -= -stack.Value;
+                    Army[stack.Key] += -stack.Value;
+                }
+                else return false;
+            }
+            return true;
+        }
+
 
         public override bool Equals(object obj)
         {

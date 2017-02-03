@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +14,35 @@ namespace HoMM
         public int Width { get { return map.GetLength(1); } }
         public MapSize Size { get { return new MapSize(Height, Width); } }
         public Tile this[Location location] { get { return map[location.Y, location.X]; } }
+        /*public List<Tile> GetNeighbourTiles(int row, int col) 
+        {
+            if (col < 0 || col >= Width || row < 0 || row >= Height)
+                throw new ArgumentOutOfRangeException("out of map bounds!");
+            var neighbours = new List<Tile>();
+            bool isEvenColumn = row % 2 == 0;
+            int yUpper = isEvenColumn ? row : row - 1;
+            int yLower = isEvenColumn ? row + 1 : row;
+
+            if (row > 0)
+                neighbours.Add(map[row - 1, col]);
+            if (yUpper >= 0)
+            {
+                if (col > 0)
+                    neighbours.Add(map[yUpper, col - 1]);
+                if (col < Width - 1)
+                    neighbours.Add(map[yUpper, col + 1]);
+            }
+            if (row < Height - 1)
+                neighbours.Add(map[row + 1, col]);
+            if (yLower < Height)
+            {
+                if (col > 0)
+                    neighbours.Add(map[yLower, col - 1]);
+                if (col < Width - 1)
+                    neighbours.Add(map[yLower, col + 1]);
+            }
+            return neighbours;
+        }*/
 
         public Map(int width, int height)
         {
@@ -91,9 +120,10 @@ namespace HoMM
                         int amount = int.Parse(s.Substring(3));
                         return new ResourcePile(resource, amount, location);
                     }
-                case 'M':
+                case 'A':
                     {
-                        return CreateNeutralArmyFromString(s, location);
+                        var army = CreateArmyFromString(s);
+                        return new NeutralArmy(army, location);
                     }
                 case 'D':
                     {
@@ -102,6 +132,11 @@ namespace HoMM
                         var unitType = (UnitType)Enum.Parse(typeof(UnitType), recriutTypeName);
                         return new Dwelling(UnitFactory.CreateFromUnitType(unitType), location);
                     }
+                case 'G':
+                    {
+                        var guards = CreateArmyFromString(s);
+                        return new Garrison(guards, location);
+                    }
                 case '-':
                     return null;
                 default:
@@ -109,13 +144,21 @@ namespace HoMM
             }
         }
 
-        private NeutralArmy CreateNeutralArmyFromString(string s, Location location)
+        private Dictionary<UnitType, int> CreateArmyFromString(string s)
         {
-            var monsterTypeName = Enum.GetNames(typeof(UnitType))
-                .SingleOrDefault(res => res[0] == s[2]);
-            var unitType = (UnitType)Enum.Parse(typeof(UnitType), monsterTypeName);
-            int amount = int.Parse(s.Substring(3).Split('.')[0]);
-            return new NeutralArmy(new Dictionary<UnitType, int> { [unitType] = amount }, location);
+            var army = new Dictionary<UnitType, int>();
+            var armyS = s.Substring(2).Split('.');
+            foreach (var unitS in armyS)
+            {
+                var unitName = Enum.GetNames(typeof(UnitType))
+                    .SingleOrDefault(res => res[0] == unitS[0]);
+                var unitType = (UnitType)Enum.Parse(typeof(UnitType), unitName);
+                int amount = int.Parse(unitS.Substring(1));
+                if (!army.ContainsKey(unitType))
+                    army.Add(unitType, 0);
+                army[unitType] += amount;
+            }
+            return army;
         }
 
         public IEnumerator<Tile> GetEnumerator()

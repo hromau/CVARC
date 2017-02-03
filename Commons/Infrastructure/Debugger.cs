@@ -13,32 +13,25 @@ namespace CVARC.V2
         public static bool AlwaysOn;
 
         static object lockObject = new object();
-        static HashSet<Type> enabledTypes = new HashSet<Type>();
-        static HashSet<MethodBase> enabledMethods = new HashSet<MethodBase>();
+        static HashSet<string> enabledTypes = new HashSet<string>();
 
         public class SettingsClass
         {
             public SettingsClass EnableType<T>()
             {
-                Debugger.enabledTypes.Add(typeof(T));
+                Debugger.enabledTypes.Add(typeof(T).Name);
                 return this;
             }
-
-            public SettingsClass EnabledMethod<T>(string methodName)
-            {
-                Debugger.enabledMethods.Add(typeof(T).GetMethod(methodName));
-                return this;
-            }
-
+            
             public SettingsClass EnableType(Type t)
             {
-                enabledTypes.Add(t);
+                enabledTypes.Add(t.Name);
                 return this;
             }
 
             public SettingsClass EnableType(string  typeName)
             {
-                enabledTypes.Add(Assembly.GetExecutingAssembly().GetType(typeName));
+                enabledTypes.Add(typeName);
                 return this;
             }
         }
@@ -51,12 +44,15 @@ namespace CVARC.V2
 
         public static void Log(object message)
         {
+            if (Logger == null) return;
+
             lock (lockObject)
             {
                 var stack = new System.Diagnostics.StackTrace().GetFrame(1);
                 var method = stack.GetMethod();
                 var type = method.DeclaringType;
-                if (AlwaysOn || (Logger != null && (enabledTypes.Contains(type) || enabledMethods.Contains(method))))
+                
+                if (AlwaysOn || enabledTypes.Contains(type.Name))
                 {
                     var str = message == null ? "null" : message.ToString();
                     str = type.Name + "." + method.Name + ": " + str;

@@ -17,18 +17,7 @@ public static class Dispatcher
     public static Loader Loader { get; private set; }
     public static IRunner CurrentRunner { get; private set; }
     public static bool UnityShutdown { get; private set; }
-    static NewLog currentLog;
-    public static NewLog CurrentLog
-    {
-        get
-        {
-            if (currentLog == null)
-                currentLog = new NewLog();
-            return currentLog;
-        }
-        set { currentLog = value; }
-    }
-    public static NewLog LoadedLog;
+
     static bool logPlayRequested;
     static readonly RunnersQueue queue = new RunnersQueue();
     static readonly Dictionary<string, GameObject> objectsCache = new Dictionary<string, GameObject>();
@@ -100,11 +89,9 @@ public static class Dispatcher
 
     public static void RoundStart()
     {
-        CurrentLog = new NewLog();
         CurrentRunner = queue.DequeueReadyRunner();
         isGameOver = false;
         CurrentRunner.InitializeWorld();
-        CurrentLog.EndSegment();
 
     }
 
@@ -160,8 +147,7 @@ public static class Dispatcher
     public static void SetGameOver()
     {
         isGameOver = true;
-        if (CurrentRunner.World.Configuration.EnableLog)
-            NewLogIO.Save(CurrentLog,CurrentRunner.World.Configuration.LogFile);
+        
     }
 
     static void SwitchScene(string sceneName)

@@ -72,26 +72,8 @@ public partial class RoundScript : PlayScript
         var engine = world.GetEngine<ICommonEngine>();
         curWorldTime = Time.fixedTime - timeOnStartSession;
 
-        if (Dispatcher.CurrentLog.Segments.Count % 10 == 0)
-        {
-            Dispatcher.CurrentLog.LogPositions(
-                world.LoggingPositionObjectIds
-                    .Where(z => engine.ContainBody(z))
-                    .Select(z => Tuple.Create(z, engine.GetAbsoluteLocation(z)))
-                    .ToArray()
-                );
-        }
-        if (Dispatcher.CurrentLog.Segments.Count % 50 == 0)
-        {
-            Dispatcher.CurrentLog.LogScores(
-                world.Scores.GetTotalScore("Left").ToString(),
-                world.Scores.GetTotalScore("Right").ToString());
-        }
-
-
         world.Clocks.Tick(curWorldTime);
         ((CommonEngine)world.GetEngine<ICommonEngine>()).UpdateSpeeds();
-        Dispatcher.CurrentLog.EndSegment();
     }
 
     void OnDisable()

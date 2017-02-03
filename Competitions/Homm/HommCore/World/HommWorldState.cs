@@ -7,7 +7,7 @@ using System.Text;
 namespace HoMM.World
 {
     [Serializable]
-    class HommWorldState : IWorldState
+    class HommWorldState : WorldState
     {
         public int Seed { get; }
 

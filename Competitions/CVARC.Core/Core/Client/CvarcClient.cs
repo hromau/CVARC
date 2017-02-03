@@ -11,11 +11,9 @@ namespace CVARC.V2
 {
 	public class CvarcClient<TSensorData, TCommand, TWorldState>
 		where TSensorData : class
-        where TWorldState : IWorldState
+        where TWorldState : WorldState
 	{
 		TcpClient client;
-
-
 
 		protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
 		{

@@ -9,7 +9,7 @@ namespace Assets.Tools
 {
     public static class DefaultWorldInfoCreator
     {
-        public static IWorldState GetDefaultWorldState(LoadingData loadingData)
+        public static WorldState GetDefaultWorldState(LoadingData loadingData)
         {
             var competitions = Dispatcher.Loader.GetCompetitions(loadingData);
             return competitions.Logic.CreateWorldState(competitions.Logic.PredefinedWorldStates.First());

@@ -10,7 +10,7 @@ namespace CVARC.V2
     {
         bool DebugMode { get; }
         T GetEngine<T>() where T : IEngine;
-        void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, IWorldState state);
+        void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, WorldState state);
         WorldClocks Clocks { get; }
         IdGenerator IdGenerator { get; }
         Scores Scores { get; }
@@ -22,7 +22,7 @@ namespace CVARC.V2
         IKeyboard Keyboard { get; }
         LogWriter Logger { get; }
         void CreateWorld();
-        IWorldState WorldState { get;  }
+        WorldState WorldState { get;  }
         List<string> LoggingPositionObjectIds { get; }
         double LoggingPositionTimeInterval { get; }
     }

@@ -19,7 +19,7 @@ namespace CVARC.V2
         /// <param name="controllerFactory">Is used to create controllers, i.e. entities that control the robots</param>
         /// <param name="state">The initial state of the world</param>
         /// <returns></returns>
-        public IWorld CreateWorld(Infrastructure.GameSettings configuration, ControllerFactory controllerFactory, IWorldState state)
+        public IWorld CreateWorld(Infrastructure.GameSettings configuration, ControllerFactory controllerFactory, WorldState state)
 		{
 			var competitions = GetCompetitions(configuration.LoadingData);
 			var world = competitions.Logic.CreateWorld();

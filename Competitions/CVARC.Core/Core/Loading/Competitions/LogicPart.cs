@@ -16,7 +16,7 @@ namespace CVARC.V2
 
         public readonly List<string> PredefinedWorldStates = new List<string>();
 
-        public Func<string, IWorldState> CreateWorldState { get; set; }
+        public Func<string, WorldState> CreateWorldState { get; set; }
 
         public Func<Infrastructure.GameSettings> CreateDefaultSettings { get; set; }
 

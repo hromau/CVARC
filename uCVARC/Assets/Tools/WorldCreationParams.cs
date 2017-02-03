@@ -7,9 +7,9 @@ namespace Assets.Tools
     {
         public readonly GameSettings GameSettings;
         public readonly ControllerFactory ControllerFactory;
-        public readonly IWorldState WorldState;
+        public readonly WorldState WorldState;
 
-        public WorldCreationParams(GameSettings gameSettings, ControllerFactory controllerFactory, IWorldState worldState)
+        public WorldCreationParams(GameSettings gameSettings, ControllerFactory controllerFactory, WorldState worldState)
         {
             GameSettings = gameSettings;
             ControllerFactory = controllerFactory;

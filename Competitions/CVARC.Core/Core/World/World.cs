@@ -11,7 +11,7 @@ namespace CVARC.V2
 
     public abstract class World<TWorldState> : IWorld
         //where TWorldManager : IWorldManager
-        where TWorldState : IWorldState
+        where TWorldState : WorldState
     {
         List<IActor> actors;
         public bool DebugMode { get; protected set; }
@@ -24,7 +24,7 @@ namespace CVARC.V2
         public GameSettings Configuration { get; private set; }
         public Competitions Competitions { get; private set; }
         public TWorldState WorldState { get; private set; }
-		IWorldState IWorld.WorldState { get { return WorldState;  } }
+		WorldState IWorld.WorldState { get { return WorldState;  } }
         public IKeyboard Keyboard { get; private set; }
         public List<string> LoggingPositionObjectIds { get; private set; }
         public abstract void CreateWorld();
@@ -62,7 +62,7 @@ namespace CVARC.V2
         }
 
 
-        public void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, IWorldState worldState)
+        public void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, WorldState worldState)
         {
             Debugger.Log("World initialization");
             Debugger.Log("Starting basic fields");

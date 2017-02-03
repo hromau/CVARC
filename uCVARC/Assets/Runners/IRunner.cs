@@ -4,6 +4,7 @@ using System;
 
 namespace Assets
 {
+    [Obsolete]
     public interface IRunner : IDisposable
     {
         void InitializeWorld();

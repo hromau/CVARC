@@ -33,11 +33,6 @@ public static class Dispatcher
     static readonly RunnersQueue queue = new RunnersQueue();
     static readonly Dictionary<string, GameObject> objectsCache = new Dictionary<string, GameObject>();
     static bool isGameOver;
-    static UnityServer soloNetworkServer;
-    static UnityServer torunamentServer;
-    static UnityServer serviceServer;
-    static UnityServer logServer;
-    static UnityServer networkServer;
     static bool switchingScenes;
 
 
@@ -76,28 +71,7 @@ public static class Dispatcher
         //Debugger.Log(DebuggerMessageType.Initialization, "Demo Lvl1 ready");
         //Loader.AddLevel("TheBeachBots", "Test", () => new TBBCompetitions.Level1());
 
-        if (UnityConstants.NeedToOpenSoloNetworkPort)
-        {
-            soloNetworkServer = new SoloNetworkServer(UnityConstants.SoloNetworkPort);
-            Action soloNetworkServerAction = () => soloNetworkServer.StartThread();
-            soloNetworkServerAction.BeginInvoke(null, null);
-        }
-
-        torunamentServer = new MultiplayerServer(UnityConstants.TournamentPort);
-        Action tournamentServerAction = () => torunamentServer.StartThread();
-        tournamentServerAction.BeginInvoke(null, null);
-
-        networkServer = new NetworkServer(UnityConstants.NetworkPort);
-        Action networkServerAction = () => networkServer.StartThread();
-        networkServerAction.BeginInvoke(null, null);
-        
-
-        if (UnityConstants.NeedToOpenLogPort)
-        {
-            logServer = new LogServer(UnityConstants.LogPort);
-            Action logServerAction = () => logServer.StartThread();
-            logServerAction.BeginInvoke(null, null);
-        }
+      
     }
 
     public static void FillLoader(IDlcEntryPoint entryPoint)
@@ -176,14 +150,7 @@ public static class Dispatcher
         }
 
         Debugger.Log("GLOBAL EXIT");
-        if (soloNetworkServer != null)
-            soloNetworkServer.RequestExit();
-        torunamentServer.RequestExit();
-        networkServer.RequestExit();
-        if (serviceServer != null)
-            serviceServer.RequestExit();
-        if (logServer != null)
-            logServer.RequestExit();
+        
         if (CurrentRunner != null)
             CurrentRunner.Dispose();
         queue.DisposeRunners();

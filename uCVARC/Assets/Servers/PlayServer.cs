@@ -22,7 +22,7 @@ namespace Assets.Servers
             listener.Start();
         }
 
-        public NetTournamentControllerFactory CheckGame()
+        public ControllerFactory CheckGame()
         {
             if (!listener.Pending() || gameStarted)
                 return null;

@@ -37,8 +37,15 @@ namespace Assets.Servers
             foreach (var settings in gameSettings.ActorSettings.Where(x => !x.IsBot))
                 players[settings.ControllerId] = listener.AcceptTcpClient();
 
+            Debugger.Log("Accepted " + players.Count + " connections");
+
+            var competitions = Dispatcher.Loader.GetCompetitions(gameSettings.LoadingData);
+
             foreach (var player in players.Values)
-                player.ReadJson<IWorldState>(); // выпилить!
+                player.ReadJson(competitions.Logic.WorldStateType);
+
+
+            Debugger.Log("Has Game method ends");
 
             worldCreationParams = new WorldCreationParams(gameSettings, 
                 new PlayControllerFactory(players), 

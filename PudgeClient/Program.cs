@@ -14,11 +14,14 @@ namespace PudgeClient
     {
         static void Main(string[] args)
         {
-            var client = new PudgeClientLevel3();
-            client.Configurate(14000, new GameSettings(), new PudgeWorldState(123));
+            Debugger.Logger = z => Console.WriteLine(z);
+            Debugger.AlwaysOn = true;
+
+            var client = new PudgeClientLevel1();
+            client.Configurate("127.0.0.1", 18700, Guid.Empty);
 
             client.Move(10);
-            client.Hook();
+            client.Rotate(10);
         }
     }
 }

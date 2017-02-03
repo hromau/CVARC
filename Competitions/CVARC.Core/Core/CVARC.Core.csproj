@@ -95,7 +95,6 @@
     <Compile Include="Loading\Competitions\ActorFactory.cs" />
     <Compile Include="Loading\Competitions\LogicPartHelper.cs" />
     <Compile Include="Loading\Loader\Loader.Levels.cs" />
-    <Compile Include="Debugger.cs" />
     <Compile Include="Loading\Loader\Loader.SimpleMode.cs" />
     <Compile Include="Clocks\ControlTrigger.cs" />
     <Compile Include="Clocks\OneTimeTrigger.cs" />

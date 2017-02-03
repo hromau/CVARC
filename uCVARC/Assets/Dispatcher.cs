@@ -36,6 +36,7 @@ public static class Dispatcher
             Debugger.Settings.EnableType(e);
         }
         Debugger.Logger = Debug.Log;
+    //    Debugger.AlwaysOn = true;
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);
@@ -46,19 +47,6 @@ public static class Dispatcher
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         GameManager = new GameManager();
-        //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
-        //Loader.AddLevel("RoboMovies", "Test", () => new RMCompetitions.Level1());
-        //Loader.AddLevel("Pudge", "Level1", () => new PudgeCompetitions.Level1());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl1 ready. Starting: lvl 2");
-        //Loader.AddLevel("Pudge", "Level2", () => new PudgeCompetitions.Level2());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl2 ready. Starting: lvl 3");
-        //Loader.AddLevel("Pudge", "Level3", () => new PudgeCompetitions.Level3());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl3 ready. Starting: lvl Test");
-        //Loader.AddLevel("Pudge", "Test", () => new PudgeCompetitions.TestLevel());
-        //Debugger.Log(DebuggerMessageType.Initialization, "LvlTest ready. All levels ready");
-        //Loader.AddLevel("Demo", "Level1", () => new DemoCompetitions.Level1());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Demo Lvl1 ready");
-        //Loader.AddLevel("TheBeachBots", "Test", () => new TBBCompetitions.Level1());
 
       
     }
@@ -68,6 +56,7 @@ public static class Dispatcher
         foreach (var level in entryPoint.GetLevels())
         {
             Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
+            Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
         }
     }
 

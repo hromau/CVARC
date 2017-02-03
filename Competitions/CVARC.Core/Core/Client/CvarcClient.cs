@@ -17,7 +17,7 @@ namespace CVARC.V2
 
 
 
-		public TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
+		protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
 		{
             client = new TcpClient();
             client.Connect(ip, port);

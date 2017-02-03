@@ -10,6 +10,8 @@ namespace CVARC.V2
 
     public static class Debugger
     {
+        public static bool AlwaysOn;
+
         static object lockObject = new object();
         static HashSet<Type> enabledTypes = new HashSet<Type>();
         static HashSet<MethodBase> enabledMethods = new HashSet<MethodBase>();
@@ -54,9 +56,10 @@ namespace CVARC.V2
                 var stack = new System.Diagnostics.StackTrace().GetFrame(1);
                 var method = stack.GetMethod();
                 var type = method.DeclaringType;
-                if (Logger != null && (enabledTypes.Contains(type) || enabledMethods.Contains(method)))
+                if (AlwaysOn || (Logger != null && (enabledTypes.Contains(type) || enabledMethods.Contains(method))))
                 {
                     var str = message == null ? "null" : message.ToString();
+                    str = type.Name + "." + method.Name + ": " + str;
                     Logger(str);
                     File.AppendAllText("log.txt", str + "\n");
                 }

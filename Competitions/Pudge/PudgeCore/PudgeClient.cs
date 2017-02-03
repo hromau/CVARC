@@ -19,6 +19,7 @@ namespace Pudge
             int timeLimit = 90, int operationalTimeLimit = 1000, bool isOnLeftSide = true, int seed = 0, bool speedUp = false)
         {
             var configs = new GameSettings();
+            configs.LoadingData = new LoadingData();
             configs.LoadingData.AssemblyName = AssemblyName;
             configs.LoadingData.Level = LevelName;
             configs.SpeedUp = speedUp;

@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Threading.Tasks;
 using Infrastructure;
+using CVARC.V2;
 
 namespace ProxyCommon
 {
@@ -29,6 +30,7 @@ namespace ProxyCommon
                 while (!cancelled && from.IsAlive() && to.IsAlive())
                 {
                     var bytes = await from.ReadAsync();
+                    Debugger.Log(System.Text.Encoding.ASCII.GetString(bytes));
                     await to.WriteAsync(bytes);
                 }
             }

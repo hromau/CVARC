@@ -15,7 +15,7 @@ namespace Assets
         // еще сервер логов
         public GameManager()
         {
-            playServer = new PlayServer(14000);
+            playServer = new PlayServer(15000);
             // еще сервер логов
         }
 

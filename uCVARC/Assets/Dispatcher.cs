@@ -5,14 +5,11 @@ using System.Linq;
 using CVARC.V2;
 using UnityEngine;
 using Assets;
-using Assets.Bundles;
+using Assets.Dlc;
 using Assets.Servers;
 using CVARC.Core;
-using Pudge.RunningBinding;
 using UnityEngineInternal;
-
-using Settings = Assets.Bundles.Settings;
-
+using UnityCommons;
 
 public static class Dispatcher
 {
@@ -21,7 +18,6 @@ public static class Dispatcher
     public static IRunner CurrentRunner { get; private set; }
     public static bool UnityShutdown { get; private set; }
     static NewLog currentLog;
-    public static bool IsAssetBundleLoaded;
     public static NewLog CurrentLog
     {
         get
@@ -63,7 +59,7 @@ public static class Dispatcher
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
-        Debugger.Log("=======================" + UriConstructor.GetUriFileLocationPath(Settings.Current.CurrentBundle));
+        Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
@@ -104,15 +100,12 @@ public static class Dispatcher
         }
     }
 
-    public static void FillLoader()
+    public static void FillLoader(IDlcEntryPoint entryPoint)
     {
-        var level = new BundleEntryPoint().GetLevels()
-            .Where(x => x.CompetitionsName == Settings.Current.CurrentBundle)
-            .Where(x => x.LevelName == Settings.Current.CurrentLevel)
-            .Single();
-
-        Loader.AddLevel("Pudge", Assets.Bundles.Settings.Current.CurrentLevel, () => level);
-        IsAssetBundleLoaded = true;
+        foreach (var level in entryPoint.GetLevels())
+        {
+            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
+        }
     }
 
     public static void AddRunner(IRunner runner)

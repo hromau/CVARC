@@ -54,7 +54,7 @@ namespace HoMM
             : this(width, height)
         {
             foreach (var tile in tiles)
-                map[tile.location.X, tile.location.Y] = tile;
+                map[tile.location.Y, tile.location.X] = tile;
         }
 
         public Tile MakeTile(int x, int y, string s)

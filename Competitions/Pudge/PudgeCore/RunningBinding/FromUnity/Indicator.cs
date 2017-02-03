@@ -12,9 +12,9 @@ namespace Pudge.RunningBinding.FromUnity
 
         static Indicator()
         {
-            Transparent = PrefabLoader.GetPrefab<Material>("Transparent");
-            Circle = PrefabLoader.GetPrefab<Texture>("CircleIndicator");
-            Angle = PrefabLoader.GetPrefab<Texture>("AngleIndicator");
+            Transparent = PrefabLoader.GetPrefab<Material>("pudge", "Transparent");
+            Circle = PrefabLoader.GetPrefab<Texture>("pudge", "CircleIndicator");
+            Angle = PrefabLoader.GetPrefab<Texture>("pudge", "AngleIndicator");
         }
 
         public static void Create(Transform parent, Texture texture, Color color, double radius)

@@ -78,7 +78,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HoMM\HoMM.csproj">
+    <ProjectReference Include="..\HommCore\HoMM.csproj">
       <Project>{8ef744af-6898-4bc1-94e9-863348599360}</Project>
       <Name>HoMM</Name>
     </ProjectReference>

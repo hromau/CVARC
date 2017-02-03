@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM", "HommCore\HoMM.csproj", "{8EF744AF-6898-4BC1-94E9-863348599360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM.MapViewer", "HommMapViewer\HoMM.MapViewer.csproj", "{963BF5B3-DFE7-49DB-B393-7968E4EB4223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM.Testing", "HommTesting\HoMM.Testing.csproj", "{043F4FE1-FBBD-41A8-A880-E32314373DCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF744AF-6898-4BC1-94E9-863348599360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963BF5B3-DFE7-49DB-B393-7968E4EB4223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963BF5B3-DFE7-49DB-B393-7968E4EB4223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963BF5B3-DFE7-49DB-B393-7968E4EB4223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963BF5B3-DFE7-49DB-B393-7968E4EB4223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043F4FE1-FBBD-41A8-A880-E32314373DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043F4FE1-FBBD-41A8-A880-E32314373DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043F4FE1-FBBD-41A8-A880-E32314373DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043F4FE1-FBBD-41A8-A880-E32314373DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

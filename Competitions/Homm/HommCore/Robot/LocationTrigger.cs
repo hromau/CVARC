@@ -19,8 +19,13 @@ namespace HoMM.Robot
         {
             actor.World.Round.Update(actor.Player, newLocation);
 
-            if (actor.Player.HasNoArmy())
-                actor.Die();
+            Debugger.Settings.EnableType<LocationTrigger>();
+            Debugger.Log(actor.Player.Location.X + " " + actor.Player.Location.Y);
+
+            actor.World.HommEngine.SetPosition(actor.ControllerId, actor.Player.Location.X, actor.Player.Location.Y);
+
+            //if (actor.Player.HasNoArmy())
+            //    actor.Die();
         }
     }
 }

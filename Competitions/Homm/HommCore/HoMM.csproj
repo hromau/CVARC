@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\uCVARC\Dlc\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,14 +57,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryPoint\DlcEntryPoint.cs" />
+    <Compile Include="Engine\HommEngineHighLevelApi.cs" />
+    <Compile Include="Engine\InternalHommEngine.cs" />
     <Compile Include="Engine\TerrainType.cs" />
-    <Compile Include="HommEnginesMaker.cs" />
+    <Compile Include="EntryPoint\HommEnginesMaker.cs" />
     <Compile Include="Robot\HommRobot.cs" />
     <Compile Include="Common\Vector2i.cs" />
     <Compile Include="Engine\HommEngine.cs" />
     <Compile Include="Engine\IHommEngine.cs" />
     <Compile Include="Engine\MapObject.cs" />
-    <Compile Include="Engine\MapUnityConnecter.cs" />
+    <Compile Include="Engine\RoundToUnityConnecter.cs" />
     <Compile Include="Model\Combat.cs" />
     <Compile Include="Generators\Common\ISigmaMap.cs" />
     <Compile Include="Generators\Common\RandomGenerator.cs" />
@@ -87,7 +90,7 @@
     <Compile Include="Generators\Terrain\VoronoiMap.cs" />
     <Compile Include="Generators\Terrain\VoronoiTerrainGenerator.cs" />
     <Compile Include="Common\Graph.cs" />
-    <Compile Include="Common\IEnumerableExtensions.cs" />
+    <Compile Include="Common\Helpers.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Units\UnitConstants.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="Model\Units\Unit.cs" />
     <Compile Include="Model\Units\UnitFactory.cs" />
     <Compile Include="Model\Units\UnitType.cs" />
-    <Compile Include="HommLogicPartHelper.cs" />
+    <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
     <Compile Include="Robot\HommRules.cs" />
     <Compile Include="Sensors\HommSensorData.cs" />
     <Compile Include="Robot\LocationTrigger.cs" />
@@ -162,7 +165,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)\Competitions\Homm\HommUnityBundleBuilder\Assets\AssetBundles\*.*" "$(SolutionDir)\uCVARC\Assets\AssetBundles\" /Y /I /E</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\Competitions\Homm\HommUnityBundleBuilder\Assets\AssetBundles\*.*" "$(SolutionDir)\uCVARC\Dlc\Bundles\" /Y /I /E</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

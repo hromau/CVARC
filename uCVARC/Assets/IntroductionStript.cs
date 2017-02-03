@@ -116,7 +116,19 @@ public class IntroductionStript : MonoBehaviour
         //GUILayout.Space(10);
 
         MenuButton(button, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(data));
-        MenuButton(button, "LOG!", Color.white, () => Dispatcher.SwitchScene("LogRound"));
+        MenuButton(button, "LOG!", Color.white, () =>
+        {
+            Dispatcher.LogModel = new LogModel
+            {
+                LoadingData = new LoadingData
+                {
+                    AssemblyName = Settings.Current.TutorialCompetitions,
+                    Level = Settings.Current.TutorialLevel
+                },
+                LogFile = UnityConstants.LogFolderRoot + "\\playlog.cvarclog"
+            };
+            Dispatcher.SwitchScene("LogRound");
+        });
 
 
         GUI.color = preColor;

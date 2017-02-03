@@ -8,8 +8,6 @@ namespace Assets.Servers
     public class LogServer : IDisposable
     {
         private TcpListener listener;
-        private LogModel logModel;
-
 
         public LogServer(int port)
         {
@@ -19,21 +17,13 @@ namespace Assets.Servers
 
         public bool HasGame()
         {
-            if (logModel != null)
-                return true;
             if (!listener.Pending())
                 return false;
 
             var connection = listener.AcceptTcpClient();
-            logModel = connection.ReadJson<LogModel>();
+            Dispatcher.LogModel = connection.ReadJson<LogModel>();
             connection.Close();
             return true;
-        }
-
-        public void StartGame()
-        {
-            Dispatcher.LogModel = logModel;
-            logModel = null;
         }
 
         public void Dispose()

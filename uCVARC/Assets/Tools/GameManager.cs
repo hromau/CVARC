@@ -21,16 +21,16 @@ namespace Assets
             // еще сервер логов
         }
 
-        public bool CheckGame()
+        public RunType CheckGame()
         {
             if (playServer.HasGame())
-                return true;
+                return RunType.Play;
             if (tutorialLoadingData != null)
-                return true;
+                return RunType.Tutorial;
             if (logServer.HasGame())
-                return true;
+                return RunType.Log;
 
-            return false;
+            return RunType.NotReady;
         }
 
         public IWorld StartGame()
@@ -39,11 +39,6 @@ namespace Assets
                 return playServer.StartGame();
             if (tutorialLoadingData != null)
                 return CreateTutorialGame();
-            if (logServer.HasGame())
-            {
-                logServer.StartGame();
-                return null;
-            }
 
             throw new Exception("game was not ready!");
         }

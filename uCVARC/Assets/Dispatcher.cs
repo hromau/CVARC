@@ -7,6 +7,7 @@ using UnityEngine;
 using Assets;
 using Assets.Dlc;
 using Assets.Servers;
+using Assets.Tools;
 using CVARC.Core;
 using Infrastructure;
 using UnityEngineInternal;
@@ -17,7 +18,6 @@ public static class Dispatcher
     public const int TimeScale = UnityConstants.TimeScale;
     public static Loader Loader { get; private set; }
     public static GameManager GameManager { get; private set; }
-    public static bool UnityShutdown { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
     public static LogModel LogModel { get; set; }
 
@@ -61,8 +61,16 @@ public static class Dispatcher
 
     public static void IntroductionTick()
     {
-        if (GameManager.CheckGame())
-            SwitchScene("Round");
+        switch (GameManager.CheckGame())
+        {
+            case RunType.Play:
+            case RunType.Tutorial:
+                SwitchScene("Round");
+                break;
+            case RunType.Log:
+                SwitchScene("LogRound");
+                break;
+        }
     }
 
     public static void RoundStart()
@@ -73,24 +81,23 @@ public static class Dispatcher
 
     public static void RoundTick()
     {
-        // конец игры
+        if (GameManager.CheckGame() != RunType.NotReady)
+            SetGameOver();
+
         if (isGameOver)
         {
             Debug.Log("game over. disposing");
             GameManager.EndGame(new GameResult());
-            CurrentWorld.OnExit();
-            CurrentWorld = null;
-            SwitchScene(GameManager.CheckGame() ? "Round" : "Intro");
+            LogModel = null;
+            SwitchScene("Intro");
         }
-
-        // прерывание
-        if (GameManager.CheckGame())
-            SetGameOver();
     }
 
     // самый ГЛОБАЛЬНЫЙ выход, из всей юнити. Вызывается из сцен.
     public static void OnDispose()
     {
+        if (CurrentWorld != null)
+            CurrentWorld.OnExit();
         if (switchingScenes)
         {
             switchingScenes = false;
@@ -99,7 +106,6 @@ public static class Dispatcher
 
         Debugger.Log("GLOBAL EXIT");
         GameManager.Dispose();
-        UnityShutdown = true;
     }
 
     public static void SetGameOver()

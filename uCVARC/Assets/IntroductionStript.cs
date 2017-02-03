@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Assets;
 using Infrastructure;
-using Settings = Assets.Bundles.Settings;
 
 
 public class IntroductionStript : MonoBehaviour
@@ -83,20 +82,7 @@ public class IntroductionStript : MonoBehaviour
 
     const string HardcodedTest = "Movement_Round_Square";
 
-    public static Color GetTestColor(string test)
-    {
-        Color color;
-        if (!TestDispatcher.LastTestExecution.ContainsKey(test))
-            color = Color.grey;
-        else if (TestDispatcher.LastTestExecution[test])
-            color = Color.green;
-        else
-            color = Color.red;
-        return color;
-    }
-    bool folderIsLoad = false;
-    Folder folder;
-
+   
 
     void TestsWindow(int windowID)
     {
@@ -120,43 +106,12 @@ public class IntroductionStript : MonoBehaviour
         data.AssemblyName = Settings.Current.TutorialCompetitions;
         data.Level = Settings.Current.TutorialLevel;
 
-        //if (!folderIsLoad && UnityConstants.ShowDevelopmentButtons)
-        //{
-        //    folder = new Folder(AssemblyName);
-
-        //    foreach (var test in tests)
-        //    {
-        //        var names = test.Split('_');
-        //        Folder last = folder;
-        //        for (int i = 0; i < names.Length - 1; i++)
-        //        {
-        //            var f = last.Contains(names[i]);
-        //            if (f == null)
-        //            {
-        //                var newFolder = new Folder(names[i]);
-        //                last.Files.Add(newFolder);
-        //                last = newFolder;
-        //            }
-        //            else
-        //                last = (Folder)f;
-        //        }
-        //        if (PlayerPrefs.HasKey(test))
-        //        {
-        //            TestDispatcher.LastTestExecution[test] = PlayerPrefs.GetInt(test) != 1;
-        //        }
-        //        last.Files.Add(test);
-        //    }
-        //    folderIsLoad = true;
-        //}
+        
 
         GUILayout.BeginArea(menuRect);
         GUILayout.BeginHorizontal();
         GUILayout.BeginVertical();
-        if (UnityConstants.ShowDevelopmentButtons)
-        {
-            MenuButton(button, "Tests", Color.white, () => { isPressedTests = !isPressedTests; });
-            GUILayout.Space(10);
-        }
+
         //MenuButton(button, "Hardcoded: " + HardcodedTest, GetTestColor(HardcodedTest), () => TestDispatcher.RunOneTest(data, HardcodedTest));
         //GUILayout.Space(10);
         MenuButton(button, "Tutorial", Color.white, () => Dispatcher.AddRunner(new TutorialRunner(data)));
@@ -166,20 +121,7 @@ public class IntroductionStript : MonoBehaviour
         GUILayout.EndVertical();
 
         GUILayout.BeginVertical(new GUILayoutOption[] { GUILayout.MinWidth(kMenuWidth / 2) });
-        if (isPressedTests)
-        {
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            MenuButton(button, "Run all tests", Color.white, () => TestDispatcher.RunAllTests(data));
-            GUILayout.Space(20);
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-            GUILayout.Space(10);
-            scrollViewVector = GUILayout.BeginScrollView(scrollViewVector, false, true);
-
-            folder.Show(button, data, 0);
-            GUILayout.EndScrollView();
-        }
+       
         GUILayout.FlexibleSpace();
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
@@ -244,25 +186,6 @@ public class IntroductionStript : MonoBehaviour
                        () => IsOpen = !IsOpen);
             GUILayout.EndHorizontal();
 
-            if (IsOpen)
-            {
-
-                foreach (var test in Files)
-                {
-                    if (test is Folder)
-                        ((Folder)test).Show(button, data, shift + 10);
-                    else
-                    {
-                        GUILayout.BeginHorizontal();
-                        GUILayout.Label("", GUILayout.Width(shift + 10));
-                        MenuButton(button, ((string)test).Split('_').Last(), GetTestColor((string)test), () => {
-                            TestDispatcher.RunOneTest(data, (string)test);
-                            PlayerPrefs.SetInt((string)test, (GetTestColor((string)test) == Color.green) ? 1 : 0);
-                        });
-                        GUILayout.EndHorizontal();
-                    }
-                }
-            }
         }
 
         public object Contains(string name)

@@ -64,7 +64,7 @@ public class Menu : MonoBehaviour
     {
         startedAt = DateTime.Now;
         Dispatcher.Start();
-        tests = Dispatcher.Loader.Levels[AssemblyName][Level]().Logic.Tests.Keys.OrderBy(x => x).ToArray();
+        
     }
 
     void OnDisable(){

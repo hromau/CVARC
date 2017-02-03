@@ -64,6 +64,7 @@
     <Compile Include="RunningBinding\FromUnity\Indicator.cs" />
     <Compile Include="RunningBinding\FromUnity\PudgeCompetitions.cs" />
     <Compile Include="RunningBinding\FromUnity\PudgeWorldEngine.cs" />
+    <Compile Include="TestLoadableLogicPartHelper.cs" />
     <Compile Include="Units\DaggerUnit\DaggerDestinationPoint.cs" />
     <Compile Include="Units\DaggerUnit\IDaggerRobot.cs" />
     <Compile Include="Units\DaggerUnit\IDaggerRules.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="Player\SlardarBot.cs" />
     <Compile Include="Sensors\TimeSensor.cs" />
     <Compile Include="Sensors\WardSensor.cs" />
-    <Compile Include="Tests\HookTests.cs" />
     <Compile Include="Units\HookUnit\HookCommandBuilderExtensions.cs" />
     <Compile Include="Units\HookUnit\IHookCommand.cs" />
     <Compile Include="Player\PudgeCommand.cs" />
@@ -87,9 +87,6 @@
     <Compile Include="Sensors\EventSensor.cs" />
     <Compile Include="Sensors\Map\MapSensor.cs" />
     <Compile Include="Sensors\ScoreSensor.cs" />
-    <Compile Include="Tests\EventSensorTests.cs" />
-    <Compile Include="Tests\MapSensorTests.cs" />
-    <Compile Include="Tests\RuneTriggerTests.cs" />
     <Compile Include="Units\HookUnit\HookUnit.cs" />
     <Compile Include="Units\HookUnit\IHookRobot.cs" />
     <Compile Include="Units\HookUnit\IHookRules.cs" />
@@ -104,8 +101,6 @@
     <Compile Include="PudgeRules.cs" />
     <Compile Include="Player\PudgeSensorsData.cs" />
     <Compile Include="Sensors\Map\Map.cs" />
-    <Compile Include="Tests\DefaultPudgeTest.cs" />
-    <Compile Include="Tests\PudgeMovementTests.cs" />
     <Compile Include="Units\WADUnit\IPudgeUnitRobot.cs" />
     <Compile Include="Units\WADUnit\WADUnit.cs" />
     <Compile Include="Units\WADUnit\WADCommandBuilderExctentions.cs" />

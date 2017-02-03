@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Assets.Tools;
 using CVARC.V2;
 using Infrastructure;
 
@@ -13,8 +14,8 @@ namespace Assets.Servers
     {
         private TcpListener listener;
         private TcpClient proxyConnection;
-        private bool gameStarted;
-        private Dictionary<string, TcpClient> players;
+        private WorldCreationParams worldCreationParams;
+        public bool GameStarted;
 
         public PlayServer(int port)
         {
@@ -22,29 +23,49 @@ namespace Assets.Servers
             listener.Start();
         }
 
-        public ControllerFactory CheckGame()
+        public bool HasGame()
         {
-            if (!listener.Pending() || gameStarted)
-                return null;
+            if (worldCreationParams != null)
+                return true;
+            if (!listener.Pending() || GameStarted)
+                return false;
+
             proxyConnection = listener.AcceptTcpClient();
             var gameSettings = proxyConnection.ReadJson<GameSettings>();
-            players = new Dictionary<string, TcpClient>();
+            var players = new Dictionary<string, TcpClient>();
                 
             foreach (var settings in gameSettings.ActorSettings.Where(x => !x.IsBot))
                 players[settings.ControllerId] = listener.AcceptTcpClient();
 
-            gameStarted = true;
+            foreach (var player in players.Values)
+                player.ReadJson<IWorldState>(); // выпилить!
 
-            throw new NotImplementedException();
+            worldCreationParams = new WorldCreationParams(gameSettings, 
+                new PlayControllerFactory(players), 
+                DefaultWorldInfoCreator.GetDefaultWorldState(gameSettings.LoadingData));
+            return true;
+        }
+
+        public IWorld StartGame()
+        {
+            if (worldCreationParams == null)
+                throw new Exception("Game was not ready!");
+
+            GameStarted = true;
+            var world = Dispatcher.Loader.CreateWorld(
+                worldCreationParams.GameSettings,
+                worldCreationParams.ControllerFactory,
+                worldCreationParams.WorldState);
+            worldCreationParams = null;
+
+            return world;
         }
 
         public void EndGame(GameResult gameResult)
         {
             proxyConnection.WriteJson(gameResult);
             proxyConnection.Close();
-            foreach (var player in players.Values)
-                player.Close();
-            gameStarted = false;
+            GameStarted = false;
         }
 
         public void Dispose()

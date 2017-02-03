@@ -17,7 +17,7 @@ namespace CVARC.V2
 
         protected ActorSettings GetSettings(string controllerId)
         {
-            var result = World.Configuration.ActorSettings.Where(z => z.ControllerId == controllerId).SingleOrDefault();
+            var result = World.Configuration.ActorSettings.SingleOrDefault(z => z.ControllerId == controllerId);
             if (result == null)
                 throw new Exception("The controller '" + controllerId + "' is not defined in settings");
             return result;

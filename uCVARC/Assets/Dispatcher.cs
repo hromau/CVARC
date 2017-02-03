@@ -8,6 +8,7 @@ using Assets;
 using Assets.Dlc;
 using Assets.Servers;
 using CVARC.Core;
+using Infrastructure;
 using UnityEngineInternal;
 using UnityCommons;
 
@@ -15,12 +16,11 @@ public static class Dispatcher
 {
     public const int TimeScale = UnityConstants.TimeScale;
     public static Loader Loader { get; private set; }
-    public static IRunner CurrentRunner { get; private set; }
+    public static GameManager GameManager { get; private set; }
     public static bool UnityShutdown { get; private set; }
+    public static IWorld CurrentWorld { get; private set; }
 
     static bool logPlayRequested;
-    static readonly RunnersQueue queue = new RunnersQueue();
-    static readonly Dictionary<string, GameObject> objectsCache = new Dictionary<string, GameObject>();
     static bool isGameOver;
     static bool switchingScenes;
 
@@ -45,7 +45,7 @@ public static class Dispatcher
         Debugger.Log("Loader ready. Starting: adding levels");
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
-        
+        GameManager = new GameManager();
         //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
         //Loader.AddLevel("RoboMovies", "Test", () => new RMCompetitions.Level1());
         //Loader.AddLevel("Pudge", "Level1", () => new PudgeCompetitions.Level1());
@@ -71,60 +71,32 @@ public static class Dispatcher
         }
     }
 
-    public static void AddRunner(IRunner runner)
-    {
-        queue.EnqueueRunner(runner);
-    }
-
     public static void IntroductionTick()
     {
-        if (queue.HasReadyRunner())
+        if (GameManager.CheckGame())
             SwitchScene("Round");
-        if (logPlayRequested)
-        {
-            logPlayRequested = false;
-            SwitchScene("LogRound");
-        }
     }
 
     public static void RoundStart()
-    {
-        CurrentRunner = queue.DequeueReadyRunner();
+    {;
         isGameOver = false;
-        CurrentRunner.InitializeWorld();
-
+        CurrentWorld = GameManager.StartGame();
     }
 
     public static void RoundTick()
     {
         // конец игры
-        if (isGameOver && CurrentRunner != null)
+        if (isGameOver)
         {
             Debug.Log("game over. disposing");
-            CurrentRunner.Dispose();
-            CurrentRunner = null;
-        }
-
-        if (CurrentRunner == null)
-        {
-            // очищение, или переход в начало
-            SwitchScene(queue.HasReadyRunner() ? "Round" : "Intro");
-            return;
+            GameManager.EndGame(new GameResult());
+            CurrentWorld = null;
+            SwitchScene(GameManager.CheckGame() ? "Round" : "Intro");
         }
 
         // прерывание
-        if (queue.HasReadyRunner() && CurrentRunner.CanInterrupt)
+        if (GameManager.CheckGame())
             SetGameOver();
-    }
-
-    public static void RequestLogPlay()
-    {
-        logPlayRequested = true;
-    }
-
-    public static void LogEnd()
-    {
-        SwitchScene("Intro");
     }
 
     // самый ГЛОБАЛЬНЫЙ выход, из всей юнити. Вызывается из сцен.
@@ -137,22 +109,16 @@ public static class Dispatcher
         }
 
         Debugger.Log("GLOBAL EXIT");
-        
-        if (CurrentRunner != null)
-            CurrentRunner.Dispose();
-        queue.DisposeRunners();
         UnityShutdown = true;
     }
 
     public static void SetGameOver()
     {
         isGameOver = true;
-      
     }
 
     static void SwitchScene(string sceneName)
     {
-        objectsCache.Clear();
         switchingScenes = true;
         Application.LoadLevel(sceneName);
     }

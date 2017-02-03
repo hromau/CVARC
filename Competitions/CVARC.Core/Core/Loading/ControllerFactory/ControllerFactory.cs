@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,9 @@ namespace CVARC.V2
             this.World = world;
         }
 
-        protected ControllerSettings GetSettings(string controllerId)
+        protected ActorSettings GetSettings(string controllerId)
         {
-            var result = World.Configuration.Settings.Controllers.Where(z => z.ControllerId == controllerId).FirstOrDefault();
+            var result = World.Configuration.ActorSettings.Where(z => z.ControllerId == controllerId).SingleOrDefault();
             if (result == null)
                 throw new Exception("The controller '" + controllerId + "' is not defined in settings");
             return result;
@@ -25,9 +26,9 @@ namespace CVARC.V2
         protected IController CreateBot(string controllerId)
         {
             var sets = GetSettings(controllerId);
-            if (sets.Type != ControllerType.Bot)
-                throw new Exception("Internal error: trying to create bot for '" + controllerId + "', but settings define '" + sets.Type + "'");
-            var botName=sets.Name;
+            if (!sets.IsBot)
+                throw new Exception("Internal error: trying to create bot for '" + controllerId + "', but settings define it is not bot");
+            var botName=sets.BotName;
             if (!World.Competitions.Logic.Bots.ContainsKey(botName))
                 throw new Exception("Bot '"+botName+"' is not defined");
             return World.Competitions.Logic.Bots[botName]();

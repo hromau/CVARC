@@ -4,6 +4,8 @@ using Pudge.Player;
 using Pudge.Units.DaggerUnit;
 using Pudge.Units.WADUnit;
 using Pudge.World;
+using Infrastructure;
+using System;
 
 namespace Pudge
 {
@@ -13,31 +15,34 @@ namespace Pudge
         public const string AssemblyName = "Pudge";
         public abstract string LevelName { get; }
 
-        public TSensorData Configurate(string ip, int port, string cvarcTag, 
+        public TSensorData Configurate(string ip, int port, Guid cvarcTag, 
             int timeLimit = 90, int operationalTimeLimit = 1000, bool isOnLeftSide = true, int seed = 0, bool speedUp = false)
         {
-            var configs = new ConfigurationProposal();
+            var configs = new GameSettings();
             configs.LoadingData.AssemblyName = AssemblyName;
             configs.LoadingData.Level = LevelName;
-            configs.SettingsProposal.SpeedUp = speedUp;
-            configs.SettingsProposal.Controllers = new List<ControllerSettings>
+            configs.SpeedUp = speedUp;
+            configs.ActorSettings= new List<ActorSettings>
             {
-                new ControllerSettings
+                new ActorSettings
                 {
                     ControllerId = isOnLeftSide ? TwoPlayersId.Left : TwoPlayersId.Right,
-                    Name = "This",
-                    Type = ControllerType.Client
+                    IsBot=false,
+                    PlayerSettings=new PlayerSettings
+                    {
+                        CvarcTag =  cvarcTag
+                    }
                 },
-                new ControllerSettings
+                new ActorSettings
                 {
                     ControllerId = isOnLeftSide ? TwoPlayersId.Right : TwoPlayersId.Left,
-                    Name = PudgeRules.StandingBotName,
-                    Type = ControllerType.Bot
+                    BotName = PudgeRules.StandingBotName,
+                    IsBot=true
                 }
             };
-            configs.SettingsProposal.CvarcTag = cvarcTag;
-            configs.SettingsProposal.TimeLimit = timeLimit;
-            configs.SettingsProposal.OperationalTimeLimit = operationalTimeLimit;
+            
+            configs.TimeLimit = timeLimit;
+            configs.OperationalTimeLimit = operationalTimeLimit;
             return Configurate(port, configs, new PudgeWorldState(seed), ip);
         }
 

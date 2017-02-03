@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace CVARC.V2
     {
         bool DebugMode { get; }
         T GetEngine<T>() where T : IEngine;
-        void Initialize(Competitions competitions, Configuration configuration, ControllerFactory controllerFactory, IWorldState state);
+        void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, IWorldState state);
         WorldClocks Clocks { get; }
         IdGenerator IdGenerator { get; }
         Scores Scores { get; }
         IEnumerable<IActor> Actors { get; }
         void OnExit();
         event Action Exit;
-        Configuration Configuration { get; }
+        GameSettings Configuration { get; }
         Competitions Competitions { get; }
         IKeyboard Keyboard { get; }
         LogWriter Logger { get; }

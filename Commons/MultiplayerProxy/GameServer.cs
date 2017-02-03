@@ -36,7 +36,7 @@ namespace MultiplayerProxy
                 {
                     ControllerId = t,
                     PlayerSettings = settings[i].Settings
-                }).ToArray()
+                }).ToList()
             };
         }
 

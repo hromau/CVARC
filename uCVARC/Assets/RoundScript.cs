@@ -25,7 +25,7 @@ public partial class RoundScript : PlayScript
         curWorldTime = 0;
 
         world = Dispatcher.CurrentRunner.World;
-        timeLimit = Dispatcher.CurrentRunner.World.Configuration.Settings.TimeLimit;
+        timeLimit = Dispatcher.CurrentRunner.World.Configuration.TimeLimit;
         //Debugger.Log(DebuggerMessageType.Unity,timeLimit);
         if (world != null)
             Debugger.Log("World loaded");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Infrastructure
 {
@@ -7,6 +8,9 @@ namespace Infrastructure
         public LoadingData LoadingData { get; set; }
         public double TimeLimit { get; set; }
         public double OperationalTimeLimit { get; set; }
-        public ActorSettings[] ActorSettings { get; set; }
+        public List<ActorSettings> ActorSettings { get; set; }
+        public bool EnableLog { get; set; }
+        public string LogFile { get; set; }
+        public bool SpeedUp { get; set; }
     }
 }

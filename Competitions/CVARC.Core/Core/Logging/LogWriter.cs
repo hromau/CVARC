@@ -18,10 +18,10 @@ namespace CVARC.V2
         IWorld world;
         private bool enableLog;
         private string logFile;
-        private Configuration configuration;
+        private Infrastructure.GameSettings configuration;
         private object worldState;
 
-        public LogWriter(IWorld world, bool enableLog, string logFile, Configuration configuration, object worldState) 
+        public LogWriter(IWorld world, bool enableLog, string logFile, Infrastructure.GameSettings configuration, object worldState) 
         {
             this.world = world;
             this.enableLog = enableLog;

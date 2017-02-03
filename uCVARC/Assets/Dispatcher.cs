@@ -160,8 +160,8 @@ public static class Dispatcher
     public static void SetGameOver()
     {
         isGameOver = true;
-        if (CurrentRunner.World.Configuration.Settings.EnableLog)
-            NewLogIO.Save(CurrentLog,CurrentRunner.World.Configuration.Settings.LogFile);
+        if (CurrentRunner.World.Configuration.EnableLog)
+            NewLogIO.Save(CurrentLog,CurrentRunner.World.Configuration.LogFile);
     }
 
     static void SwitchScene(string sceneName)

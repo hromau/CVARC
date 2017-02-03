@@ -35,7 +35,7 @@ namespace CVARC.V2
         /// <summary>
         /// The resulting settings
         /// </summary>
-        public Settings Settings { get; set; }
+        public GameSettings Settings { get; set; }
 
         /// <summary>
         /// The initial state of the world that was sent by the client.

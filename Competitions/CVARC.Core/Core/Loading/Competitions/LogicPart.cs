@@ -18,7 +18,7 @@ namespace CVARC.V2
 
         public Func<string, IWorldState> CreateWorldState { get; set; }
 
-        public Func<Settings> CreateDefaultSettings { get; set; }
+        public Func<Infrastructure.GameSettings> CreateDefaultSettings { get; set; }
 
         public Func<IWorld> CreateWorld { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace CVARC.V2
 			Thread.Sleep(100);
 		}
 
-		public TSensorData Configurate(int port, ConfigurationProposal configuration, IWorldState state, string ip = "127.0.0.1")
+		public TSensorData Configurate(int port, GameSettings configuration, IWorldState state, string ip = "127.0.0.1")
 		{
 			var tcpClient = new TcpClient();
 			tcpClient.Connect(ip, port);

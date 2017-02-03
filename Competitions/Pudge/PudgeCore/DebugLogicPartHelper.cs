@@ -18,7 +18,7 @@ namespace Pudge
             var rules = new PudgeRules();
 
             logicPart.CreateWorld = () => new PudgeWorld(true);
-            logicPart.CreateDefaultSettings = () => new Settings { OperationalTimeLimit = 5, TimeLimit = 90 };
+            logicPart.CreateDefaultSettings = () => new GameSettings { OperationalTimeLimit = 5, TimeLimit = 90 };
 
             logicPart.WorldStateType = typeof(PudgeWorldState);
             logicPart.CreateWorldState = seed => new PudgeWorldState(int.Parse(seed));

@@ -3,6 +3,7 @@ using HoMM.Robot;
 using HoMM.Rules;
 using HoMM.Units.HexagonalMovement;
 using HoMM.World;
+using Infrastructure;
 using System;
 using System.Linq;
 
@@ -33,7 +34,7 @@ namespace HoMM
             var rules = new HommRules();
 
             logicPart.CreateWorld = () => new HommWorld(pids.Take(playersCount).ToArray());
-            logicPart.CreateDefaultSettings = () => new Settings { OperationalTimeLimit = 5, TimeLimit = 90 };
+            logicPart.CreateDefaultSettings = () => new GameSettings { OperationalTimeLimit = 5, TimeLimit = 90 };
 
             logicPart.WorldStateType = typeof(HommWorldState);
             logicPart.CreateWorldState = seed => new HommWorldState(int.Parse(seed));

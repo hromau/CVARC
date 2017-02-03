@@ -1,4 +1,5 @@
 ﻿
+using Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace CVARC.V2
         public WorldClocks Clocks { get; private set; }
         public Scores Scores { get; private set; }
         public LogWriter Logger { get; private set; }
-        public Configuration Configuration { get; private set; }
+        public GameSettings Configuration { get; private set; }
         public Competitions Competitions { get; private set; }
         public TWorldState WorldState { get; private set; }
 		IWorldState IWorld.WorldState { get { return WorldState;  } }
@@ -61,7 +62,7 @@ namespace CVARC.V2
         }
 
 
-        public void Initialize(Competitions competitions, Configuration configuration, ControllerFactory controllerFactory, IWorldState worldState)
+        public void Initialize(Competitions competitions, GameSettings configuration, ControllerFactory controllerFactory, IWorldState worldState)
         {
             Debugger.Log("World initialization");
             Debugger.Log("Starting basic fields");
@@ -73,13 +74,13 @@ namespace CVARC.V2
             Clocks = new WorldClocks();
             IdGenerator = new IdGenerator();
             Scores = new Scores(this);
-            Logger = new LogWriter(this, Configuration.Settings.EnableLog, Configuration.Settings.LogFile, Configuration, WorldState);
+            Logger = new LogWriter(this, Configuration.EnableLog, Configuration.LogFile, Configuration, WorldState);
             Keyboard = competitions.KeyboardFactory();
             LoggingPositionObjectIds = new List<string>();
 
             // setting up the parameters
 
-            Clocks.TimeLimit = Configuration.Settings.TimeLimit;
+            Clocks.TimeLimit = Configuration.TimeLimit;
 
 
             Debugger.Log("About to init engines");

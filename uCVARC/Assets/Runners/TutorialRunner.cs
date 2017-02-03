@@ -8,7 +8,7 @@ namespace Assets
     public class TutorialRunner : IRunner
     {
         readonly ControllerFactory factory;
-        readonly Configuration configuration;
+        readonly GameSettings configuration;
         readonly IWorldState worldState;
 
         public IWorld World { get; private set; }
@@ -18,27 +18,24 @@ namespace Assets
         public bool Disposed { get; private set; }
 
 
-        public TutorialRunner(LoadingData loadingData, Configuration configuration = null, IWorldState worldState = null)
+        public TutorialRunner(LoadingData loadingData, GameSettings configuration = null, IWorldState worldState = null)
         {
             factory = new TutorialControllerFactory();
 
             var competitions = Dispatcher.Loader.GetCompetitions(loadingData);
             if (configuration == null)
             {
-                this.configuration = new Configuration
-                {
-                    LoadingData = loadingData,
-                    Settings = competitions.Logic.CreateDefaultSettings()
-                };
+                this.configuration = competitions.Logic.CreateDefaultSettings();
+                this.configuration.LoadingData = loadingData;
             }
             else
                 this.configuration = configuration;
 
-            this.configuration.Settings.EnableLog = true;
-            this.configuration.Settings.LogFile = UnityConstants.LogFolderRoot + "tuto" + Guid.NewGuid() + ".cvarclog";
+            this.configuration.EnableLog = true;
+            this.configuration.LogFile = UnityConstants.LogFolderRoot + "tuto" + Guid.NewGuid() + ".cvarclog";
 
             this.worldState = worldState ?? competitions.Logic.CreateWorldState(competitions.Logic.PredefinedWorldStates[0]);
-            //this.worldState = worldState ?? competitions.Logic.CreateWorldState("0"); // lol
+            
 
             Name = "Tutorial";
             CanStart = true;

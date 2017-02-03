@@ -24,7 +24,7 @@ namespace CVARC.V2
 
         public void Initialize(IActor controllableActor)
         {
-            OperationalTimeLimit = controllableActor.World.Configuration.Settings.OperationalTimeLimit;
+            OperationalTimeLimit = controllableActor.World.Configuration.OperationalTimeLimit;
         }
 
         object sensorData;

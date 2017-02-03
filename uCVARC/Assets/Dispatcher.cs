@@ -79,6 +79,7 @@ public static class Dispatcher
         {
             Debug.Log("game over. disposing");
             GameManager.EndGame(new GameResult());
+            CurrentWorld.OnExit();
             CurrentWorld = null;
             SwitchScene(GameManager.CheckGame() ? "Round" : "Intro");
         }

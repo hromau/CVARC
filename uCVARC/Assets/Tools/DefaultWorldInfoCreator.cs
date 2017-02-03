@@ -19,6 +19,9 @@ namespace Assets.Tools
         {
             var settings = Dispatcher.Loader.GetCompetitions(loadingData).Logic.CreateDefaultSettings();
             settings.LoadingData = loadingData;
+            settings.EnableLog = true;
+            settings.LogFile = UnityConstants.LogFolderRoot+"\\"+Guid.NewGuid().ToString() + ".cvarclog";
+
             return settings;
         }
     }

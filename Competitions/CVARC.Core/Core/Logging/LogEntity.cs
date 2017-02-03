@@ -41,6 +41,7 @@ namespace CVARC.V2
         public string Reason { get; internal set; }
         public int Scores { get; set; }
         public object Total { get; internal set; }
+        public string Type { get; internal set; }
     }
 
     class GameLogEntry

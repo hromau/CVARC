@@ -6,7 +6,7 @@ using Infrastructure;
 namespace CVARC.V2
 {
 
-    public delegate void ScoresAddEventHandler(string controllerId, int count, string reason, int total);
+    public delegate void ScoresAddEventHandler(string controllerId, int count, string reason, string type, int total);
 
     public class Scores
     {
@@ -21,12 +21,12 @@ namespace CVARC.V2
         public Dictionary<string, List<ScoreRecord>> Records { get; private set; } 
         public event ScoresAddEventHandler ScoresChanged;
         
-        public void Add(string controllerId, int count, string reason)
+        public void Add(string controllerId, int count, string reason, string type=null)
         {
             if (!Records.ContainsKey(controllerId))
                 Records[controllerId] = new List<ScoreRecord>();
-            Records[controllerId].Add(new ScoreRecord(count, reason, world.Clocks.CurrentTime));
-            if (ScoresChanged != null) ScoresChanged(controllerId,count,reason, GetTotalScore(controllerId));
+            Records[controllerId].Add(new ScoreRecord(count, reason, world.Clocks.CurrentTime,type));
+            if (ScoresChanged != null) ScoresChanged(controllerId,count,reason,type, GetTotalScore(controllerId));
         }
         
         public IEnumerable<Tuple<string, int>> GetAllScores()

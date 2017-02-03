@@ -66,7 +66,7 @@ namespace CVARC.V2
                 File.WriteAllLines(logFile, log.ToArray());
         }
 
-        private void Scores_ScoresChanged(string controllerId, int count, string reason, int total)
+        private void Scores_ScoresChanged(string controllerId, int count, string reason, string type, int total)
         {
             var entry = new GameLogEntry
             {
@@ -77,7 +77,8 @@ namespace CVARC.V2
                     ControllerId = controllerId,
                     Added = count,
                     Reason = reason,
-                    Total = total
+                    Total = total,
+                    Type=type,
                 }
             };
             AddEntry(entry);

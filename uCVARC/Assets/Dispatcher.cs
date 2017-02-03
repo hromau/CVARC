@@ -19,6 +19,7 @@ public static class Dispatcher
     public static GameManager GameManager { get; private set; }
     public static bool UnityShutdown { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
+    public static LogModel LogModel { get; set; }
 
     static bool logPlayRequested;
     static bool isGameOver;
@@ -47,8 +48,6 @@ public static class Dispatcher
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         GameManager = new GameManager();
-
-      
     }
 
     public static void FillLoader(IDlcEntryPoint entryPoint)
@@ -99,6 +98,7 @@ public static class Dispatcher
         }
 
         Debugger.Log("GLOBAL EXIT");
+        GameManager.Dispose();
         UnityShutdown = true;
     }
 

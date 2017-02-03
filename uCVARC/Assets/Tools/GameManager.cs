@@ -7,15 +7,17 @@ using Infrastructure;
 
 namespace Assets
 {
-    public class GameManager
+    public class GameManager : IDisposable
     {
         private PlayServer playServer;
+        private LogServer logServer;
         private LoadingData tutorialLoadingData;
 
         // еще сервер логов
         public GameManager()
         {
-            playServer = new PlayServer(15000);
+            playServer = new PlayServer(UnityConstants.NetworkPort);
+            logServer = new LogServer(UnityConstants.LogPort);
             // еще сервер логов
         }
 
@@ -24,6 +26,8 @@ namespace Assets
             if (playServer.HasGame())
                 return true;
             if (tutorialLoadingData != null)
+                return true;
+            if (logServer.HasGame())
                 return true;
 
             return false;
@@ -35,6 +39,11 @@ namespace Assets
                 return playServer.StartGame();
             if (tutorialLoadingData != null)
                 return CreateTutorialGame();
+            if (logServer.HasGame())
+            {
+                logServer.StartGame();
+                return null;
+            }
 
             throw new Exception("game was not ready!");
         }
@@ -58,6 +67,12 @@ namespace Assets
                 DefaultWorldInfoCreator.GetDefaultGameSettings(loadingData),
                 new TutorialControllerFactory(),
                 DefaultWorldInfoCreator.GetDefaultWorldState(loadingData));
+        }
+
+        public void Dispose()
+        {
+            playServer.Dispose();
+            logServer.Dispose();
         }
     }
 }

@@ -24,7 +24,7 @@ public class Settings
     private Settings()
     {
         TutorialCompetitions = "Pudge";
-        TutorialLevel = "Level2";
+        TutorialLevel = "Final";
         DlcBundles = new List<string>();
         DlcAssemblies = new List<string>();
         DebugTypes = new List<string>();

@@ -14,7 +14,7 @@ namespace MultiplayerProxy
         public static readonly TimeSpan CvarcTagListTimeToLive = TimeSpan.FromMinutes(5);
         public static readonly Dictionary<LoadingData, string[]> LevelToControllerIds = new Dictionary<LoadingData, string[]>
         {
-            [new LoadingData {AssemblyName = "Pudge", Level = "Level1"}] = new[] {"Left", "Right"}
+            [new LoadingData {AssemblyName = "Pudge", Level = "Final"}] = new[] {"Left", "Right"}
         };
     }
 }

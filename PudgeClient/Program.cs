@@ -8,7 +8,7 @@ using Pudge;
 using Pudge.World;
 using Infrastructure;
 
-namespace PudgeClient
+namespace PudgeClientTest
 {
     class Program
     {
@@ -17,7 +17,7 @@ namespace PudgeClient
             Debugger.Logger = z => Console.WriteLine(z);
             Debugger.AlwaysOn = true;
 
-            var client = new PudgeClientLevel1();
+            var client = new PudgeClient();
             client.Configurate("127.0.0.1", 18700, Guid.Empty);
 
             client.Move(10);

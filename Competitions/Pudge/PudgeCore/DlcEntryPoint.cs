@@ -15,12 +15,8 @@ namespace Pudge
 
         public IEnumerable<Competitions> GetLevels()
         {
-            for (var i = 1; i < 3; i++) // сейчас есть только 2 уровня
-            {
-                var levelName = string.Format(LevelNameTemplate, i);
-                yield return new Competitions("Pudge", levelName, new ReleaseLogicPartHelper(i),
-                    () => new UKeyboard(), PudgeEngineMaker.CreateEngines);
-            }
+            //TODO: Здесь какая-то херня. Как вообще вызывать правила 1 и 2 недели?
+            yield return new Competitions("Pudge", "Final", new ReleaseLogicPartHelper(2), () => new UKeyboard(), PudgeEngineMaker.CreateEngines);
         }
     }
 }

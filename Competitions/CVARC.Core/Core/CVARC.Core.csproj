@@ -100,8 +100,6 @@
     <Compile Include="Loading\Competitions\ActorFactory.cs" />
     <Compile Include="Loading\Competitions\LogicPartHelper.cs" />
     <Compile Include="Loading\Configuration\IWorldState.cs" />
-    <Compile Include="Loading\ControllerFactory\NetTournamentControllerFactory.cs" />
-    <Compile Include="Loading\ControllerFactory\TournamentControllerFactory.cs" />
     <Compile Include="Loading\Loader\INetworkData.cs" />
     <Compile Include="Loading\Loader\Loader.Levels.cs" />
     <Compile Include="Debugger.cs" />
@@ -137,10 +135,7 @@
     <Compile Include="Loading\Configuration\Configuration.cs" />
     <Compile Include="Loading\Configuration\SettingsOrSettingsProposal.cs" />
     <Compile Include="Loading\Configuration\SettingsProposal.cs" />
-    <Compile Include="Loading\ControllerFactory\BotDemoControllerFactory.cs" />
     <Compile Include="Loading\ControllerFactory\ControllerFactory.cs" />
-    <Compile Include="Loading\ControllerFactory\LogPlayerControllerFactory.cs" />
-    <Compile Include="Loading\ControllerFactory\SoloNetworkControllerFactory.cs" />
     <Compile Include="Loading\ControllerFactory\TutorialControllerFactory.cs" />
     <Compile Include="Logging\LogWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

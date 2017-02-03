@@ -35,7 +35,7 @@ namespace Assets.Servers
 
             gameStarted = true;
 
-            return new NetTournamentControllerFactory(null); // players
+            throw new NotImplementedException();
         }
 
         public void EndGame(GameResult gameResult)

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using CVARC.V2;
 using UnityEngine;
 using Assets;
-using Assets.Dlc;
-using Assets.Servers;
 using Assets.Tools;
-using CVARC.Core;
 using Infrastructure;
-using UnityEngineInternal;
 using UnityCommons;
 
 public static class Dispatcher
@@ -20,8 +15,7 @@ public static class Dispatcher
     public static GameManager GameManager { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
     public static LogModel LogModel { get; set; }
-
-    static bool logPlayRequested;
+    
     static bool isGameOver;
     static bool switchingScenes;
 
@@ -37,11 +31,9 @@ public static class Dispatcher
             Debugger.Settings.EnableType(e);
         }
         Debugger.Logger = Debug.Log;
-    //    Debugger.AlwaysOn = true;
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);
-        
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
@@ -54,7 +46,8 @@ public static class Dispatcher
     {
         foreach (var level in entryPoint.GetLevels())
         {
-            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
+            var currentLevel = level; // это здесь не просто так: http://stackoverflow.com/questions/14907987/access-to-foreach-variable-in-closure-warning
+            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => currentLevel);
             Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
         }
     }
@@ -74,8 +67,7 @@ public static class Dispatcher
     }
 
     public static void RoundStart()
-    {;
-        isGameOver = false;
+    {
         CurrentWorld = GameManager.StartGame();
     }
 
@@ -84,18 +76,19 @@ public static class Dispatcher
         if (GameManager.CheckGame() != RunType.NotReady)
             SetGameOver();
 
-        if (isGameOver)
-        {
-            Debug.Log("game over. disposing");
-            GameManager.EndGame(new GameResult());
-            LogModel = null;
-            SwitchScene("Intro");
-        }
+        if (!isGameOver)
+            return;
+
+        Debug.Log("game over. disposing");
+        GameManager.EndGame(new GameResult());
+        LogModel = null;
+        SwitchScene("Intro");
     }
 
     // самый ГЛОБАЛЬНЫЙ выход, из всей юнити. Вызывается из сцен.
     public static void OnDispose()
     {
+        isGameOver = false;
         if (CurrentWorld != null)
         {
             CurrentWorld.OnExit();

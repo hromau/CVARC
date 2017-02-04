@@ -62,7 +62,6 @@ namespace HoMM.World
                 builder = builder.With(new GraphSpawner(random, minesConfig,
                     (map, maze, loc) => new Mine(resource, loc, FindPlaceForBuilding(map, maze, loc)),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
-                    //(map, maze, loc) => IsGoodPlaceForMine(maze, location)));
             }
 
             return builder;
@@ -90,18 +89,6 @@ namespace HoMM.World
                 .Where(x => maze[x] == MazeCell.Wall)
                 .Where(x => neighbors(x).Any(z => !isBuilding(z)))
                 .FirstOrDefault();
-
-            //Func<Location, bool> isBuilding = loc => map[loc].Any(x => x is Dwelling || x is Mine);
-
-            //Func<Location, IEnumerable<Location>> neighbors = loc => loc.Neighborhood.Inside(map.Size);
-
-            //var neighborWalls = neighbors(location).Where(x => maze[x] == MazeCell.Wall);
-
-            //Func<Location, IEnumerable<Location>> neighborMines = loc =>
-            //    neighbors(loc).Where(x => isBuilding(x));
-
-            //return neighborWalls.Any(nwall => !neighborMines(nwall)
-            //    .Any(nmine => neighbors(nmine).All(x => maze[x] != MazeCell.Wall || x == nwall)));
         }
 
         private HommMapGenerator.BuilderOnSelectEntities AddPiles(

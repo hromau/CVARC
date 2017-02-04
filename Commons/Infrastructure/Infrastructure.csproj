@@ -48,8 +48,6 @@
   <ItemGroup>
     <Compile Include="ActorSettings.cs" />
     <Compile Include="Debugger.cs" />
-    <Compile Include="deprecated\GameResultInfo.cs" />
-    <Compile Include="deprecated\PlayerInfo.cs" />
     <Compile Include="LogModel.cs" />
     <Compile Include="WorldState.cs" />
     <Compile Include="LoadingData.cs" />

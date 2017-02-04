@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
-namespace CVARC.V2
+namespace Infrastructure
 {
 
     public static class Debugger
     {
         public static bool AlwaysOn;
-
+        public static Action<string> Logger;
         static object lockObject = new object();
         static HashSet<string> enabledTypes = new HashSet<string>();
 
@@ -37,10 +34,6 @@ namespace CVARC.V2
         }
 
         public static readonly SettingsClass Settings = new Debugger.SettingsClass();
-        
-
-
-
 
         public static void Log(object message)
         {
@@ -61,7 +54,5 @@ namespace CVARC.V2
                 }
             }
         }
-
-        public static Action<string> Logger;
     }
 }

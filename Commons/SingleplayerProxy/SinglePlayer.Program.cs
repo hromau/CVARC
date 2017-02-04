@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Infrastructure;
 using Ionic.Zip;
 using ProxyCommon;
+using Debugger = Infrastructure.Debugger;
 
 namespace SingleplayerProxy
 {
@@ -16,6 +17,9 @@ namespace SingleplayerProxy
 
         static void Main(string[] args)
         {
+            Debugger.Logger = Console.WriteLine;
+            Debugger.Settings.EnableType<Proxy>();
+
             ReloadVersion();
             if (IsUnityUp())
             {

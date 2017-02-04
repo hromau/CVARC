@@ -4,7 +4,7 @@ namespace HoMM
 {
     public static class UnitFactory
     {
-        public static Unit CreateFromUnitType(UnitType unitType)
+        public static Unit FromType(UnitType unitType)
         {
             switch (unitType)
             {

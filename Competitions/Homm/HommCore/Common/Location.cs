@@ -30,6 +30,11 @@ namespace HoMM
             return new Location(left.Y + right.Y, left.X + right.X);
         }
 
+        public static Location Max(MapSize size)
+        {
+            return new Location(size.Y - 1, size.X - 1);
+        }
+
         public Location DiagonalMirror(MapSize size)
         {
             return IsOnDiagonal(size) 

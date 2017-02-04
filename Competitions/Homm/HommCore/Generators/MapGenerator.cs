@@ -41,7 +41,7 @@ namespace HoMM.Generators
 
             var entities = entitiesGenerators
                 .Aggregate(SigmaMap.Empty<List<TileObject>>(maze.Size),
-                (m, g) => m.Merge(g.Spawn(m, maze), (entityList, entity) =>
+                (map, gen) => map.Merge(gen.Spawn(map, maze), (entityList, entity) =>
                     {
                         if (entityList == null) entityList = new List<TileObject>();
                         if (entity != null) entityList.Add(entity);

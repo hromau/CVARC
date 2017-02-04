@@ -45,13 +45,13 @@ namespace HoMM.Generators
         public static SparseSigmaMap<TCell> From<TCell>(ISigmaMap<TCell> source, 
             TCell defaultValue = default(TCell))
         {
-            return new SparseSigmaMap<TCell>(source.Size, i => source[i]);
+            return new SparseSigmaMap<TCell>(source.Size, i => source[i], defaultValue);
         }
 
         public static SparseSigmaMap<TCell> From<TCell>(MapSize size, 
             Func<Location, TCell> cellsFactory, TCell defaultValue = default(TCell))
         {
-            return new SparseSigmaMap<TCell>(size, cellsFactory);
+            return new SparseSigmaMap<TCell>(size, cellsFactory, defaultValue);
         }
         
         public static ISigmaMap<TRes> Merge<TLeft, TRight, TRes>(

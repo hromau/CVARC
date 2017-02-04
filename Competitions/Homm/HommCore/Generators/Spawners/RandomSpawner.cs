@@ -8,14 +8,14 @@ namespace HoMM.Generators
     public class RandomSpawner : ISpawner
     {
         private readonly Random random;
-        private readonly Func<Location, TileObject> factory;
         private readonly SpawnerConfig config;
 
+        private readonly Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, TileObject> factory;
         private readonly Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, IEnumerable<Location>> getSpawnLocations;
 
         public RandomSpawner(Random random,
             SpawnerConfig config,
-            Func<Location, TileObject> factory,
+            Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, TileObject> factory,
             Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, IEnumerable<Location>> spawnLocations)
         {
             this.random = random;
@@ -43,7 +43,7 @@ namespace HoMM.Generators
             }
 
             return SparseSigmaMap.From(maze.Size,
-                s => IsSpawnPoint(spawnPoints, s, maze.Size) ? factory(s) : null);
+                s => IsSpawnPoint(spawnPoints, s, maze.Size) ? factory(map, maze, s) : null);
         }
 
         private bool IsSpawnPoint(HashSet<Location> spawns, Location location, MapSize size)

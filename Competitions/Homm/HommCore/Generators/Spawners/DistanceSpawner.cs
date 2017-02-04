@@ -10,11 +10,12 @@ namespace HoMM.Generators
         public DistanceSpawner(
             Random random,
             SpawnerConfig config,
-            Func<Location, TileObject> factory)
+            Func<Location, TileObject> factory,
+            Func<ISigmaMap<TileObject>, ISigmaMap<MazeCell>, Location, bool> predicate = null)
 
             : base(random, config, factory,
-                  maze => Location.Square(maze.Size)
-                    .Where(s => maze[s] == MazeCell.Empty)
+                  (map, maze) => Location.Square(maze.Size)
+                    .Where(s => predicate?.Invoke(map, maze, s) ?? maze[s] == MazeCell.Empty && map[s] == null)
                     .Select(s => new { Value = s, Distance = config.EmitterLocation.ManhattanDistance(s) })
                     .Where(s => s.Distance >= config.StartRadius)
                     .Where(s => s.Distance < config.EndRadius)

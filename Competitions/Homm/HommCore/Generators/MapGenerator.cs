@@ -41,7 +41,7 @@ namespace HoMM.Generators
 
             var entities = entitiesGenerators
                 .Aggregate(SigmaMap.Empty<TileObject>(maze.Size), 
-                (m, g) => m.Merge(g.Spawn(maze)));
+                (m, g) => m.Merge(g.Spawn(m, maze)));
 
             var tiles = Location.Square(mapSize)
                 .Select(s => new Tile(s, terrainMap[s],

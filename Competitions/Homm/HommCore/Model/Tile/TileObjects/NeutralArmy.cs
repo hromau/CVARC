@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HoMM
 {
@@ -26,6 +27,21 @@ namespace HoMM
             Combat.ResolveBattle(p, this);
             if (this.HasNoArmy())
                 OnRemove();
+        }
+
+        public static NeutralArmy BuildRandom(Location location, int minCountInclusive, int maxCountExclusive,
+            Random random=null)
+        {
+            if (random == null) random = new Random();
+
+            var unitTypes = Enum.GetNames(typeof(UnitType));
+
+            var unitType = (UnitType)Enum.Parse(typeof(UnitType), unitTypes[random.Next(0, unitTypes.Length)]);
+            var unitsCount = random.Next(minCountInclusive, maxCountExclusive);
+
+            var army = new Dictionary<UnitType, int> { { unitType, unitsCount } };
+
+            return new NeutralArmy(army, location);
         }
     }
 }

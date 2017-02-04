@@ -22,20 +22,20 @@ namespace HexModelTesting
         public void CheckResGainLoss()
         {
             var p = new Player("a", null);
-            Assert.AreEqual(p.CheckResourceAmount(Resource.Rubles), 0);
-            p.GainResources(Resource.Rubles, 100);
-            Assert.AreEqual(p.CheckResourceAmount(Resource.Rubles), 100);
-            p.PayResources(Resource.Rubles, 50);
-            Assert.AreEqual(p.CheckResourceAmount(Resource.Rubles), 50);
+            Assert.AreEqual(p.CheckResourceAmount(Resource.Gold), 0);
+            p.GainResources(Resource.Gold, 100);
+            Assert.AreEqual(p.CheckResourceAmount(Resource.Gold), 100);
+            p.PayResources(Resource.Gold, 50);
+            Assert.AreEqual(p.CheckResourceAmount(Resource.Gold), 50);
         }
 
         [Test]
         public void PayingMoreResThanYouHaveFails()
         {
             var p = new Player("a", null);
-            p.GainResources(Resource.Rubles, 100);
-            Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Rubles, 120));
-            Assert.AreEqual(p.CheckResourceAmount(Resource.Rubles), 100);
+            p.GainResources(Resource.Gold, 100);
+            Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Gold, 120));
+            Assert.AreEqual(p.CheckResourceAmount(Resource.Gold), 100);
             p.GainResources(Resource.Wood, 1);
             Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Ore, 1));
         }

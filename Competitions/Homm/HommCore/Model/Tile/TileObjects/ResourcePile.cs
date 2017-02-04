@@ -4,8 +4,8 @@ namespace HoMM
 {
     public class ResourcePile : TileObject
     {
-        public readonly Resource resource;
-        public readonly int quantity;
+        public readonly Resource Resource;
+        public readonly int Quantity;
 
         public override bool IsPassable => true;
 
@@ -13,13 +13,13 @@ namespace HoMM
         {
             if (quantity <= 0)
                 throw new ArgumentException("Cannot create zero or less resources!");
-            this.quantity = quantity;
-            this.resource = resource;
+            this.Quantity = quantity;
+            this.Resource = resource;
         }
 
         public override void InteractWithPlayer(Player p)
         {
-            p.GainResources(resource, quantity);
+            p.GainResources(Resource, Quantity);
             OnRemove();
         }
     }

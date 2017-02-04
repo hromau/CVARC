@@ -36,7 +36,7 @@ namespace HoMM.World
 
             Random = new Random(WorldState.Seed);
 
-            var map = MapHelper.CreateMap(Random);
+            var map = new MapHelper().CreateMap(Random);
             Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);
 

@@ -11,12 +11,12 @@ namespace HoMM.Generators
         private readonly Func<Location, TileObject> factory;
         private readonly SpawnerConfig config;
 
-        private readonly Func<ISigmaMap<MazeCell>, IEnumerable<Location>> getSpawnLocations;
+        private readonly Func<ISigmaMap<TileObject>, ISigmaMap<MazeCell>, IEnumerable<Location>> getSpawnLocations;
 
         public RandomSpawner(Random random,
             SpawnerConfig config,
             Func<Location, TileObject> factory,
-            Func<ISigmaMap<MazeCell>, IEnumerable<Location>> spawnLocations)
+            Func<ISigmaMap<TileObject>, ISigmaMap<MazeCell>, IEnumerable<Location>> spawnLocations)
         {
             this.random = random;
             this.factory = factory;
@@ -24,9 +24,9 @@ namespace HoMM.Generators
             getSpawnLocations = spawnLocations;
         }
 
-        public ISigmaMap<TileObject> Spawn(ISigmaMap<MazeCell> maze)
+        public ISigmaMap<TileObject> Spawn(ISigmaMap<TileObject> map, ISigmaMap<MazeCell> maze)
         {
-            var potentialLocations = getSpawnLocations(maze).ToArray();
+            var potentialLocations = getSpawnLocations(map, maze).ToArray();
             
             var spawnPoints = new HashSet<Location>();
 

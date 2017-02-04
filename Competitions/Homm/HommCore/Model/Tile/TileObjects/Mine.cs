@@ -4,7 +4,7 @@
     {
         public Resource Resource { get; private set; }
         
-        public override bool IsPassable => false;
+        public override bool IsPassable => true;
 
         public int Yield
         {
@@ -12,7 +12,7 @@
             {
                 switch (Resource)
                 {
-                    case Resource.Rubles: return 1000;
+                    case Resource.Gold: return 1000;
                     case Resource.Wood:
                     case Resource.Ore: return 2;
                     default: return 1;

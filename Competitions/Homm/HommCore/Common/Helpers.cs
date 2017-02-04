@@ -1,10 +1,33 @@
-﻿using HoMM.Generators;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace HoMM
 {
+    public static class RandomExtensions
+    {
+        public static T Choice<T>(this Random random, ICollection<T> source)
+        {
+            return source.Skip(random.Next(0, source.Count)).Single();
+        }
+
+        public static T Choice<T>(this Random random, params T[] source)
+        {
+            return source[random.Next(0, source.Length)];
+        }
+
+        public static T Choice<T>(this Random random, IList<T> source)
+        {
+            return source[random.Next(0, source.Count)];
+        }
+
+        public static TEnum Choice<TEnum>(this Random random)
+        {
+            var values = Enum.GetValues(typeof(TEnum));
+            return (TEnum)values.GetValue(random.Next(0, values.Length));
+        }
+    }
+
     public static class DictionaryExtensions
     {
         public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dict, 

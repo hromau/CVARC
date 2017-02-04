@@ -10,16 +10,18 @@ namespace HoMM.Generators
         public GraphSpawner(
             Random random,
             SpawnerConfig config,
-            Func<Location, TileObject> factory)
+            Func<Location, TileObject> factory,
+            Func<ISigmaMap<TileObject>, ISigmaMap<MazeCell>, Location, bool> predicate = null)
 
             : base(random, config, factory,
-                  maze => Graph.BreadthFirstTraverse(Location.Zero, s => s.Neighborhood
+                  (map, maze) => Graph.BreadthFirstTraverse(Location.Zero, s => s.Neighborhood
                         .InsideAndAboveDiagonal(maze.Size)
                         .Where(n => maze[n] == MazeCell.Empty))
                     .Select((x, i) => new { Distance = i, Node = x.Node })
                     .SkipWhile(x => x.Distance < config.StartRadius)
                     .TakeWhile(x => x.Distance < config.EndRadius)
-                    .Select(x => x.Node))
+                    .Select(x => x.Node)
+                    .Where(s => predicate?.Invoke(map, maze, s) ?? map[s] == null))
         { }
     }
 

@@ -24,16 +24,16 @@ namespace HexModelTesting
             round.UpdateTick(new Location[] { new Location(1, 0), new Location(1, 2) });
             var mine = (Mine)round.Map[new Location(1, 0)].tileObject;
             Assert.That(mine.Owner == round.Players[0]);
-            Assert.That(mine.Resource == Resource.Rubles);
+            Assert.That(mine.Resource == Resource.Gold);
             round.DailyTick();
-            Assert.AreEqual(round.Players[0].CheckResourceAmount(Resource.Rubles), 1000);
+            Assert.AreEqual(round.Players[0].CheckResourceAmount(Resource.Gold), 1000);
         }
 
         [Test]
         public void TestResGathering()
         {
             round.UpdateTick(new Location[] { new Location(0, 0), new Location(1, 1) });
-            Assert.That(round.Players[1].CheckResourceAmount(Resource.Rubles) == 100);
+            Assert.That(round.Players[1].CheckResourceAmount(Resource.Gold) == 100);
             Assert.That(round.Map[new Location(1, 1)].tileObject == null);
         }
 
@@ -87,7 +87,7 @@ namespace HexModelTesting
         public void PurchaseFailsWhenNoAvailableUnits()
         {
             var p = round.Players[0];
-            p.GainResources(Resource.Rubles, 50);
+            p.GainResources(Resource.Gold, 50);
             p.GainResources(Resource.Wood, 1);
             Assert.False(p.TryBuyUnits(1));
             Assert.That(round.Players[0].Army[UnitType.Ranged] == 0);
@@ -111,7 +111,7 @@ namespace HexModelTesting
             var dwelling = (Dwelling)round.Map[new Location(2, 1)].tileObject;
             round.UpdateTick(new Location[] { new Location(2, 1), new Location(0, 0) });
             var player = round.Players[0];
-            player.GainResources(Resource.Rubles, 1000);
+            player.GainResources(Resource.Gold, 1000);
             player.GainResources(Resource.Wood, 5);
             player.TryBuyUnits(5);
             Assert.That(player.Army[UnitType.Ranged] == 5);

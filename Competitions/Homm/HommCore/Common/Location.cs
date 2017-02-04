@@ -90,7 +90,7 @@ namespace HoMM
 
         public Location NeighborAt(Direction Direction)
         {
-            var isEven = Y % 2 == 0;
+            var isEven = X % 2 == 0;
 
             switch (Direction)
             {

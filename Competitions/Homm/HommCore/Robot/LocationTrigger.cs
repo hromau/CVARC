@@ -9,23 +9,29 @@ using System.Text;
 
 namespace HoMM.Robot
 {
-    class LocationTrigger : OneTimeTrigger
+    //class LocationCheckTrigger : OneTimeTrigger
+    //{
+    //    public LocationCheckTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
+    //        : base(submitTime + movementDuration,() => DoCheckLocation(submitTime, movementDuration, actor, newLocation))
+    //    { }
+
+    //    private static void DoCheckLocation(
+    //        double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
+    //    {
+    //        if (actor.World.Round.Map[newLocation].Objects.Any(x => x is ICombatable))
+
+    //    }
+    //}
+
+    class LocationChangeTrigger : OneTimeTrigger
     {
-        public LocationTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
+        public LocationChangeTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
             : base(submitTime + movementDuration, () => DoUpdateLocation(actor, newLocation))
         { }
 
         private static void DoUpdateLocation(IHommRobot actor, Location newLocation)
         {
             actor.World.Round.Update(actor.Player, newLocation);
-
-            Debugger.Settings.EnableType<LocationTrigger>();
-            Debugger.Log(actor.Player.Location.X + " " + actor.Player.Location.Y);
-
-            actor.World.HommEngine.SetPosition(actor.ControllerId, actor.Player.Location.X, actor.Player.Location.Y);
-
-            //if (actor.Player.HasNoArmy())
-            //    actor.Die();
         }
     }
 }

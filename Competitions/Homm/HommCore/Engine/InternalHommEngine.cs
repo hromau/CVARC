@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CVARC.V2;
+using System;
 using System.Collections.Generic;
 using UnityCommons;
 using UnityEngine;
@@ -51,28 +52,54 @@ namespace HoMM.Engine
             return obj;
         }
 
-        public void Move(GameObject obj, Direction direction, double duration)
+        public void Freeze(GameObject obj)
         {
-            /*var obj = GameObject.Find(id);
-            obj.AddComponent<Rigidbody>();
-            obj.GetComponent<Rigidbody>().useGravity = false;
-            obj.GetComponent<Rigidbody>().isKinematic = true;
-            var curpos = obj.transform.position;
-            var targetCell = new Vector3();
-            switch(direction) {
-                case Directions.Up: targetCell = new Vector3(curpos.x, curpos.y, curpos.z + hexHeight); break;
+            var rigidbody = obj.GetComponent<Rigidbody>();
+            if (rigidbody != null) rigidbody.velocity = Vector3.zero;
+        }
+
+        public void Move(GameObject obj, Direction direction, float duration)
+        {
+            Debugger.Log("Move called");
+
+            var rigidbody = obj.GetComponent<Rigidbody>();
+
+            if (rigidbody == null)
+            {
+                rigidbody = obj.AddComponent<Rigidbody>();
+                rigidbody.useGravity = false;
             }
-            var time = 1.0;
-            var speed = new Vector3(targetCell.x - curpos.x, targetCell.y - curpos.y, targetCell.z - curpos.z);*/
-            //speed.Normalize();
-            //obj.GetComponent<Rigidbody>().velocity = speed;
-            //commonEngine.SetAbsoluteSpeed(id, speed);
-            //(())
-            //while (time > 0) time -= Time.deltaTime;
 
-            //obj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            rigidbody.velocity = GetVelocity(direction).normalized / duration;
 
-            throw new NotImplementedException();
+            Debugger.Log(rigidbody.velocity);
+        }
+
+        private Vector3 GetVelocity(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Down:
+                    return new Vector3(1, 0, 0);
+
+                case Direction.Up:
+                    return new Vector3(-1, 0, 0);
+
+                case Direction.RightDown:
+                    return new Vector3(0.5f, 0, 0.5f * Mathf.Sqrt(3));
+
+                case Direction.LeftDown:
+                    return new Vector3(0.5f, 0, -0.5f * Mathf.Sqrt(3));
+
+                case Direction.RightUp:
+                    return new Vector3(-0.5f, 0, 0.5f * Mathf.Sqrt(3));
+
+                case Direction.LeftUp:
+                    return new Vector3(-0.5f, 0, -0.5f * Mathf.Sqrt(3));
+
+                default:
+                    throw new ArgumentException($"Invalid direction: {direction}");
+            }
         }
 
         public void SetColor(GameObject obj, Color color)
@@ -88,7 +115,7 @@ namespace HoMM.Engine
 
         public void SetPosition(GameObject obj, int x, int y)
         {
-            obj.transform.position = new Vector3(y, 0, x).ToUnityBasis(hexHeight);
+            obj.transform.position = FromHexagonal(x, y);
         }
 
         public void SetFlag(GameObject obj, Color color)
@@ -115,6 +142,13 @@ namespace HoMM.Engine
         public void SetCameraRotation(Quaternion rotation)
         {
             ObjectsCache.FindGameObject("Camera").transform.rotation = rotation;
+        }
+
+        private Vector3 FromHexagonal(int x, int y)
+        {
+            var newX = y * hexHeight + (x % 2 * hexHeight / 2);
+            var newZ = (3 * hexHeight * x) / (2 * Mathf.Sqrt(3));
+            return new Vector3(newX, 0, newZ);
         }
     }
 }

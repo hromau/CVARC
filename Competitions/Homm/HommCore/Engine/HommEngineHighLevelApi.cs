@@ -52,17 +52,4 @@ namespace HoMM.Engine
             engine.SetCameraRotation(90, -90, 0);
         }
     }
-
-    public static class HexagonalCoordsConverter
-    {
-        public static Vector3 ToUnityBasis(this Vector3 hexagonalCoordinates, float hexSize = 1)
-        {
-            var hc = hexagonalCoordinates;
-
-            var newX = hc.x * hexSize + (hc.z % 2 * hexSize / 2);
-            var newZ = (3 * hexSize * hc.z) / (2 * (float)Math.Sqrt(3));
-
-            return new Vector3(newX, 0, newZ);
-        }
-    }
 }

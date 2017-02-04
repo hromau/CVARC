@@ -29,6 +29,9 @@ namespace HoMM.Units.HexagonalMovement
                 return Tuple.Create(newLocation, turnDuration);
             }
 
+            engine.Freeze(player.Name);
+            engine.SetPosition(player.Name, player.Location.X, player.Location.Y);
+
             return Tuple.Create(player.Location, turnDuration);
         }
 

@@ -22,7 +22,7 @@ namespace HoMM.Robot
         public IHommEngine HommEngine { get; }
         public Map Map => World.Round.Map;
 
-        public LocationTrigger LocationTrigger { get; set; }
+        public LocationChangeTrigger LocationTrigger { get; set; }
 
         public HommRobot()
         {

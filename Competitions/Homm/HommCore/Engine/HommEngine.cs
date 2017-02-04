@@ -21,7 +21,7 @@ namespace HoMM.Engine
         public void Move(string id, Direction direction, double duration)
         {
             this.Log($"{nameof(Move)}", id, direction, duration);
-            engine.Move(ObjectsCache.FindGameObject(id), direction, duration);
+            engine.Move(ObjectsCache.FindGameObject(id), direction, (float)duration);
         }
 
         [ToLog]
@@ -52,16 +52,25 @@ namespace HoMM.Engine
             engine.SetFlag(ObjectsCache.FindGameObject(id), new Color(r, g, b));
         }
 
+        [ToLog]
         public void SetCameraPosition(float x, float y, float z)
         {
             this.Log($"{nameof(SetCameraPosition)}", x, y, z);
             engine.SetCameraPosition(new Vector3(x, y, z));
         }
 
+        [ToLog]
         public void SetCameraRotation(float x, float y, float z)
         {
             this.Log($"{nameof(SetCameraRotation)}", x, y, z);
             engine.SetCameraRotation(Quaternion.Euler(x, y, z));
+        }
+
+        [ToLog]
+        public void Freeze(string id)
+        {
+            this.Log($"{nameof(Freeze)}", id);
+            engine.Freeze(ObjectsCache.FindGameObject(id));
         }
     }
 }

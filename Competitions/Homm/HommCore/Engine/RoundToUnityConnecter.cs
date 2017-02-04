@@ -74,6 +74,13 @@ namespace HoMM.Engine
             var x = tileObject.location.X;
             var y = tileObject.location.Y;
 
+            if (tileObject is IBuilding)
+            {
+                var buildingLocation = ((IBuilding)tileObject).BuildingLocation;
+                x = buildingLocation.X;
+                y = buildingLocation.Y;
+            }
+
             if (tileObject is Mine)
             {
                 tileObject.unityID = $"Mine {counter[MapObject.Mine]++}";
@@ -86,7 +93,6 @@ namespace HoMM.Engine
             }
             if (tileObject is ResourcePile)
             {
-                return;
                 tileObject.unityID = $"Resources pile {counter[MapObject.ResourcesPile]++}";
                 hommEngine.CreateObject(tileObject.unityID, MapObject.ResourcesPile, x, y);
             }

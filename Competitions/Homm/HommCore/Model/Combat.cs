@@ -7,6 +7,9 @@ namespace HoMM
 {
     public static class Combat
     {
+
+        // return battle result (winner and loser)
+
         public static void ResolveBattle(ICombatable p1, ICombatable p2)
         {
             double atkDmgMod = (p1.Attack - p2.Defence) * ((p1.Attack - p2.Defence > 0) ? 0.05 : 0.025);

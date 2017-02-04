@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
+using System.Threading;
 using CVARC.V2;
 using UnityEngine;
 using Assets;
+using Assets.Servers;
 using Assets.Tools;
 using Infrastructure;
 using UnityCommons;
@@ -15,9 +15,12 @@ public static class Dispatcher
     public static GameManager GameManager { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
     public static LogModel LogModel { get; set; }
+
+    static ServiceServer serviceServer;
     
     static bool isGameOver;
     static bool switchingScenes;
+    static bool shutdown;
 
 
     public static void Start()
@@ -40,6 +43,12 @@ public static class Dispatcher
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         GameManager = new GameManager();
+
+        if (UnityConstants.NeedToOpenServicePort)
+        {
+            serviceServer = new ServiceServer(UnityConstants.ServicePort, 0);
+            new Thread(serviceServer.Work).Start();
+        }
     }
 
     public static void FillLoader(IDlcEntryPoint entryPoint)
@@ -54,6 +63,12 @@ public static class Dispatcher
 
     public static void IntroductionTick()
     {
+        if (shutdown)
+        {
+            OnDispose();
+            Application.Quit();
+        }
+
         switch (GameManager.CheckGame())
         {
             case RunType.Play:
@@ -73,6 +88,12 @@ public static class Dispatcher
 
     public static void RoundTick()
     {
+        if (shutdown)
+        {
+            OnDispose();
+            Application.Quit();
+        }
+
         if (GameManager.CheckGame() != RunType.NotReady)
             SetGameOver();
 
@@ -102,11 +123,18 @@ public static class Dispatcher
 
         Debugger.Log("GLOBAL EXIT");
         GameManager.Dispose();
+        if (serviceServer != null)
+            serviceServer.Dispose();
     }
 
     public static void SetGameOver()
     {
         isGameOver = true;
+    }
+
+    public static void SetShutdown()
+    {
+        shutdown = true;
     }
 
     public static void SwitchScene(string sceneName) // public очень плохо

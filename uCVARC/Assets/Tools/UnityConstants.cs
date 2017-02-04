@@ -14,10 +14,8 @@ namespace Assets
         public const string LogFolderRoot = "GameLogs/";
         public const string PathToConfigFile = "../Polygon/config&key.txt";
         public const string AlternativeConfigPath = "config&key.txt";
-
-        // через этот порт работают тулзы.
-        // выключен должен быть всегда, кроме запуска тулзы.
-        public const bool NeedToOpenServicePort = false;
+        
+        public const bool NeedToOpenServicePort = true;
 
         // так же как предыдущей. всегда тру кроме сервера.
         public const bool NeedToOpenSoloNetworkPort = true;

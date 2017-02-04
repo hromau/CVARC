@@ -17,17 +17,7 @@ namespace SingleplayerProxy
 
         static void Main(string[] args)
         {
-            Debugger.Logger = Console.WriteLine;
-            Debugger.Settings.EnableType<Proxy>();
-
             ReloadVersion();
-            if (IsUnityUp())
-            {
-                Console.WriteLine("Error: Unity already up, close it before start proxy");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                return;
-            }
 
             UpdateUnityIfNeeded();
             StartUnity();

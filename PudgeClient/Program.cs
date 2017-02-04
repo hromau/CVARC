@@ -20,12 +20,11 @@ namespace PudgeClientTest
             var client = new PudgeClient();
             client.Configurate("127.0.0.1", 18700, Guid.Empty);
 
-            client.Move(10);
-            client.Rotate(10);
-            client.Hook();
+            client.Move(100);
+            client.Rotate(100);
             client.Blink(0, 0);
             client.CreateWard();
-            client.Wait(10);
+            client.Wait(100);
             client.Hook();
         }
     }

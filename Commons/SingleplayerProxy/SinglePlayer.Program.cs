@@ -101,8 +101,11 @@ namespace SingleplayerProxy
             //mainConnection.WriteLine/JObject(worldState)
             var server = ConnectToServer();
             Proxy.CreateChainAndStart(server, client);
-            var result = mainConnection.ReadJson<GameResult>();
-            Console.WriteLine("Game complete. Results: " + result);
+            var resultTask = mainConnection.ReadJsonAsync<GameResult>();
+            resultTask.ContinueWith(x =>
+            {
+                Console.WriteLine(x.IsFaulted ? "Cant get game results." : "Game result is " + x.Result.Hehmeh);
+            });
         }
 
         static TcpClient ConnectToServer()

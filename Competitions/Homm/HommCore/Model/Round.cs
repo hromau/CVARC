@@ -40,31 +40,36 @@ namespace HoMM
                 return;
 
             player.Location = newLocation;
-            Map[newLocation].tileObject?.InteractWithPlayer(player);
+
+            foreach(var tileobject in Map[newLocation].Objects)
+                tileobject?.InteractWithPlayer(player);
         }
 
         public void DailyTick()
         {
             foreach (var tile in Map)
-                if (tile.tileObject is Mine)
-                {
-                    var m = tile.tileObject as Mine;
-                    if (m.Owner != null)
-                        m.Owner.GainResources(m.Resource, m.Yield);
-                }
+                foreach (var obj in tile.Objects)
+                    if (obj is Mine)
+                    {
+                        var m = obj as Mine;
+                        if (m.Owner != null)
+                            m.Owner.GainResources(m.Resource, m.Yield);
+                    }
 
             DaysPassed++;
             if (DaysPassed % 7 == 0)
                 WeeklyTick();
         }
+
         private void WeeklyTick()
         {
-            foreach (var tile in Map)
-                if (tile.tileObject is Dwelling)
-                {
-                    var d = tile.tileObject as Dwelling;
-                    d.AddWeeklyGrowth();
-                }
+            var dwellings = Map
+                .SelectMany(t => t.Objects)
+                .Where(obj => obj is Dwelling)
+                .Cast<Dwelling>();
+
+            foreach (var dwelling in dwellings)
+                dwelling.AddWeeklyGrowth();
         }
     }
 }

@@ -129,7 +129,7 @@
     <Compile Include="World\CombatTrigger.cs" />
     <Compile Include="World\HommWorld.cs" />
     <Compile Include="World\HommWorldState.cs" />
-    <Compile Include="World\MapHelper.cs" />
+    <Compile Include="World\MapGeneratorHelper.cs" />
     <Compile Include="Model\ICombatable.cs" />
     <Compile Include="Model\Tile\TileObjects\Wall.cs" />
     <Compile Include="Common\Location.cs" />

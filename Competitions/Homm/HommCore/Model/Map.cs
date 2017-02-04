@@ -40,30 +40,38 @@ namespace HoMM
         private void AssignGuardsToCapturableObjs()
         {
             foreach (var tile in map)
-                if (tile.tileObject is NeutralArmy)
-                {
-                    var neutralArmy = (NeutralArmy)tile.tileObject;
-                    var neighb = neutralArmy.location.Neighborhood.Inside(Size);
-                    foreach (var t in neighb.Select(pt => map[pt.Y, pt.X]))
-                        if (t.tileObject is CapturableObject)
-                            neutralArmy.GuardObject((CapturableObject)t.tileObject);
-                }
+                foreach (var tileObject in tile.Objects)
+                    if (tileObject is NeutralArmy)
+                    {
+                        var neutralArmy = (NeutralArmy)tileObject;
+                        var neighb = neutralArmy.location.Neighborhood.Inside(Size);
+                        foreach (var t in neighb.Select(pt => map[pt.Y, pt.X]))
+                            foreach(var to in t.Objects)
+                                if (to is CapturableObject)
+                                    neutralArmy.GuardObject((CapturableObject)to);
+                    }
         }
 
         public Map(int width, int height, IEnumerable<Tile> tiles)
             : this(width, height)
         {
             foreach (var tile in tiles)
-                map[tile.location.Y, tile.location.X] = tile;
+                map[tile.Location.Y, tile.Location.X] = tile;
         }
 
         public Tile MakeTile(int x, int y, string s)
         {
-            TileTerrain t = InitTerrain(char.ToUpper(s[0]));
+            var terrain = InitTerrain(char.ToUpper(s[0]));
+            var tile = new Tile(x, y, terrain, new List<TileObject>());
+
             TileObject obj = InitObject(s, new Location(y, x));
-            var tile = new Tile(x, y, t, obj);
-            if (tile.tileObject != null)
-                tile.tileObject.Remove += (o) => tile.tileObject = null;
+
+            if (obj != null)
+            {
+                obj.Remove += o => tile.Objects.Remove(o);
+                tile.Objects.Add(obj);
+            }
+
             return tile;
         }
 

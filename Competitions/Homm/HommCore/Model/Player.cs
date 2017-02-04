@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HoMM
 {
@@ -72,44 +73,41 @@ namespace HoMM
         {
             if (unitsToBuy <= 0)
                 throw new ArgumentException("Buy positive amounts of units!");
-            if (!(map[Location].tileObject is Dwelling))
+
+            var dwelling = (Dwelling)map[Location].Objects.Where(x => x is Dwelling).FirstOrDefault();
+
+            if (dwelling == null || dwelling.Owner != this || dwelling.AvailableUnits < unitsToBuy)
                 return false;
 
-            var d = (Dwelling)map[Location].tileObject;
-            if (d.Owner != this)
-                return false;
-            if (d.AvailableUnits < unitsToBuy)
-                return false;
-            foreach (var kvp in d.Recruit.UnitCost)
+            foreach (var kvp in dwelling.Recruit.UnitCost)
                 if (CheckResourceAmount(kvp.Key) < kvp.Value * unitsToBuy)
                     return false;
-            foreach (var kvp in d.Recruit.UnitCost)
+            foreach (var kvp in dwelling.Recruit.UnitCost)
                 PayResources(kvp.Key, kvp.Value * unitsToBuy);
-            AddUnits(d.Recruit.UnitType, unitsToBuy);
+            AddUnits(dwelling.Recruit.UnitType, unitsToBuy);
             return true;
         }
 
         //exchange units, positive amounts give to garrison, negative take from garrison
         public bool TryExchangeUnitsWithGarrison(Dictionary<UnitType, int> unitsToExchange)
         {
-            if (!(map[Location].tileObject is Garrison))
-                return false;
-            var g = (Garrison)map[Location].tileObject;
-            if (g.Owner != this)
+            var garrison = (Garrison)map[Location].Objects.Where(x => x is Garrison).FirstOrDefault();
+
+            if (garrison == null || garrison.Owner != this)
                 return false;
 
             foreach (var stack in unitsToExchange)
             {
                 if (stack.Value >= 0 && Army[stack.Key] >= stack.Value) 
                 {
-                    if (!g.Army.ContainsKey(stack.Key))
-                        g.Army.Add(stack.Key, 0);
-                    g.Army[stack.Key] += stack.Value;
+                    if (!garrison.Army.ContainsKey(stack.Key))
+                        garrison.Army.Add(stack.Key, 0);
+                    garrison.Army[stack.Key] += stack.Value;
                     Army[stack.Key] -= stack.Value;
                 }
-                else if (stack.Value < 0 && g.Army.ContainsKey(stack.Key) && g.Army[stack.Key] >= -stack.Value)
+                else if (stack.Value < 0 && garrison.Army.ContainsKey(stack.Key) && garrison.Army[stack.Key] >= -stack.Value)
                 {
-                    g.Army[stack.Key] -= -stack.Value;
+                    garrison.Army[stack.Key] -= -stack.Value;
                     Army[stack.Key] += -stack.Value;
                 }
                 else return false;

@@ -24,7 +24,7 @@ namespace HoMM.MapViewer
             var seed = 0;
             var r = new Random(seed);
 
-            var generator = new MapHelper().CreateGenerator(r);
+            var generator = new MapGeneratorHelper().CreateGenerator(r);
 
             Map map = null;
             
@@ -57,28 +57,28 @@ namespace HoMM.MapViewer
         private void DrawTile(Tile cell, Graphics g)
         {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            var dy = cell.location.X % 2 * 0.5f;
-            var x = (cell.location.X + 4);
-            var y = (cell.location.Y + 4);
+            var dy = cell.Location.X % 2 * 0.5f;
+            var x = (cell.Location.X + 4);
+            var y = (cell.Location.Y + 4);
             var voffset = mapSize + 2;
             var hoffset = mapSize + 2;
 
-            var brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawTerrain: true));
+            var brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawTerrain: true));
             g.FillEllipse(brush, x * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawTerrain: true, drawWalls: true));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawTerrain: true, drawWalls: true));
             g.FillEllipse(brush, (x + hoffset) * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawEnemies: true, drawWalls: true));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawEnemies: true, drawWalls: true));
             g.FillEllipse(brush, (x + 2 * hoffset) * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawPiles: true, drawWalls: true));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawPiles: true, drawWalls: true));
             g.FillEllipse(brush, x * diameter, (y + dy + voffset) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawMines: true, drawWalls: true));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawMines: true, drawWalls: true));
             g.FillEllipse(brush, (x + hoffset) * diameter, (y + dy + voffset) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, drawDwellings: true, drawWalls: true));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawDwellings: true, drawWalls: true));
             g.FillEllipse(brush, (x + 2*hoffset) * diameter, (y + dy + voffset) * diameter, diameter, diameter);
         }
 
@@ -109,29 +109,32 @@ namespace HoMM.MapViewer
             { UnitType.Ranged, Color.Brown }
         };
 
-        private Color GetColor(TileObject obj, TileTerrain terrain, 
-            bool drawWalls = false, 
-            bool drawTerrain = false, 
-            bool drawPiles = false, 
-            bool drawDwellings = false, 
+        private Color GetColor(List<TileObject> objects, TileTerrain terrain,
+            bool drawWalls = false,
+            bool drawTerrain = false,
+            bool drawPiles = false,
+            bool drawDwellings = false,
             bool drawMines = false,
             bool drawEnemies = false)
         {
-            if (obj is Mine && drawMines)
-                return resourceColor[(obj as Mine).Resource];
+            foreach (var obj in objects)
+            {
+                if (obj is Mine && drawMines)
+                    return resourceColor[(obj as Mine).Resource];
 
-            if (obj is ResourcePile && drawPiles)
-                return resourceColor[(obj as ResourcePile).Resource];
+                if (obj is ResourcePile && drawPiles)
+                    return resourceColor[(obj as ResourcePile).Resource];
 
-            if (obj is Dwelling && drawDwellings)
-                return dwellingColor[(obj as Dwelling).Recruit.UnitType];
+                if (obj is Dwelling && drawDwellings)
+                    return dwellingColor[(obj as Dwelling).Recruit.UnitType];
 
-            if (obj is NeutralArmy && drawEnemies)
-                return Color.FromArgb(255 - (int)(((NeutralArmy)obj).Army.Values.First() / 50.0 * 255), 0, 0);
+                if (obj is NeutralArmy && drawEnemies)
+                    return Color.FromArgb(255 - (int)(((NeutralArmy)obj).Army.Values.First() / 50.0 * 255), 0, 0);
 
-            if (obj != null && !obj.IsPassable && drawWalls)
-                return Color.DarkSlateGray;
-            
+                if (obj != null && !obj.IsPassable && drawWalls)
+                    return Color.DarkSlateGray;
+            }
+
             if (terrainColor.ContainsKey(terrain) && drawTerrain)
                 return terrainColor[terrain];
 

@@ -21,7 +21,7 @@ namespace HoMM.Units.HexagonalMovement
             var turnDuration = GetTravelDuration(player, map);
 
             var travelIsPossible = newLocation.IsInside(map.Size) &&
-                (map[newLocation].tileObject?.IsPassable ?? true);
+                (map[newLocation].Objects.TrueForAll(x => x.IsPassable));
 
             if (travelIsPossible)
             {
@@ -34,7 +34,7 @@ namespace HoMM.Units.HexagonalMovement
 
         private double GetTravelDuration(Player player, Map map)
         {
-            var velocityModifier = map[player.Location].tileTerrain.TravelCost;
+            var velocityModifier = map[player.Location].Terrain.TravelCost;
             return HommRules.Current.MovementDuration * velocityModifier;
         }
     }

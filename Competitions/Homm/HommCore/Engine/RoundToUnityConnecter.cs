@@ -49,8 +49,10 @@ namespace HoMM.Engine
 
             foreach (var location in Location.Square(map.Size))
             {
-                api.CreateHexagon(GetTerrainType(map[location].tileTerrain), location);
-                CreateTileObject(map[location].tileObject);
+                api.CreateHexagon(GetTerrainType(map[location].Terrain), location);
+
+                foreach (var tileObject in map[location].Objects)
+                    CreateTileObject(tileObject);
             }
         }
 

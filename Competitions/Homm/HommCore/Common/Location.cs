@@ -5,7 +5,7 @@ namespace HoMM
 {
     public class Location : Vector2i
     {
-        public static readonly Location Zero = new Location(0, 0);
+        public static readonly new Location Zero = new Location(0, 0);
 
         public Location(int y, int x) : base(x, y) { }
 
@@ -18,6 +18,16 @@ namespace HoMM
                         if (dx * dx + dy * dy != 0 && dy * dx * dx != 1)
                             yield return new Location(Y + dy + (X % 2) * dx * dx, X + dx);
             }
+        }
+
+        public static Location operator -(Location left, Vector2i right)
+        {
+            return new Location(left.Y - right.Y, left.X - right.X);
+        }
+
+        public static Location operator +(Location left, Vector2i right)
+        {
+            return new Location(left.Y + right.Y, left.X + right.X);
         }
 
         public Location DiagonalMirror(MapSize size)

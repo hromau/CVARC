@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using Assets.Tools;
 using CVARC.V2;
 using Infrastructure;
@@ -12,10 +11,9 @@ namespace Assets.Servers
 {
     public class PlayServer : IDisposable
     {
-        private TcpListener listener;
+        private readonly TcpListener listener;
         private TcpClient proxyConnection;
         private WorldCreationParams worldCreationParams;
-        public bool GameStarted;
 
         public PlayServer(int port)
         {
@@ -27,7 +25,7 @@ namespace Assets.Servers
         {
             if (worldCreationParams != null)
                 return true;
-            if (!listener.Pending() || GameStarted)
+            if (!listener.Pending())
                 return false;
 
             proxyConnection = listener.AcceptTcpClient();
@@ -58,7 +56,6 @@ namespace Assets.Servers
             if (worldCreationParams == null)
                 throw new Exception("Game was not ready!");
 
-            GameStarted = true;
             var world = Dispatcher.Loader.CreateWorld(
                 worldCreationParams.GameSettings,
                 worldCreationParams.ControllerFactory,

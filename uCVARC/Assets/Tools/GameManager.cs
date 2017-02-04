@@ -9,8 +9,8 @@ namespace Assets
 {
     public class GameManager : IDisposable
     {
-        private PlayServer playServer;
-        private LogServer logServer;
+        private readonly PlayServer playServer;
+        private readonly LogServer logServer;
         private LoadingData tutorialLoadingData;
         private GameSession gameSession;
 

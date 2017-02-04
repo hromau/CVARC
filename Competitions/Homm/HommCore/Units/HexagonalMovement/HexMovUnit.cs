@@ -1,6 +1,7 @@
 ﻿using CVARC.V2;
 using HoMM.Robot;
 using HoMM.World;
+using Infrastructure;
 
 namespace HoMM.Units.HexagonalMovement
 {

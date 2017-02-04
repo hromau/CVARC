@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using AIRLab.Mathematics;
 using System.Windows.Forms;
+using Infrastructure;
 
 namespace CVARC.V2
 {

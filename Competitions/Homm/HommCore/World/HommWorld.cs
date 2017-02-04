@@ -2,7 +2,7 @@
 using System.Linq;
 using CVARC.V2;
 using HoMM.Engine;
-using HoMM.Rules;
+using Infrastructure;
 
 namespace HoMM.World
 {

@@ -53,7 +53,7 @@ namespace Assets.Servers
             return true;
         }
 
-        public IWorld StartGame()
+        public GameSession StartGame()
         {
             if (worldCreationParams == null)
                 throw new Exception("Game was not ready!");
@@ -65,14 +65,7 @@ namespace Assets.Servers
                 worldCreationParams.WorldState);
             worldCreationParams = null;
 
-            return world;
-        }
-
-        public void EndGame(GameResult gameResult)
-        {
-            proxyConnection.WriteJson(gameResult);
-            proxyConnection.Close();
-            GameStarted = false;
+            return new GameSession(world, proxyConnection);
         }
 
         public void Dispose()

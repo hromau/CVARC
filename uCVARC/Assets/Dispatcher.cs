@@ -97,7 +97,10 @@ public static class Dispatcher
     public static void OnDispose()
     {
         if (CurrentWorld != null)
+        {
             CurrentWorld.OnExit();
+            CurrentWorld = null;
+        }
         if (switchingScenes)
         {
             switchingScenes = false;

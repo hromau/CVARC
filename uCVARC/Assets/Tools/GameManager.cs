@@ -12,6 +12,7 @@ namespace Assets
         private PlayServer playServer;
         private LogServer logServer;
         private LoadingData tutorialLoadingData;
+        private GameSession gameSession;
 
         // еще сервер логов
         public GameManager()
@@ -36,7 +37,10 @@ namespace Assets
         public IWorld StartGame()
         {
             if (playServer.HasGame())
-                return playServer.StartGame();
+            {
+                gameSession = playServer.StartGame();
+                return gameSession.World;
+            }
             if (tutorialLoadingData != null)
                 return CreateTutorialGame();
 
@@ -45,8 +49,9 @@ namespace Assets
 
         public void EndGame(GameResult gameResult)
         {
-            if (playServer.GameStarted)
-                playServer.EndGame(gameResult);
+            if (gameSession != null)
+                gameSession.EndSession(gameResult);
+            gameSession = null;
         }
 
         public void RequestTutorial(LoadingData loadingData)

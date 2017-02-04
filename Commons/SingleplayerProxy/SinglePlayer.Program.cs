@@ -30,13 +30,19 @@ namespace SingleplayerProxy
 
             var unityWaiterTask = WaitUntillUnityClosed();
             var listener = new TcpListener(SingleplayerProxyConfigurations.ProxyEndPoint);
+            listener.Start();
 
+            var tasks = new [] {unityWaiterTask, null};
             while (true)
             {
-                var tasks = new[] {unityWaiterTask, listener.AcceptTcpClientAsync()};
+                tasks[1] = listener.AcceptTcpClientAsync();
                 var index = Task.WaitAny(tasks);
                 if (index == 0)
-                    break;
+                {
+                    tasks[1].Wait();
+                    StartUnity();
+                    tasks[0] = WaitUntillUnityClosed();
+                }
                 var client = ((Task<TcpClient>) tasks[1]).Result;
                 PlayGame(client);
             }
@@ -52,10 +58,14 @@ namespace SingleplayerProxy
             GetUnityProcess()?.Kill();
 
         static bool IsUpdateAvailable() =>
+            SingleplayerProxyConfigurations.UpdateEnabled &&
             WebHelper.ReadFromUrlAsync<int>(SingleplayerProxyConfigurations.UrlToGetVersion).Result > currentVersion;
 
-        static void StartUnity() =>
-            Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+        static void StartUnity() // сделать так, чтоб этот метод ждал от юнити ответа по служебному порту.
+        {
+            if (!SingleplayerProxyConfigurations.DebugMode)
+                Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+        }
 
         static void UpdateUnityIfNeeded()
         {
@@ -76,9 +86,9 @@ namespace SingleplayerProxy
         static async Task WaitUntillUnityClosed()
         {
             var unityProcess = GetUnityProcess();
-            if (unityProcess == null)
+            if (unityProcess == null && !SingleplayerProxyConfigurations.DebugMode)
                 return;
-            while (!unityProcess.HasExited)
+            while (SingleplayerProxyConfigurations.DebugMode || !unityProcess.HasExited)
                 await Task.Delay(500);
         }
 
@@ -110,7 +120,7 @@ namespace SingleplayerProxy
 
         public static void ReloadVersion()
         {
-            if (File.Exists(SingleplayerProxyConfigurations.PathToVersionFile))
+            if (!File.Exists(SingleplayerProxyConfigurations.PathToVersionFile))
                 File.WriteAllText(SingleplayerProxyConfigurations.PathToVersionFile, "-1");
             currentVersion = int.Parse(File.ReadAllText(SingleplayerProxyConfigurations.PathToVersionFile));
         }

@@ -22,6 +22,11 @@ namespace PudgeClientTest
 
             client.Move(10);
             client.Rotate(10);
+            client.Hook();
+            client.Blink(0, 0);
+            client.CreateWard();
+            client.Wait(10);
+            client.Hook();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using Infrastructure;
 
 namespace Assets.Servers
@@ -9,11 +8,9 @@ namespace Assets.Servers
     public class ServiceServer : IDisposable
     {
         private readonly TcpListener listener;
-        private readonly int version;
 
-        public ServiceServer(int port, int version)
+        public ServiceServer(int port)
         {
-            this.version = version;
             listener = new TcpListener(IPAddress.Any, port);
             listener.Start();
         }
@@ -29,8 +26,8 @@ namespace Assets.Servers
                     case ServiceUnityCommand.Ping:
                         client.WriteJson("ping");
                         break;
-                    case ServiceUnityCommand.GetVersion:
-                        client.WriteJson(version);
+                    case ServiceUnityCommand.GetCompetitionsList:
+                        client.WriteJson(null);
                         break;
                     case ServiceUnityCommand.Shutdown:
                         client.WriteJson("ok");

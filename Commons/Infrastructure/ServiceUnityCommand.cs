@@ -3,7 +3,7 @@
     public enum ServiceUnityCommand
     {
         Ping,
-        GetVersion,
+        GetCompetitionsList,
         Shutdown
     }
 }

@@ -46,7 +46,7 @@ public static class Dispatcher
 
         if (UnityConstants.NeedToOpenServicePort)
         {
-            serviceServer = new ServiceServer(UnityConstants.ServicePort, 0);
+            serviceServer = new ServiceServer(UnityConstants.ServicePort);
             new Thread(serviceServer.Work).Start();
         }
     }

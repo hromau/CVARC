@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure;
 using Ionic.Zip;
 using ProxyCommon;
-using Debugger = Infrastructure.Debugger;
 
 namespace SingleplayerProxy
 {
@@ -20,13 +19,13 @@ namespace SingleplayerProxy
             ReloadVersion();
 
             UpdateUnityIfNeeded();
-            StartUnity();
+            if (!IsUnityUp())
+                StartUnity();
 
-            var unityWaiterTask = WaitUntillUnityClosed();
             var listener = new TcpListener(SingleplayerProxyConfigurations.ProxyEndPoint);
             listener.Start();
 
-            var tasks = new [] {unityWaiterTask, null};
+            var tasks = new[] { WaitUntillUnityClosed(), null};
             while (true)
             {
                 tasks[1] = listener.AcceptTcpClientAsync();
@@ -42,14 +41,12 @@ namespace SingleplayerProxy
             }
         }
 
-        static Process GetUnityProcess() =>
-            Process.GetProcessesByName(SingleplayerProxyConfigurations.UnityProcessName).FirstOrDefault();
-
         static bool IsUnityUp() =>
-            GetUnityProcess() != null;
+            SingleplayerProxyConfigurations.DebugMode ||
+            !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping));
 
         static void KillUnity() =>
-            GetUnityProcess()?.Kill();
+            TrySendUnityCommand<string>(ServiceUnityCommand.Shutdown);
 
         static bool IsUpdateAvailable() =>
             SingleplayerProxyConfigurations.UpdateEnabled &&
@@ -59,30 +56,36 @@ namespace SingleplayerProxy
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
                 Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+            TrySendUnityCommand<string>(ServiceUnityCommand.Ping);
         }
 
         static void UpdateUnityIfNeeded()
         {
             Console.WriteLine("Checking update...");
-            if (!IsUpdateAvailable())
+            try
             {
-                Console.WriteLine("You use actual version");
-                return;
+                if (!IsUpdateAvailable())
+                {
+                    Console.WriteLine("You use actual version");
+                    return;
+                }
+                Console.WriteLine("Update available! Start to download...");
+                KillUnity();
+                Thread.Sleep(1000);
+                WebHelper.DownloadFile(SingleplayerProxyConfigurations.UrlToGetUpdate, "update.zip").Wait();
+                InstallUpdate("update.zip");
+                Console.WriteLine("Update successful!");
             }
-            Console.WriteLine("Update available! Start to download...");
-
-            KillUnity();
-            WebHelper.DownloadFile(SingleplayerProxyConfigurations.UrlToGetUpdate, "update.zip").Wait();
-            InstallUpdate("update.zip");
-            Console.WriteLine("Update successful!");
+            catch (Exception e)
+            {
+                Console.WriteLine("error when try update");
+                Console.WriteLine(e.ToString());
+            }
         }
 
         static async Task WaitUntillUnityClosed()
         {
-            var unityProcess = GetUnityProcess();
-            if (unityProcess == null && !SingleplayerProxyConfigurations.DebugMode)
-                return;
-            while (SingleplayerProxyConfigurations.DebugMode || !unityProcess.HasExited)
+            while (SingleplayerProxyConfigurations.DebugMode || !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping)))
                 await Task.Delay(500);
         }
 
@@ -118,8 +121,24 @@ namespace SingleplayerProxy
         public static void ReloadVersion()
         {
             if (!File.Exists(SingleplayerProxyConfigurations.PathToVersionFile))
-                File.WriteAllText(SingleplayerProxyConfigurations.PathToVersionFile, "-1");
+                File.WriteAllText(SingleplayerProxyConfigurations.PathToVersionFile, "0");
             currentVersion = int.Parse(File.ReadAllText(SingleplayerProxyConfigurations.PathToVersionFile));
         }
+
+        static T TrySendUnityCommand<T>(ServiceUnityCommand command)
+        {
+            var task = Task.Run(async () =>
+            {
+                var client = new TcpClient();
+                client.Connect(SingleplayerProxyConfigurations.UnityServiceEndPoint);
+                await client.WriteJsonAsync(command);
+
+                return await client.ReadJsonAsync<T>();
+            });
+            if (!task.Wait(TimeSpan.FromSeconds(8)) || task.IsFaulted)
+                return default(T);
+            return task.Result;
+        }
+
     }
 }

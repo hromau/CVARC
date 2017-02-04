@@ -73,6 +73,8 @@ namespace Assets
         {
             playServer.Dispose();
             logServer.Dispose();
+            if (gameSession != null)
+                gameSession.EndSession(null);
         }
     }
 }

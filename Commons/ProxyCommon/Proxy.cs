@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using Infrastructure;
 using CVARC.V2;
@@ -7,6 +8,8 @@ namespace ProxyCommon
 {
     public class Proxy
     {
+        private static readonly Random Rand = new Random(0);
+        private readonly int proxyId;
         private readonly TcpClient from;
         private readonly TcpClient to;
         private bool cancelled;
@@ -21,23 +24,29 @@ namespace ProxyCommon
         {
             this.from = from;
             this.to = to;
+            proxyId = Rand.Next(100);
         }
 
         public async Task Work()
         {
             try
             {
-                while (!cancelled && from.IsAlive() && to.IsAlive())
+                while (!cancelled)
                 {
+                    if (!from.IsAlive())
+                        break;
                     var bytes = await from.ReadAsync();
-                    Debugger.Log(System.Text.Encoding.ASCII.GetString(bytes));
+                    if (!to.IsAlive())
+                        break;
                     await to.WriteAsync(bytes);
                 }
             }
             finally
             {
+                Debugger.Log(proxyId + " closing");
                 to.Close();
                 from.Close();
+                Debugger.Log(proxyId + " closed");
             }
         }
 

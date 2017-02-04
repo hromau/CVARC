@@ -34,8 +34,9 @@ namespace Assets.Servers
                         break;
                     case ServiceUnityCommand.Shutdown:
                         client.WriteJson("ok");
+                        client.Close();
                         Dispatcher.SetShutdown();
-                        break;
+                        return;
                 }
                 client.Close();
             }

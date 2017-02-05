@@ -30,12 +30,13 @@ namespace HoMM.Engine
                 }
             },
 
-            { MapObject.Hero, GetFactoryFor(PrimitiveType.Capsule) },
-            { MapObject.Mine, GetFactoryFor(PrimitiveType.Cube) },
-            { MapObject.Flag, GetFactoryFor(PrimitiveType.Sphere) },
-            { MapObject.Dwelling, GetFactoryFor(PrimitiveType.Capsule) },
-            { MapObject.NeutralArmy, GetFactoryFor(PrimitiveType.Cylinder) },
-            { MapObject.ResourcesPile, GetFactoryFor(PrimitiveType.Sphere) },
+            { MapObject.Hero, GetFactoryFor(PrimitiveType.Capsule, Color.white) },
+            { MapObject.Mine, GetFactoryFor(PrimitiveType.Cube, Color.white) },
+            { MapObject.Wall, GetFactoryFor(PrimitiveType.Cube, new Color(0.8f, 0.5f, 0.5f)) },
+            { MapObject.Flag, GetFactoryFor(PrimitiveType.Sphere, Color.white) },
+            { MapObject.Dwelling, GetFactoryFor(PrimitiveType.Capsule, Color.white) },
+            { MapObject.NeutralArmy, GetFactoryFor(PrimitiveType.Cylinder, Color.magenta) },
+            { MapObject.ResourcesPile, GetFactoryFor(PrimitiveType.Sphere, Color.cyan) },
         };
 
 
@@ -47,9 +48,14 @@ namespace HoMM.Engine
             availableColors.Enqueue(Color.blue);
         }
 
-        private static Func<GameObject> GetFactoryFor(PrimitiveType primitive)
+        private static Func<GameObject> GetFactoryFor(PrimitiveType primitive, Color color)
         {
-            return () => GameObject.CreatePrimitive(primitive);
+            return () =>
+            {
+                var obj = GameObject.CreatePrimitive(primitive);
+                SetColor(obj, color);
+                return obj;
+            };
         }
 
         public void InitColor(GameObject hero)
@@ -130,7 +136,7 @@ namespace HoMM.Engine
             }
         }
 
-        public void SetColor(GameObject obj, Color color)
+        public static void SetColor(GameObject obj, Color color)
         {
             foreach (var mr in obj.transform.GetComponentsInChildren<MeshRenderer>())
                 mr.material.color = color;

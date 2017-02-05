@@ -64,7 +64,7 @@ namespace HoMM.Engine
         public void SetColor(string id, float r, float g, float b)
         {
             this.Log($"{nameof(SetColor)}", id, r, g, b);
-            engine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
+            InternalHommEngine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
         }
     }
 }

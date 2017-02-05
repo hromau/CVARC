@@ -21,6 +21,12 @@ namespace HoMM
             if (availableUnits < 0)
                 throw new ArgumentException("Cannot have negative units at dwelling!");
 
+            if (triggerLocation == null)
+                throw new ArgumentException("Expected triggerLocation, got null");
+
+            if (buildingLocation == null)
+                throw new ArgumentException("Expected buildingLocation, got null");
+
             Recruit = unit;
             AvailableUnits = availableUnits;
             TriggerLocation = triggerLocation;

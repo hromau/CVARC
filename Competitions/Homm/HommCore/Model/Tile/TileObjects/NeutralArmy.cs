@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CVARC.V2;
+using System;
 using System.Collections.Generic;
 
 namespace HoMM
@@ -15,6 +16,9 @@ namespace HoMM
         public NeutralArmy(Dictionary<UnitType, int> army, Location location) : base(location)
         {
             Army = army;
+
+            foreach (var kv in army)
+                Debugger.Log($"Init {kv.Value} {kv.Key} at {location}");
         }
 
         public void GuardObject(CapturableObject obj)
@@ -30,18 +34,19 @@ namespace HoMM
         }
 
         public static NeutralArmy BuildRandom(Location location, int minCountInclusive, int maxCountExclusive,
-            Random random=null)
+            Random random)
         {
-            if (random == null) random = new Random();
-
-            var unitTypes = Enum.GetNames(typeof(UnitType));
-
-            var unitType = (UnitType)Enum.Parse(typeof(UnitType), unitTypes[random.Next(0, unitTypes.Length)]);
+            var unitType = random.Choice<UnitType>();
             var unitsCount = random.Next(minCountInclusive, maxCountExclusive);
 
             var army = new Dictionary<UnitType, int> { { unitType, unitsCount } };
 
             return new NeutralArmy(army, location);
+        }
+
+        public NeutralArmy Copy(Location location)
+        {
+            return new NeutralArmy(new Dictionary<UnitType, int>(Army), location);
         }
     }
 }

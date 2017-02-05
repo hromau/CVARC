@@ -98,6 +98,8 @@ namespace HoMM
                     return false;
             foreach (var kvp in dwelling.Recruit.UnitCost)
                 PayResources(kvp.Key, kvp.Value * unitsToBuy);
+
+            dwelling.RemoveBoughtUnits(unitsToBuy);
             AddUnits(dwelling.Recruit.UnitType, unitsToBuy);
 
             Debugger.Log($"Purchase: {unitsToBuy} {dwelling.Recruit.UnitType}");

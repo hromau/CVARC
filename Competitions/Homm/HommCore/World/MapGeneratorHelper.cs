@@ -9,7 +9,20 @@ namespace HoMM.World
     {
         const int mapSize = 18;
 
-        public Map CreateMap(Random r) => CreateGenerator(r).GenerateMap(mapSize);
+        public Map CreateMap(Random r)
+        {
+            HommMapGenerator generator = CreateGenerator(r);
+
+            Map map = null;
+
+            while (map == null)
+            {
+                try { map = generator.GenerateMap(mapSize); }
+                catch { }
+            }
+
+            return map;
+        }
 
         public HommMapGenerator CreateGenerator(Random r)
         {
@@ -36,6 +49,12 @@ namespace HoMM.World
         private HommMapGenerator.BuilderOnSelectEntities AddDwellings(
             HommMapGenerator.BuilderOnSelectEntities builder, Random random)
         {
+            builder = builder
+                .With(new SimpleSpawner(
+                    (map, maze, location) => new Dwelling(UnitFactory.FromType(UnitType.Militia),
+                        location, UnitConstants.WeeklyGrowth[UnitType.Militia]),
+                    maze => new[] { Location.Zero, Location.Max(maze.Size) }));
+
             var dwellingsConfig = new SpawnerConfig(Location.Zero, 30, 100, 0.2);
 
             foreach (var unitType in spawnableDwellings)
@@ -44,11 +63,7 @@ namespace HoMM.World
                         FindPlaceForBuilding(map, maze, loc), UnitConstants.WeeklyGrowth[unitType]),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
 
-            return builder
-                .With(new SimpleSpawner(
-                    (map, maze, loc) => new Dwelling(UnitFactory.FromType(UnitType.Militia), 
-                        loc, loc, UnitConstants.WeeklyGrowth[UnitType.Militia]), 
-                    maze => new[] { Location.Zero, Location.Max(maze.Size) }));
+            return builder;
         }
 
         private HommMapGenerator.BuilderOnSelectEntities AddMines(
@@ -58,8 +73,6 @@ namespace HoMM.World
 
             foreach (var resource in spawnableResources)
             {
-                var occupied = new HashSet<Location>();
-
                 builder = builder.With(new GraphSpawner(random, minesConfig,
                     (map, maze, loc) => new Mine(resource, loc, FindPlaceForBuilding(map, maze, loc)),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
@@ -116,7 +129,8 @@ namespace HoMM.World
         {
             var guardsConfig = new SpawnerConfig(Location.Zero, 16.5, 100, 1);
             return builder.With(new DistanceSpawner(random, guardsConfig,
-                (map, maze, p) => NeutralArmy.BuildRandom(p, 40, 50)));
+                (map, maze, p) => NeutralArmy.BuildRandom(p, 40, 50, random),
+                symmetricFactory: (original, location) => ((NeutralArmy)original).Copy(location)));
         }
 
         private HommMapGenerator.BuilderOnSelectEntities AddEnemies(
@@ -128,12 +142,14 @@ namespace HoMM.World
             return builder
 
                 .With(new GraphSpawner(random, easyTier,
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 5, 10),
-                    (map, maze, location) => map[location].Any(x => x is Mine)))
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 5, 10, random),
+                    (map, maze, location) => map[location].Any(x => x is Mine),
+                    (original, location) => ((NeutralArmy)original).Copy(location)))
 
                 .With(new GraphSpawner(random, hardTier, 
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 10, 30),
-                    (map, maze, location) => map[location].Any(x => x is Mine)));
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 10, 30, random),
+                    (map, maze, location) => map[location].Any(x => x is Mine),
+                    (original, location) => ((NeutralArmy)original).Copy(location)));
         }
     }
 }

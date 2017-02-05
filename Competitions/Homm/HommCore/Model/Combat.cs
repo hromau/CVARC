@@ -1,3 +1,4 @@
+using CVARC.V2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,18 @@ namespace HoMM
     {
         public static void ResolveBattle(ICombatable p1, ICombatable p2)
         {
+            Debugger.Log("Resolve battle");
+
+            Debugger.Log("First army:");
+
+            foreach (var kv in p1.Army)
+                Debugger.Log($"{kv.Key} - {kv.Value}");
+
+            Debugger.Log("Second army:");
+
+            foreach(var kv in p2.Army)
+                Debugger.Log($"{kv.Key} - {kv.Value}");
+
             double atkDmgMod = (p1.Attack - p2.Defence) * ((p1.Attack - p2.Defence > 0) ? 0.05 : 0.025);
             double defDmgMod = (p2.Attack - p1.Defence) * ((p2.Attack - p1.Defence > 0) ? 0.05 : 0.025);
 

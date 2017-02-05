@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.Engine;
 using HoMM.Robot;
 using HoMM.Rules;
 using HoMM.Units.ArmyInterface;
@@ -32,6 +33,9 @@ namespace HoMM
             Debugger.Settings.EnableType<Player>();
             Debugger.Settings.EnableType<ArmyInterfaceUnit>();
             Debugger.Settings.EnableType<Round>();
+            Debugger.Settings.EnableType<NeutralArmy>();
+            Debugger.Settings.EnableType<RoundToUnityConnecter>();
+            Debugger.Settings.EnableType(typeof(Combat));
         }
 
         public override LogicPart Create()
@@ -44,7 +48,9 @@ namespace HoMM
 
             logicPart.WorldStateType = typeof(HommWorldState);
             logicPart.CreateWorldState = seed => new HommWorldState(int.Parse(seed));
-            logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
+            //logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
+
+            logicPart.PredefinedWorldStates.Add(new Random().Next().ToString());
 
             var actorFactory = ActorFactory.FromRobot(new HommRobot(), rules);
             

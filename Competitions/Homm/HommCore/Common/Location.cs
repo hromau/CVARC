@@ -116,5 +116,10 @@ namespace HoMM
             throw new ArgumentException($"Value of {nameof(Direction)} is invalid" +
                 " and not supported by this method!");
         }
+
+        public override string ToString()
+        {
+            return $"{{ X = {X}; Y = {Y} }}";
+        }
     }
 }

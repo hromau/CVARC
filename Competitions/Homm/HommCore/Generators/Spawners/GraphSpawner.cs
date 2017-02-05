@@ -11,9 +11,10 @@ namespace HoMM.Generators
             Random random,
             SpawnerConfig config,
             Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, TileObject> factory,
-            Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, bool> predicate = null)
+            Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, bool> predicate = null,
+            Func<TileObject, Location, TileObject> symmetricFactory = null)
 
-            : base(random, config, factory,
+            : base(random, config, factory, symmetricFactory,
                   (map, maze) => Graph.BreadthFirstTraverse(Location.Zero, s => s.Neighborhood
                         .InsideAndAboveDiagonal(maze.Size)
                         .Where(n => maze[n] == MazeCell.Empty))

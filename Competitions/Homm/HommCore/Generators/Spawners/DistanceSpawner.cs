@@ -11,11 +11,12 @@ namespace HoMM.Generators
             Random random,
             SpawnerConfig config,
             Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, TileObject> factory,
-            Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, bool> predicate = null)
+            Func<ISigmaMap<List<TileObject>>, ISigmaMap<MazeCell>, Location, bool> predicate = null,
+            Func<TileObject, Location, TileObject> symmetricFactory = null)
 
-            : base(random, config, factory,
+            : base(random, config, factory, symmetricFactory,
                   (map, maze) => Location.Square(maze.Size)
-                    .Where(s => predicate?.Invoke(map, maze, s) ?? 
+                    .Where(s => predicate?.Invoke(map, maze, s) ??
                         maze[s] == MazeCell.Empty && (map[s] == null || map[s].Count == 0))
                     .Select(s => new { Value = s, Distance = config.EmitterLocation.ManhattanDistance(s) })
                     .Where(s => s.Distance >= config.StartRadius)

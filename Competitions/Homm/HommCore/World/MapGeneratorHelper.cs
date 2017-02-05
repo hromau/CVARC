@@ -71,7 +71,7 @@ namespace HoMM.World
             ISigmaMap<List<TileObject>> map, ISigmaMap<MazeCell> maze, Location placeToCheck)
         {
             var isWall = maze[placeToCheck] == MazeCell.Wall;
-            var isOccupiedByOther = map[placeToCheck].Count != 0;
+            var isOccupiedByOther = map[placeToCheck] != null && map[placeToCheck].Count != 0;
             var hasPlaceForBuilding = FindPlaceForBuilding(map, maze, placeToCheck) != null;
 
             return !isWall && !isOccupiedByOther && hasPlaceForBuilding;
@@ -86,8 +86,7 @@ namespace HoMM.World
                 .Any(neighbor => map[neighbor].Any(x => (x is IBuilding && ((IBuilding)x).BuildingLocation == loc)));
 
             return neighbors(location)
-                .Where(x => maze[x] == MazeCell.Wall)
-                .Where(x => neighbors(x).Any(z => !isBuilding(z)))
+                .Where(neighbor => maze[neighbor] == MazeCell.Wall && !isBuilding(neighbor))
                 .FirstOrDefault();
         }
 

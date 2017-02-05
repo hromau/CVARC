@@ -18,6 +18,9 @@ namespace Assets.Tools
 
         public void EndSession(GameResult result)
         {
+            // на случай спидапа сетим обратно
+            Dispatcher.SetTimeScale(UnityConstants.TimeScale);
+
             try
             {
                 proxyConnection.WriteJson(result);

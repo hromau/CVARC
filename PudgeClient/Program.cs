@@ -18,7 +18,7 @@ namespace PudgeClientTest
             Debugger.AlwaysOn = true;
 
             var client = new PudgeClient();
-            client.Configurate("127.0.0.1", 18700, Guid.Empty);
+            client.Configurate("127.0.0.1", 18700, Guid.Empty, speedUp:true);
 
             client.Move(100);
             client.Rotate(100);

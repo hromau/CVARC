@@ -10,7 +10,6 @@ using UnityCommons;
 
 public static class Dispatcher
 {
-    public const int TimeScale = UnityConstants.TimeScale;
     public static Loader Loader { get; private set; }
     public static GameManager GameManager { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
@@ -25,7 +24,7 @@ public static class Dispatcher
 
     public static void Start()
     {
-        Time.timeScale = TimeScale;
+        Time.timeScale = UnityConstants.TimeScale;
 
         Debug.Log("Logging types...");
         foreach(var e in Settings.Current.DebugTypes)
@@ -142,5 +141,9 @@ public static class Dispatcher
         switchingScenes = true;
         Application.LoadLevel(sceneName);
     }
-   
+
+    public static void SetTimeScale(int timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
 }

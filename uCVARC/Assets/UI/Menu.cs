@@ -50,7 +50,7 @@ public class Menu : MonoBehaviour
         var c = new Canvas(new Vector2(100, 100));
         var w = new Window(Sprite, "CVARC Pudge Wars", new Rect(0, 0, kMenuWidth, kMenuHeight));
         var buttonOpenTutorial = new Button(
-            () => Dispatcher.AddRunner(new TutorialRunner(data)), SpriteButton, new Rect(50, 50, kButtonWidth, kButtonHeight), "Tutorial");
+            () => Dispatcher.GameManager.RequestTutorial(data), SpriteButton, new Rect(50, 50, kButtonWidth, kButtonHeight), "Tutorial");
         w.AddElement(buttonOpenTutorial);
         c.AddElement(w.Head);
     }

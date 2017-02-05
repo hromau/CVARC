@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
+using System.Threading;
+using Assets.Tools;
 using CVARC.V2;
 using Infrastructure;
+using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace Assets.Servers
 {
     public class PlayServer : IDisposable
     {
-        private TcpListener listener;
+        private readonly TcpListener listener;
         private TcpClient proxyConnection;
-        private bool gameStarted;
-        private Dictionary<string, TcpClient> players;
+        private WorldCreationParams worldCreationParams;
 
         public PlayServer(int port)
         {
@@ -22,29 +24,57 @@ namespace Assets.Servers
             listener.Start();
         }
 
-        public ControllerFactory CheckGame()
+        public bool HasGame()
         {
-            if (!listener.Pending() || gameStarted)
-                return null;
+            if (worldCreationParams != null)
+                return true;
+            if (!listener.Pending())
+                return false;
+
             proxyConnection = listener.AcceptTcpClient();
-            var gameSettings = proxyConnection.ReadJson<GameSettings>();
-            players = new Dictionary<string, TcpClient>();
-                
+            GameSettings gameSettings;
+            JObject worldStateObj;
+            if (!proxyConnection.TryReadJson(TimeSpan.FromSeconds(1), out gameSettings) ||
+                !proxyConnection.TryReadJson(TimeSpan.FromSeconds(1), out worldStateObj))
+            {
+                proxyConnection.Close();
+                Debug.Log("Failed");
+                return false;
+            }
+            var competitions = Dispatcher.Loader.GetCompetitions(gameSettings.LoadingData);
+            var worldState = (WorldState)worldStateObj.ToObject(competitions.Logic.WorldStateType);
+            var players = new Dictionary<string, TcpClient>();
+            if (worldState.Undefined)
+            {
+                Debug.Log("default");
+                worldState = DefaultWorldInfoCreator.GetDefaultWorldState(gameSettings.LoadingData);
+            }
             foreach (var settings in gameSettings.ActorSettings.Where(x => !x.IsBot))
                 players[settings.ControllerId] = listener.AcceptTcpClient();
 
-            gameStarted = true;
+            Debugger.Log("Accepted " + players.Count + " connections");
 
-            throw new NotImplementedException();
+            worldCreationParams = new WorldCreationParams(gameSettings, 
+                new PlayControllerFactory(players), 
+                worldState);
+            return true;
         }
 
-        public void EndGame(GameResult gameResult)
+        public GameSession StartGame()
         {
-            proxyConnection.WriteJson(gameResult);
-            proxyConnection.Close();
-            foreach (var player in players.Values)
-                player.Close();
-            gameStarted = false;
+            if (worldCreationParams == null)
+                throw new Exception("Game was not ready!");
+
+            if (worldCreationParams.GameSettings.SpeedUp)
+                Dispatcher.SetTimeScale(UnityConstants.TimeScale * 2);
+
+            var world = Dispatcher.Loader.CreateWorld(
+                worldCreationParams.GameSettings,
+                worldCreationParams.ControllerFactory,
+                worldCreationParams.WorldState);
+            worldCreationParams = null;
+
+            return new GameSession(world, proxyConnection);
         }
 
         public void Dispose()

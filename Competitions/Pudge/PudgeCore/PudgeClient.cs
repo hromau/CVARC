@@ -9,16 +9,16 @@ using System;
 
 namespace Pudge
 {
-    public abstract class PudgeClient<TSensorData> : CvarcClient<TSensorData, PudgeCommand, PudgeWorldState>
-        where TSensorData : class
+    public class PudgeClient : CvarcClient<PudgeSensorsData, PudgeCommand, PudgeWorldState>
     {
         public const string AssemblyName = "Pudge";
-        public abstract string LevelName { get; }
+        public string LevelName { get { return "Final"; } }
 
-        public TSensorData Configurate(string ip, int port, Guid cvarcTag, 
+        public PudgeSensorsData Configurate(string ip, int port, Guid cvarcTag, 
             int timeLimit = 90, int operationalTimeLimit = 1000, bool isOnLeftSide = true, int seed = 0, bool speedUp = false)
         {
             var configs = new GameSettings();
+            configs.LoadingData = new LoadingData();
             configs.LoadingData.AssemblyName = AssemblyName;
             configs.LoadingData.Level = LevelName;
             configs.SpeedUp = speedUp;
@@ -46,7 +46,7 @@ namespace Pudge
             return Configurate(port, configs, new PudgeWorldState(seed), ip);
         }
 
-        public TSensorData Move(double distance=10)
+        public PudgeSensorsData Move(double distance=10)
         {
             return Act(new PudgeCommand
             {
@@ -57,7 +57,7 @@ namespace Pudge
             });
         }
 
-        public TSensorData Rotate(double angle)
+        public PudgeSensorsData Rotate(double angle)
         {
             return Act(new PudgeCommand
             {
@@ -68,7 +68,7 @@ namespace Pudge
             });
         }
 
-        public TSensorData Hook()
+        public PudgeSensorsData Hook()
         {
             return Act(new PudgeCommand
             {
@@ -76,7 +76,7 @@ namespace Pudge
             });
         }
 
-        public TSensorData Wait(double waitingTime)
+        public PudgeSensorsData Wait(double waitingTime)
         {
             return Act(new PudgeCommand
             {
@@ -87,7 +87,7 @@ namespace Pudge
             });
         }
 
-        public TSensorData Blink(int x, int y)
+        public PudgeSensorsData Blink(int x, int y)
         {
             return Act(new PudgeCommand
             {
@@ -96,7 +96,7 @@ namespace Pudge
             });
         }
 
-        public TSensorData CreateWard()
+        public PudgeSensorsData CreateWard()
         {
             return Act(new PudgeCommand
             {
@@ -104,28 +104,5 @@ namespace Pudge
             });
         }
     }
-
-    public class PudgeClientLevel1 : PudgeClient<PudgeSensorsData>
-    {
-        public override string LevelName
-        {
-            get { return "Level1"; }
-        }
-    }
-
-    public class PudgeClientLevel2 : PudgeClient<PudgeSensorsData>
-    {
-        public override string LevelName
-        {
-            get { return "Level2"; }
-        }
-    }
-
-    public class PudgeClientLevel3 : PudgeClient<PudgeSensorsData>
-    {
-        public override string LevelName
-        {
-            get { return "Level3"; }
-        }
-    }
+    
 }

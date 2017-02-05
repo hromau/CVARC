@@ -1,11 +1,5 @@
 ﻿using CVARC.V2;
-using HoMM.Robot;
-using HoMM.Rules;
-using HoMM.World;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Infrastructure;
 
 namespace HoMM.Robot
 {

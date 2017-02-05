@@ -8,6 +8,7 @@ using HoMM.World;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Infrastructure;
 
 namespace HoMM.Robot
 {

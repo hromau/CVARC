@@ -26,6 +26,7 @@ namespace MultiplayerProxy
         {
             log.Debug("CreatePlayerInPool call");
             var settings = await client.ReadJsonAsync<GameSettings>();
+            //await client.ReadJobject();
             var levelName = settings.LoadingData;
             var errorMessage = CheckForErrors(settings);
             if (!string.IsNullOrEmpty(errorMessage))

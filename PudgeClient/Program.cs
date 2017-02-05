@@ -8,16 +8,23 @@ using Pudge;
 using Pudge.World;
 using Infrastructure;
 
-namespace PudgeClient
+namespace PudgeClientTest
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var client = new PudgeClientLevel3();
-            client.Configurate(14000, new GameSettings(), new PudgeWorldState(123));
+            Debugger.Logger = z => Console.WriteLine(z);
+            Debugger.AlwaysOn = true;
 
-            client.Move(10);
+            var client = new PudgeClient();
+            client.Configurate("127.0.0.1", 18700, Guid.Empty, speedUp:true);
+
+            client.Move(100);
+            client.Rotate(100);
+            client.Blink(0, 0);
+            client.CreateWard();
+            client.Wait(100);
             client.Hook();
         }
     }

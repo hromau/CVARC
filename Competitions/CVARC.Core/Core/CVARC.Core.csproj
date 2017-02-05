@@ -88,13 +88,13 @@
     <Compile Include="Client\CvarcClient.cs" />
     <Compile Include="Controllers\Network\KickOutException.cs" />
     <Compile Include="Engine\ICommonEngine.cs" />
+    <Compile Include="Loading\ControllerFactory\PlayControllerFactory.cs" />
     <Compile Include="Logging\LogEntity.cs" />
     <Compile Include="Logging\LogPlayer.cs" />
     <Compile Include="Sensors\Implementation\DeathSensor.cs" />
     <Compile Include="Loading\Competitions\ActorFactory.cs" />
     <Compile Include="Loading\Competitions\LogicPartHelper.cs" />
     <Compile Include="Loading\Loader\Loader.Levels.cs" />
-    <Compile Include="Debugger.cs" />
     <Compile Include="Loading\Loader\Loader.SimpleMode.cs" />
     <Compile Include="Clocks\ControlTrigger.cs" />
     <Compile Include="Clocks\OneTimeTrigger.cs" />

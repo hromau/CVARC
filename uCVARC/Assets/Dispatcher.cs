@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
+using System.Threading;
 using CVARC.V2;
 using UnityEngine;
 using Assets;
-using Assets.Dlc;
 using Assets.Servers;
-using CVARC.Core;
-using UnityEngineInternal;
+using Assets.Tools;
+using Infrastructure;
 using UnityCommons;
 
 public static class Dispatcher
 {
-    public const int TimeScale = UnityConstants.TimeScale;
     public static Loader Loader { get; private set; }
-    public static IRunner CurrentRunner { get; private set; }
-    public static bool UnityShutdown { get; private set; }
+    public static GameManager GameManager { get; private set; }
+    public static IWorld CurrentWorld { get; private set; }
+    public static LogModel LogModel { get; set; }
 
-    static bool logPlayRequested;
-    static readonly RunnersQueue queue = new RunnersQueue();
-    static readonly Dictionary<string, GameObject> objectsCache = new Dictionary<string, GameObject>();
+    static ServiceServer serviceServer;
+    
     static bool isGameOver;
     static bool switchingScenes;
+    static bool shutdown;
 
 
     public static void Start()
     {
-        Time.timeScale = TimeScale;
+        Time.timeScale = UnityConstants.TimeScale;
 
         Debug.Log("Logging types...");
         foreach(var e in Settings.Current.DebugTypes)
@@ -39,97 +36,84 @@ public static class Dispatcher
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);
-        
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
-        
-        //Loader.AddLevel("Demo", "Test", () => new DemoCompetitions.Level1());
-        //Loader.AddLevel("RoboMovies", "Test", () => new RMCompetitions.Level1());
-        //Loader.AddLevel("Pudge", "Level1", () => new PudgeCompetitions.Level1());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl1 ready. Starting: lvl 2");
-        //Loader.AddLevel("Pudge", "Level2", () => new PudgeCompetitions.Level2());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl2 ready. Starting: lvl 3");
-        //Loader.AddLevel("Pudge", "Level3", () => new PudgeCompetitions.Level3());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Lvl3 ready. Starting: lvl Test");
-        //Loader.AddLevel("Pudge", "Test", () => new PudgeCompetitions.TestLevel());
-        //Debugger.Log(DebuggerMessageType.Initialization, "LvlTest ready. All levels ready");
-        //Loader.AddLevel("Demo", "Level1", () => new DemoCompetitions.Level1());
-        //Debugger.Log(DebuggerMessageType.Initialization, "Demo Lvl1 ready");
-        //Loader.AddLevel("TheBeachBots", "Test", () => new TBBCompetitions.Level1());
+        GameManager = new GameManager();
 
-      
+        if (UnityConstants.NeedToOpenServicePort)
+        {
+            serviceServer = new ServiceServer(UnityConstants.ServicePort);
+            new Thread(serviceServer.Work).Start();
+        }
     }
 
     public static void FillLoader(IDlcEntryPoint entryPoint)
     {
         foreach (var level in entryPoint.GetLevels())
         {
-            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => level);
+            var currentLevel = level; // это здесь не просто так: http://stackoverflow.com/questions/14907987/access-to-foreach-variable-in-closure-warning
+            Loader.AddLevel(level.CompetitionsName, level.LevelName, () => currentLevel);
+            Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
         }
-    }
-
-    public static void AddRunner(IRunner runner)
-    {
-        queue.EnqueueRunner(runner);
     }
 
     public static void IntroductionTick()
     {
-        if (queue.HasReadyRunner())
-            SwitchScene("Round");
-        if (logPlayRequested)
+        if (shutdown)
         {
-            logPlayRequested = false;
-            SwitchScene("LogRound");
+            OnDispose();
+            Application.Quit();
+        }
+
+        switch (GameManager.CheckGame())
+        {
+            case RunType.Play:
+            case RunType.Tutorial:
+                SwitchScene("Round");
+                break;
+            case RunType.Log:
+                SwitchScene("LogRound");
+                break;
         }
     }
 
     public static void RoundStart()
     {
-        CurrentRunner = queue.DequeueReadyRunner();
-        isGameOver = false;
-        CurrentRunner.InitializeWorld();
-
+        CurrentWorld = GameManager.StartGame();
     }
 
     public static void RoundTick()
     {
-        // конец игры
-        if (isGameOver && CurrentRunner != null)
+        if (shutdown)
         {
-            Debug.Log("game over. disposing");
-            CurrentRunner.Dispose();
-            CurrentRunner = null;
+            OnDispose();
+            Application.Quit();
         }
 
-        if (CurrentRunner == null)
-        {
-            // очищение, или переход в начало
-            SwitchScene(queue.HasReadyRunner() ? "Round" : "Intro");
-            return;
-        }
-
-        // прерывание
-        if (queue.HasReadyRunner() && CurrentRunner.CanInterrupt)
+        if (GameManager.CheckGame() != RunType.NotReady)
             SetGameOver();
-    }
 
-    public static void RequestLogPlay()
-    {
-        logPlayRequested = true;
-    }
+        if (!isGameOver)
+            return;
 
-    public static void LogEnd()
-    {
+        Debug.Log("game over. disposing");
+        GameManager.EndGame(new GameResult());
+        LogModel = null;
         SwitchScene("Intro");
     }
 
     // самый ГЛОБАЛЬНЫЙ выход, из всей юнити. Вызывается из сцен.
     public static void OnDispose()
     {
+        isGameOver = false;
+        if (CurrentWorld != null)
+        {
+            CurrentWorld.OnExit();
+            CurrentWorld = null;
+        }
         if (switchingScenes)
         {
             switchingScenes = false;
@@ -137,24 +121,29 @@ public static class Dispatcher
         }
 
         Debugger.Log("GLOBAL EXIT");
-        
-        if (CurrentRunner != null)
-            CurrentRunner.Dispose();
-        queue.DisposeRunners();
-        UnityShutdown = true;
+        GameManager.Dispose();
+        if (serviceServer != null)
+            serviceServer.Dispose();
     }
 
     public static void SetGameOver()
     {
         isGameOver = true;
-      
     }
 
-    static void SwitchScene(string sceneName)
+    public static void SetShutdown()
     {
-        objectsCache.Clear();
+        shutdown = true;
+    }
+
+    public static void SwitchScene(string sceneName) // public очень плохо
+    {
         switchingScenes = true;
         Application.LoadLevel(sceneName);
     }
-   
+
+    public static void SetTimeScale(int timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
 }

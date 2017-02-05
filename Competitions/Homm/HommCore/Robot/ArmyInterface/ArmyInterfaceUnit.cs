@@ -19,6 +19,8 @@ namespace HoMM.Units.ArmyInterface
             var order = Compatibility.Check<IArmyInterfaceCommand>(this, command).Order;
             if (order == null) return UnitResponse.Denied();
 
+            actor.World.HommEngine.Freeze(actor.ControllerId);
+
             order.Apply(actor.Player);
 
             Debugger.Log($"{actor.ControllerId} resources:");

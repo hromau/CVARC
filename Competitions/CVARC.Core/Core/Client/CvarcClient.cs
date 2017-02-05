@@ -1,11 +1,6 @@
 ﻿using Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
@@ -15,37 +10,55 @@ namespace CVARC.V2
         where TWorldState : WorldState
 	{
 		TcpClient client;
+	    private bool errorHappend;
+        public event Action<TSensorData> OnSensorDataReceived;
+        public event Action<string> OnError;
+        public event Action<string> OnInfo;
 
-		protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
+        protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
 		{
             client = new TcpClient();
             client.Connect(ip, port);
 
 			client.WriteJson(configuration);
 			client.WriteJson(JObject.FromObject(state));
-            var sensorData=client.ReadJson<TSensorData>();
-			OnSensorDataReceived(sensorData);
-			return sensorData;
+            return ReadSensorData();
 		}
 
+	    private TSensorData ReadSensorData()
+	    {
+            var message = client.ReadJson<PlayerMessage>();
 
+            while (message.MessageType == MessageType.Info)
+            {
+                if (OnInfo != null)
+                    OnInfo(JObjectHelper.ParseSimple<string>(message.Message));
+                message = client.ReadJson<PlayerMessage>();
+            }
 
+            if (message.MessageType == MessageType.SensorData)
+            {
+                var sensorData = message.Message.ToObject<TSensorData>();
+                if (OnSensorDataReceived != null)
+                    OnSensorDataReceived(sensorData);
+                return sensorData;
+            }
+            if (OnError != null)
+                OnError(JObjectHelper.ParseSimple<string>(message.Message));
+            errorHappend = true;
+            return null;
+        }
+        
 		public TSensorData Act(TCommand command)
 		{
+		    if (errorHappend)
+		        return null;
+
 			client.WriteJson(command);
-			var sensorData = client.ReadJson<TSensorData>(); // 11!!!
-			//if (sensorData == null)
-			//	Environment.Exit(0);
-				OnSensorDataReceived(sensorData);
-			return sensorData;
+            return ReadSensorData();
 		}
 
-		public event Action<TSensorData> SensorDataReceived;
-		void OnSensorDataReceived(TSensorData sensorData)
-		{
-			if (SensorDataReceived!=null)
-				SensorDataReceived(sensorData);
-		}
+		
 
 		public void Exit()
 		{

@@ -20,22 +20,26 @@ namespace Assets.Servers
             while (true)
             {
                 var client = listener.AcceptTcpClient();
-                var commandType = client.ReadJson<ServiceUnityCommand>();
-                switch (commandType)
+                try
                 {
-                    case ServiceUnityCommand.Ping:
-                        client.WriteJson("ping");
-                        break;
-                    case ServiceUnityCommand.GetCompetitionsList:
-                        client.WriteJson(null);
-                        break;
-                    case ServiceUnityCommand.Shutdown:
-                        client.WriteJson("ok");
-                        client.Close();
-                        Dispatcher.SetShutdown();
-                        return;
+                    var commandType = client.ReadJson<ServiceUnityCommand>();
+                    switch (commandType)
+                    {
+                        case ServiceUnityCommand.Ping:
+                            client.WriteJson("ping");
+                            break;
+                        case ServiceUnityCommand.GetCompetitionsList:
+                            client.WriteJson(null);
+                            break;
+                        case ServiceUnityCommand.Shutdown:
+                            client.WriteJson("ok");
+                            client.Close();
+                            Dispatcher.SetShutdown();
+                            return;
+                    }
                 }
-                client.Close();
+                catch (Exception) { }
+                finally { client.Close(); }
             }
         }
 

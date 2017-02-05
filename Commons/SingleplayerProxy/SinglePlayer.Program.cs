@@ -21,18 +21,23 @@ namespace SingleplayerProxy
 
             UpdateUnityIfNeeded();
             if (!IsUnityUp())
+            {
                 StartUnity();
+                Console.WriteLine("Unity started");
+            }
 
             var listener = new TcpListener(SingleplayerProxyConfigurations.ProxyEndPoint);
             listener.Start();
 
             var tasks = new[] {WaitUntillUnityClosed(), null};
+            Console.WriteLine("Wait connections...");
             while (true)
             {
                 tasks[1] = listener.AcceptTcpClientAsync();
                 var index = Task.WaitAny(tasks);
                 if (index == 0)
                 {
+                    Console.WriteLine("Unity closed. wait connections to restart unity");
                     tasks[1].Wait();
                     StartUnity();
                     tasks[0] = WaitUntillUnityClosed();
@@ -56,7 +61,12 @@ namespace SingleplayerProxy
         static void StartUnity()
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
-                Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+                //Process.Start(SingleplayerProxyConfigurations.UnityExePath, );
+                Process.Start(new ProcessStartInfo
+                {
+                    WorkingDirectory = "..\\",
+                    FileName = SingleplayerProxyConfigurations.UnityExePath
+                });
             TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8));
         }
 
@@ -117,7 +127,7 @@ namespace SingleplayerProxy
                 Console.WriteLine("something went wrong...");
                 Console.WriteLine(e.ToString());
             }
-            
+
         }
 
         static TcpClient ConnectToServer()
@@ -130,7 +140,8 @@ namespace SingleplayerProxy
         public static void InstallUpdate(string pathToZip)
         {
             using (var zip = ZipFile.Read(pathToZip))
-                zip.ExtractAll(SingleplayerProxyConfigurations.UrlToUnityDir, ExtractExistingFileAction.OverwriteSilently);
+                zip.ExtractAll(SingleplayerProxyConfigurations.PathToUnityDir,
+                    ExtractExistingFileAction.OverwriteSilently);
         }
 
         public static void ReloadVersion()
@@ -147,14 +158,24 @@ namespace SingleplayerProxy
             var task = Task.Run(async () =>
             {
                 var client = new TcpClient();
-                client.Connect(SingleplayerProxyConfigurations.UnityServiceEndPoint);
+                for (var i = 0; i < 20; i++)
+                {
+                    try
+                    {
+                        client.Connect(SingleplayerProxyConfigurations.UnityServiceEndPoint);
+                    }
+                    catch (SocketException)
+                    {
+                        continue;
+                    }
+                    break;
+                }
                 await client.WriteJsonAsync(command);
 
                 return await client.ReadJsonAsync<T>();
-            });
-            if (!task.Wait(timeout) || task.IsFaulted)
-                return default(T);
-            return task.Result;
+            }).ContinueWith(t => t.IsFaulted ? default(T) : t.Result);
+
+            return task.Wait(timeout) ? task.Result : default(T);
         }
     }
 }

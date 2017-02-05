@@ -2,8 +2,8 @@
 using HoMM.Engine;
 using HoMM.Rules;
 using HoMM.Sensors;
-using HoMM.Units.ArmyInterface;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using HoMM.World;
 using System.Collections.Generic;
 using System.Linq;

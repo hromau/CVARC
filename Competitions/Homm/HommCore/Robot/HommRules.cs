@@ -1,7 +1,7 @@
 ﻿using CVARC.V2;
 using HoMM.Robot;
-using HoMM.Units.ArmyInterface;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using System.Windows.Forms;
 
 namespace HoMM.Rules

@@ -1,4 +1,4 @@
-﻿namespace HoMM.Units.ArmyInterface
+﻿namespace HoMM.Robot.ArmyInterface
 {
     interface IArmyInterfaceCommand
     {

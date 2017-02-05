@@ -2,7 +2,7 @@
 using HoMM.Robot;
 using HoMM.World;
 
-namespace HoMM.Units.HexagonalMovement
+namespace HoMM.Robot.HexagonalMovement
 {
     class HexMovUnit : IUnit
     {

@@ -1,4 +1,4 @@
-﻿namespace HoMM.Units.HexagonalMovement
+﻿namespace HoMM.Robot.HexagonalMovement
 {
     interface IHexMovCommand
     {

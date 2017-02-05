@@ -3,7 +3,7 @@ using HoMM.Robot;
 using HoMM.Rules;
 using Infrastructure;
 
-namespace HoMM.Units.ArmyInterface
+namespace HoMM.Robot.ArmyInterface
 {
     class ArmyInterfaceUnit : IUnit
     {

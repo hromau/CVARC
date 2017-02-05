@@ -5,7 +5,7 @@ using System;
 using CVARC.V2;
 using HoMM.Robot;
 
-namespace HoMM.Units.HexagonalMovement
+namespace HoMM.Robot.HexagonalMovement
 {
     [Serializable]
     class Wait : IMovement

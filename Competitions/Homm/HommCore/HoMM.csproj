@@ -64,6 +64,8 @@
     <Compile Include="EntryPoint\HommEnginesMaker.cs" />
     <Compile Include="Generators\Spawners\SimpleSpawner.cs" />
     <Compile Include="Model\Tile\TileObjects\IBuilding.cs" />
+    <Compile Include="Robot\HexagonalMovement\CombatHelper.cs" />
+    <Compile Include="Robot\HexagonalMovement\MovementHelper.cs" />
     <Compile Include="Robot\HommRobot.cs" />
     <Compile Include="Common\Vector2i.cs" />
     <Compile Include="Engine\HommEngine.cs" />

@@ -2,8 +2,8 @@
 using HoMM.Engine;
 using HoMM.Robot;
 using HoMM.Rules;
-using HoMM.Units.ArmyInterface;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using HoMM.World;
 using Infrastructure;
 using System;

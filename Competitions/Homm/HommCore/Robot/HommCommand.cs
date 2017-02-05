@@ -1,6 +1,6 @@
 ﻿using CVARC.V2;
-using HoMM.Units.ArmyInterface;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using System;
 using System.Runtime.Serialization;
 

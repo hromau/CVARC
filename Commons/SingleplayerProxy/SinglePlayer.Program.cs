@@ -25,7 +25,7 @@ namespace SingleplayerProxy
             var listener = new TcpListener(SingleplayerProxyConfigurations.ProxyEndPoint);
             listener.Start();
 
-            var tasks = new[] { WaitUntillUnityClosed(), null};
+            var tasks = new[] {WaitUntillUnityClosed(), null};
             while (true)
             {
                 tasks[1] = listener.AcceptTcpClientAsync();
@@ -91,18 +91,27 @@ namespace SingleplayerProxy
 
         static void PlayGame(TcpClient client)
         {
-            var gameSettings = client.ReadJson<GameSettings>();
-            // var worldState = client.ReadLine/ReadJObject()
-            var mainConnection = ConnectToServer();
-            mainConnection.WriteJson(gameSettings);
-            //mainConnection.WriteLine/JObject(worldState)
-            var server = ConnectToServer();
-            Proxy.CreateChainAndStart(server, client);
-            var resultTask = mainConnection.ReadJsonAsync<GameResult>();
-            resultTask.ContinueWith(x =>
+            try
             {
-                Console.WriteLine(x.IsFaulted ? "Cant get game results." : "Game result is " + x.Result.Hehmeh);
-            });
+                var gameSettings = client.ReadJson<GameSettings>();
+                // var worldState = client.ReadLine/ReadJObject()
+                var mainConnection = ConnectToServer();
+                mainConnection.WriteJson(gameSettings);
+                //mainConnection.WriteLine/JObject(worldState)
+                var server = ConnectToServer();
+                Proxy.CreateChainAndStart(server, client);
+                var resultTask = mainConnection.ReadJsonAsync<GameResult>();
+                resultTask.ContinueWith(x =>
+                {
+                    Console.WriteLine(x.IsFaulted ? "Cant get game results." : "Game result is " + x.Result.Hehmeh);
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("something went wrong...");
+                Console.WriteLine(e.ToString());
+            }
+            
         }
 
         static TcpClient ConnectToServer()

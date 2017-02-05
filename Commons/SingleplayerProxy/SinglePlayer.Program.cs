@@ -96,6 +96,11 @@ namespace SingleplayerProxy
             {
                 var gameSettings = client.ReadJson<GameSettings>();
                 var worldState = client.ReadJson<JObject>();
+                client.WriteJson(new PlayerMessage
+                {
+                    MessageType = MessageType.Info,
+                    Message = JObjectHelper.CreateSimple("Hello, hero! welcome to the grand tournament")
+                });
                 var mainConnection = ConnectToServer();
                 mainConnection.WriteJson(gameSettings);
                 mainConnection.WriteJson(worldState);

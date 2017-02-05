@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using Infrastructure;
 using System.Net.Sockets;
+using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
@@ -27,14 +28,14 @@ namespace CVARC.V2
             OperationalTimeLimit = controllableActor.World.Configuration.OperationalTimeLimit;
         }
 
-        object sensorData;
+        PlayerMessage playerMessage;
         bool active = true;
 
         Tuple<ICommand, Exception> GetCommandInternally(Type commandType)
         {
             try
             {
-                client.WriteJson(sensorData);
+                client.WriteJson(playerMessage);
                 var command = (ICommand)client.ReadJson(commandType);
 			    return new Tuple<ICommand,Exception>(command,null);
             }
@@ -57,7 +58,7 @@ namespace CVARC.V2
             {
                 if (async.IsCompleted) break;
                 OperationalTime += 0.001;
-                Thread.Sleep(1);              
+                Thread.Sleep(1);
             }
 
             if (OperationalTime < OperationalTimeLimit)
@@ -83,7 +84,11 @@ namespace CVARC.V2
 
         public void SendSensorData(object sensorData)
         {
-            this.sensorData = sensorData;   
+            this.playerMessage = new PlayerMessage
+            {
+                MessageType = MessageType.SensorData,
+                Message = JObject.FromObject(sensorData)
+            };
         }
     }
 }

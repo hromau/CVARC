@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CVARC.V2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,12 +42,17 @@ namespace HoMM
 
             player.Location = newLocation;
 
-            foreach(var tileobject in Map[newLocation].Objects)
-                tileobject?.InteractWithPlayer(player);
+            // need copy list due to exception when collection is modified inside cycle
+            var interactableObjects = Map[newLocation].Objects.ToList();
+
+            foreach (var tileobject in interactableObjects)
+                tileobject.InteractWithPlayer(player);
         }
 
         public void DailyTick()
         {
+            Debugger.Log("Daily tick");
+
             foreach (var tile in Map)
                 foreach (var obj in tile.Objects)
                     if (obj is Mine)
@@ -63,6 +69,8 @@ namespace HoMM
 
         private void WeeklyTick()
         {
+            Debugger.Log("Weekly tick");
+
             var dwellings = Map
                 .SelectMany(t => t.Objects)
                 .Where(obj => obj is Dwelling)

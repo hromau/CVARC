@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CVARC.V2;
+using System;
 
 namespace HoMM
 {

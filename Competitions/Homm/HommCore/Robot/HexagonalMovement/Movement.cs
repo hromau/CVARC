@@ -90,33 +90,45 @@ namespace HoMM.Units.HexagonalMovement
             robot.World.HommEngine.Freeze(other.UnityId);
 
             // TODO: show combat animation
-            // TODO: resolve battle
 
             var combatTriggerTime = robot.World.Clocks.CurrentTime + HommRules.Current.CombatDuration;
 
             robot.World.Clocks.AddTrigger(new OneTimeTrigger(combatTriggerTime, () =>
             {
-                robot.World.CommonEngine.DeleteObject(other.UnityId);
+                Combat.ResolveBattle(robot.Player, other);
 
-                if (other is TileObject)
-                    otherTile.Objects.Remove((TileObject)other);
-
-                if (other is Player)
+                if (other.HasNoArmy())
                 {
-                    var otherPlayer = other as Player;
+                    if (other is TileObject)
+                    {
+                        robot.World.CommonEngine.DeleteObject(other.UnityId);
+                        otherTile.Objects.Remove((TileObject)other);
+                    }
 
-                    robot.World.Actors
-                        .Where(x => x is IHommRobot)
-                        .Cast<IHommRobot>()
-                        .Where(x => x.Player.Name == otherPlayer.Name)
-                        .Single()
-                        .Die();
+                    if (other is Player)
+                    {
+                        var otherPlayer = other as Player;
+
+                        robot.World.Actors
+                            .Where(x => x is IHommRobot)
+                            .Cast<IHommRobot>()
+                            .Where(x => x.Player.Name == otherPlayer.Name)
+                            .Single()
+                            .Die();
+                    }
                 }
 
-                robot.ControlTrigger.ScheduledTime =
-                    robot.World.Clocks.CurrentTime + GetTravelDuration(robot.Player, robot.World.Round.Map) + 0.001;
-                
-                MakeTurn(robot);
+                if (robot.Player.HasNoArmy())
+                {
+                    robot.Die();
+                }
+                else
+                {
+                    robot.ControlTrigger.ScheduledTime =
+                        robot.World.Clocks.CurrentTime + GetTravelDuration(robot.Player, robot.World.Round.Map) + 0.001;
+
+                    MakeTurn(robot);
+                }
 
                 robotTile.EndFight();
                 otherTile.EndFight();

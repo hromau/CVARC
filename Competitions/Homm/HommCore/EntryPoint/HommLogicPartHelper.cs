@@ -1,6 +1,7 @@
 ﻿using CVARC.V2;
 using HoMM.Robot;
 using HoMM.Rules;
+using HoMM.Units.ArmyInterface;
 using HoMM.Units.HexagonalMovement;
 using HoMM.World;
 using Infrastructure;
@@ -26,6 +27,11 @@ namespace HoMM
                     $"{playersCount} player(s) mode is not supported! Try 1 or 2.");
 
             this.playersCount = playersCount;
+
+            Debugger.Settings.EnableType<HommRobot>();
+            Debugger.Settings.EnableType<Player>();
+            Debugger.Settings.EnableType<ArmyInterfaceUnit>();
+            Debugger.Settings.EnableType<Round>();
         }
 
         public override LogicPart Create()

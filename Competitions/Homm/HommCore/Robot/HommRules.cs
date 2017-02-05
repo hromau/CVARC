@@ -23,7 +23,7 @@ namespace HoMM.Rules
                 pool.Add(Keys.D, () => new HommCommand { Movement = new Movement(Direction.RightDown) });
                 pool.Add(Keys.Q, () => new HommCommand { Movement = new Movement(Direction.LeftUp) });
                 pool.Add(Keys.E, () => new HommCommand { Movement = new Movement(Direction.RightUp) });
-                pool.Add(Keys.Space, () => new HommCommand { Order = new PurchaseOrder(10) });
+                pool.Add(Keys.Space, () => new HommCommand { Order = new PurchaseOrder(1) });
             }
             else if (controllerId == TwoPlayersId.Right)
             {
@@ -33,7 +33,7 @@ namespace HoMM.Rules
                 pool.Add(Keys.L, () => new HommCommand { Movement = new Movement(Direction.RightDown) });
                 pool.Add(Keys.U, () => new HommCommand { Movement = new Movement(Direction.LeftUp) });
                 pool.Add(Keys.O, () => new HommCommand { Movement = new Movement(Direction.RightUp) });
-                pool.Add(Keys.Enter, () => new HommCommand { Order = new PurchaseOrder(10) });
+                pool.Add(Keys.Enter, () => new HommCommand { Order = new PurchaseOrder(1) });
             }
 
             pool.StopCommand = () => new HommCommand { Movement = new Wait() };
@@ -44,7 +44,7 @@ namespace HoMM.Rules
         public double MovementFailsDuration => WaitDuration;
         public double PurchaseDuration => MovementDuration;
         public double CombatDuration => MovementDuration;
-        public double DailyTickInterval => 100;
+        public double DailyTickInterval => 5;
         public double RespawnInterval => 1;
     }
 }

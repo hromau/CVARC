@@ -1,3 +1,4 @@
+using CVARC.V2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HoMM
         public int Attack { get; private set; }
         public int Defence { get; private set; }
         private Map map;
-        Dictionary<Resource, int> resources;
+        public Dictionary<Resource, int> Resources { get; }
         public Location Location { get; set; }
         public Location DisiredLocation { get; set; }
         public Dictionary<UnitType, int> Army { get; }
@@ -22,9 +23,9 @@ namespace HoMM
         public Player(string name, Map map)
         {
             Name = name;
-            resources = new Dictionary<Resource, int>();
+            Resources = new Dictionary<Resource, int>();
             foreach (Resource res in Enum.GetValues(typeof(Resource)))
-                resources.Add(res, 0);
+                Resources.Add(res, 0);
             Army = new Dictionary<UnitType, int>();
             foreach (UnitType t in Enum.GetValues(typeof(UnitType)))
                 Army.Add(t, 0);
@@ -41,27 +42,29 @@ namespace HoMM
 
         public int CheckResourceAmount(Resource res)
         {
-            return resources[res];
+            return Resources[res];
         }
         public Dictionary<Resource, int> CheckAllResources()
         {
-            return new Dictionary<Resource, int>(resources);
+            return new Dictionary<Resource, int>(Resources);
         }
 
         public void GainResources(Resource res, int amount)
         {
             if (amount < 0)
                 throw new ArgumentException("Cannot 'gain' negative resources!");
-            resources[res] += amount;
+            Resources[res] += amount;
+
+            Debugger.Log($"{Name} got {amount} pieces of {res}");
         }
 
         public void PayResources(Resource res, int amount)
         {
             if (amount < 0)
                 throw new ArgumentException("Cannot 'pay' positive resources!");
-            if (amount > resources[res])
+            if (amount > Resources[res])
                 throw new ArgumentException("Not enough " + res.ToString() + " to pay " + amount);
-            resources[res] -= amount;
+            Resources[res] -= amount;
         }
 
 
@@ -77,9 +80,17 @@ namespace HoMM
             if (unitsToBuy <= 0)
                 throw new ArgumentException("Buy positive amounts of units!");
 
-            var dwelling = (Dwelling)map[Location].Objects.Where(x => x is Dwelling).FirstOrDefault();
+            var dwelling = map[Location].Objects
+                .Where(x => x is Dwelling)
+                .Cast<Dwelling>()
+                .FirstOrDefault();
 
-            if (dwelling == null || dwelling.Owner != this || dwelling.AvailableUnits < unitsToBuy)
+            if (dwelling == null)
+                return false;
+
+            Debugger.Log($"{dwelling.UnityId}, available units: {dwelling.AvailableUnits} {dwelling.Recruit.UnitType}");
+
+            if (dwelling.Owner != this || dwelling.AvailableUnits < unitsToBuy)
                 return false;
 
             foreach (var kvp in dwelling.Recruit.UnitCost)
@@ -88,6 +99,9 @@ namespace HoMM
             foreach (var kvp in dwelling.Recruit.UnitCost)
                 PayResources(kvp.Key, kvp.Value * unitsToBuy);
             AddUnits(dwelling.Recruit.UnitType, unitsToBuy);
+
+            Debugger.Log($"Purchase: {unitsToBuy} {dwelling.Recruit.UnitType}");
+
             return true;
         }
 

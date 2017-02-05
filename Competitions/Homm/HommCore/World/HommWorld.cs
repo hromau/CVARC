@@ -41,7 +41,7 @@ namespace HoMM.World
             connecter = new RoundToUnityConnecter(HommEngine, CommonEngine);
             connecter.Connect(Round);
 
-            //Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
+            Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
         }
 
         public Location GetRespawnLocation(string controllerId, Map map)

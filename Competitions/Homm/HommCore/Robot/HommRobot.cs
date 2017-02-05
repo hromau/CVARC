@@ -39,13 +39,12 @@ namespace HoMM.Robot
 
         public void Die()
         {
-            Debugger.Settings.EnableType<HommRobot>();
             Debugger.Log("Die!");
 
             World.CommonEngine.DeleteObject(ControllerId);
             var respawnTime = World.Clocks.CurrentTime + HommRules.Current.RespawnInterval;
 
-            ControlTrigger.ScheduledTime = respawnTime + 1;
+            ControlTrigger.ScheduledTime = respawnTime + 0.001;
 
             World.Clocks.AddTrigger(new OneTimeTrigger(respawnTime, () =>
             {

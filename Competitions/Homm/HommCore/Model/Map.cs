@@ -56,7 +56,12 @@ namespace HoMM
             : this(width, height)
         {
             foreach (var tile in tiles)
+            {
                 map[tile.Location.Y, tile.Location.X] = tile;
+
+                foreach (var obj in tile.Objects)
+                    obj.Remove += o => tile.Objects.Remove(o);
+            }
         }
 
         public Tile MakeTile(int x, int y, string s)

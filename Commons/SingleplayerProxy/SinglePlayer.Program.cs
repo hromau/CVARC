@@ -43,20 +43,20 @@ namespace SingleplayerProxy
 
         static bool IsUnityUp() =>
             SingleplayerProxyConfigurations.DebugMode ||
-            !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping));
+            !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromMilliseconds(500)));
 
         static void KillUnity() =>
-            TrySendUnityCommand<string>(ServiceUnityCommand.Shutdown);
+            TrySendUnityCommand<string>(ServiceUnityCommand.Shutdown, TimeSpan.FromSeconds(5));
 
         static bool IsUpdateAvailable() =>
             SingleplayerProxyConfigurations.UpdateEnabled &&
             WebHelper.ReadFromUrlAsync<int>(SingleplayerProxyConfigurations.UrlToGetVersion).Result > currentVersion;
 
-        static void StartUnity() // сделать так, чтоб этот метод ждал от юнити ответа по служебному порту.
+        static void StartUnity()
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
                 Process.Start(SingleplayerProxyConfigurations.UnityExePath);
-            TrySendUnityCommand<string>(ServiceUnityCommand.Ping);
+            TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8));
         }
 
         static void UpdateUnityIfNeeded()
@@ -85,7 +85,7 @@ namespace SingleplayerProxy
 
         static async Task WaitUntillUnityClosed()
         {
-            while (SingleplayerProxyConfigurations.DebugMode || !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping)))
+            while (IsUnityUp())
                 await Task.Delay(500);
         }
 
@@ -125,8 +125,10 @@ namespace SingleplayerProxy
             currentVersion = int.Parse(File.ReadAllText(SingleplayerProxyConfigurations.PathToVersionFile));
         }
 
-        static T TrySendUnityCommand<T>(ServiceUnityCommand command)
+        static T TrySendUnityCommand<T>(ServiceUnityCommand command, TimeSpan timeout = default(TimeSpan))
         {
+            if (timeout == default(TimeSpan))
+                timeout = TimeSpan.FromSeconds(2);
             var task = Task.Run(async () =>
             {
                 var client = new TcpClient();
@@ -135,10 +137,9 @@ namespace SingleplayerProxy
 
                 return await client.ReadJsonAsync<T>();
             });
-            if (!task.Wait(TimeSpan.FromSeconds(8)) || task.IsFaulted)
+            if (!task.Wait(timeout) || task.IsFaulted)
                 return default(T);
             return task.Result;
         }
-
     }
 }

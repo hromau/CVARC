@@ -39,12 +39,12 @@ namespace HoMM.Rules
             pool.StopCommand = () => new HommCommand { Movement = new Wait() };
         }
 
-        public double MovementDuration => 1;
+        public double MovementDuration => 0.5;
         public double WaitDuration => 0.1;
-        public double BuyDuration => MovementDuration;
+        public double MovementFailsDuration => WaitDuration;
+        public double PurchaseDuration => MovementDuration;
         public double CombatDuration => MovementDuration;
         public double DailyTickInterval => 100;
-        public double CombatTriggerInterval => 100;
-        public double RespawnInterval => 100;
+        public double RespawnInterval => 1;
     }
 }

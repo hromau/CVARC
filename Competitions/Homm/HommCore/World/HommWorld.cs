@@ -12,7 +12,6 @@ namespace HoMM.World
         public ICommonEngine CommonEngine { get; private set; }
         public Round Round { get; private set; }
         public Random Random { get; private set; }
-        public CombatResolver CombatResolver { get; private set; }
 
         private RoundToUnityConnecter connecter;
 
@@ -32,7 +31,6 @@ namespace HoMM.World
 
             CommonEngine = GetEngine<ICommonEngine>();
             HommEngine = GetEngine<HommEngine>();
-            CombatResolver = new CombatResolver();
 
             Random = new Random(WorldState.Seed);
 
@@ -46,17 +44,17 @@ namespace HoMM.World
             //Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
         }
 
-        public Location GetRespawnLocation(string controllerId)
+        public Location GetRespawnLocation(string controllerId, Map map)
         {
             return controllerId == TwoPlayersId.Left
                 ? Location.Zero
-                : new Location(Round.Map.Size.Y - 1, Round.Map.Size.X - 1);
+                : new Location(map.Size.Y - 1, map.Size.X - 1);
         }
 
         private Player CreatePlayer(string controllerId, Map map)
         {
             var player = new Player(controllerId, map);
-            player.Location = GetRespawnLocation(controllerId);
+            player.Location = GetRespawnLocation(controllerId, map);
             return player;
         }
     }

@@ -1,10 +1,11 @@
 ﻿using Infrastructure;
 using HoMM.Engine;
+using HoMM.Robot;
 
 namespace HoMM.Units.HexagonalMovement
 {
     interface IMovement
     {
-        Tuple<Location, double> TryMoveHero(IHommEngine engine, Player player, Map map);
+        double Apply(IHommRobot robot);
     }
 }

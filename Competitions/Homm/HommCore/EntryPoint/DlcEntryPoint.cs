@@ -10,6 +10,9 @@ namespace HoMM
         {
             yield return new Competitions("Homm", "Level1", new HommLogicPartHelper(1),
                 () => new UKeyboard(), HommEnginesMaker.CreateEngines);
+
+            yield return new Competitions("Homm", "Level2", new HommLogicPartHelper(2),
+                () => new UKeyboard(), HommEnginesMaker.CreateEngines);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace HoMM
 {
     public abstract class TileObject: INotifyPropertyChanged
     {
-        public string unityID;
+        public string UnityId { get; set; }
         public readonly Location location;
         
         public abstract bool IsPassable { get; }

@@ -20,7 +20,7 @@ namespace HoMM.Units.ArmyInterface
 
             order.Apply(actor.Player);
 
-            return UnitResponse.Accepted(HommRules.Current.BuyDuration);
+            return UnitResponse.Accepted(HommRules.Current.PurchaseDuration);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace HoMM
 {
@@ -12,8 +13,10 @@ namespace HoMM
         private Map map;
         Dictionary<Resource, int> resources;
         public Location Location { get; set; }
+        public Location DisiredLocation { get; set; }
         public Dictionary<UnitType, int> Army { get; }
 
+        public string UnityId => Name;
 
 
         public Player(string name, Map map)

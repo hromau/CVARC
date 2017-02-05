@@ -9,23 +9,9 @@ using System.Text;
 
 namespace HoMM.Robot
 {
-    //class LocationCheckTrigger : OneTimeTrigger
-    //{
-    //    public LocationCheckTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
-    //        : base(submitTime + movementDuration,() => DoCheckLocation(submitTime, movementDuration, actor, newLocation))
-    //    { }
-
-    //    private static void DoCheckLocation(
-    //        double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
-    //    {
-    //        if (actor.World.Round.Map[newLocation].Objects.Any(x => x is ICombatable))
-
-    //    }
-    //}
-
-    class LocationChangeTrigger : OneTimeTrigger
+    class LocationTrigger : OneTimeTrigger
     {
-        public LocationChangeTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
+        public LocationTrigger(double submitTime, double movementDuration, IHommRobot actor, Location newLocation)
             : base(submitTime + movementDuration, () => DoUpdateLocation(actor, newLocation))
         { }
 

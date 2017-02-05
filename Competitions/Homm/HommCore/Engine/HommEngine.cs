@@ -1,4 +1,5 @@
-﻿using CVARC.V2;
+﻿using System;
+using CVARC.V2;
 using UnityCommons;
 using UnityEngine;
 
@@ -25,13 +26,6 @@ namespace HoMM.Engine
         }
 
         [ToLog]
-        public void SetColor(string id, float r, float g, float b)
-        {
-            this.Log($"{nameof(SetColor)}", id, r, g, b);
-            engine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
-        }
-
-        [ToLog]
         public void SetPosition(string id, int x, int y)
         {
             this.Log($"{nameof(SetPosition)}", id, x, y);
@@ -39,17 +33,10 @@ namespace HoMM.Engine
         }
 
         [ToLog]
-        public void SetScale(string id, float x, float y, float z)
+        public void SetFlag(string id, string ownerId)
         {
-            this.Log($"{nameof(SetScale)}", id, x, y, z);
-            engine.SetScale(ObjectsCache.FindGameObject(id), x, y, z);
-        }
-
-        [ToLog]
-        public void SetFlag(string id, float r, float g, float b)
-        {
-            this.Log($"{nameof(SetFlag)}", id, r, g, b);
-            engine.SetFlag(ObjectsCache.FindGameObject(id), new Color(r, g, b));
+            this.Log($"{nameof(SetFlag)}", id, ownerId);
+            engine.SetFlag(ObjectsCache.FindGameObject(id), ownerId);
         }
 
         [ToLog]
@@ -71,6 +58,13 @@ namespace HoMM.Engine
         {
             this.Log($"{nameof(Freeze)}", id);
             engine.Freeze(ObjectsCache.FindGameObject(id));
+        }
+
+        [ToLog]
+        public void SetColor(string id, float r, float g, float b)
+        {
+            this.Log($"{nameof(SetColor)}", id, r, g, b);
+            engine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
         }
     }
 }

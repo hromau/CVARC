@@ -15,8 +15,6 @@ namespace HoMM.Engine
         public void CreatePlayer(string playerId, Color color, Location location)
         {
             engine.CreateObject(playerId, MapObject.Hero, location.X, location.Y);
-            engine.SetColor(playerId, color.r, color.g, color.b);
-            engine.SetScale(playerId, 0.5f, 0.5f, 0.5f);
         }
 
         public void CreateHexagon(TerrainType terrain, Location location)

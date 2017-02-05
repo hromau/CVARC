@@ -18,6 +18,8 @@ namespace HoMM.Engine
             { "hex",  PrefabLoader.GetPrefab<GameObject>("homm", "hex") }
         };
 
+        private Dictionary<string, Color> heroColors = new Dictionary<string, Color>();
+
         private Dictionary<MapObject, Func<GameObject>> objectFactory = new Dictionary<MapObject, Func<GameObject>>
         {
             { MapObject.Hexagon, () =>
@@ -28,17 +30,37 @@ namespace HoMM.Engine
                 }
             },
 
+            { MapObject.Hero, GetFactoryFor(PrimitiveType.Capsule) },
             { MapObject.Mine, GetFactoryFor(PrimitiveType.Cube) },
             { MapObject.Flag, GetFactoryFor(PrimitiveType.Sphere) },
-            { MapObject.Hero, GetFactoryFor(PrimitiveType.Capsule) },
             { MapObject.Dwelling, GetFactoryFor(PrimitiveType.Capsule) },
             { MapObject.NeutralArmy, GetFactoryFor(PrimitiveType.Cylinder) },
             { MapObject.ResourcesPile, GetFactoryFor(PrimitiveType.Sphere) },
         };
 
+
+        private Queue<Color> availableColors = new Queue<Color>();
+
+        public InternalHommEngine()
+        {
+            availableColors.Enqueue(Color.red);
+            availableColors.Enqueue(Color.blue);
+        }
+
         private static Func<GameObject> GetFactoryFor(PrimitiveType primitive)
         {
             return () => GameObject.CreatePrimitive(primitive);
+        }
+
+        public void InitColor(GameObject hero)
+        {
+            if (!heroColors.ContainsKey(hero.name))
+            {
+                var color = availableColors.Dequeue();
+                heroColors[hero.name] = color;
+            }
+
+            SetColor(hero, heroColors[hero.name]);
         }
 
         public GameObject CreateObject(string id, MapObject mapObject, int x = 0, int y = 0)
@@ -46,9 +68,15 @@ namespace HoMM.Engine
             var obj = objectFactory.GetOrDefault(mapObject,
                 () => GameObject.CreatePrimitive(PrimitiveType.Cube)).Invoke();
 
-            GameObject.Destroy(obj.GetComponent(typeof(Collider)));
+            if (mapObject != MapObject.Hexagon)
+                obj.transform.localScale = Vector3.one * 0.5f;
+
+            GameObject.Destroy(obj.GetComponent<Collider>());
             SetPosition(obj, x, y);
             obj.name = id;
+
+            if (mapObject == MapObject.Hero) InitColor(obj);
+
             return obj;
         }
 
@@ -118,7 +146,7 @@ namespace HoMM.Engine
             obj.transform.position = FromHexagonal(x, y);
         }
 
-        public void SetFlag(GameObject obj, Color color)
+        public void SetFlag(GameObject obj, string ownerId)
         {
             var flagId = obj.name + " flag";
 
@@ -128,7 +156,7 @@ namespace HoMM.Engine
 
             var flag = CreateObject(flagId, MapObject.Flag);
 
-            SetColor(flag, color);
+            SetColor(flag, heroColors.GetOrDefault(ownerId, Color.gray));
 
             flag.transform.position = new Vector3(obj.transform.position.x, flagHeight, obj.transform.position.z);
             flag.transform.localScale = Vector3.one / 2;

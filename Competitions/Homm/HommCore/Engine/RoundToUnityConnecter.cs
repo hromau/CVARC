@@ -47,12 +47,19 @@ namespace HoMM.Engine
                 api.CreatePlayer(player.Name, color, player.Location);
             }
 
+            var buildings = new HashSet<Location>(map
+                .SelectMany(x => x.Objects)
+                .Where(x => x is IBuilding)
+                .Cast<IBuilding>()
+                .Select(x => x.BuildingLocation));
+
             foreach (var location in Location.Square(map.Size))
             {
                 api.CreateHexagon(GetTerrainType(map[location].Terrain), location);
 
                 foreach (var tileObject in map[location].Objects)
-                    CreateTileObject(tileObject);
+                    if (!(tileObject is Wall && buildings.Contains(location)))
+                        CreateTileObject(tileObject);
             }
         }
 
@@ -83,42 +90,39 @@ namespace HoMM.Engine
 
             if (tileObject is Mine)
             {
-                tileObject.unityID = $"Mine {counter[MapObject.Mine]++}";
-                hommEngine.CreateObject(tileObject.unityID, MapObject.Mine, x, y);
+                tileObject.UnityId = $"Mine {counter[MapObject.Mine]++}";
+                hommEngine.CreateObject(tileObject.UnityId, MapObject.Mine, x, y);
             }
             if (tileObject is Dwelling)
             {
-                tileObject.unityID = $"Dwelling {counter[MapObject.Dwelling]++}";
-                hommEngine.CreateObject(tileObject.unityID, MapObject.Dwelling, x, y);
+                tileObject.UnityId = $"Dwelling {counter[MapObject.Dwelling]++}";
+                hommEngine.CreateObject(tileObject.UnityId, MapObject.Dwelling, x, y);
             }
             if (tileObject is ResourcePile)
             {
-                tileObject.unityID = $"Resources pile {counter[MapObject.ResourcesPile]++}";
-                hommEngine.CreateObject(tileObject.unityID, MapObject.ResourcesPile, x, y);
+                tileObject.UnityId = $"Resources pile {counter[MapObject.ResourcesPile]++}";
+                hommEngine.CreateObject(tileObject.UnityId, MapObject.ResourcesPile, x, y);
             }
             if (tileObject is NeutralArmy)
             {
-                tileObject.unityID = $"Neutral army {counter[MapObject.NeutralArmy]++}";
-                hommEngine.CreateObject(tileObject.unityID, MapObject.NeutralArmy, x, y);
+                tileObject.UnityId = $"Neutral army {counter[MapObject.NeutralArmy]++}";
+                hommEngine.CreateObject(tileObject.UnityId, MapObject.NeutralArmy, x, y);
             }
             if (tileObject is Wall)
             {
-                tileObject.unityID = $"Wall {counter[MapObject.Wall]++}";
-                hommEngine.CreateObject(tileObject.unityID, MapObject.Wall, x, y);
+                tileObject.UnityId = $"Wall {counter[MapObject.Wall]++}";
+                hommEngine.CreateObject(tileObject.UnityId, MapObject.Wall, x, y);
             }
 
-            if (tileObject.unityID == null)
+            if (tileObject.UnityId == null)
             {
                 throw new ArgumentException($"Got TileObject of unknown type: {tileObject.GetType().Name}");
             }
 
-            hommEngine.SetScale(tileObject.unityID, 0.5f, 0.5f, 0.5f);
-
             if (tileObject is CapturableObject)
             {
                 var owner = (tileObject as CapturableObject).Owner;
-                var color = playerColorMapping.GetOrDefault(owner?.Name, Color.grey);
-                hommEngine.SetFlag(tileObject.unityID, color.r, color.g, color.b);
+                hommEngine.SetFlag(tileObject.UnityId, owner?.Name ?? string.Empty);
             }
 
             ConnectTileObject(tileObject);
@@ -153,14 +157,13 @@ namespace HoMM.Engine
             if (e.PropertyName == "Owner")
             {
                 var owner = ((CapturableObject)obj).Owner;
-                var color = playerColorMapping.GetOrDefault(owner?.Name, Color.grey);
-                hommEngine.SetFlag(obj.unityID, color.r, color.g, color.b);
+                hommEngine.SetFlag(obj.UnityId, owner?.Name ?? string.Empty);
             }
         }
 
         private void DeleteHandler(TileObject obj)
         {
-            commonEngine.DeleteObject(obj.unityID);
+            commonEngine.DeleteObject(obj.UnityId);
         }
     }
 }

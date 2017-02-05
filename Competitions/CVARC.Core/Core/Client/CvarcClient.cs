@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
@@ -21,7 +22,7 @@ namespace CVARC.V2
             client.Connect(ip, port);
 
 			client.WriteJson(configuration);
-			client.WriteJson(state);
+			client.WriteJson(JObject.FromObject(state));
             var sensorData=client.ReadJson<TSensorData>();
 			OnSensorDataReceived(sensorData);
 			return sensorData;

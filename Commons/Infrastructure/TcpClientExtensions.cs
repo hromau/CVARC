@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using Newtonsoft.Json;
 using CVARC.V2;
 
@@ -17,16 +18,16 @@ namespace Infrastructure
 
         private static byte[] ReadLine(this TcpClient client)
         {
-            var data = new byte[1024];
+            var data = new byte[1];
             var result = new List<byte>();
-            var isLastPart = false;
-            while (!isLastPart)
+            while (true)
             {
                 var read = client.GetStream().Read(data, 0, data.Length); // в случае, если будет закрыт клиент с ЭТОЙ стороны, то бросится исключение IO че-то там.
                 if (read == 0) // метод Read у стрима возвращают 0 только тогда, когда данных больше не ожидается, т.е. сокет закрыт С ТОЙ стороны. Это блокирующий метод.
                     throw new Exception("socket closed before line accepted"); // пруф: https://msdn.microsoft.com/ru-ru/library/system.io.stream.read(v=vs.110).aspx комментарии.
-                isLastPart = data[read - 1] == EndLine;
-                result.AddRange(data.Take(isLastPart ? read - 1 : read));
+                if (data[0] == EndLine)
+                    break;
+                result.Add(data[0]);
             }
             return result.ToArray();
         }
@@ -51,7 +52,20 @@ namespace Infrastructure
             return Serializer.Deserialize(str,type);
         }
 
+        public static bool TryReadJson<T>(this TcpClient client, TimeSpan timeout, out T result)
+        {
+            var res = default(T);
 
+            var thread = new Thread(() =>
+            {
+                res = client.ReadJson<T>();
+            });
+            thread.Start();
+
+            var success = thread.Join(timeout);
+            result = res;
+            return success;
+        }
 
         public static void WriteJson(this TcpClient client, object obj)
         {

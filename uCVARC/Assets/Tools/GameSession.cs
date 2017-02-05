@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using CVARC.V2;
 using Infrastructure;
 
@@ -17,7 +18,12 @@ namespace Assets.Tools
 
         public void EndSession(GameResult result)
         {
-            proxyConnection.WriteJson(result);
+            try
+            {
+                proxyConnection.WriteJson(result);
+            }
+            catch (Exception) { }
+            
             proxyConnection.Close();
         }
     }

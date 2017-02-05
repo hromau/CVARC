@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure;
 using Ionic.Zip;
+using Newtonsoft.Json.Linq;
 using ProxyCommon;
 
 namespace SingleplayerProxy
@@ -94,10 +95,10 @@ namespace SingleplayerProxy
             try
             {
                 var gameSettings = client.ReadJson<GameSettings>();
-                // var worldState = client.ReadLine/ReadJObject()
+                var worldState = client.ReadJson<JObject>();
                 var mainConnection = ConnectToServer();
                 mainConnection.WriteJson(gameSettings);
-                //mainConnection.WriteLine/JObject(worldState)
+                mainConnection.WriteJson(worldState);
                 var server = ConnectToServer();
                 Proxy.CreateChainAndStart(server, client);
                 var resultTask = mainConnection.ReadJsonAsync<GameResult>();

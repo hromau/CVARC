@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using Assets.Tools;
 using CVARC.V2;
 using Infrastructure;
+using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace Assets.Servers
 {
@@ -29,25 +32,31 @@ namespace Assets.Servers
                 return false;
 
             proxyConnection = listener.AcceptTcpClient();
-            var gameSettings = proxyConnection.ReadJson<GameSettings>();
+            GameSettings gameSettings;
+            JObject worldStateObj;
+            if (!proxyConnection.TryReadJson(TimeSpan.FromSeconds(1), out gameSettings) ||
+                !proxyConnection.TryReadJson(TimeSpan.FromSeconds(1), out worldStateObj))
+            {
+                proxyConnection.Close();
+                Debug.Log("Failed");
+                return false;
+            }
+            var competitions = Dispatcher.Loader.GetCompetitions(gameSettings.LoadingData);
+            var worldState = (WorldState)worldStateObj.ToObject(competitions.Logic.WorldStateType);
             var players = new Dictionary<string, TcpClient>();
-                
+            if (worldState.Undefined)
+            {
+                Debug.Log("default");
+                worldState = DefaultWorldInfoCreator.GetDefaultWorldState(gameSettings.LoadingData);
+            }
             foreach (var settings in gameSettings.ActorSettings.Where(x => !x.IsBot))
                 players[settings.ControllerId] = listener.AcceptTcpClient();
 
             Debugger.Log("Accepted " + players.Count + " connections");
 
-            var competitions = Dispatcher.Loader.GetCompetitions(gameSettings.LoadingData);
-
-            foreach (var player in players.Values)
-                player.ReadJson(competitions.Logic.WorldStateType);
-
-
-            Debugger.Log("Has Game method ends");
-
             worldCreationParams = new WorldCreationParams(gameSettings, 
                 new PlayControllerFactory(players), 
-                DefaultWorldInfoCreator.GetDefaultWorldState(gameSettings.LoadingData));
+                worldState);
             return true;
         }
 

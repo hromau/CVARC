@@ -41,12 +41,13 @@ namespace HoMM.World
             foreach (var unitType in spawnableDwellings)
                 builder = builder.With(new GraphSpawner(random, dwellingsConfig,
                     (map, maze, loc) => new Dwelling(UnitFactory.FromType(unitType), loc,
-                        FindPlaceForBuilding(map, maze, loc)),
+                        FindPlaceForBuilding(map, maze, loc), UnitConstants.WeeklyGrowth[unitType]),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
 
             return builder
                 .With(new SimpleSpawner(
-                    (map, maze, loc) => new Dwelling(UnitFactory.FromType(UnitType.Militia), loc, loc), 
+                    (map, maze, loc) => new Dwelling(UnitFactory.FromType(UnitType.Militia), 
+                        loc, loc, UnitConstants.WeeklyGrowth[UnitType.Militia]), 
                     maze => new[] { Location.Zero, Location.Max(maze.Size) }));
         }
 

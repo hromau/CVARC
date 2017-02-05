@@ -64,7 +64,6 @@ namespace SingleplayerProxy
                 //Process.Start(SingleplayerProxyConfigurations.UnityExePath, );
                 Process.Start(new ProcessStartInfo
                 {
-                    WorkingDirectory = "..\\",
                     FileName = SingleplayerProxyConfigurations.UnityExePath
                 });
             TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8));

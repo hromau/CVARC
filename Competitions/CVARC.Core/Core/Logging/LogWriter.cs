@@ -29,6 +29,10 @@ namespace CVARC.V2
             this.configuration = configuration;
             this.worldState = worldState;
 
+            log.Add(configuration);
+            log.Add(worldState);
+
+
             world.Clocks.AddTrigger(new TimerTrigger(LogPositions, world.LoggingPositionTimeInterval));
 
             world.Scores.ScoresChanged += Scores_ScoresChanged;
@@ -63,7 +67,7 @@ namespace CVARC.V2
         private void World_Exit()
         {
             if (enableLog)
-                File.WriteAllLines(logFile, log.ToArray());
+                File.WriteAllLines(logFile, log.Select(z => JsonConvert.SerializeObject(z)).ToArray());
         }
 
         private void Scores_ScoresChanged(string controllerId, int count, string reason, string type, int total)
@@ -85,7 +89,7 @@ namespace CVARC.V2
         }
         
 
-        List<string> log = new List<string>();
+        List<object> log = new List<object>();
 
         public double CurrentTime { get { return world.Clocks.CurrentTime; } }
 
@@ -109,9 +113,7 @@ namespace CVARC.V2
 
         private void AddEntry(GameLogEntry entry)
         {
-            var str = JsonConvert.SerializeObject(entry, Formatting.None);
-            Debugger.Log(str);
-            log.Add(str);
+            log.Add(entry);
         }
 
         public void AddIncomingCommand(string controllerId, object command)

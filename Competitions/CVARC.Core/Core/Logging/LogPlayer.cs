@@ -16,16 +16,27 @@ namespace CVARC.V2
         ICommonEngine commonEngine;
 
         IEnumerator<string> lines;
-        
+
+        public GameSettings GameSettings { get; private set; }
 
 
-        public LogPlayer(string[] data, List<IEngine> engines)
+        public LogPlayer(string[] data)
         {
-            this.engines = engines.ToDictionary(z => z.GetType().Name, z=>z);
-            commonEngine = engines.OfType<ICommonEngine>().Single();
             lines = data.Cast<string>().GetEnumerator();
+
             if (!lines.MoveNext())
-                throw new Exception("Empty log");
+                throw new Exception("Log does not contain game settings as a first line");
+            GameSettings = JsonConvert.DeserializeObject<GameSettings>(lines.Current);
+            if (!lines.MoveNext())
+                throw new Exception("Log does not contain world state");
+            if (!lines.MoveNext())
+                finished = true;
+        }
+
+        public void StartEngines(List<IEngine> engines)
+        {
+            this.engines = engines.ToDictionary(z => z.GetType().Name, z => z);
+            commonEngine = engines.OfType<ICommonEngine>().Single();
         }
 
         bool finished;

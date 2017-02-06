@@ -1,5 +1,6 @@
 ﻿using System;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics
 {
@@ -12,7 +13,7 @@ namespace AIRLab.Mathematics
         public readonly double Z;
 
         #region Creation
-
+        [JsonConstructor]
         public Point3D(double x, double y, double z)
         {
             X = x;

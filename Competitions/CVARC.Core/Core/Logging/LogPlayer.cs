@@ -67,8 +67,6 @@ namespace CVARC.V2
             }
             if (obj.Type == GameLogEntryType.LocationCorrection)
             {
-                return;
-                Debugger.Log(obj.Time);
                 if (obj.LocationCorrection==null)
                     throw new Exception("Line type is LocationCorrection, but the section LocationCorrection was empty");
                 foreach (var e in obj.LocationCorrection.Locations)
@@ -76,7 +74,6 @@ namespace CVARC.V2
                         throw new Exception("Location update is defined for " + e.Key + " but it is absent at the map");
                     else
                     {
-                        Debugger.Log(e.Key + ": " + e.Value.ToString());
                         commonEngine.SetAbsoluteLocation(e.Key, e.Value);
                     }
             }

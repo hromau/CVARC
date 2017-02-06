@@ -1,11 +1,13 @@
 ﻿using System;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics
 {
     [Serializable]
     public struct Circle2D
     {
+        [JsonConstructor]
         public Circle2D(Point2D center, double r) : this()
         {
             Center = center;
@@ -23,6 +25,7 @@ namespace AIRLab.Mathematics
 
     public struct Sector
     {
+        [JsonConstructor]
         public Sector(Circle2D circle2D, Point2D start, Point2D finish) : this()
         {
             if (PointOnCircle(start, circle2D) && PointOnCircle(finish, circle2D))

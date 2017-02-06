@@ -1,9 +1,11 @@
+using Newtonsoft.Json;
 using System;
 
 namespace AIRLab.Mathematics
 {
     public struct PolarPoint2D
     {
+        [JsonConstructor]
         public PolarPoint2D(double r, Angle angle) : this()
         {
             Alpha = angle;

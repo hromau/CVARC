@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
@@ -15,6 +16,12 @@ namespace AIRLab.Mathematics
         ///   Creates angle from radian
         /// </summary>
         private Angle(double grad)
+        {
+            Grad = grad;
+        }
+
+        [JsonConstructor]
+        private Angle(double radian, double grad)
         {
             Grad = grad;
         }

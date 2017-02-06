@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace AIRLab.Mathematics
 {
     [Serializable]
     public struct Segment2D
     {
+        [JsonConstructor]
         public Segment2D(Point2D start, Point2D finish) : this()
 
         {

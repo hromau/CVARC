@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace AIRLab.Mathematics
 {
@@ -10,6 +11,7 @@ namespace AIRLab.Mathematics
         public readonly Point3D End;
         public readonly bool IsEmpty;
 
+        [JsonConstructor]
         public Line3D(Point3D begin, Point3D end)
         {
             Begin = begin;

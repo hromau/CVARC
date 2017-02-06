@@ -2,7 +2,7 @@
 using System;
 using Assets;
 using Infrastructure;
-
+using CVARC.V2;
 
 public class IntroductionStript : MonoBehaviour
 {
@@ -73,7 +73,7 @@ public class IntroductionStript : MonoBehaviour
                     AssemblyName = Settings.Current.TutorialCompetitions,
                     Level = Settings.Current.TutorialLevel
                 },
-                LogFile = UnityConstants.LogFolderRoot + "\\playlog.cvarclog"
+                LogFile = UnityConstants.LogFolderRoot + "\\play" + LogNames.Extension
             };
             Dispatcher.SwitchScene("LogRound");
         });

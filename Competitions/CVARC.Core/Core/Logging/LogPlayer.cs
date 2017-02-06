@@ -6,6 +6,8 @@ using System.Text;
 using System.Reflection;
 using AIRLab.Mathematics;
 using Infrastructure;
+using Ionic.Zip;
+using System.IO;
 
 namespace CVARC.V2
 {
@@ -19,24 +21,55 @@ namespace CVARC.V2
 
         public GameSettings GameSettings { get; private set; }
 
+        ZipFile zip;
 
-        public LogPlayer(string[] data)
+
+        ~LogPlayer()
         {
-            lines = data.Cast<string>().GetEnumerator();
+            zip.Dispose();
+        }
 
+        public LogPlayer(string pathToZipFile)
+        {
+            zip = ZipFile.Read(pathToZipFile);
+            Debugger.Log("replay file found");
+            var settings = zip.Where(z => z.FileName == LogNames.GameSettings).SingleOrDefault();
+            if (settings == null)
+                throw new Exception("No " + LogNames.GameSettings + " file is inside archive");
+            GameSettings = JsonConvert.DeserializeObject<GameSettings>(Encoding.UTF8.GetString(settings.OpenReader().ReadToEnd()));
+            Debugger.Log("Settings are read");
+            var replay = zip.Where(z => z.FileName == LogNames.Replay).SingleOrDefault();
+            if (replay == null)
+                throw new Exception("No " + LogNames.Replay + " file is inside the archive");
+            lines = ReadEntry(replay).GetEnumerator();
             if (!lines.MoveNext())
-                throw new Exception("Log does not contain game settings as a first line");
-            GameSettings = JsonConvert.DeserializeObject<GameSettings>(lines.Current);
-            if (!lines.MoveNext())
-                throw new Exception("Log does not contain world state");
-            if (!lines.MoveNext())
+            {
                 finished = true;
+                throw new Exception("Replay is empty");
+            }
+            Debugger.Log("Replay is opened to reading");
+        }
+
+        IEnumerable<string> ReadEntry(ZipEntry entry)
+        {
+            var stream = entry.OpenReader();
+            var reader = new StreamReader(stream, Encoding.UTF8);
+            while (true)
+            {
+                var str = reader.ReadLine();
+                if (str == null)
+                    break;
+                yield return str;
+            }
+            reader.Close();
+            stream.Close();
         }
 
         public void StartEngines(List<IEngine> engines)
         {
             this.engines = engines.ToDictionary(z => z.GetType().Name, z => z);
             commonEngine = engines.OfType<ICommonEngine>().Single();
+            Debugger.Log("Engines started");
         }
 
         bool finished;

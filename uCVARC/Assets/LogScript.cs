@@ -19,8 +19,7 @@ public partial class LogScript : PlayScript
     {
         var model = Dispatcher.LogModel; // теперь всю инфу о логах мы получаем ТАК.
 
-        var data = File.ReadAllLines(model.LogFile);
-        reader = new LogPlayer(data);
+        reader = new LogPlayer(model.LogFile);
         var engines = Dispatcher.Loader.GetCompetitions(reader.GameSettings.LoadingData).EnginesFactory(); // если я правильно понимаю, можно и так
         reader.StartEngines(engines);
         commonEngine = engines.OfType<CommonEngine>().SingleOrDefault();

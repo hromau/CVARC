@@ -6,10 +6,18 @@ using System.Linq;
 using Infrastructure;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Ionic.Zip;
 
 namespace CVARC.V2
 {
 
+    public class LogNames
+    {
+        public const string GameSettings = "GameSettings";
+        public const string WorldState = "WorldState";
+        public const string Replay = "Replay";
+        public const string Extension = ".cvarcreplay";
+    }
 
 
     public class LogWriter
@@ -17,7 +25,7 @@ namespace CVARC.V2
         
         IWorld world;
         private bool enableLog;
-        private string logFile;
+        private string logFileName;
         private Infrastructure.GameSettings configuration;
         private object worldState;
 
@@ -25,14 +33,10 @@ namespace CVARC.V2
         {
             this.world = world;
             this.enableLog = enableLog;
-            this.logFile = logFile;
+            this.logFileName = logFile;
             this.configuration = configuration;
             this.worldState = worldState;
-
-            log.Add(configuration);
-            log.Add(worldState);
-
-
+           
             world.Clocks.AddTrigger(new TimerTrigger(LogPositions, world.LoggingPositionTimeInterval));
 
             world.Scores.ScoresChanged += Scores_ScoresChanged;
@@ -67,7 +71,24 @@ namespace CVARC.V2
         private void World_Exit()
         {
             if (enableLog)
-                File.WriteAllLines(logFile, log.Select(z => JsonConvert.SerializeObject(z)).ToArray());
+            {
+                using(var zip = new ZipFile())
+                {
+                    zip.AddEntry(LogNames.Replay, (name, stream) =>
+                     {
+                         var writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
+                         foreach (var e in log)
+                         {
+                             writer.WriteLine(JsonConvert.SerializeObject(e));
+                         }
+                         writer.Close();
+
+                     });
+                    zip.AddEntry(LogNames.GameSettings, JsonConvert.SerializeObject(configuration));
+                    zip.AddEntry(LogNames.WorldState, JsonConvert.SerializeObject(worldState));
+                    zip.Save(logFileName);
+                }
+            }                
         }
 
         private void Scores_ScoresChanged(string controllerId, int count, string reason, string type, int total)

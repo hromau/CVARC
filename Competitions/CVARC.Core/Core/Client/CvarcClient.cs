@@ -18,7 +18,18 @@ namespace CVARC.V2
         protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
 		{
             client = new TcpClient();
-            client.Connect(ip, port);
+		    try
+		    {
+		        client.Connect(ip, port);
+		    }
+		    catch (SocketException)
+		    {
+		        if (OnError != null)
+		            OnError("Cant connect to server. Run UnityStarter.bat first");
+		        errorHappend = true;
+		        return null;
+		    }
+            
 
 			client.WriteJson(configuration);
 			client.WriteJson(JObject.FromObject(state));

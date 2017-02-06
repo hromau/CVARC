@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using AIRLab.Mathematics;
+using Infrastructure;
 
 namespace CVARC.V2
 {
@@ -27,9 +28,11 @@ namespace CVARC.V2
                 throw new Exception("Empty log");
         }
 
+        bool finished;
 
         public bool Play(double currentTime)
         {
+            if (finished) return false;
             while(true)
             {
                 
@@ -37,7 +40,11 @@ namespace CVARC.V2
                 if (obj.Time <= currentTime)
                 {
                     Play(obj);
-                    if (!lines.MoveNext()) return false;
+                    if (!lines.MoveNext())
+                    {
+                        finished = true;
+                        return false;
+                    }
                 }
                 else
                     return true;
@@ -60,13 +67,18 @@ namespace CVARC.V2
             }
             if (obj.Type == GameLogEntryType.LocationCorrection)
             {
+                return;
+                Debugger.Log(obj.Time);
                 if (obj.LocationCorrection==null)
                     throw new Exception("Line type is LocationCorrection, but the section LocationCorrection was empty");
                 foreach (var e in obj.LocationCorrection.Locations)
                     if (!commonEngine.ContainBody(e.Key))
                         throw new Exception("Location update is defined for " + e.Key + " but it is absent at the map");
                     else
+                    {
+                        Debugger.Log(e.Key + ": " + e.Value.ToString());
                         commonEngine.SetAbsoluteLocation(e.Key, e.Value);
+                    }
             }
         }
 

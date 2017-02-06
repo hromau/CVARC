@@ -11,6 +11,7 @@ namespace Infrastructure
         public static Action<string> Logger;
         static object lockObject = new object();
         static HashSet<string> enabledTypes = new HashSet<string>();
+        
 
         public class SettingsClass
         {
@@ -45,7 +46,7 @@ namespace Infrastructure
                 var method = stack.GetMethod();
                 var type = method.DeclaringType;
                 
-                if (AlwaysOn || enabledTypes.Contains(type.Name))
+                if (AlwaysOn || enabledTypes.Contains(type.Name) || enabledTypes.Contains(type.Name+"::"+method.Name))
                 {
                     var str = message == null ? "null" : message.ToString();
                     str = type.Name + "." + method.Name + ": " + str;

@@ -46,6 +46,7 @@ namespace AIRLab.Mathematics
             else notIdentity = true;
             Orientation = null;
         }
+        
 
         #region Работа с матрицами
 

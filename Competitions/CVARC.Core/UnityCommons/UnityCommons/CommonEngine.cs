@@ -47,7 +47,7 @@ namespace UnityCommons
         public void SetAbsoluteSpeed(string id, Frame3D speed)
         {
             this.Log("SetAbsoluteSpeed", id, speed);
-
+            
             requestedAbsoluteSpeed[id] = speed.ToUnityBasis();
 
             if (requestedRelativeSpeed.ContainsKey(id))
@@ -89,6 +89,7 @@ namespace UnityCommons
                     requestedSpeed.Yaw,
                     requestedSpeed.Roll
                 ).ToUnityBasis();
+               
 
                 UpdateSpeed(requestedId, speed);
             }

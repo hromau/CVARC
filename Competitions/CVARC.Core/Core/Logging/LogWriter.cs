@@ -91,6 +91,8 @@ namespace CVARC.V2
 
         public void AddMethodInvocation(Type engine, string method, params object[] arguments)
         {
+             
+
             var entry = new GameLogEntry
             {
                 Time = CurrentTime,
@@ -127,18 +129,5 @@ namespace CVARC.V2
             AddEntry(entry);
         }
 
-        public void AddLocationCorrection(Dictionary<string, Frame3D> correction)
-        {
-            var entry = new GameLogEntry
-            {
-                Time = CurrentTime,
-                Type = GameLogEntryType.LocationCorrection,
-                LocationCorrection = new LocationCorrectionLogEntry
-                {
-                    Locations = correction
-                }
-            };
-            AddEntry(entry);
-        }
     }
 }

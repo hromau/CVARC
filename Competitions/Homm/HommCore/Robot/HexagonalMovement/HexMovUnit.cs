@@ -17,6 +17,7 @@ namespace HoMM.Robot.HexagonalMovement
         public UnitResponse ProcessCommand(object command)
         {
             Debugger.Log("Enter process command");
+
             var movement = Compatibility.Check<IHexMovCommand>(this, command).Movement;
             if (movement == null) return UnitResponse.Denied();
             Debugger.Log("Accepted HexMovCommand");

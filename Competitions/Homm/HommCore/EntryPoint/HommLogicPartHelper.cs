@@ -35,6 +35,7 @@ namespace HoMM
             Debugger.Settings.EnableType<Round>();
             Debugger.Settings.EnableType<NeutralArmy>();
             Debugger.Settings.EnableType<RoundToUnityConnecter>();
+            Debugger.Settings.EnableType<HexMovUnit>();
             Debugger.Settings.EnableType(typeof(Combat));
         }
 
@@ -58,7 +59,7 @@ namespace HoMM
                 logicPart.Actors[pid] = actorFactory;
 
             logicPart.Bots[HommRules.StandingBotName] = () => 
-                new Bot<HommCommand>(_ => new HommCommand { Movement = new Wait() });
+                new Bot<HommCommand>(_ => new HommCommand { Movement = new HexMovement() });
 
             return logicPart;
         }

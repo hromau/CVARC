@@ -11,9 +11,9 @@ namespace HoMM.Robot
     public class HommCommand : ICommand, IHexMovCommand, IArmyInterfaceCommand
     {
         [DataMember]
-        public IMovement Movement { get; set; }
+        public HexMovement Movement { get; set; }
 
         [DataMember]
-        public IOrder Order { get; set; }
+        public PurchaseOrder Order { get; set; }
     }
 }

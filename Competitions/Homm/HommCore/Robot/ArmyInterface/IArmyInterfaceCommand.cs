@@ -2,6 +2,6 @@
 {
     interface IArmyInterfaceCommand
     {
-        IOrder Order { get; }
+        PurchaseOrder Order { get; }
     }
 }

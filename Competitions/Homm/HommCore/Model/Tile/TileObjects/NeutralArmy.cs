@@ -34,13 +34,29 @@ namespace HoMM
                 OnRemove();
         }
 
-        public static NeutralArmy BuildRandom(Location location, int minCountInclusive, int maxCountExclusive,
-            Random random)
+        public static NeutralArmy BuildRandom(Location location, int armyStrength,
+            Random random, UnitType preferredUnitType, double preferredUnitShare = 0.5)
         {
-            var unitType = random.Choice<UnitType>();
-            var unitsCount = random.Next(minCountInclusive, maxCountExclusive);
+            if (preferredUnitShare < 0 || preferredUnitShare > 1)
+                throw new ArgumentException("Invalid unit share!");
 
-            var army = new Dictionary<UnitType, int> { { unitType, unitsCount } };
+            int randomizedArmyStrength = (int)(armyStrength * (1 + (random.NextDouble() - 0.5) * 0.4)); //80-120% of original
+
+            var army = new Dictionary<UnitType, int> { };
+            foreach (UnitType unit in Enum.GetValues(typeof(UnitType)))
+                army.Add(unit, 0);
+            int currentStrength = 0;
+
+            int prefStackSize = (int)Math.Floor((randomizedArmyStrength * preferredUnitShare) / UnitConstants.CombatPower[preferredUnitType]);
+            army[preferredUnitType] += prefStackSize;
+            currentStrength += prefStackSize * UnitConstants.CombatPower[preferredUnitType];
+
+            while(currentStrength <= randomizedArmyStrength)
+            {
+                var nextUnit = random.Choice<UnitType>();
+                army[nextUnit]++;
+                currentStrength += UnitConstants.CombatPower[nextUnit];
+            }
 
             return new NeutralArmy(army, location);
         }

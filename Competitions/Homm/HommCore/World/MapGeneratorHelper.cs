@@ -129,7 +129,7 @@ namespace HoMM.World
         {
             var guardsConfig = new SpawnerConfig(Location.Zero, 16.5, 100, 1);
             return builder.With(new DistanceSpawner(random, guardsConfig,
-                (map, maze, p) => NeutralArmy.BuildRandom(p, 40, 50, random),
+                (map, maze, p) => NeutralArmy.BuildRandom(p, 600, random, UnitType.Cavalry, 0.2),
                 symmetricFactory: (original, location) => ((NeutralArmy)original).Copy(location)));
         }
 
@@ -142,12 +142,12 @@ namespace HoMM.World
             return builder
 
                 .With(new GraphSpawner(random, easyTier,
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 5, 10, random),
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 150, random, UnitType.Militia, 0.25),
                     (map, maze, location) => map[location].Any(x => x is Mine),
                     (original, location) => ((NeutralArmy)original).Copy(location)))
 
                 .With(new GraphSpawner(random, hardTier, 
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 10, 30, random),
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 400, random, UnitType.Infantry, 0),
                     (map, maze, location) => map[location].Any(x => x is Mine),
                     (original, location) => ((NeutralArmy)original).Copy(location)));
         }

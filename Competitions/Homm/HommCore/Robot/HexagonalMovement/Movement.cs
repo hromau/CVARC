@@ -5,12 +5,15 @@ namespace HoMM.Robot.HexagonalMovement
     [Serializable]
     class Movement : IMovement
     {
-        public Direction MovementDirection { get; }
+        public Direction MovementDirection { get; set; }
 
         public Movement(Direction direction)
         {
             MovementDirection = direction;
         }
+
+        public Movement()
+        { }
 
         public double Apply(IHommRobot robot)
         {

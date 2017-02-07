@@ -59,9 +59,12 @@ public partial class RoundScript : PlayScript
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс
     {
+        Debugger.Log("Entering fixed update");
         curWorldTime = Time.fixedTime - timeOnStartSession;
         world.Clocks.Tick(curWorldTime);
+        Debugger.Log("Updating speeds");
         ((CommonEngine)world.GetEngine<ICommonEngine>()).UpdateSpeeds();
+        Debugger.Log("Leaving fixed update");
     }
 
     void OnDisable()

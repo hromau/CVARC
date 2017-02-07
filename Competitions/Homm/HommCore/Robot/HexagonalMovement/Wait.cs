@@ -10,13 +10,13 @@ namespace HoMM.Robot.HexagonalMovement
     [Serializable]
     class Wait : IMovement
     {
-        private double waitTime;
+        public double WaitTime { get; set; }
 
         public Wait() : this(HommRules.Current.WaitDuration) { }
 
         public Wait(double time)
         {
-            waitTime = time;
+            WaitTime = time;
         }
 
         public double Apply(IHommRobot robot)
@@ -27,7 +27,7 @@ namespace HoMM.Robot.HexagonalMovement
             engine.Freeze(player.Name);
             engine.SetPosition(player.Name, player.Location.X, player.Location.Y);
 
-            return waitTime;
+            return WaitTime;
         }
     }
 }

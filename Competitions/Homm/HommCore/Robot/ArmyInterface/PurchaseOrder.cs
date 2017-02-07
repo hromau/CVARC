@@ -2,7 +2,7 @@
 {
     class PurchaseOrder : IOrder
     {
-        public int Count { get; }
+        public int Count { get; set; }
 
         public PurchaseOrder(int count)
         {

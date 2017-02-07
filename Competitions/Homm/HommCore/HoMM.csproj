@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientClasses\HeroLocation.cs" />
+    <Compile Include="ClientClasses\MapInfo.cs" />
     <Compile Include="EntryPoint\DlcEntryPoint.cs" />
     <Compile Include="Engine\HommEngineHighLevelApi.cs" />
     <Compile Include="Engine\InternalHommEngine.cs" />

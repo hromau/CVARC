@@ -4,20 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CVARC.V2;
+using HoMM.ClientClasses;
 
 namespace HoMM.Sensors
 {
     [DataContract]
+    [Serializable]
     public class HommSensorData
     {
         [DataMember]
         [FromSensor(typeof(LocationSensor))]
-        public Location Location { get; set; }
+        public LocationInfo Location { get; set; }
 
         [DataMember]
         [FromSensor(typeof(MapSensor))]
-        public IEnumerable<TileObject> Map { get; set; }
- 
+        public List<MapInfo> Map { get; set; }
+
         [DataMember]
         [FromSensor(typeof(ArmySensor))]
         public Dictionary<UnitType, int> MyArmy { get; set; }

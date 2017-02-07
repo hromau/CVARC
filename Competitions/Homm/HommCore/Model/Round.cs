@@ -66,6 +66,8 @@ namespace HoMM
             DaysPassed++;
             if (DaysPassed % 7 == 0)
                 WeeklyTick();
+
+            Debugger.Log("DailyTick done!");
         }
 
         private void WeeklyTick()

@@ -2,6 +2,7 @@
 using System.Linq;
 using HoMM.Sensors;
 using HoMM;
+using HoMM.Rules;
 
 namespace HommClientExample
 {
@@ -63,11 +64,35 @@ namespace HommClientExample
             // Каждое действие возвращает новые данные с сенсоров.
             // Мы подписались на обработку событий, поэтому обрабатывать отдельно каждый экземпляр нет необходимости
 
-            // Угол поворота указывается в градусах, против часовой стрелки.
-            client.Move(Direction.RightDown);
+            while(true)
+            {
+                var e = Console.ReadKey();
+                switch(e.Key)
+                {
+                    case ConsoleKey.Escape:
+                            client.Exit();
+                            return;
+                    case ConsoleKey.Q:
+                        client.Move(Direction.LeftUp);
+                        break;
+                    case ConsoleKey.W:
+                        client.Move(Direction.Up);
+                        break;
+                    case ConsoleKey.E:
+                        client.Move(Direction.RightUp);
+                        break;
+                    case ConsoleKey.A:
+                        client.Move(Direction.LeftDown);
+                        break;
+                    case ConsoleKey.S:
+                        client.Move(Direction.Down);
+                        break;
+                    case ConsoleKey.D:
+                        client.Move(Direction.RightDown);
+                        break;
 
-            // Корректно завершаем работу
-            client.Exit();
+                }
+            }
         }
     }
 }

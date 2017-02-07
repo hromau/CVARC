@@ -35,7 +35,7 @@ namespace HoMM
             Debugger.Settings.EnableType<Round>();
             Debugger.Settings.EnableType<NeutralArmy>();
             Debugger.Settings.EnableType<RoundToUnityConnecter>();
-            Debugger.Settings.EnableType<HexMovUnit>();
+            Debugger.Settings.EnableType<InternalHommEngine>();
             Debugger.Settings.EnableType(typeof(Combat));
         }
 

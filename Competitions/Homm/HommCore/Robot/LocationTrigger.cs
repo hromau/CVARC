@@ -12,6 +12,7 @@ namespace HoMM.Robot
         private static void DoUpdateLocation(IHommRobot actor, Location newLocation)
         {
             actor.World.Round.Update(actor.Player, newLocation);
+            actor.World.HommEngine.Freeze(actor.ControllerId);
         }
     }
 }

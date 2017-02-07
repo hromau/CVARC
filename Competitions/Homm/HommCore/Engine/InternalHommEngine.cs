@@ -26,7 +26,8 @@ namespace HoMM.Engine
             { MapObject.Hexagon, () =>
                 {
                     var obj = GameObject.Instantiate<GameObject>(prefabs["hex"]);
-                    obj.transform.Rotate(90, 90, 0);
+                    obj.transform.Rotate(0, 0, -90);
+                    obj.transform.localScale *= 1.1f;
                     return obj;
                 }
             },
@@ -95,6 +96,8 @@ namespace HoMM.Engine
 
         public void Move(GameObject obj, Direction direction, float duration)
         {
+            //
+
             Debugger.Log("Move called");
 
             var rigidbody = obj.GetComponent<Rigidbody>();
@@ -103,9 +106,14 @@ namespace HoMM.Engine
             {
                 rigidbody = obj.AddComponent<Rigidbody>();
                 rigidbody.useGravity = false;
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;
+                rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             }
 
             rigidbody.velocity = GetVelocity(direction).normalized / duration;
+
+            //rigidbody.AddForce(GetVelocity(direction).normalized / duration);
 
             Debugger.Log(rigidbody.velocity);
         }

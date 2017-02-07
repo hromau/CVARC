@@ -45,6 +45,7 @@ namespace HoMM.Engine
                 var color = availablePlayerColors[i];
                 playerColorMapping[player.Name] = color;
 
+                Debugger.Log("Creating player...");
                 api.CreatePlayer(player.Name, color, player.Location);
             }
 

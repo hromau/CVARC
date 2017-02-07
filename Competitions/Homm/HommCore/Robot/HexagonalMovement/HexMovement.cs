@@ -3,17 +3,21 @@
 namespace HoMM.Robot.HexagonalMovement
 {
     [Serializable]
-    class Movement : IMovement
+    public class HexMovement
     {
         public Direction MovementDirection { get; set; }
+        public bool Wait { get; set; }
 
-        public Movement(Direction direction)
+        public HexMovement(Direction direction)
         {
             MovementDirection = direction;
+            Wait = false;
         }
 
-        public Movement()
-        { }
+        public HexMovement()
+        {
+            Wait = true;
+        }
 
         public double Apply(IHommRobot robot)
         {

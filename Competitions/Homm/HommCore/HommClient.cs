@@ -47,7 +47,7 @@ namespace HoMM
 
         public TSensorData Move(Direction direction)
         {
-            return Act(new HommCommand { Movement = new Movement(direction) });
+            return Act(new HommCommand { Movement = new HexMovement(direction) });
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     interface IHexMovCommand
     {
-        IMovement Movement { get; }
+        HexMovement Movement { get; }
     }
 }

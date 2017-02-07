@@ -125,14 +125,11 @@
     <Compile Include="Robot\ArmyInterface\IArmyInterfaceCommand.cs" />
     <Compile Include="Robot\ArmyInterface\ArmyInterfaceUnit.cs" />
     <Compile Include="Common\Direction.cs" />
-    <Compile Include="Robot\ArmyInterface\IOrder.cs" />
     <Compile Include="Robot\ArmyInterface\PurchaseOrder.cs" />
-    <Compile Include="Robot\HexagonalMovement\IMovement.cs" />
     <Compile Include="Robot\HexagonalMovement\IHexMovCommand.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovUnit.cs" />
     <Compile Include="Robot\IHommRobot.cs" />
-    <Compile Include="Robot\HexagonalMovement\Movement.cs" />
-    <Compile Include="Robot\HexagonalMovement\Wait.cs" />
+    <Compile Include="Robot\HexagonalMovement\HexMovement.cs" />
     <Compile Include="Sensors\DeathSensor.cs" />
     <Compile Include="Sensors\LocationSensor.cs" />
     <Compile Include="Sensors\MapSensor.cs" />

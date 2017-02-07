@@ -1,6 +1,6 @@
 ﻿namespace HoMM.Robot.ArmyInterface
 {
-    class PurchaseOrder : IOrder
+    public class PurchaseOrder
     {
         public int Count { get; set; }
 

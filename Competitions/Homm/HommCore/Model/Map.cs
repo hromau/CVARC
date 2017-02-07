@@ -93,14 +93,14 @@ namespace HoMM
                     {
                         var resName = Enum.GetNames(typeof(Resource))
                             .SingleOrDefault(res => res[0] == s[2]);
-                        var resource = (Resource)Enum.Parse(typeof(Resource), resName == null ? "Rubles" : resName);
+                        var resource = (Resource)Enum.Parse(typeof(Resource), resName);
                         return new Mine(resource, location);
                     }
                 case 'p':
                     {
                         var resName = Enum.GetNames(typeof(Resource))
                             .SingleOrDefault(res => res[0] == s[2]);
-                        var resource = (Resource)Enum.Parse(typeof(Resource), resName == null ? "Rubles" : resName);
+                        var resource = (Resource)Enum.Parse(typeof(Resource), resName);
                         int amount = int.Parse(s.Substring(3));
                         return new ResourcePile(resource, amount, location);
                     }

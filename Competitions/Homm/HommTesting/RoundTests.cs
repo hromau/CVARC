@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using NUnit.Framework;
 using HoMM;
@@ -22,7 +23,7 @@ namespace HexModelTesting
         public void TestMineCapturing()
         {
             round.UpdateTick(new Location[] { new Location(1, 0), new Location(1, 2) });
-            var mine = (Mine)round.Map[new Location(1, 0)].Objects;
+            var mine = (Mine)round.Map[new Location(1, 0)].Objects.Single();
             Assert.That(mine.Owner == round.Players[0]);
             Assert.That(mine.Resource == Resource.Gold);
             round.DailyTick();
@@ -34,17 +35,27 @@ namespace HexModelTesting
         {
             round.UpdateTick(new Location[] { new Location(0, 0), new Location(1, 1) });
             Assert.That(round.Players[1].CheckResourceAmount(Resource.Gold) == 100);
-            Assert.That(round.Map[new Location(1, 1)].Objects == null);
+            CollectionAssert.IsEmpty(round.Map[new Location(1, 1)].Objects);
         }
 
         [Test]
         public void TestObjectRecapture()
         {
             round.UpdateTick(new Location[] { new Location(0, 0), new Location(2, 1) });
-            var obj = (CapturableObject)round.Map[new Location(2, 1)].Objects;
+            var obj = (CapturableObject)round.Map[new Location(2, 1)].Objects.Single();
             Assert.That(obj.Owner == round.Players[1]);
             round.UpdateTick(new Location[] { new Location(2, 1), new Location(0, 0) });
             Assert.That(obj.Owner == round.Players[0]);
+        }
+
+        [Test]
+        public void TestGarrisonUncapturedOnLoss()
+        {
+            var p = round.Players[0];
+            p.AddUnits(UnitType.Infantry, 1);
+            round.UpdateTick(new Location[] { new Location(3, 3), new Location(0, 0) });
+            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects.Single();
+            Assert.That(garrison.Owner == null);
         }
 
         [Test]
@@ -54,7 +65,7 @@ namespace HexModelTesting
             p.AddUnits(UnitType.Infantry, 20);
             p.AddUnits(UnitType.Ranged, 5);
             round.UpdateTick(new Location[] { new Location(3, 3), new Location(0, 0) });
-            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects;
+            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects.Single();
             Assert.That(garrison.Owner == p);
         }
 
@@ -66,7 +77,7 @@ namespace HexModelTesting
             p.AddUnits(UnitType.Ranged, 12);
             p.AddUnits(UnitType.Infantry, 7);
             round.UpdateTick(new Location[] { new Location(5, 2), new Location(0, 0) });
-            Assert.Null(round.Map[new Location(5, 2)].Objects);
+            CollectionAssert.IsEmpty(round.Map[new Location(5, 2)].Objects);
         }
 
         #region player.TryBuyUnits testing
@@ -98,7 +109,7 @@ namespace HexModelTesting
         {
             for (int i = 0; i < 7; i++)
                 round.DailyTick();
-            var dwelling = (Dwelling)round.Map[new Location(2, 1)].Objects;
+            var dwelling = (Dwelling)round.Map[new Location(2, 1)].Objects.Single();
             Assert.That(dwelling.AvailableUnits == 16);
             Assert.False(round.Players[0].TryBuyUnits(1));
         }
@@ -108,7 +119,7 @@ namespace HexModelTesting
         {
             for (int i = 0; i < 7; i++)
                 round.DailyTick();
-            var dwelling = (Dwelling)round.Map[new Location(2, 1)].Objects;
+            var dwelling = (Dwelling)round.Map[new Location(2, 1)].Objects.Single();
             round.UpdateTick(new Location[] { new Location(2, 1), new Location(0, 0) });
             var player = round.Players[0];
             player.GainResources(Resource.Gold, 1000);
@@ -135,7 +146,7 @@ namespace HexModelTesting
             var p = round.Players[0];
             p.AddUnits(UnitType.Infantry, 20);
             p.AddUnits(UnitType.Ranged, 5);
-            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects;
+            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects.Single();
             Assert.That(garrison.Owner != p);
             Assert.False(p.TryExchangeUnitsWithGarrison(p.Army));
         }
@@ -146,7 +157,7 @@ namespace HexModelTesting
             var p = round.Players[0];
             p.AddUnits(UnitType.Infantry, 20);
             p.AddUnits(UnitType.Ranged, 5);
-            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects;
+            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects.Single();
             round.UpdateTick(new Location[] { new Location(3, 3), new Location(0, 0) });
             Assert.That(garrison.Owner == p);
             var unitsToGive = new Dictionary<UnitType, int> { [UnitType.Infantry] = p.Army[UnitType.Infantry] + 1 };
@@ -159,12 +170,13 @@ namespace HexModelTesting
             var p = round.Players[0];
             p.AddUnits(UnitType.Infantry, 20);
             p.AddUnits(UnitType.Ranged, 5);
-            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects;
+            var garrison = (Garrison)round.Map[new Location(3, 3)].Objects.Single();
             round.UpdateTick(new Location[] { new Location(3, 3), new Location(0, 0) });
-            Assert.That(garrison.Owner == p && p.Army[UnitType.Infantry] == 10);
+            var hadUnits = p.Army[UnitType.Infantry];
+            Assert.That(garrison.Owner == p && hadUnits >= 1);
             var unitsToGive = new Dictionary<UnitType, int> { [UnitType.Infantry] = 1 };
             Assert.True(p.TryExchangeUnitsWithGarrison(unitsToGive));
-            Assert.True(p.Army[UnitType.Infantry] == 10 - 1);
+            Assert.True(p.Army[UnitType.Infantry] == hadUnits - 1);
             Assert.True(garrison.Army[UnitType.Infantry] == 1);
         }
 

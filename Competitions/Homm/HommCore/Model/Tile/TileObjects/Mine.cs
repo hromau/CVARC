@@ -6,24 +6,24 @@ namespace HoMM
     {
         public Resource Resource { get; private set; }
         public Location BuildingLocation { get; }
-        public Location TriggerLocation { get; }
+        public Location EntryLocation { get; }
 
         public override bool IsPassable => true;
 
-        public int Yield => 10;
+        public int Yield => Resource == Resource.Gold ? 1000 : 10;
 
         public Mine(Resource res, Location location) : this(res, location, location) { }
 
-        public Mine(Resource res, Location triggerLocation, Location buildingLocation) : base(triggerLocation)
+        public Mine(Resource res, Location entryLocation, Location buildingLocation) : base(entryLocation)
         {
-            if (triggerLocation == null)
+            if (entryLocation == null)
                 throw new ArgumentException("Expected triggerLocation, got null");
 
             if (buildingLocation == null)
                 throw new ArgumentException("Expected buildingLocation, got null");
 
             Resource = res;
-            TriggerLocation = triggerLocation;
+            EntryLocation = entryLocation;
             BuildingLocation = buildingLocation;
         }
 

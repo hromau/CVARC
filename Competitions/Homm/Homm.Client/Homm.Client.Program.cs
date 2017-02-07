@@ -64,6 +64,11 @@ namespace HommClientExample
             // Каждое действие возвращает новые данные с сенсоров.
             // Мы подписались на обработку событий, поэтому обрабатывать отдельно каждый экземпляр нет необходимости
 
+            client.Move(Direction.Down);
+            client.Exit();
+            return; 
+
+
             while(true)
             {
                 var e = Console.ReadKey();

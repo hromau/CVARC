@@ -32,6 +32,7 @@ public static class Dispatcher
             Debug.Log(e);
             Debugger.Settings.EnableType(e);
         }
+        Debugger.AlwaysOn = true;
         Debugger.Logger = Debug.Log;
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))

@@ -15,10 +15,10 @@ namespace HoMM
 
         public static Dictionary<UnitType, Dictionary<Resource, int>> UnitCost = new Dictionary<UnitType, Dictionary<Resource, int>>
         {
-            [UnitType.Infantry] = new Dictionary<Resource, int> { [Resource.Gold] = 1, [Resource.Ore] = 1 },
-            [UnitType.Ranged] = new Dictionary<Resource, int> { [Resource.Gold] = 1, [Resource.Wood] = 1 },
-            [UnitType.Cavalry] = new Dictionary<Resource, int> { [Resource.Gold] = 1, [Resource.Horses] = 1 },
-            [UnitType.Militia] = new Dictionary<Resource, int> { [Resource.Gold] = 1 }
+            [UnitType.Infantry] = new Dictionary<Resource, int> { [Resource.Gold] = 50, [Resource.Ore] = 1 },
+            [UnitType.Ranged] = new Dictionary<Resource, int> { [Resource.Gold] = 50, [Resource.Wood] = 1 },
+            [UnitType.Cavalry] = new Dictionary<Resource, int> { [Resource.Gold] = 200, [Resource.Horses] = 1 },
+            [UnitType.Militia] = new Dictionary<Resource, int> { [Resource.Gold] = 25 }
         };
 
         public static Dictionary<UnitType, int> CombatPower = new Dictionary<UnitType, int>

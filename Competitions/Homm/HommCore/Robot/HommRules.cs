@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace HoMM.Rules
 {
-    class HommRules : IRules
+    public class HommRules : IRules
     {
         public static readonly HommRules Current = new HommRules();
         public const string StandingBotName = "Standing";

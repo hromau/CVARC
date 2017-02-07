@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Infrastructure
 {
@@ -11,7 +12,7 @@ namespace Infrastructure
         public static Action<string> Logger;
         static object lockObject = new object();
         static HashSet<string> enabledTypes = new HashSet<string>();
-
+        
         public class SettingsClass
         {
             public SettingsClass EnableType<T>()
@@ -44,14 +45,19 @@ namespace Infrastructure
                 var stack = new System.Diagnostics.StackTrace().GetFrame(1);
                 var method = stack.GetMethod();
                 var type = method.DeclaringType;
-                
-                if (AlwaysOn || enabledTypes.Contains(type.Name))
+
+                if (!AlwaysOn)
                 {
-                    var str = message == null ? "null" : message.ToString();
-                    str = type.Name + "." + method.Name + ": " + str;
-                    Logger(str);
-                    File.AppendAllText("log.txt", str + "\n");
+                    bool ok = false;
+                    if (enabledTypes.Contains(type.Name)) ok = true;
+                    if (!ok) return;
                 }
+
+                var str = message == null ? "null" : message.ToString();
+                str = type.Name + "." + method.Name + ": " + str;
+                if (Logger!=null)
+                    Logger(str);
+                File.AppendAllText("log.txt", str + "\n");
             }
         }
     }

@@ -9,6 +9,24 @@ namespace HoMM
 {
     public static class Combat
     {
+        public static bool IsWinnable(ICombatable p1, ICombatable p2, bool winnableForP1)
+        {
+            Debugger.Log("Resolve fake battle");
+            var p1Army = new Dictionary<UnitType, int>(p1.Army);
+            var p2Army = new Dictionary<UnitType, int>(p2.Army);
+            ResolveBattle(p1, p2);
+
+            Debugger.Log("Fake battle resolved");
+            bool hasWon = winnableForP1 ? p2.HasNoArmy() : p1.HasNoArmy();
+            foreach (var unitType in p1Army.Keys)
+                p1.Army[unitType] = p1Army[unitType];
+            foreach (var unitType in p2Army.Keys)
+                p2.Army[unitType] = p2Army[unitType];
+
+            Debugger.Log("Armies restored");
+            return hasWon;
+        }
+
         public static void ResolveBattle(ICombatable p1, ICombatable p2)
         {
             Debugger.Log("Resolve battle");
@@ -20,7 +38,7 @@ namespace HoMM
 
             Debugger.Log("Second army:");
 
-            foreach(var kv in p2.Army)
+            foreach (var kv in p2.Army)
                 Debugger.Log($"{kv.Key} - {kv.Value}");
 
             double atkDmgMod = (p1.Attack - p2.Defence) * ((p1.Attack - p2.Defence > 0) ? 0.05 : 0.025);

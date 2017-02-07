@@ -1,0 +1,37 @@
+﻿using CVARC.V2;
+using HoMM.Robot;
+using HoMM.World;
+using Infrastructure;
+
+namespace HoMM.Robot.HexagonalMovement
+{
+    class HexMovUnit : IUnit
+    {
+        private IHommRobot actor;
+
+        public HexMovUnit(IHommRobot actor)
+        {
+            this.actor = actor;
+        }
+
+        public UnitResponse ProcessCommand(object command)
+        {
+<<<<<<< HEAD
+            Debugger.Log("Enter process command");
+=======
+            Debugger.Log("HexMovUnit activated");
+
+>>>>>>> 90702130db748fa18389895cfc14591a5a15d5e8
+            var movement = Compatibility.Check<IHexMovCommand>(this, command).Movement;
+            if (movement == null) return UnitResponse.Denied();
+            Debugger.Log("Accepted HexMovCommand");
+
+
+            Debugger.Log("HexMovUnit accepted command");
+
+            var movementDuration = movement.Apply(actor);
+
+            return UnitResponse.Accepted(movementDuration + 0.001);
+        }
+    }
+}

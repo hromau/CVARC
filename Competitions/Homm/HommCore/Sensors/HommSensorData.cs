@@ -17,5 +17,13 @@ namespace HoMM.Sensors
         [DataMember]
         [FromSensor(typeof(MapSensor))]
         public IEnumerable<TileObject> Map { get; set; }
+ 
+        [DataMember]
+        [FromSensor(typeof(ArmySensor))]
+        public Dictionary<UnitType, int> MyArmy { get; set; }
+
+        [DataMember]
+        [FromSensor(typeof(DeathSensor))]
+        public bool IsDead { get; set; }
     }
 }

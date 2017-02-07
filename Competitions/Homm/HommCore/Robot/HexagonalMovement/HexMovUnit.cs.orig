@@ -16,12 +16,18 @@ namespace HoMM.Robot.HexagonalMovement
 
         public UnitResponse ProcessCommand(object command)
         {
+<<<<<<< HEAD
             Debugger.Log("Enter process command");
+=======
+            Debugger.Log("HexMovUnit activated");
 
+>>>>>>> 90702130db748fa18389895cfc14591a5a15d5e8
             var movement = Compatibility.Check<IHexMovCommand>(this, command).Movement;
             if (movement == null) return UnitResponse.Denied();
             Debugger.Log("Accepted HexMovCommand");
 
+
+            Debugger.Log("HexMovUnit accepted command");
 
             var movementDuration = movement.Apply(actor);
 

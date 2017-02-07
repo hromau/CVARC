@@ -25,15 +25,8 @@ public static class Dispatcher
     public static void Start()
     {
         Time.timeScale = UnityConstants.TimeScale;
-
-        Debug.Log("Logging types...");
-        foreach(var e in Settings.Current.DebugTypes)
-        {
-            Debug.Log(e);
-            Debugger.Settings.EnableType(e);
-        }
-        Debugger.AlwaysOn = true;
-        Debugger.Logger = Debug.Log;
+        Debugger.Config = Settings.Current.Debugging;
+        Debugger.Logger += Debug.Log;
 
         if (!Directory.Exists(UnityConstants.LogFolderRoot))
             Directory.CreateDirectory(UnityConstants.LogFolderRoot);

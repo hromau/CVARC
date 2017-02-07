@@ -53,6 +53,7 @@ namespace CVARC.V2
                     return;
                 }
             }
+            Debugger.Log("Command available");
             var currentCommand = filterSet.GetNextCommand();
             double duration;
             Debugger.Log("Command goes to robot");

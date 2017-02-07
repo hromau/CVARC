@@ -27,7 +27,6 @@ namespace HoMM.World
 
         public override void CreateWorld()
         {
-            Debugger.Settings.EnableType<HommWorld>();
             Debugger.Log(WorldState.Seed);
 
             CommonEngine = GetEngine<ICommonEngine>();

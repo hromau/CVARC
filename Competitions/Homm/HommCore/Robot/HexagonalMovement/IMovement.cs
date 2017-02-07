@@ -4,7 +4,7 @@ using HoMM.Robot;
 
 namespace HoMM.Robot.HexagonalMovement
 {
-    interface IMovement
+    public interface IMovement
     {
         double Apply(IHommRobot robot);
     }

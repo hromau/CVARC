@@ -7,7 +7,7 @@ using System.Text;
 namespace HoMM.Sensors
 {
     [DataContract]
-    class HommSensorData
+    public class HommSensorData
     {
     }
 }

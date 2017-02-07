@@ -8,7 +8,7 @@ namespace HoMM.Robot
 {
     [Serializable]
     [DataContract]
-    class HommCommand : ICommand, IHexMovCommand, IArmyInterfaceCommand
+    public class HommCommand : ICommand, IHexMovCommand, IArmyInterfaceCommand
     {
         [DataMember]
         public IMovement Movement { get; set; }

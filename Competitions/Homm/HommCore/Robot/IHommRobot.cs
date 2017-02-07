@@ -3,7 +3,7 @@ using HoMM.World;
 
 namespace HoMM.Robot
 {
-    interface IHommRobot : IActor
+    public interface IHommRobot : IActor
     {
         new HommWorld World { get; }
         Player Player { get; }

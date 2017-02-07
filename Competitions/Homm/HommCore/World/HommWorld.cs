@@ -7,7 +7,7 @@ using HoMM.Rules;
 
 namespace HoMM.World
 {
-    sealed class HommWorld : World<HommWorldState>
+    public sealed class HommWorld : World<HommWorldState>
     {
         public HommEngine HommEngine { get; private set; }
         public ICommonEngine CommonEngine { get; private set; }

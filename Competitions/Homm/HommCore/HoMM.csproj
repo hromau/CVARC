@@ -116,6 +116,7 @@
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
     <Compile Include="Robot\HommRules.cs" />
+    <Compile Include="Sensors\ArmySensor.cs" />
     <Compile Include="Sensors\HommSensorData.cs" />
     <Compile Include="Robot\LocationTrigger.cs" />
     <Compile Include="Robot\ArmyInterface\IArmyInterfaceCommand.cs" />
@@ -129,6 +130,9 @@
     <Compile Include="Robot\IHommRobot.cs" />
     <Compile Include="Robot\HexagonalMovement\Movement.cs" />
     <Compile Include="Robot\HexagonalMovement\Wait.cs" />
+    <Compile Include="Sensors\DeathSensor.cs" />
+    <Compile Include="Sensors\LocationSensor.cs" />
+    <Compile Include="Sensors\MapSensor.cs" />
     <Compile Include="World\HommWorld.cs" />
     <Compile Include="World\HommWorldState.cs" />
     <Compile Include="World\MapGeneratorHelper.cs" />

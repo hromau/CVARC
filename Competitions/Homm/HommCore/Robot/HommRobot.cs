@@ -12,7 +12,7 @@ using Infrastructure;
 
 namespace HoMM.Robot
 {
-    class HommRobot : Robot<HommWorld, HommSensorData, HommCommand, HommRules>,
+    public class HommRobot : Robot<HommWorld, HommSensorData, HommCommand, HommRules>,
         IHommRobot
     {
         public override IEnumerable<IUnit> Units { get; }

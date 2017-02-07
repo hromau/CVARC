@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Commons\Infrastructure\Infrastructure.csproj", "{AEE36E9E-5C5A-494D-95B8-B2C19294CC6A}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCommon", "Commons\ProxyCommon\ProxyCommon.csproj", "{886BDCCE-1725-444A-901A-A9916E55F68B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleplayerProxy", "Commons\SingleplayerProxy\SingleplayerProxy.csproj", "{7000F54A-A68B-41FC-99E3-A411FF03183A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homm.Client", "Competitions\Homm\Homm.Client\Homm.Client.csproj", "{E4A3C95B-5D24-4814-9A3C-D0E83EA400D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudgeClient", "PudgeClient\PudgeClient.csproj", "{D2DEE891-53FE-47AF-B249-98038C42DAB3}"
 EndProject
@@ -61,6 +63,10 @@ Global
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7000F54A-A68B-41FC-99E3-A411FF03183A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A3C95B-5D24-4814-9A3C-D0E83EA400D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A3C95B-5D24-4814-9A3C-D0E83EA400D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A3C95B-5D24-4814-9A3C-D0E83EA400D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A3C95B-5D24-4814-9A3C-D0E83EA400D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2DEE891-53FE-47AF-B249-98038C42DAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU

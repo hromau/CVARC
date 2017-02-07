@@ -12,6 +12,9 @@ namespace HoMM.Robot.HexagonalMovement
             MovementDirection = direction;
         }
 
+        public Movement()
+        { }
+
         public double Apply(IHommRobot robot)
         {
             return new MovementHelper(robot, MovementDirection).CheckForCombatAndMovePlayer();

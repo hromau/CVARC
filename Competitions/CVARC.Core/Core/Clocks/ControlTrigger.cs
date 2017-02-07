@@ -16,11 +16,18 @@ namespace CVARC.V2
             this.filterSet = filterSet;
         }
 
+        public override string ToString()
+        {
+            return "Control trigger " + controllable.ControllerId;
+        }
 
         bool FillBuffer()
         {
+            Debugger.Log("Getting sensor data");
             var sensorData = controllable.GetSensorData();
+            Debugger.Log("Sending sensor data");
             controller.SendSensorData(sensorData);
+            Debugger.Log("Getting command");
             var command = controller.GetCommand();
 			if (command == null) return false;
             Debugger.Log("Command accepted in ControlTrigger");
@@ -34,14 +41,18 @@ namespace CVARC.V2
             return true;
         }
 
+
         public override void Act(out double nextTime)
         {
             if (!filterSet.CommandAvailable)
+            {
+                Debugger.Log("No command in buffer, trying to get it");
                 if (!FillBuffer())
                 {
                     nextTime = double.PositiveInfinity;
                     return;
                 }
+            }
             var currentCommand = filterSet.GetNextCommand();
             double duration;
             Debugger.Log("Command goes to robot");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 using System.Collections.Generic;
 
 namespace HoMM
@@ -18,6 +19,11 @@ namespace HoMM
                         if (dx * dx + dy * dy != 0 && dy * dx * dx != 1)
                             yield return new Location(Y + dy + (X % 2) * dx * dx, X + dx);
             }
+        }
+
+        public LocationInfo ToLocationInfo()
+        {
+            return new LocationInfo(X, Y);
         }
 
         public static Location operator -(Location left, Vector2i right)

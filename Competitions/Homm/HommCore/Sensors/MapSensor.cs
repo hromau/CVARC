@@ -12,7 +12,7 @@ namespace HoMM.Sensors
         public override List<MapInfo> Measure()
         {
             var heroes = Actor.World.Players
-                .Select(x => new MapInfo { Hero = new Hero(x.Name, x.Army) });
+                .Select(x => new MapInfo { Hero = new Hero(x.Name, x.Army), Location = x.Location.ToLocationInfo() });
 
             var objects = Actor.World.Round.Map
                 .SelectMany(tile => tile.Objects.Select(x => BuildMapInfo(tile, x)));
@@ -22,7 +22,7 @@ namespace HoMM.Sensors
 
         private static MapInfo BuildMapInfo(Tile tile, TileObject obj)
         {
-            var mapInfo = new MapInfo { Location = new LocationInfo(tile.Location.X, tile.Location.Y) };
+            var mapInfo = new MapInfo { Location = tile.Location.ToLocationInfo() };
 
             Hero owner = null;
 

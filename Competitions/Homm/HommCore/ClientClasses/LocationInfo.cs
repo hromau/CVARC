@@ -11,6 +11,11 @@
             Y = y;
         }
 
+        public Location ToLocation()
+        {
+            return new Location(Y, X);
+        }
+
         public override string ToString()
         {
             return $"({X}, {Y})";

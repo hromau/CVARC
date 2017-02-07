@@ -3,6 +3,8 @@ using System.Linq;
 using HoMM.Sensors;
 using HoMM;
 using HoMM.Rules;
+using HoMM.ClientClasses;
+using System.Collections.Generic;
 
 namespace HommClientExample
 {
@@ -17,6 +19,33 @@ namespace HommClientExample
             Console.WriteLine("---------------------------------");
 
             Console.WriteLine($"You are here: ({data.Location.X},{data.Location.Y})");
+
+            var location = data.Location.ToLocation();
+
+            Console.Write("W: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.Up)));
+
+            Console.Write("E: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.RightUp)));
+
+            Console.Write("D: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.RightDown)));
+
+            Console.Write("S: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.Down)));
+
+            Console.Write("A: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.LeftDown)));
+
+            Console.Write("Q: ");
+            Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.LeftUp)));
+        }
+
+        static string GetObjectAt(List<MapInfo> map, Location location)
+        {
+            return map.
+                Where(x => x.Location.X == location.X && x.Location.Y == location.Y)
+                .FirstOrDefault()?.ToString() ?? "Nothing";
         }
 
         static void OnError(string errorMessage)
@@ -63,10 +92,6 @@ namespace HommClientExample
             // Для передачи и представления данных с сенсоров служат объекты класса PudgeSensorsData.
             // Каждое действие возвращает новые данные с сенсоров.
             // Мы подписались на обработку событий, поэтому обрабатывать отдельно каждый экземпляр нет необходимости
-
-            client.Move(Direction.Down);
-            client.Exit();
-            return; 
 
             while(true)
             {

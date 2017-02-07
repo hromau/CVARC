@@ -13,6 +13,21 @@ namespace HoMM.ClientClasses
         public Dwelling Dwelling { get; set; }
         public ResourcePile ResourcePile { get; set; }
         public Hero Hero { get; set; }
+
+        public override string ToString()
+        {
+            string describe = null;
+
+            if (Wall != null) describe = "Wall";
+            if (Garrison != null) describe = "Garrison";
+            if (NeutralArmy != null) describe = "Neutral army";
+            if (Mine != null) describe = "Mine";
+            if (Dwelling != null) describe = "Dwelling";
+            if (ResourcePile != null) describe = "Resource pile";
+            if (Hero != null) describe = "Other hero";
+
+            return describe ?? "Nothing";
+        }
     }
 
     public class Wall

@@ -1,6 +1,6 @@
 ﻿namespace HoMM.Robot.ArmyInterface
 {
-    interface IOrder
+    public interface IOrder
     {
         void Apply(Player player);
     }

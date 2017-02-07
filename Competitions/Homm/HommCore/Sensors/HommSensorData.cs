@@ -12,10 +12,10 @@ namespace HoMM.Sensors
     {
         [DataMember]
         [FromSensor(typeof(LocationSensor))]
-        Location Location { get; set; }
+        public Location Location { get; set; }
 
         [DataMember]
         [FromSensor(typeof(MapSensor))]
-        IEnumerable<TileObject> Map { get; set; }
+        public IEnumerable<TileObject> Map { get; set; }
     }
 }

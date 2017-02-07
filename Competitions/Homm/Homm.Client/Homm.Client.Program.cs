@@ -14,24 +14,8 @@ namespace HommClientExample
         static void Print(HommSensorData data)
         {
             Console.WriteLine("---------------------------------");
-            //if (data.IsDead)
-            //{
-            //    // Правильное обращение со смертью.
-            //    Console.WriteLine("Ooops, i'm dead :(");
-            //    return;
-            //}
-            //Console.WriteLine("I'm here: " + data.SelfLocation);
-            //Console.WriteLine("My score now: {0}", data.SelfScores);
-            //Console.WriteLine("Current time: {0:F}", data.WorldTime);
-            //foreach (var rune in data.Map.Runes)
-            //    Console.WriteLine("Rune! Type: {0}, Size = {1}, Location: {2}", rune.Type, rune.Size, rune.Location);
-            //foreach (var heroData in data.Map.Heroes)
-            //    Console.WriteLine("Enemy! Type: {0}, Location: {1}, Angle: {2:F}", heroData.Type, heroData.Location, heroData.Angle);
-            //foreach (var eventData in data.Events)
-            //    Console.WriteLine("I'm under effect: {0}, Duration: {1}", eventData.Event,
-            //        eventData.Duration - (data.WorldTime - eventData.Start));
-            //Console.WriteLine("---------------------------------");
-            //Console.WriteLine();
+
+            Console.WriteLine($"You are here: ({data.Location.X},{data.Location.Y})");
         }
 
         static void OnError(string errorMessage)

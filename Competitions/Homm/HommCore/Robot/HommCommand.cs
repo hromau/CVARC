@@ -1,6 +1,6 @@
 ﻿using CVARC.V2;
-using HoMM.Units.ArmyInterface;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using System;
 using System.Runtime.Serialization;
 
@@ -8,12 +8,12 @@ namespace HoMM.Robot
 {
     [Serializable]
     [DataContract]
-    class HommCommand : ICommand, IHexMovCommand, IArmyInterfaceCommand
+    public class HommCommand : ICommand, IHexMovCommand, IArmyInterfaceCommand
     {
         [DataMember]
-        public IMovement Movement { get; set; }
+        public HexMovement Movement { get; set; }
 
         [DataMember]
-        public IOrder Order { get; set; }
+        public PurchaseOrder Order { get; set; }
     }
 }

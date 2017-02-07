@@ -15,8 +15,6 @@ namespace HoMM.Engine
         public void CreatePlayer(string playerId, Color color, Location location)
         {
             engine.CreateObject(playerId, MapObject.Hero, location.X, location.Y);
-            engine.SetColor(playerId, color.r, color.g, color.b);
-            engine.SetScale(playerId, 0.5f, 0.5f, 0.5f);
         }
 
         public void CreateHexagon(TerrainType terrain, Location location)
@@ -50,19 +48,6 @@ namespace HoMM.Engine
         {
             engine.SetCameraPosition(mapWidth / 2, 17, mapHeight / 2);
             engine.SetCameraRotation(90, -90, 0);
-        }
-    }
-
-    public static class HexagonalCoordsConverter
-    {
-        public static Vector3 ToUnityBasis(this Vector3 hexagonalCoordinates, float hexSize = 1)
-        {
-            var hc = hexagonalCoordinates;
-
-            var newX = hc.x * hexSize + (hc.z % 2 * hexSize / 2);
-            var newZ = (3 * hexSize * hc.z) / (2 * (float)Math.Sqrt(3));
-
-            return new Vector3(newX, 0, newZ);
         }
     }
 }

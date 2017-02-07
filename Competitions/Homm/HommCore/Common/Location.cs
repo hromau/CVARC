@@ -5,7 +5,7 @@ namespace HoMM
 {
     public class Location : Vector2i
     {
-        public static readonly Location Zero = new Location(0, 0);
+        public static readonly new Location Zero = new Location(0, 0);
 
         public Location(int y, int x) : base(x, y) { }
 
@@ -18,6 +18,21 @@ namespace HoMM
                         if (dx * dx + dy * dy != 0 && dy * dx * dx != 1)
                             yield return new Location(Y + dy + (X % 2) * dx * dx, X + dx);
             }
+        }
+
+        public static Location operator -(Location left, Vector2i right)
+        {
+            return new Location(left.Y - right.Y, left.X - right.X);
+        }
+
+        public static Location operator +(Location left, Vector2i right)
+        {
+            return new Location(left.Y + right.Y, left.X + right.X);
+        }
+
+        public static Location Max(MapSize size)
+        {
+            return new Location(size.Y - 1, size.X - 1);
         }
 
         public Location DiagonalMirror(MapSize size)
@@ -75,7 +90,7 @@ namespace HoMM
 
         public Location NeighborAt(Direction Direction)
         {
-            var isEven = Y % 2 == 0;
+            var isEven = X % 2 == 0;
 
             switch (Direction)
             {
@@ -100,6 +115,11 @@ namespace HoMM
 
             throw new ArgumentException($"Value of {nameof(Direction)} is invalid" +
                 " and not supported by this method!");
+        }
+
+        public override string ToString()
+        {
+            return $"{{ X = {X}; Y = {Y} }}";
         }
     }
 }

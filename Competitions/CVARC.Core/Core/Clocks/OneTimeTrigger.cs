@@ -15,6 +15,11 @@ namespace CVARC.V2
             this.ScheduledTime = time;
         }
 
+        public override string ToString()
+        {
+            return "OneTimeTrigger " + action.Method.DeclaringType.Name+"."+action.Method.Name;
+        }
+
         public override TriggerKeep  Act(double time)
         {
             action();

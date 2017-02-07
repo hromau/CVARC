@@ -1,7 +1,9 @@
 ﻿using CVARC.V2;
+using HoMM.Engine;
 using HoMM.Robot;
 using HoMM.Rules;
-using HoMM.Units.HexagonalMovement;
+using HoMM.Robot.ArmyInterface;
+using HoMM.Robot.HexagonalMovement;
 using HoMM.World;
 using Infrastructure;
 using System;
@@ -26,6 +28,8 @@ namespace HoMM
                     $"{playersCount} player(s) mode is not supported! Try 1 or 2.");
 
             this.playersCount = playersCount;
+
+           
         }
 
         public override LogicPart Create()
@@ -38,7 +42,9 @@ namespace HoMM
 
             logicPart.WorldStateType = typeof(HommWorldState);
             logicPart.CreateWorldState = seed => new HommWorldState(int.Parse(seed));
-            logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
+            //logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
+
+            logicPart.PredefinedWorldStates.Add(new Random().Next().ToString());
 
             var actorFactory = ActorFactory.FromRobot(new HommRobot(), rules);
             
@@ -46,7 +52,7 @@ namespace HoMM
                 logicPart.Actors[pid] = actorFactory;
 
             logicPart.Bots[HommRules.StandingBotName] = () => 
-                new Bot<HommCommand>(_ => new HommCommand { Movement = new Wait() });
+                new Bot<HommCommand>(_ => new HommCommand { Movement = new HexMovement() });
 
             return logicPart;
         }

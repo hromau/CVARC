@@ -40,30 +40,43 @@ namespace HoMM
         private void AssignGuardsToCapturableObjs()
         {
             foreach (var tile in map)
-                if (tile.tileObject is NeutralArmy)
-                {
-                    var neutralArmy = (NeutralArmy)tile.tileObject;
-                    var neighb = neutralArmy.location.Neighborhood.Inside(Size);
-                    foreach (var t in neighb.Select(pt => map[pt.Y, pt.X]))
-                        if (t.tileObject is CapturableObject)
-                            neutralArmy.GuardObject((CapturableObject)t.tileObject);
-                }
+                foreach (var tileObject in tile.Objects)
+                    if (tileObject is NeutralArmy)
+                    {
+                        var neutralArmy = (NeutralArmy)tileObject;
+                        var neighb = neutralArmy.location.Neighborhood.Inside(Size);
+                        foreach (var t in neighb.Select(pt => map[pt.Y, pt.X]))
+                            foreach(var to in t.Objects)
+                                if (to is CapturableObject)
+                                    neutralArmy.GuardObject((CapturableObject)to);
+                    }
         }
 
         public Map(int width, int height, IEnumerable<Tile> tiles)
             : this(width, height)
         {
             foreach (var tile in tiles)
-                map[tile.location.Y, tile.location.X] = tile;
+            {
+                map[tile.Location.Y, tile.Location.X] = tile;
+
+                foreach (var obj in tile.Objects)
+                    obj.Remove += o => tile.Objects.Remove(o);
+            }
         }
 
         public Tile MakeTile(int x, int y, string s)
         {
-            TileTerrain t = InitTerrain(char.ToUpper(s[0]));
+            var terrain = InitTerrain(char.ToUpper(s[0]));
+            var tile = new Tile(x, y, terrain, new List<TileObject>());
+
             TileObject obj = InitObject(s, new Location(y, x));
-            var tile = new Tile(x, y, t, obj);
-            if (tile.tileObject != null)
-                tile.tileObject.Remove += (o) => tile.tileObject = null;
+
+            if (obj != null)
+            {
+                obj.Remove += o => tile.Objects.Remove(o);
+                tile.Objects.Add(obj);
+            }
+
             return tile;
         }
 
@@ -80,27 +93,33 @@ namespace HoMM
                     {
                         var resName = Enum.GetNames(typeof(Resource))
                             .SingleOrDefault(res => res[0] == s[2]);
-                        var resource = (Resource)Enum.Parse(typeof(Resource), resName == null ? "Rubles" : resName);
+                        var resource = (Resource)Enum.Parse(typeof(Resource), resName);
                         return new Mine(resource, location);
                     }
                 case 'p':
                     {
                         var resName = Enum.GetNames(typeof(Resource))
                             .SingleOrDefault(res => res[0] == s[2]);
-                        var resource = (Resource)Enum.Parse(typeof(Resource), resName == null ? "Rubles" : resName);
+                        var resource = (Resource)Enum.Parse(typeof(Resource), resName);
                         int amount = int.Parse(s.Substring(3));
                         return new ResourcePile(resource, amount, location);
                     }
-                case 'M':
+                case 'A':
                     {
-                        return CreateNeutralArmyFromString(s, location);
+                        var army = CreateArmyFromString(s);
+                        return new NeutralArmy(army, location);
                     }
                 case 'D':
                     {
                         var recriutTypeName = Enum.GetNames(typeof(UnitType))
                             .SingleOrDefault(res => res[0] == s[2]);
                         var unitType = (UnitType)Enum.Parse(typeof(UnitType), recriutTypeName);
-                        return new Dwelling(UnitFactory.CreateFromUnitType(unitType), location);
+                        return new Dwelling(UnitFactory.FromType(unitType), location);
+                    }
+                case 'G':
+                    {
+                        var guards = CreateArmyFromString(s);
+                        return new Garrison(guards, location);
                     }
                 case '-':
                     return null;
@@ -109,13 +128,21 @@ namespace HoMM
             }
         }
 
-        private NeutralArmy CreateNeutralArmyFromString(string s, Location location)
+        private Dictionary<UnitType, int> CreateArmyFromString(string s)
         {
-            var monsterTypeName = Enum.GetNames(typeof(UnitType))
-                .SingleOrDefault(res => res[0] == s[2]);
-            var unitType = (UnitType)Enum.Parse(typeof(UnitType), monsterTypeName);
-            int amount = int.Parse(s.Substring(3).Split('.')[0]);
-            return new NeutralArmy(new Dictionary<UnitType, int> { [unitType] = amount }, location);
+            var army = new Dictionary<UnitType, int>();
+            var armyS = s.Substring(2).Split('.');
+            foreach (var unitS in armyS)
+            {
+                var unitName = Enum.GetNames(typeof(UnitType))
+                    .SingleOrDefault(res => res[0] == unitS[0]);
+                var unitType = (UnitType)Enum.Parse(typeof(UnitType), unitName);
+                int amount = int.Parse(unitS.Substring(1));
+                if (!army.ContainsKey(unitType))
+                    army.Add(unitType, 0);
+                army[unitType] += amount;
+            }
+            return army;
         }
 
         public IEnumerator<Tile> GetEnumerator()

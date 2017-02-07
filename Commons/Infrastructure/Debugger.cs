@@ -1,58 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Infrastructure
 {
 
     public static class Debugger
     {
-        public static bool AlwaysOn;
-        public static Action<string> Logger;
+        public static event Action<string> Logger;
         static object lockObject = new object();
-        static HashSet<string> enabledTypes = new HashSet<string>();
-        
 
-        public class SettingsClass
-        {
-            public SettingsClass EnableType<T>()
-            {
-                Debugger.enabledTypes.Add(typeof(T).Name);
-                return this;
-            }
-            
-            public SettingsClass EnableType(Type t)
-            {
-                enabledTypes.Add(t.Name);
-                return this;
-            }
+        public static DebuggerConfig Config { get; set; }
 
-            public SettingsClass EnableType(string  typeName)
-            {
-                enabledTypes.Add(typeName);
-                return this;
-            }
-        }
-
-        public static readonly SettingsClass Settings = new Debugger.SettingsClass();
 
         public static void Log(object message)
         {
+            if (Config == null) return;
+            if (Config.AlwaysOff) return;
             if (Logger == null) return;
+
+            var stack = new System.Diagnostics.StackTrace().GetFrames();
+            var method = stack[1].GetMethod();
+            var type = method.DeclaringType;
+
+            var print = false;
+
+            if (Config.AlwaysOn) print = true;
+
+            if (!print && Config.EnabledTypes!=null && Config.EnabledTypes.Count>0)
+            {
+                if (Config.EnabledTypes.Any(z => type.Name.StartsWith(z)))
+                    print = true;
+            }
+
+            if (!print && type.Namespace!=null && Config.EnabledNamespaces!=null &&  Config.EnabledNamespaces.Count>0)
+            {
+                if (Config.EnabledNamespaces.Any(z => type.Namespace.StartsWith(z)))
+                    print = true;
+            }
+
+            if (!print && Config.CallStackRoots!=null &&  Config.CallStackRoots.Count>0)
+            {
+                for (int i = 0; i < stack.Length; i++)
+                {
+                    if (Config.CallStackRoots.Any(z => z.Match(stack[i].GetMethod())))
+                    {
+                        print = true;
+                    }
+                }
+            }
+
+            if (!print) return;
+
+            var str = message == null ? "null" : message.ToString();
+            str = type.Name + "." + method.Name + ": " + str;
 
             lock (lockObject)
             {
-                var stack = new System.Diagnostics.StackTrace().GetFrame(1);
-                var method = stack.GetMethod();
-                var type = method.DeclaringType;
-                
-                if (AlwaysOn || enabledTypes.Contains(type.Name) || enabledTypes.Contains(type.Name+"::"+method.Name))
-                {
-                    var str = message == null ? "null" : message.ToString();
-                    str = type.Name + "." + method.Name + ": " + str;
+                if (Logger!=null)
                     Logger(str);
-                    File.AppendAllText("log.txt", str + "\n");
-                }
+                File.AppendAllText("log.txt", str + "\n");
             }
         }
     }

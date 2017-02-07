@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using HoMM.Generators;
+using HoMM.World;
 
 namespace HoMM.MapViewer
 {
@@ -28,19 +24,7 @@ namespace HoMM.MapViewer
             var seed = 0;
             var r = new Random(seed);
 
-            var easyTier = new SpawnerConfig(HoMM.Location.Zero, 3, 30, 0.5);
-            var mediumTier = new SpawnerConfig(HoMM.Location.Zero, 30, 1000, 0.5);
-            var hardTier = new SpawnerConfig(HoMM.Location.Zero, 14, 16, 0.5);
-            var nightmare = new SpawnerConfig(HoMM.Location.Zero, 16.5, 20, 0.5);
-
-            var gen = HommMapGenerator
-                .From(new DiagonalMazeGenerator(r))
-                .With(new BfsRoadGenerator(r, TileTerrain.Road)
-                    .Over(new VoronoiTerrainGenerator(r, TileTerrain.Nature.ToArray())))
-                .With(new GraphSpawner(r, mediumTier, p => new Mine(Resource.Crystals, p)))
-                .With(new DistanceSpawner(r, hardTier, p => new Mine(Resource.Ore, p)))
-                .With(new GraphSpawner(r, easyTier, p => new Mine(Resource.Rubles, p)))
-                .And(new DistanceSpawner(r, nightmare, p => new Mine(Resource.Gems, p)));
+            var generator = new MapGeneratorHelper().CreateGenerator(r);
 
             Map map = null;
             
@@ -56,7 +40,7 @@ namespace HoMM.MapViewer
             generateButton.Click += (s, e) =>
             {
                 mapSize = (int)mapSizeBox.SelectedItem;
-                map = gen.GenerateMap(mapSize);
+                map = generator.GenerateMap(mapSize);
                 this.Invalidate();
             };
 
@@ -69,34 +53,33 @@ namespace HoMM.MapViewer
                         DrawTile(tile, e.Graphics);
             };
         }
-        
+
         private void DrawTile(Tile cell, Graphics g)
         {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            var dy = cell.location.X % 2 * 0.5f;
-            var x = (cell.location.X + 4);
-            var y = (cell.location.Y + 4);
+            var dy = cell.Location.X % 2 * 0.5f;
+            var x = (cell.Location.X + 4);
+            var y = (cell.Location.Y + 4);
             var voffset = mapSize + 2;
             var hoffset = mapSize + 2;
 
-            var brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, true, true, true));
-            g.FillEllipse(brush, x*diameter,  (y+dy)*diameter, diameter, diameter);
+            var brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawTerrain: true));
+            g.FillEllipse(brush, x * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, false, true, false));
-            g.FillEllipse(brush, (x+hoffset)*diameter, (y+dy)*diameter, diameter, diameter);
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawTerrain: true, drawWalls: true));
+            g.FillEllipse(brush, (x + hoffset) * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, false, false, true));
-            g.FillEllipse(brush, (x+2*hoffset)*diameter, (y+dy)*diameter, diameter, diameter);
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawEnemies: true, drawWalls: true));
+            g.FillEllipse(brush, (x + 2 * hoffset) * diameter, (y + dy) * diameter, diameter, diameter);
 
-            brush = new SolidBrush(GetColor(cell.tileObject, cell.tileTerrain, true, false, true));
-            g.FillRectangle(brush, x * diameter, (y + voffset) * diameter, diameter, diameter);
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawPiles: true, drawWalls: true));
+            g.FillEllipse(brush, x * diameter, (y + dy + voffset) * diameter, diameter, diameter);
 
-            var ind = new Location(cell.location.Y, cell.location.X);
-            var size = new MapSize(mapSize, mapSize);
-
-            brush = new SolidBrush(ind.IsBelowDiagonal(size)
-                ? Color.Red : (ind.IsAboveDiagonal(size) ? Color.Green : Color.Gray));
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawMines: true, drawWalls: true));
             g.FillEllipse(brush, (x + hoffset) * diameter, (y + dy + voffset) * diameter, diameter, diameter);
+
+            brush = new SolidBrush(GetColor(cell.Objects, cell.Terrain, drawDwellings: true, drawWalls: true));
+            g.FillEllipse(brush, (x + 2*hoffset) * diameter, (y + dy + voffset) * diameter, diameter, diameter);
         }
 
         Dictionary<TileTerrain, Color> terrainColor = new Dictionary<TileTerrain, Color>
@@ -111,21 +94,47 @@ namespace HoMM.MapViewer
 
         Dictionary<Resource, Color> resourceColor = new Dictionary<Resource, Color>
         {
-            { Resource.Rubles, Color.Green },
-            { Resource.Crystals, Color.Blue },
-            { Resource.Ore, Color.Red },
-            { Resource.Gems, Color.Magenta },
+            
+            { Resource.Horses, Color.DarkGray },
+            { Resource.Ore, Color.Cyan },
+            { Resource.Gold, Color.Yellow },
+            { Resource.Wood, Color.Brown }
         };
 
-        private Color GetColor(TileObject obj, TileTerrain terrain, 
-            bool drawObjects, bool drawWalls, bool drawTerrain)
+        Dictionary<UnitType, Color> dwellingColor = new Dictionary<UnitType, Color>
         {
-            if (obj as Mine != null && drawObjects)
-                return resourceColor[(obj as Mine).Resource];
+            { UnitType.Cavalry, Color.DarkGray },
+            { UnitType.Infantry, Color.Cyan },
+            { UnitType.Militia, Color.Yellow },
+            { UnitType.Ranged, Color.Brown }
+        };
 
-            if (obj != null && !obj.IsPassable && drawWalls)
-                return Color.DarkSlateGray;
-            
+        private Color GetColor(List<TileObject> objects, TileTerrain terrain,
+            bool drawWalls = false,
+            bool drawTerrain = false,
+            bool drawPiles = false,
+            bool drawDwellings = false,
+            bool drawMines = false,
+            bool drawEnemies = false)
+        {
+            foreach (var obj in objects)
+            {
+                if (obj is Mine && drawMines)
+                    return resourceColor[(obj as Mine).Resource];
+
+                if (obj is ResourcePile && drawPiles)
+                    return resourceColor[(obj as ResourcePile).Resource];
+
+                if (obj is Dwelling && drawDwellings)
+                    return dwellingColor[(obj as Dwelling).Recruit.UnitType];
+
+                if (obj is NeutralArmy && drawEnemies)
+                    return Color.FromArgb(255 - (int)(((NeutralArmy)obj).Army.Values.First() / 50.0 * 255), 0, 0);
+
+                if (obj != null && !obj.IsPassable && drawWalls)
+                    return Color.DarkSlateGray;
+            }
+
             if (terrainColor.ContainsKey(terrain) && drawTerrain)
                 return terrainColor[terrain];
 

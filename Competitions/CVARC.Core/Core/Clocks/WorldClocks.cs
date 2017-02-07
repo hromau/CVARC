@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,7 @@ namespace CVARC.V2
                 if (!ready.Any()) break;
                 var min = ready.Min(z => z.ScheduledTime);
                 var recordToRun = triggers.Where(z => z.ScheduledTime == min).First();
+                Debugger.Log("Starting trigger " + recordToRun.ToString());
                 var result=recordToRun.Act(time);
                 if (result == TriggerKeep.Remove)
                     triggers.Remove(recordToRun);

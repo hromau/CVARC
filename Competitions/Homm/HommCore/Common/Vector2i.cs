@@ -8,6 +8,9 @@ namespace HoMM
 {
     public class Vector2i
     {
+        public static readonly Vector2i Zero = new Vector2i(0, 0);
+        public static readonly Vector2i One = new Vector2i(1, 1);
+
         public int X { get; private set; }
         public int Y { get; private set; }
         

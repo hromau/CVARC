@@ -51,11 +51,9 @@ namespace HoMM.Generators
                 return this;
             }
 
-            public HommMapGenerator And(ISpawner entitiesGenerator)
+            public HommMapGenerator CreateGenerator()
             {
-                With(entitiesGenerator);
-                return new HommMapGenerator(mazeGenerator, terrainGenerator, 
-                    entitiesGenerators.ToArray());
+                return new HommMapGenerator(mazeGenerator, terrainGenerator, entitiesGenerators.ToArray());
             }
         }
     }

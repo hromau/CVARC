@@ -2,12 +2,9 @@
 {
     public enum Resource
     {
-        Rubles,
+        Gold,
         Wood,
         Ore,
-        Crystals,
-        Sulfur,
-        Gems,
-        Mercury
+        Horses
     }
 }

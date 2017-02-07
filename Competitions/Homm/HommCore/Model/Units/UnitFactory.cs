@@ -4,14 +4,14 @@ namespace HoMM
 {
     public static class UnitFactory
     {
-        public static Unit CreateFromUnitType(UnitType unitType)
+        public static Unit FromType(UnitType unitType)
         {
-            switch (unitType.ToString())
+            switch (unitType)
             {
-                case "Infantry": return CreateInfantry();
-                case "Ranged": return CreateRanged();
-                case "Cavalry": return CreateCavalry();
-                case "Militia": return CreateMilitia();
+                case UnitType.Infantry: return CreateInfantry();
+                case UnitType.Ranged: return CreateRanged();
+                case UnitType.Cavalry: return CreateCavalry();
+                case UnitType.Militia: return CreateMilitia();
                 default: throw new ArgumentException("Unsupported unit type!");
             }
         }

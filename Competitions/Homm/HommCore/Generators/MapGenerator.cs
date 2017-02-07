@@ -40,12 +40,17 @@ namespace HoMM.Generators
             var terrainMap = terrainGenerator.Construct(maze);
 
             var entities = entitiesGenerators
-                .Aggregate(SigmaMap.Empty<TileObject>(maze.Size), 
-                (m, g) => m.Merge(g.Spawn(maze)));
+                .Aggregate(SigmaMap.Empty<List<TileObject>>(maze.Size),
+                (map, gen) => map.Merge(gen.Spawn(map, maze), (entityList, entity) =>
+                    {
+                        if (entityList == null) entityList = new List<TileObject>();
+                        if (entity != null) entityList.Add(entity);
+                        return entityList;
+                    }));
 
             var tiles = Location.Square(mapSize)
                 .Select(s => new Tile(s, terrainMap[s],
-                    maze[s] == MazeCell.Empty ? entities[s] : new Wall(s)));
+                    maze[s] == MazeCell.Empty ? entities[s] : new List<TileObject> { new Wall(s) }));
 
             return new Map(size, size, tiles);
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CVARC.V2;
+using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,31 +42,45 @@ namespace HoMM
                 return;
 
             player.Location = newLocation;
-            Map[newLocation].tileObject?.InteractWithPlayer(player);
+
+            // need copy list due to exception when collection is modified inside cycle
+            var interactableObjects = Map[newLocation].Objects.ToList();
+
+            foreach (var tileobject in interactableObjects)
+                tileobject.InteractWithPlayer(player);
         }
 
         public void DailyTick()
         {
+            Debugger.Log("Daily tick");
+
             foreach (var tile in Map)
-                if (tile.tileObject is Mine)
-                {
-                    var m = tile.tileObject as Mine;
-                    if (m.Owner != null)
-                        m.Owner.GainResources(m.Resource, m.Yield);
-                }
+                foreach (var obj in tile.Objects)
+                    if (obj is Mine)
+                    {
+                        var m = obj as Mine;
+                        if (m.Owner != null)
+                            m.Owner.GainResources(m.Resource, m.Yield);
+                    }
 
             DaysPassed++;
             if (DaysPassed % 7 == 0)
                 WeeklyTick();
+
+            Debugger.Log("DailyTick done!");
         }
+
         private void WeeklyTick()
         {
-            foreach (var tile in Map)
-                if (tile.tileObject is Dwelling)
-                {
-                    var d = tile.tileObject as Dwelling;
-                    d.AddWeeklyGrowth();
-                }
+            Debugger.Log("Weekly tick");
+
+            var dwellings = Map
+                .SelectMany(t => t.Objects)
+                .Where(obj => obj is Dwelling)
+                .Cast<Dwelling>();
+
+            foreach (var dwelling in dwellings)
+                dwelling.AddWeeklyGrowth();
         }
     }
 }

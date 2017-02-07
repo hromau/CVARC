@@ -10,7 +10,7 @@ namespace HoMM
         int Attack { get; }
         int Defence { get; }
         Dictionary<UnitType, int> Army { get; }
-
+        string UnityId { get; }
 
     }
 

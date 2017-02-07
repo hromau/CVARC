@@ -7,6 +7,6 @@ namespace HoMM.Generators
 {
     public interface ISpawner
     {
-        ISigmaMap<TileObject> Spawn(ISigmaMap<MazeCell> maze);
+        ISigmaMap<TileObject> Spawn(ISigmaMap<List<TileObject>> map, ISigmaMap<MazeCell> maze);
     }
 }

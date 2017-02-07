@@ -1,28 +1,30 @@
-﻿namespace HoMM
+﻿using System;
+
+namespace HoMM
 {
-    public class Mine : CapturableObject
+    public class Mine : CapturableObject, IBuilding
     {
         public Resource Resource { get; private set; }
-        
-        public override bool IsPassable => false;
+        public Location BuildingLocation { get; }
+        public Location EntryLocation { get; }
 
-        public int Yield
-        {
-            get
-            {
-                switch (Resource)
-                {
-                    case Resource.Rubles: return 1000;
-                    case Resource.Wood:
-                    case Resource.Ore: return 2;
-                    default: return 1;
-                }
-            }
-        }
+        public override bool IsPassable => true;
 
-        public Mine(Resource res, Location location) : base(location)
+        public int Yield => Resource == Resource.Gold ? 1000 : 10;
+
+        public Mine(Resource res, Location location) : this(res, location, location) { }
+
+        public Mine(Resource res, Location entryLocation, Location buildingLocation) : base(entryLocation)
         {
+            if (entryLocation == null)
+                throw new ArgumentException("Expected triggerLocation, got null");
+
+            if (buildingLocation == null)
+                throw new ArgumentException("Expected buildingLocation, got null");
+
             Resource = res;
+            EntryLocation = entryLocation;
+            BuildingLocation = buildingLocation;
         }
 
         public override void InteractWithPlayer(Player p)

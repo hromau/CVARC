@@ -45,28 +45,28 @@ namespace HoMM.Generators
         public static SparseSigmaMap<TCell> From<TCell>(ISigmaMap<TCell> source, 
             TCell defaultValue = default(TCell))
         {
-            return new SparseSigmaMap<TCell>(source.Size, i => source[i]);
+            return new SparseSigmaMap<TCell>(source.Size, i => source[i], defaultValue);
         }
 
         public static SparseSigmaMap<TCell> From<TCell>(MapSize size, 
             Func<Location, TCell> cellsFactory, TCell defaultValue = default(TCell))
         {
-            return new SparseSigmaMap<TCell>(size, cellsFactory);
+            return new SparseSigmaMap<TCell>(size, cellsFactory, defaultValue);
         }
         
-        public static ISigmaMap<TCell> Merge<TCell>(
-            this ISigmaMap<TCell> bottom, ISigmaMap<TCell> top)
+        public static ISigmaMap<TRes> Merge<TLeft, TRight, TRes>(
+            this ISigmaMap<TLeft> left, ISigmaMap<TRight> right, Func<TLeft, TRight, TRes> mergeFunc)
         {
-            return SparseMerge(bottom, top);
+            return SparseMerge(left, right, mergeFunc);
         }
 
-        public static ISigmaMap<TCell> SparseMerge<TCell>
-            (this ISigmaMap<TCell> bottom, ISigmaMap<TCell> top)
+        public static ISigmaMap<TRes> SparseMerge<TLeft, TRight, TRes>
+            (this ISigmaMap<TLeft> left, ISigmaMap<TRight> right, Func<TLeft, TRight, TRes> mergeFunc)
         {
-            if (bottom.Size != top.Size)
+            if (left.Size != right.Size)
                 throw new ArgumentException("Cannot merge maps of different size");
 
-            return From(bottom.Size, s => top[s] == null ? bottom[s] : top[s]);
+            return From(left.Size, s => mergeFunc(left[s], right[s]));
         }
     }
 }

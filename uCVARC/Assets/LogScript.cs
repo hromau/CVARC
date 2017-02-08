@@ -13,15 +13,19 @@ public partial class LogScript : PlayScript
     private float timeOnStartSession;
     private float curWorldTime;
     LogPlayer reader;
+    CommonEngine commonEngine;
 
     protected override void Initialization()
     {
         var model = Dispatcher.LogModel; // теперь всю инфу о логах мы получаем ТАК.
 
-        var data = File.ReadAllLines(model.LogFile);
-        var engines = Dispatcher.Loader.GetCompetitions(model.LoadingData).EnginesFactory(); // если я правильно понимаю, можно и так
+        reader = new LogPlayer(model.LogFile);
+        var engines = Dispatcher.Loader.GetCompetitions(reader.GameSettings.LoadingData).EnginesFactory(); // если я правильно понимаю, можно и так
+        reader.StartEngines(engines);
+        commonEngine = engines.OfType<CommonEngine>().SingleOrDefault();
+        if (commonEngine == null)
+            throw new Exception("No common engine is found in competitions. Replay is not possible");
         //var engines = Dispatcher.Loader.Levels["Pudge"]["Final"]().EnginesFactory();
-        reader = new LogPlayer(data, engines);
         timeOnStartSession = Time.fixedTime;
         curWorldTime = 0;
     }
@@ -42,6 +46,7 @@ public partial class LogScript : PlayScript
         // FixedUpdate может быть вызван еще несколько раз, несмотря на вызов SetGameOver.
         if (!reader.Play(curWorldTime))
             Dispatcher.SetGameOver();
+        commonEngine.UpdateSpeeds();
     }
 
     void OnDisable()

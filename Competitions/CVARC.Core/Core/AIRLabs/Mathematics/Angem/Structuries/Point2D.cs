@@ -3,6 +3,7 @@
 using System;
 using System.Drawing;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 //using NUnit.Framework;
 
 #endregion
@@ -18,6 +19,7 @@ namespace AIRLab.Mathematics
 
         #region Creation
 
+        [JsonConstructor]
         public Point2D(double x, double y)
         {
             X = x;

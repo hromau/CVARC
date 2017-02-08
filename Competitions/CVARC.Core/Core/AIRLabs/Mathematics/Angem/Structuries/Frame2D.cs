@@ -1,5 +1,6 @@
 ﻿using System;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics
 {
@@ -11,6 +12,7 @@ namespace AIRLab.Mathematics
         public readonly double X;
         public readonly double Y;
 
+        [JsonConstructor]
         public Frame2D(double x, double y, Angle angle)
         {
             X = x;

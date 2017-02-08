@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -90,8 +91,9 @@ namespace MultiplayerProxy
             return null;
         }
 
-        private static async void GameChecker()
+        private static async Task GameChecker()
         {
+            
             while (true)
             {
                 if (!needToCheck)

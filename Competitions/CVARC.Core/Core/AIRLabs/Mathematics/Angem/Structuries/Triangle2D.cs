@@ -1,10 +1,12 @@
 ﻿using System;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics
 {
     public struct Triangle2D
     {
+        [JsonConstructor]
         public Triangle2D(Point2D vertexA, Point2D vertexB, Point2D vertexC) : this()
         {
             VertexC = vertexC;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace AIRLab.Mathematics
 {
@@ -11,6 +12,7 @@ namespace AIRLab.Mathematics
         public double W;
         public double X, Y, Z;
 
+        [JsonConstructor]
         public Quat(double x, double y, double z, double w)
         {
             X = x;

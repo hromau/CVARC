@@ -1,5 +1,6 @@
 ﻿using System;
 using AIRLab.Mathematics;
+using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics
 {
@@ -15,6 +16,7 @@ namespace AIRLab.Mathematics
         public readonly bool IsEmpty;
         public readonly Point2D Normal;
 
+        [JsonConstructor]
         public Line2D(Point2D begin, Point2D end)
         {
             Begin = begin;

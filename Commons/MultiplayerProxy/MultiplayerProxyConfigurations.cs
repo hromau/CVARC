@@ -16,5 +16,10 @@ namespace MultiplayerProxy
         {
             [new LoadingData {AssemblyName = "Pudge", Level = "Final"}] = new[] {"Left", "Right"}
         };
+        public static readonly GameSettings DefaultGameSettings = new GameSettings
+        {
+            TimeLimit = 90,
+            OperationalTimeLimit = 1000
+        };
     }
 }

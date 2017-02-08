@@ -17,6 +17,9 @@ namespace SingleplayerProxy
 
         static void Main(string[] args)
         {
+            if (args.Length == 1 && args[0] == "-d")
+                SingleplayerProxyConfigurations.DebugMode = true;
+
             ReloadVersion();
 
             UpdateUnityIfNeeded();
@@ -64,7 +67,6 @@ namespace SingleplayerProxy
                 //Process.Start(SingleplayerProxyConfigurations.UnityExePath, );
                 Process.Start(new ProcessStartInfo
                 {
-                    WorkingDirectory = "..\\",
                     FileName = SingleplayerProxyConfigurations.UnityExePath
                 });
             TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8));

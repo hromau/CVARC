@@ -14,6 +14,7 @@ namespace Builder
     {
         const string UnityEditorPath = @"C:\Program Files\Unity\Editor\Unity.exe";
         const string SevenZ = @"C:\Program Files\7-Zip\7z.exe";
+        const string I18Source = @"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity";
 
         const string ucvarc_zip = "ucvarc.zip";
         const string Release = "Release";
@@ -106,8 +107,8 @@ namespace Builder
 
             Console.Write("Cleaning up folders... ");
             if (File.Exists(ucvarc_zip)) File.Delete(ucvarc_zip);
-            if (Directory.Exists(BinariesPath)) Directory.Delete(BinariesPath, true);
-            Directory.CreateDirectory("Release");
+            if (Directory.Exists(Release)) Directory.Delete(Release, true);
+            Directory.CreateDirectory(Release);
             Directory.CreateDirectory(BinariesPath);
 
             Console.WriteLine("Done");
@@ -122,6 +123,10 @@ namespace Builder
             unityProcess.WaitForExit();
             Console.WriteLine("Done");
 
+            Console.Write("Copying I18* libraries... ");
+            foreach (var file in new DirectoryInfo(I18Source).GetFiles("i18*.dll"))
+                File.Copy(file.FullName, BinariesPath + @"\ucvarc_Data\Managed\" + file.Name);
+            Console.WriteLine("OK");
 
             XCopy(@"uCvarc\Dlc", BinariesPath + "\\Dlc");
             XCopy(@"Commons\SingleplayerProxy\bin\Debug", BinariesPath);

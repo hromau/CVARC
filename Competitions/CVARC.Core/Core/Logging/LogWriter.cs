@@ -70,24 +70,35 @@ namespace CVARC.V2
 
         private void World_Exit()
         {
+            Debugger.Log("Entering log save");
             if (enableLog)
             {
-                using(var zip = new ZipFile())
-                {
-                    zip.AddEntry(LogNames.Replay, (name, stream) =>
-                     {
-                         var writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
-                         foreach (var e in log)
-                         {
-                             writer.WriteLine(JsonConvert.SerializeObject(e));
-                         }
-                         writer.Close();
+                Debugger.Log("Log is enabled, filename is " + logFileName + ", working directory is " + Environment.CurrentDirectory);
 
-                     });
-                    zip.AddEntry(LogNames.GameSettings, JsonConvert.SerializeObject(configuration));
-                    zip.AddEntry(LogNames.WorldState, JsonConvert.SerializeObject(worldState));
-                    zip.Save(logFileName);
+                try
+                {
+                    using (var zip = new ZipFile())
+                    {
+                        zip.AddEntry(LogNames.Replay, (name, stream) =>
+                         {
+                             var writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
+                             foreach (var e in log)
+                             {
+                                 writer.WriteLine(JsonConvert.SerializeObject(e));
+                             }
+                             writer.Close();
+
+                         });
+                        zip.AddEntry(LogNames.GameSettings, JsonConvert.SerializeObject(configuration));
+                        zip.AddEntry(LogNames.WorldState, JsonConvert.SerializeObject(worldState));
+                        zip.Save(logFileName);
+                    }
                 }
+                catch(Exception e)
+                {
+                    Debugger.AddException(e);
+                }
+                Debugger.Log("Log is saved");
             }                
         }
 

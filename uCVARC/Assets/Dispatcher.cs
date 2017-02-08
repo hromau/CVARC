@@ -22,14 +22,22 @@ public static class Dispatcher
     static bool shutdown;
 
 
+    
+
     public static void Start()
     {
-        Time.timeScale = UnityConstants.TimeScale;
-        Debugger.Config = Settings.Current.Debugging;
-        Debugger.Logger += Debug.Log;
 
-        if (!Directory.Exists(UnityConstants.LogFolderRoot))
-            Directory.CreateDirectory(UnityConstants.LogFolderRoot);
+
+        Time.timeScale = Constants.TimeScale;
+        Debugger.Config = Settings.Current.Debugging;
+        Debugger.Logger += str =>
+        {
+            Debug.Log(str);
+            File.AppendAllText("log.txt", str+"\n");
+        };
+
+        if (!Directory.Exists(Constants.LogFolderRoot))
+            Directory.CreateDirectory(Constants.LogFolderRoot);
 
         Loader = new Loader();
         Debugger.Log("Loader ready. Starting: adding levels");
@@ -37,9 +45,9 @@ public static class Dispatcher
 
         GameManager = new GameManager();
 
-        if (UnityConstants.NeedToOpenServicePort)
+        if (Constants.NeedToOpenServicePort)
         {
-            serviceServer = new ServiceServer(UnityConstants.ServicePort);
+            serviceServer = new ServiceServer(Constants.ServicePort);
             new Thread(serviceServer.Work).Start();
         }
     }

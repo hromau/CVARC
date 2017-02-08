@@ -73,7 +73,7 @@ public class IntroductionStript : MonoBehaviour
                     AssemblyName = Settings.Current.TutorialCompetitions,
                     Level = Settings.Current.TutorialLevel
                 },
-                LogFile = UnityConstants.LogFolderRoot + "\\play" + LogNames.Extension
+                LogFile = Constants.LogFolderRoot + "\\play" + LogNames.Extension
             };
             Dispatcher.SwitchScene("LogRound");
         });

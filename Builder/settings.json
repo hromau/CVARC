@@ -10,6 +10,7 @@
   "Version": 2,
   "Debugging": {
     "AlwaysOn": false,
-    "AlwaysOff": true,
+    "AlwaysOff": false,
+	"EnabledTypes":["LogWriter"]
   }
 }

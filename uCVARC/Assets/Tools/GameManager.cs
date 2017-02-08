@@ -17,8 +17,8 @@ namespace Assets
         // еще сервер логов
         public GameManager()
         {
-            playServer = new PlayServer(UnityConstants.NetworkPort);
-            logServer = new LogServer(UnityConstants.LogPort);
+            playServer = new PlayServer(Constants.NetworkPort);
+            logServer = new LogServer(Constants.LogPort);
             // еще сервер логов
         }
 

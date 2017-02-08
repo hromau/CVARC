@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using CVARC.V2;
 using Infrastructure;
+using System.IO;
 
 namespace Assets.Tools
 {
@@ -20,7 +21,7 @@ namespace Assets.Tools
             var settings = Dispatcher.Loader.GetCompetitions(loadingData).Logic.CreateDefaultSettings();
             settings.LoadingData = loadingData;
             settings.EnableLog = true;
-            settings.LogFile = UnityConstants.LogFolderRoot+"\\"+Guid.NewGuid().ToString() + LogNames.Extension;
+            settings.LogFile = Path.Combine(Constants.LogFolderRoot, Guid.NewGuid().ToString() + LogNames.Extension);
 
             return settings;
         }

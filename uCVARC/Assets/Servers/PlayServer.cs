@@ -66,7 +66,7 @@ namespace Assets.Servers
                 throw new Exception("Game was not ready!");
 
             if (worldCreationParams.GameSettings.SpeedUp)
-                Dispatcher.SetTimeScale(UnityConstants.TimeScale * 2);
+                Dispatcher.SetTimeScale(Constants.TimeScale * 2);
 
             var world = Dispatcher.Loader.CreateWorld(
                 worldCreationParams.GameSettings,

@@ -14,6 +14,23 @@ namespace Infrastructure
         public static DebuggerConfig Config { get; set; }
 
 
+        public static void AddException(Exception e)
+        {
+            string message = "";
+            Exception e1 = e;
+            while(e1!=null)
+            {
+                message += e1.GetType().Name+" "+e1.Message + "\n";
+                e1 = e1.InnerException;
+            }
+            message += e.StackTrace;
+            lock (lockObject)
+            {
+                if (Logger != null)
+                    Logger(message);
+            }
+        }
+
         public static void Log(object message)
         {
             if (Config == null) return;
@@ -60,7 +77,6 @@ namespace Infrastructure
             {
                 if (Logger!=null)
                     Logger(str);
-                File.AppendAllText("log.txt", str + "\n");
             }
         }
     }

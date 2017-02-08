@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoMM.Testing", "Competition
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Builder", "Builder\Builder.csproj", "{66E5F59A-9D2E-4950-8660-CCF5A6C20CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudgeClient", "PudgeClient\PudgeClient.csproj", "{D2DEE891-53FE-47AF-B249-98038C42DAB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudgeClient", "Competitions\Pudge\PudgeClient\PudgeClient.csproj", "{D2DEE891-53FE-47AF-B249-98038C42DAB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

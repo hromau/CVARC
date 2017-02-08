@@ -8,7 +8,7 @@ namespace SingleplayerProxy
         public const bool UpdateEnabled = false;
         public const string PathToVersionFile = "version";
         public const string PathToUnityDir = "";
-        public const string UnityExePath = PathToUnityDir + "Pudge.exe";
+        public const string UnityExePath = PathToUnityDir + "ucvarc.exe";
         public const string UrlToGetVersion = "url";
         public const string UrlToGetUpdate = "url";
         

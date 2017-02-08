@@ -87,7 +87,7 @@ namespace Builder
                 referencesItemGroup.Add(
                     new XElement("Reference",
                         new XAttribute("Include", name),
-                        new XElement("HintPath", "..\\" + BinariesName + "\\" + name + ".dll")));
+                        new XElement("HintPath", "..\\" + BinariesName + "\\Dlc\\Assemblies\\" + name + ".dll")));
                 project.Remove();
             }
             xmlDoc.Save(projFile.FullName);
@@ -104,36 +104,35 @@ namespace Builder
         {
             Environment.CurrentDirectory = "..\\..\\..\\";
 
-            if (false)
+            Console.Write("Cleaning up folders... ");
+            if (File.Exists(ucvarc_zip)) File.Delete(ucvarc_zip);
+            if (Directory.Exists(BinariesPath)) Directory.Delete(BinariesPath, true);
+            Directory.CreateDirectory("Release");
+            Directory.CreateDirectory(BinariesPath);
+
+            Console.WriteLine("Done");
+
+            Console.Write("Starting unity builder... ");
+            var unityProcess = Process.Start(new ProcessStartInfo
             {
-                Console.Write("Cleaning up folders... ");
-                if (File.Exists(ucvarc_zip)) File.Delete(ucvarc_zip);
-                if (Directory.Exists(BinariesPath)) Directory.Delete(BinariesPath, true);
-                Directory.CreateDirectory("Release");
-                Directory.CreateDirectory(BinariesPath);
+                FileName = UnityEditorPath,
+                Arguments = @"-batchmode -executeMethod BuildScript.PerformBuild -quit",
+                WorkingDirectory = "uCvarc"
+            });
+            unityProcess.WaitForExit();
+            Console.WriteLine("Done");
 
-                Console.WriteLine("Done");
-
-                Console.Write("Starting unity builder... ");
-                var unityProcess = Process.Start(new ProcessStartInfo
-                {
-                    FileName = UnityEditorPath,
-                    Arguments = @"-batchmode -executeMethod BuildScript.PerformBuild -quit",
-                    WorkingDirectory = "uCvarc"
-                });
-                unityProcess.WaitForExit();
-                Console.WriteLine("Done");
-            }
 
             XCopy(@"uCvarc\Dlc", BinariesPath + "\\Dlc");
-            XCopy(@"uCvarc\Dlc\Assemblies", BinariesPath);
             XCopy(@"Commons\SingleplayerProxy\bin\Debug", BinariesPath);
             
 
-            CopyProjectAndCorrectReferences("PudgeClient");
+            CopyProjectAndCorrectReferences(@"Competitions\Pudge\PudgeClient");
 
             Console.Write("Copying common files... ");
-            File.Copy("Builder\\Start.bat", Release + "\\Start.bat",true);
+            File.Copy("Builder\\Start.bat", Release + "\\Start.bat", true);
+            File.Copy("Builder\\settings.json", BinariesPath+"\\settings.json", true);
+
             Console.WriteLine("OK");
 
             Console.Write("Zipping... ");

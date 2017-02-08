@@ -1,0 +1,15 @@
+{
+  "TutorialCompetitions": "Pudge",
+  "TutorialLevel": "Final",
+  "DlcBundles": [
+    "pudge",
+  ],
+  "DlcAssemblies": [
+    "Pudge.dll",
+  ],
+  "Version": 2,
+  "Debugging": {
+    "AlwaysOn": false,
+    "AlwaysOff": true,
+  }
+}

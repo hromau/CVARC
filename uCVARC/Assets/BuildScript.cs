@@ -8,7 +8,7 @@ class BuildScript
     static void PerformBuild()
     {
         var scenes = new[] { "Assets/Intro.unity", "Assets/Round.unity", "Assets/LogRound.unity" };
-        BuildPipeline.BuildPlayer(scenes, "..\\Release\\Binaries\\unity.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
+        BuildPipeline.BuildPlayer(scenes, "..\\Release\\Binaries\\ucvarc.exe", BuildTarget.StandaloneWindows, BuildOptions.None);
     }
 }
 

@@ -7,22 +7,26 @@ using System.Linq;
 
 namespace HoMM.Sensors
 {
-    public class MapSensor : Sensor<List<MapInfo>, IHommRobot>
+    public class MapSensor : Sensor<MapData, IHommRobot>
     {
-        public override List<MapInfo> Measure()
+        public override  MapData Measure()
         {
             var heroes = Actor.World.Players
-                .Select(x => new MapInfo { Hero = new Hero(x.Name, x.Army), Location = x.Location.ToLocationInfo() });
+                .Select(x => new MapObjectData { Hero = new Hero(x.Name, x.Army), Location = x.Location.ToLocationInfo() });
 
             var objects = Actor.World.Round.Map
                 .SelectMany(tile => tile.Objects.Select(x => BuildMapInfo(tile, x)));
 
-            return objects.Union(heroes).ToList();
+            var data = new MapData();
+            data.Objects=objects.Union(heroes).ToList();
+            data.Width = Actor.World.Round.Map.Width;
+            data.Height = Actor.World.Round.Map.Height;
+            return data;
         }
 
-        private static MapInfo BuildMapInfo(Tile tile, TileObject obj)
+        private static MapObjectData BuildMapInfo(Tile tile, TileObject obj)
         {
-            var mapInfo = new MapInfo { Location = tile.Location.ToLocationInfo() };
+            var mapInfo = new MapObjectData { Location = tile.Location.ToLocationInfo() };
 
             Hero owner = null;
 

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientClasses\LocationInfo.cs" />
+    <Compile Include="ClientClasses\MapData.cs" />
     <Compile Include="ClientClasses\MapInfo.cs" />
     <Compile Include="EntryPoint\DlcEntryPoint.cs" />
     <Compile Include="Engine\HommEngineHighLevelApi.cs" />
@@ -119,8 +120,9 @@
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
     <Compile Include="Robot\HommRules.cs" />
+    <Compile Include="Sensors\TreasurySensor.cs" />
     <Compile Include="Sensors\ArmySensor.cs" />
-    <Compile Include="Sensors\HommSensorData.cs" />
+    <Compile Include="ClientClasses\HommSensorData.cs" />
     <Compile Include="Robot\LocationTrigger.cs" />
     <Compile Include="Robot\ArmyInterface\IArmyInterfaceCommand.cs" />
     <Compile Include="Robot\ArmyInterface\ArmyInterfaceUnit.cs" />

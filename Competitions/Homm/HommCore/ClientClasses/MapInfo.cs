@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace HoMM.ClientClasses
 {
-    public class MapInfo
+    public class MapObjectData
     {
         public LocationInfo Location { get; set; }
 
@@ -14,17 +15,22 @@ namespace HoMM.ClientClasses
         public ResourcePile ResourcePile { get; set; }
         public Hero Hero { get; set; }
 
+        string ArmyString(Dictionary<UnitType,int> army)
+        {
+            return army.Select(z => z.Value.ToString() + " " + z.Key.ToString()).Aggregate((a, b) => a + ", " + b);
+        }
+
         public override string ToString()
         {
             string describe = null;
 
             if (Wall != null) describe = "Wall";
-            if (Garrison != null) describe = "Garrison";
-            if (NeutralArmy != null) describe = "Neutral army";
-            if (Mine != null) describe = "Mine";
-            if (Dwelling != null) describe = "Dwelling";
-            if (ResourcePile != null) describe = "Resource pile";
-            if (Hero != null) describe = "Other hero";
+            if (Garrison != null) describe = "Garrison with " + ArmyString(Garrison.Army);
+            if (NeutralArmy != null) describe = "Neutral army" + ArmyString(NeutralArmy.Army);
+            if (Mine != null) describe = "Mine of "+Mine.Resource.ToString();
+            if (Dwelling != null) describe = "Dwelling of " + Dwelling.UnitType;
+            if (ResourcePile != null) describe = "Resource pile of "+ResourcePile.Amount+" "+ResourcePile.Resource.ToString();
+            if (Hero != null) describe = "Other hero with " + ArmyString(Hero.Army);
 
             return describe ?? "Nothing";
         }

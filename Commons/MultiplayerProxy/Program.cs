@@ -1,6 +1,9 @@
 ﻿using System.Net.Sockets;
 using System.Threading.Tasks;
 using log4net;
+using Infrastructure;
+using System;
+using ProxyCommon;
 
 namespace MultiplayerProxy
 {
@@ -10,6 +13,10 @@ namespace MultiplayerProxy
 
         public static void Main()
         {
+
+            Debugger.Config = new DebuggerConfig { AlwaysOn=true };
+            Debugger.Logger += Console.WriteLine;
+
             Task.Factory.StartNew(WebServer.UpdateCvarcTagList, TaskCreationOptions.LongRunning);
 
             var listener = new TcpListener(MultiplayerProxyConfigurations.ProxyEndPoint);

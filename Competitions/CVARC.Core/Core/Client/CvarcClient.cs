@@ -5,12 +5,24 @@ using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
+
+    class ClientException  : Exception
+    {
+        public ClientException(Exception inner)
+            : base("Connection error", inner)
+        { }
+
+
+        public ClientException(string serverError)
+        : base("Error on server side: " + serverError)
+        { }
+    }
+
 	public class CvarcClient<TSensorData, TCommand, TWorldState>
 		where TSensorData : class
         where TWorldState : WorldState
 	{
 		TcpClient client;
-	    private bool errorHappend;
         public event Action<TSensorData> OnSensorDataReceived;
         public event Action<string> OnError;
         public event Action<string> OnInfo;
@@ -22,12 +34,11 @@ namespace CVARC.V2
 		    {
 		        client.Connect(ip, port);
 		    }
-		    catch (SocketException)
+		    catch (SocketException e)
 		    {
 		        if (OnError != null)
 		            OnError("Cant connect to server. Run UnityStarter.bat first");
-		        errorHappend = true;
-		        return null;
+                throw new ClientException(e);
 		    }
             
 
@@ -54,17 +65,15 @@ namespace CVARC.V2
                     OnSensorDataReceived(sensorData);
                 return sensorData;
             }
+
+            var errorMessage = JObjectHelper.ParseSimple<string>(message.Message);
             if (OnError != null)
-                OnError(JObjectHelper.ParseSimple<string>(message.Message));
-            errorHappend = true;
-            return null;
+                OnError(errorMessage);
+            throw new ClientException(errorMessage);
         }
         
 		public TSensorData Act(TCommand command)
 		{
-		    if (errorHappend)
-		        return null;
-
 			client.WriteJson(command);
             return ReadSensorData();
 		}

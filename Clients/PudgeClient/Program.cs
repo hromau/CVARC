@@ -3,6 +3,7 @@ using System.Linq;
 using Pudge;
 using Pudge.Player;
 using Pudge.World;
+using Infrastructure;
 
 namespace PudgeClientExample
 {
@@ -51,6 +52,10 @@ namespace PudgeClientExample
 
         static void Main(string[] args)
         {
+
+            Debugger.Config = new DebuggerConfig { AlwaysOn = true };
+            Debugger.Logger += Console.WriteLine;
+
             if (args.Length == 0)
                 args = new[] { "127.0.0.1", "18700" };
             var ip = args[0];
@@ -91,8 +96,14 @@ namespace PudgeClientExample
             sensorData = client.Hook();
 
             // Так дожидаемся, пока хук вернется к нам
-            while ( sensorData!= null && sensorData.Events.Any(s => s.Event == PudgeEvent.HookThrown))
-                sensorData = client.Wait(0.1);
+            while (true)
+            {
+                if (sensorData == null)
+                    Console.WriteLine("Null reference");
+                if (!sensorData.Events.Any(s => s.Event == PudgeEvent.HookThrown))
+                    break;
+               sensorData = client.Wait(0.1);
+            }
 
             // Пример длинного движения. Move(100) лучше не писать. Мало ли что произойдет за это время ;) 
             for (int i = 0; i < 5; i++)
@@ -110,6 +121,7 @@ namespace PudgeClientExample
 
             // Корректно завершаем работу
             client.Exit();
+            Console.ReadKey();
         }
     }
 }

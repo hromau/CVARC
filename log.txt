@@ -1,0 +1,1087 @@
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010004043579101563,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010004043579101563,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.65174481791638,"Y":-131.24545855454417,"Angle":-315.1513671875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10099983215332031,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.37623211180818,"Y":130.05354687491734,"Angle":-134.76939392089844},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10099983215332031,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.65174481791638,"Y":-131.24545855454417,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22599983215332031,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.37623211180818,"Y":130.05354687491734,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22599983215332031,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.925999641418457,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.925999641418457,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.0260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.0260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.12600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.12600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.2259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.2259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.3260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.3260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.425999641418457,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.425999641418457,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.5260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.62600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.5260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.62600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.62600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.62600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.7259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.7259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.6548594585827,"Y":-131.40281481440641,"Angle":-0.15141040086746216},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.3794325831617,"Y":129.81035992785752,"Angle":-179.76942443847656},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925999641418457,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0009918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0009918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.67052266492661,"Y":-131.18710322399284,"Angle":-315.14443969726563},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.1009979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.25803371879408,"Y":130.11344715783824,"Angle":-134.80381774902344},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.1009979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.67052266492661,"Y":-131.18710322399284,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.2259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.25803371879408,"Y":130.11344715783824,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.2259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.82598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.82598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":1.82598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":1.82598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":1.925994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0259857177734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":1.925994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0259857177734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.0259857177734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1259918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.0259857177734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1259918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.1259918212890625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.1259918212890625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.2259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.32598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.2259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.32598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.32598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.32598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.425994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5259857177734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.425994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5259857177734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.5259857177734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.6259918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.5259857177734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.6259918212890625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.6259918212890625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.6259918212890625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259979248046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.7259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.82598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.7259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.82598876953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.673637305592933,"Y":-131.34445948385508,"Angle":-0.14447526633739471},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.82598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.261219885033071,"Y":129.9131755543772,"Angle":-179.80384826660156},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.82598876953125,"Duration":8.0},{"Event":1,"Start":2.82598876953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925994873046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.001007080078125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.001007080078125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.68567654958849,"Y":-131.22919840769174,"Angle":-315.1513671875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10198974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.29547497189827,"Y":130.13416096368192,"Angle":-134.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10198974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.68567654958849,"Y":-131.22919840769174,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22698974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.29547497189827,"Y":130.13416096368192,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22698974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72698974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72698974609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.826995849609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.826995849609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.826995849609375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927001953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.826995849609375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927001953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.927001953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.027984619140625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.927001953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.027984619140625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.027984619140625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12799072265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.027984619140625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12799072265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.12799072265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.227996826171875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.12799072265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.227996826171875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.227996826171875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3280029296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.227996826171875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3280029296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.3280029296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.428985595703125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.3280029296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.428985595703125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.428985595703125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.52899169921875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.428985595703125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.52899169921875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.52899169921875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.628997802734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.52899169921875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.628997802734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.628997802734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.72900390625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.628997802734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.72900390625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.72900390625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.829986572265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.72900390625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.829986572265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.688795958626329,"Y":-131.38655466755398,"Angle":-0.15138794481754303},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.829986572265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.92999267578125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.298665906508774,"Y":129.8909740166221,"Angle":-179.77444458007813},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.829986572265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.92999267578125,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.001007080078125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.001007080078125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-130.00003620982116,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10101318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10101318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.826995849609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.826995849609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.826995849609375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927001953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.826995849609375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927001953125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.927001953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.027008056640625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":1.927001953125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.027008056640625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.027008056640625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12701416015625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.027008056640625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12701416015625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.12701416015625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.227996826171875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.12701416015625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.227996826171875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.227996826171875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3280029296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.227996826171875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3280029296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.3280029296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.428009033203125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.3280029296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.428009033203125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.428009033203125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.52801513671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.428009033203125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.52801513671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.52801513671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.628997802734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.52801513671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.628997802734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.628997802734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.72900390625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.628997802734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.72900390625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.72900390625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.829010009765625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.72900390625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.829010009765625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-70.003155618859,"Y":-130.00003620982116,"Angle":-8.857901775627397E-06},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.829010009765625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.92901611328125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.826995849609375,"Duration":8.0},{"Event":1,"Start":2.829010009765625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.92901611328125,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0009765625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0009765625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.66847226517689,"Y":-131.30933565930522,"Angle":-315.162353515625},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10101318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.22195621994203,"Y":130.08172795054722,"Angle":-134.86459350585938},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10101318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.66847226517689,"Y":-131.30933565930522,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.22195621994203,"Y":130.08172795054722,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.72601318359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8270263671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8270263671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":1.8270263671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927978515625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":1.8270263671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.927978515625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":1.927978515625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.02801513671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":1.927978515625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.02801513671875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.02801513671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1290283203125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.02801513671875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1290283203125,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.1290283203125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.22998046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.1290283203125,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.22998046875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.22998046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.33001708984375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.22998046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.33001708984375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.33001708984375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.4310302734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.33001708984375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.4310302734375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.4310302734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.531982421875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.4310302734375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.531982421875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.531982421875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.63201904296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.531982421875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.63201904296875,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.63201904296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7330322265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.63201904296875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7330322265625,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.7330322265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.833984375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.7330322265625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.833984375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.671586905843213,"Y":-131.48099703370039,"Angle":-0.16238608956336975},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.833984375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.93402099609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.225137617809509,"Y":129.93867680521791,"Angle":-179.86457824707031},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8270263671875,"Duration":8.0},{"Event":1,"Start":2.833984375,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.93402099609375,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+<Work>d__7.MoveNext: 81 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099992752075195313,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099992752075195313,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.68454167716888,"Y":-131.19522852904754,"Angle":-315.14666748046875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100030899047852,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.20655437996157,"Y":130.01327320913563,"Angle":-134.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100030899047852,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.68454167716888,"Y":-131.19522852904754,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22600030899047852,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.20655437996157,"Y":130.01327320913563,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22600030899047852,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7260003089904785,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7260003089904785,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.9260001182556152,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.9260001182556152,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.9260001182556152,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.9260001182556152,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.0260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.0260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.12600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.12600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2260003089904785,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.12600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2260003089904785,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.2260003089904785,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.2260003089904785,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.3260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.4260001182556152,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.3260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.4260001182556152,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.4260001182556152,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.4260001182556152,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5260000228881836,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.5260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.62600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.5260000228881836,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.62600040435791,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.62600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.62600040435791,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259998321533203,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.7259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.7259998321533203,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8260002136230469,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.687661086206717,"Y":-131.35258478890978,"Angle":-0.14669099450111389},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.9260005950927734,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.209735777829053,"Y":129.97035786553684,"Angle":-179.95782470703125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.9260005950927734,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-130.00003620982116,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.1009979248046875,"Wards":[]}}
+
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.1009979248046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.1009979248046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.2259979248046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.00003620982116,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.2259979248046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259979248046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7259979248046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8259963989257813,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8259963989257813,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":1.8259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925994873046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":1.8259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.925994873046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":1.925994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0259933471679688,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":1.925994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0259933471679688,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.0259933471679688,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1259994506835938,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.0259933471679688,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1259994506835938,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.1259994506835938,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259979248046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.1259994506835938,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2259979248046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.2259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3259963989257813,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.2259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3259963989257813,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.3259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425994873046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.3259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.425994873046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":false,"DaggerDestination":{"X":0,"Y":0},"MakeDagger":true}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.425994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5259933471679688,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.425994873046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.5259933471679688,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":null,"MakeHook":false,"MakeWard":true,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.5259933471679688,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.6259994506835938,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.5259933471679688,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.6259994506835938,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":180.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.6259994506835938,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259979248046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.6259994506835938,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.7259979248046875,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":10.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.7259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8259963989257813,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.7259979248046875,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.8259963989257813,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":2.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.8259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925994873046875,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.003193765831085,"Y":130.00003620982116,"Angle":-180.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8259963989257813,"Duration":8.0},{"Event":1,"Start":2.8259963989257813,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.925994873046875,"Wards":[]}}
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010001659393310547,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010001659393310547,"Wards":[]}}
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010001659393310547,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.0010001659393310547,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.67126653088232,"Y":-131.24333186085028,"Angle":-315.1524658203125},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100007057189941,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.20732685614635,"Y":130.04242703255375,"Angle":-134.92138671875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100007057189941,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.20732685614635,"Y":130.04242703255375,"Angle":-134.92138671875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100007057189941,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.67126653088232,"Y":-131.24333186085028,"Angle":-0.15249329805374146},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22600007057189941,"Wards":[]}}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.20732685614635,"Y":130.04242703255375,"Angle":-179.92137145996094},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22600007057189941,"Wards":[]}}
+
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":70.210508254013831,"Y":129.95659634535616,"Angle":-179.92137145996094},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7260003089904785,"Wards":[]}}
+
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-130.00003620982116,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10099983215332031,"Wards":[]}}
+
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: 72 closing
+<Work>d__7.MoveNext: 72 closed
+<Work>d__7.MoveNext: 81 closing
+<Work>d__7.MoveNext: 81 closed
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Undefined":true}
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"Seed":0,"Undefined":false}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+<Work>d__7.MoveNext: Translated {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-130.00003620982116,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10099983215332031,"Wards":[]}}
+
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+<Work>d__7.MoveNext: Translated {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+
+<Work>d__7.MoveNext: 76 closing
+<Work>d__7.MoveNext: 76 closed
+<Work>d__7.MoveNext: 55 closing
+<Work>d__7.MoveNext: 55 closed
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.WriteJson: {"LoadingData":{"AssemblyName":"Pudge","Level":"Final"},"TimeLimit":90.0,"OperationalTimeLimit":1000.0,"ActorSettings":[{"ControllerId":"Left","IsBot":false,"BotName":null,"PlayerSettings":{"LinkToPhoto":null,"CvarcTag":"00000000-0000-0000-0000-000000000000"}},{"ControllerId":"Right","IsBot":true,"BotName":"Standing","PlayerSettings":null}],"EnableLog":false,"LogFile":null,"SpeedUp":false}
+TcpClientExtensions.WriteJson: {"Seed":0,"Undefined":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.99999806284907,"Y":-129.99999806284907,"Angle":-315.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":129.99999806284907,"Y":129.99999806284907,"Angle":-135.0},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.00099945068359375,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":0.0,"Angle":-45.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.66137692836855,"Y":-131.32109446345129,"Angle":-315.16342163085938},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100173950195313,"Wards":[]}}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0.0","X":130.27812763634134,"Y":130.1192931813107,"Angle":-134.79315185546875},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.10100173950195313,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":60.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-129.66137692836855,"Y":-131.32109446345129,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":0.22600173950195313,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.1,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.7260017395019531,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":null,"MakeHook":true,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[],"IsDead":false,"WorldTime":1.8260002136230469,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.8260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":1.9259986877441406,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":1.9259986877441406,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.0260009765625,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.0260009765625,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.1259994506835938,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.1259994506835938,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.2260017395019531,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":0.0,"Range":15.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.2260017395019531,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.3260002136230469,"Wards":[]}}
+TcpClientExtensions.WriteJson: {"GameMovement":{"WaitTime":1.0,"Range":0.0,"Angle":0.0},"MakeHook":false,"MakeWard":false,"DaggerDestination":null,"MakeDagger":false}
+TcpClientExtensions.ReadJson: {"MessageType":0,"Message":{"SelfLocation":{"Id":"PudgeRobot.Pudge.Player.PudgeRobot.0","X":-69.66449156903488,"Y":-131.49275583784646,"Angle":-0.16343916952610016},"SelfScores":0,"Map":{"Runes":[],"Heroes":[],"EnemyHooks":[]},"Events":[{"Event":3,"Start":1.8260002136230469,"Duration":8.0},{"Event":1,"Start":2.3260002136230469,"Duration":"Infinity"}],"IsDead":false,"WorldTime":2.4259986877441406,"Wards":[]}}

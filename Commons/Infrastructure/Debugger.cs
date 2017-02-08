@@ -60,7 +60,6 @@ namespace Infrastructure
             {
                 if (Logger!=null)
                     Logger(str);
-                File.AppendAllText("log.txt", str + "\n");
             }
         }
     }

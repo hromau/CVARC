@@ -36,6 +36,7 @@ namespace ProxyCommon
                     if (!from.IsAlive())
                         break;
                     var bytes = await from.ReadAsync();
+                    Debugger.Log("Translated " + System.Text.Encoding.UTF8.GetString(bytes));
                     if (!to.IsAlive())
                         break;
                     await to.WriteAsync(bytes);

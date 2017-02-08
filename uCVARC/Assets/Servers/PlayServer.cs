@@ -54,6 +54,8 @@ namespace Assets.Servers
 
             Debugger.Log("Accepted " + players.Count + " connections");
 
+            DefaultWorldInfoCreator.AddDefaultLogSettings(gameSettings);
+
             worldCreationParams = new WorldCreationParams(gameSettings, 
                 new PlayControllerFactory(players), 
                 worldState);

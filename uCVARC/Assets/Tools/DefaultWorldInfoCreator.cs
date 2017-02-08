@@ -16,13 +16,18 @@ namespace Assets.Tools
             return competitions.Logic.CreateWorldState(competitions.Logic.PredefinedWorldStates.First());
         }
 
+        public static void AddDefaultLogSettings(GameSettings settings)
+        {
+            settings.EnableLog = true;
+            settings.LogFile = Path.Combine(Constants.LogFolderRoot, Guid.NewGuid().ToString() + LogNames.Extension);
+
+        }
+
         public static GameSettings GetDefaultGameSettings(LoadingData loadingData)
         {
             var settings = Dispatcher.Loader.GetCompetitions(loadingData).Logic.CreateDefaultSettings();
             settings.LoadingData = loadingData;
-            settings.EnableLog = true;
-            settings.LogFile = Path.Combine(Constants.LogFolderRoot, Guid.NewGuid().ToString() + LogNames.Extension);
-
+            AddDefaultLogSettings(settings);
             return settings;
         }
     }

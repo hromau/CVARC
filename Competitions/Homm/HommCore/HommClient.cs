@@ -1,5 +1,6 @@
 ﻿using CVARC.V2;
 using HoMM.Robot;
+using HoMM.Robot.ArmyInterface;
 using HoMM.Robot.HexagonalMovement;
 using HoMM.Sensors;
 using HoMM.World;
@@ -48,6 +49,16 @@ namespace HoMM
         public TSensorData Move(Direction direction)
         {
             return Act(new HommCommand { Movement = new HexMovement(direction) });
+        }
+
+        public TSensorData PurchaseUnits(int count)
+        {
+            return Act(new HommCommand { Order = new PurchaseOrder(count) });
+        }
+
+        public TSensorData BuildGarrison(Dictionary<UnitType, int> garrisonArmy)
+        {
+            return Act(new HommCommand { WaitInGarrison = garrisonArmy });
         }
     }
 }

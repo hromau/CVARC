@@ -74,7 +74,7 @@ namespace HoMM.Robot.ArmyInterface
             var garrison = new Garrison(armyForGarrison, location, owner);
             garrison.UnityId = "Garrison " + lastId++;
 
-            actor.World.Round.Map[location].Objects.Add(garrison);
+            actor.World.Round.Map[location].AddObject(garrison);
             actor.World.HommEngine.CreateObject(garrison.UnityId, MapObject.Garrison, location.X, location.Y);
             actor.World.HommEngine.SetFlag(garrison.UnityId, owner.Name);
 

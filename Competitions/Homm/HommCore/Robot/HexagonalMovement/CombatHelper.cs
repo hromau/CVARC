@@ -45,7 +45,7 @@ namespace HoMM.Robot.HexagonalMovement
                     if (other is TileObject)
                     {
                         commonEngine.DeleteObject(other.UnityId);
-                        otherTile.Objects.Remove((TileObject)other);
+                        ((TileObject)other).OnRemove();
                     }
 
                     if (other is Player)

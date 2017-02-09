@@ -59,8 +59,7 @@ namespace HoMM
             {
                 map[tile.Location.Y, tile.Location.X] = tile;
 
-                foreach (var obj in tile.Objects)
-                    obj.Remove += o => tile.Objects.Remove(o);
+
             }
         }
 
@@ -72,10 +71,7 @@ namespace HoMM
             TileObject obj = InitObject(s, new Location(y, x));
 
             if (obj != null)
-            {
-                obj.Remove += o => tile.Objects.Remove(o);
-                tile.Objects.Add(obj);
-            }
+                tile.AddObject(obj);
 
             return tile;
         }

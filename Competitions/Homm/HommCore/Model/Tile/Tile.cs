@@ -6,7 +6,9 @@ namespace HoMM
 {
     public class Tile
     {
-        public readonly List<TileObject> Objects;
+        private List<TileObject> objects;
+
+        public IEnumerable<TileObject> Objects => objects;
         public readonly TileTerrain Terrain;
         public readonly Location Location;
 
@@ -14,11 +16,21 @@ namespace HoMM
 
         private bool isCombat;
 
-        public Tile(Location location, TileTerrain t, List<TileObject> obj)
+        public Tile(Location location, TileTerrain t, List<TileObject> objects)
         {
             Location = location;
             Terrain = t;
-            Objects = obj;
+
+            foreach (var obj in objects)
+                obj.Remove += o => objects.Remove(o);
+
+            this.objects = objects;
+        }
+
+        public void AddObject(TileObject obj)
+        {
+            objects.Add(obj);
+            obj.Remove += o => objects.Remove(o);
         }
 
         public Tile(int x, int y, TileTerrain t, List<TileObject> obj) : this(new Location(y, x), t, obj)

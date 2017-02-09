@@ -33,7 +33,7 @@ namespace HoMM.World
                 Enumerable.Range(2, 6).Select(y => new Location(y, 0))
                 .Union(Enumerable.Range(2, 6).Select(y => new Location(y, 1))));
 
-            map[new Location(3, 4)].Objects.Add(new Wall(new Location(3, 4)));
+            map[new Location(3, 4)].AddObject(new Wall(new Location(3, 4)));
 
             return map;
         }
@@ -43,7 +43,7 @@ namespace HoMM.World
             locations
                 .Select((x, i) => factory(x, i))
                 .ToList()
-                .ForEach(x => map[x.location].Objects.Add(x));
+                .ForEach(x => map[x.location].AddObject(x));
         }
 
         private void AddBuildings(Map map, Func<Location, int, IBuilding> factory, IEnumerable<Location> locations)
@@ -53,8 +53,8 @@ namespace HoMM.World
                 .ToList()
                 .ForEach(x =>
                 {
-                    map[x.EntryLocation].Objects.Add((TileObject)x);
-                    map[x.BuildingLocation].Objects.Add(new Wall(x.BuildingLocation));
+                    map[x.EntryLocation].AddObject((TileObject)x);
+                    map[x.BuildingLocation].AddObject(new Wall(x.BuildingLocation));
                 });
         }
     }

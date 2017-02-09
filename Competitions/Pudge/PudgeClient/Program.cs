@@ -35,13 +35,6 @@ namespace PudgeClientExample
             Console.WriteLine();
         }
 
-        static void OnError(string errorMessage)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(errorMessage);
-            Console.ResetColor();
-        }
-
         static void OnInfo(string infoMessage)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -63,8 +56,6 @@ namespace PudgeClientExample
             client.OnSensorDataReceived += Print;
             // Время от времени сервер может отправлять вам информационные сообщения. На каждое сообщение произойдет событие OnInfo
             client.OnInfo += OnInfo;
-            // Если случится ошибка -- произойдет событие OnError, а все дальнейшие команды не будут обработаны.
-            client.OnError += OnError;
 
             // У метода Configurate так же есть необязательные аргументы:
             // timeLimit -- время в секундах, сколько будет идти матч (по умолчанию 90)

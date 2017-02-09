@@ -60,7 +60,7 @@ namespace MultiplayerProxy
             log.Debug("TryStartGame call");
             foreach (var levelName in pool.Keys)
             {
-                var controllerIdsLength = MultiplayerProxyConfigurations.LevelToControllerIds[levelName].Length;
+                var controllerIdsLength = GameServer.GetControllersIdList()[levelName].Length;
                 if (pool[levelName].Count < controllerIdsLength)
                     continue;
                 var players = new List<ClientWithSettings>();
@@ -79,7 +79,7 @@ namespace MultiplayerProxy
 
         private static string CheckForErrors(GameSettings settings)
         {
-            if (!MultiplayerProxyConfigurations.LevelToControllerIds.ContainsKey(settings.LoadingData))
+            if (!GameServer.GetControllersIdList().ContainsKey(settings.LoadingData))
                 return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)

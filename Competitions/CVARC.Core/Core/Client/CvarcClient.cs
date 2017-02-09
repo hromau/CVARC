@@ -5,6 +5,11 @@ using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
+    public class ClientException : Exception
+    {
+        public ClientException(string message) : base(message) { }
+    }
+
 	public class CvarcClient<TSensorData, TCommand, TWorldState>
 		where TSensorData : class
         where TWorldState : WorldState
@@ -12,7 +17,6 @@ namespace CVARC.V2
 		TcpClient client;
 	    private bool errorHappend;
         public event Action<TSensorData> OnSensorDataReceived;
-        public event Action<string> OnError;
         public event Action<string> OnInfo;
 
         protected TSensorData Configurate(int port, GameSettings configuration, TWorldState state, string ip = "127.0.0.1")
@@ -24,12 +28,8 @@ namespace CVARC.V2
 		    }
 		    catch (SocketException)
 		    {
-		        if (OnError != null)
-		            OnError("Cant connect to server. Run UnityStarter.bat first");
-		        errorHappend = true;
-		        return null;
+		        throw new ClientException("Cant connect to server. Wrong address or proxy not started");
 		    }
-            
 
 			client.WriteJson(configuration);
 			client.WriteJson(JObject.FromObject(state));
@@ -54,10 +54,8 @@ namespace CVARC.V2
                     OnSensorDataReceived(sensorData);
                 return sensorData;
             }
-            if (OnError != null)
-                OnError(JObjectHelper.ParseSimple<string>(message.Message));
-            errorHappend = true;
-            return null;
+            
+            throw new ClientException(JObjectHelper.ParseSimple<string>(message.Message));
         }
         
 		public TSensorData Act(TCommand command)
@@ -68,8 +66,6 @@ namespace CVARC.V2
 			client.WriteJson(command);
             return ReadSensorData();
 		}
-
-		
 
 		public void Exit()
 		{

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Infrastructure;
@@ -15,6 +17,13 @@ namespace Assets.Servers
             listener.Start();
         }
 
+        private Dictionary<LoadingData, string[]> GetControllersIdInfo()
+        {
+            return Dispatcher.Loader.Levels
+                .SelectMany(x => x.Value.Keys, (x, y) => new LoadingData {AssemblyName = x.Key, Level = y})
+                .ToDictionary(l => l, l => Dispatcher.Loader.GetCompetitions(l).Logic.Actors.Keys.ToArray());
+        }
+
         public void Work()
         {
             while (true)
@@ -29,7 +38,7 @@ namespace Assets.Servers
                             client.WriteJson("ping");
                             break;
                         case ServiceUnityCommand.GetCompetitionsList:
-                            client.WriteJson(null);
+                            client.WriteJson(GetControllersIdInfo());
                             break;
                         case ServiceUnityCommand.Shutdown:
                             client.WriteJson("ok");

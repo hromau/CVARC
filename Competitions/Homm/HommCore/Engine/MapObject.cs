@@ -3,7 +3,7 @@
     public enum MapObject
     {
         Dwelling,
-        //Garrison,
+        Garrison,
         Mine,
         NeutralArmy,
         ResourcesPile,

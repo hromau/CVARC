@@ -3,8 +3,8 @@
     public enum Resource
     {
         Gold,
-        Wood,
-        Ore,
-        Horses
+        Glass,
+        Iron,
+        Ebony
     }
 }

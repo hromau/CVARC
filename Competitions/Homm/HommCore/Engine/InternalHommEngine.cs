@@ -173,8 +173,11 @@ namespace HoMM.Engine
 
             SetColor(flag, heroColors.GetOrDefault(ownerId, Color.gray));
 
-            flag.transform.position = new Vector3(obj.transform.position.x, flagHeight, obj.transform.position.z);
+            flag.transform.position = obj.transform.position;
             flag.transform.localScale = Vector3.one / 2;
+
+            flag.transform.parent = obj.transform;
+            flag.transform.localPosition = Vector3.up * flagHeight;
         }
 
         public void SetCameraPosition(Vector3 coordinates)
@@ -189,7 +192,7 @@ namespace HoMM.Engine
 
         private Vector3 FromHexagonal(int x, int y)
         {
-            var newX = y * hexHeight + (x % 2 * hexHeight / 2);
+            var newX = y * hexHeight + (Math.Abs(x) % 2 * hexHeight / 2);
             var newZ = (3 * hexHeight * x) / (2 * Mathf.Sqrt(3));
             return new Vector3(newX, 0, newZ);
         }

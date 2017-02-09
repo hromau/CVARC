@@ -8,5 +8,6 @@ namespace HoMM
     public interface IBuilding
     {
         Location BuildingLocation { get; }
+        Location EntryLocation { get; }
     }
 }

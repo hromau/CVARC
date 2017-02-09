@@ -99,7 +99,7 @@ namespace HexModelTesting
         {
             var p = round.Players[0];
             p.GainResources(Resource.Gold, 50);
-            p.GainResources(Resource.Wood, 1);
+            p.GainResources(Resource.Glass, 1);
             Assert.False(p.TryBuyUnits(1));
             Assert.That(round.Players[0].Army[UnitType.Ranged] == 0);
         }
@@ -123,7 +123,7 @@ namespace HexModelTesting
             round.UpdateTick(new Location[] { new Location(2, 1), new Location(0, 0) });
             var player = round.Players[0];
             player.GainResources(Resource.Gold, 1000);
-            player.GainResources(Resource.Wood, 5);
+            player.GainResources(Resource.Glass, 5);
             player.TryBuyUnits(5);
             Assert.That(player.Army[UnitType.Ranged] == 5);
         }

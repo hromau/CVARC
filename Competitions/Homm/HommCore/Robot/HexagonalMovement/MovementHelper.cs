@@ -77,6 +77,7 @@ namespace HoMM.Robot.HexagonalMovement
         {
             return map[newLocation].Objects
                 .Where(x => x is ICombatable)
+                .Where(x => !(x is CapturableObject) || ((CapturableObject)x).Owner != robot.Player)
                 .Cast<ICombatable>()
                 .FirstOrDefault();
         }

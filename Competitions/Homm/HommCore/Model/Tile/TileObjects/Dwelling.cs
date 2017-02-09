@@ -7,15 +7,15 @@ namespace HoMM
         public override bool IsPassable => true;
 
         public Location BuildingLocation { get; }
-        public Location TriggerLocation { get; }
+        public Location EntryLocation { get; }
 
         public Unit Recruit { get; private set; }
         public int AvailableUnits { get; private set; }
 
-        public Dwelling(Unit unit, Location location, int availableUnits = 0)
+        public Dwelling(UnitType unit, Location location, int availableUnits = 0)
             : this(unit, location, location, availableUnits) { }
 
-        public Dwelling(Unit unit, Location triggerLocation, Location buildingLocation, int availableUnits = 0) 
+        public Dwelling(UnitType unit, Location triggerLocation, Location buildingLocation, int availableUnits = 0) 
             : base(triggerLocation)
         {
             if (availableUnits < 0)
@@ -27,9 +27,9 @@ namespace HoMM
             if (buildingLocation == null)
                 throw new ArgumentException("Expected buildingLocation, got null");
 
-            Recruit = unit;
+            Recruit = UnitFactory.FromType(unit);
             AvailableUnits = availableUnits;
-            TriggerLocation = triggerLocation;
+            EntryLocation = triggerLocation;
             BuildingLocation = buildingLocation;
         }
 

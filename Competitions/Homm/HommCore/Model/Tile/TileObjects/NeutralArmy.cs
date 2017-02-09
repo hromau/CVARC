@@ -34,27 +34,23 @@ namespace HoMM
                 OnRemove();
         }
 
-        public static NeutralArmy BuildRandom(Location location, int armyStrength,
-            Random random, UnitType preferredUnitType, double preferredUnitShare = 0.5)
+        public static NeutralArmy BuildRandom(Location location, int armyStrength, Random random)
         {
-            if (preferredUnitShare < 0 || preferredUnitShare > 1)
-                throw new ArgumentException("Invalid unit share!");
+            armyStrength = (int)(armyStrength * (1 + (random.NextDouble() - 0.5) * 0.4));  // 80-120% of original
 
-            int randomizedArmyStrength = (int)(armyStrength * (1 + (random.NextDouble() - 0.5) * 0.4)); //80-120% of original
+            var dominatingUnitType = random.Choice<UnitType>();
+            var dominationFraction = 0.7;
 
-            var army = new Dictionary<UnitType, int> { };
-            foreach (UnitType unit in Enum.GetValues(typeof(UnitType)))
-                army.Add(unit, 0);
-            int currentStrength = 0;
+            var dominatorCombatPower = UnitConstants.CombatPower[dominatingUnitType];
+            var dominatingUnitsCount = (int)Math.Ceiling((armyStrength * dominationFraction) / dominatorCombatPower);
 
-            int prefStackSize = (int)Math.Floor((randomizedArmyStrength * preferredUnitShare) / UnitConstants.CombatPower[preferredUnitType]);
-            army[preferredUnitType] += prefStackSize;
-            currentStrength += prefStackSize * UnitConstants.CombatPower[preferredUnitType];
+            var army = new Dictionary<UnitType, int> { { dominatingUnitType, dominatingUnitsCount } };
+            var currentStrength = dominatingUnitsCount * UnitConstants.CombatPower[dominatingUnitType];
 
-            while(currentStrength <= randomizedArmyStrength)
+            while(currentStrength < armyStrength)
             {
                 var nextUnit = random.Choice<UnitType>();
-                army[nextUnit]++;
+                army[nextUnit] = army.GetOrDefault(nextUnit, 0) + 1;
                 currentStrength += UnitConstants.CombatPower[nextUnit];
             }
 

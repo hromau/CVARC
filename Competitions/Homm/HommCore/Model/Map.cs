@@ -114,12 +114,12 @@ namespace HoMM
                         var recriutTypeName = Enum.GetNames(typeof(UnitType))
                             .SingleOrDefault(res => res[0] == s[2]);
                         var unitType = (UnitType)Enum.Parse(typeof(UnitType), recriutTypeName);
-                        return new Dwelling(UnitFactory.FromType(unitType), location);
+                        return new Dwelling(unitType, location);
                     }
                 case 'G':
                     {
                         var guards = CreateArmyFromString(s);
-                        return new Garrison(guards, location);
+                        return new Garrison(guards, location, null);
                     }
                 case '-':
                     return null;

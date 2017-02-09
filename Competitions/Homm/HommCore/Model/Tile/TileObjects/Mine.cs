@@ -10,7 +10,7 @@ namespace HoMM
 
         public override bool IsPassable => true;
 
-        public int Yield => Resource == Resource.Gold ? 1000 : 10;
+        public int Yield => 10;
 
         public Mine(Resource res, Location location) : this(res, location, location) { }
 

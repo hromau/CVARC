@@ -30,16 +30,14 @@ namespace HoMM
                 throw new ArgumentException("wrong number of player positions!");
 
             for (int i = 0; i < Players.Length; i++)
-                Update(Players[i], playerPositions[i]);
+                if (Players[i].Location != playerPositions[i])
+                    Update(Players[i], playerPositions[i]);
         }
 
         public void Update(Player player, Location newLocation)
         {
             if (!Players.Contains(player))
                 throw new ArgumentException($"{nameof(player)} is not playing this round!");
-
-            if (player.Location == newLocation)
-                return;
 
             player.Location = newLocation;
 

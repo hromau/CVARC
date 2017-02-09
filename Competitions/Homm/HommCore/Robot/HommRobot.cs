@@ -28,6 +28,7 @@ namespace HoMM.Robot
             {
                 new HexMovUnit(this),
                 new ArmyInterfaceUnit(this),
+                new GarrisonBuilderUnit(this),
             };
         }
 

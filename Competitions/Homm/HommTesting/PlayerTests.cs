@@ -36,8 +36,8 @@ namespace HexModelTesting
             p.GainResources(Resource.Gold, 100);
             Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Gold, 120));
             Assert.AreEqual(p.CheckResourceAmount(Resource.Gold), 100);
-            p.GainResources(Resource.Wood, 1);
-            Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Ore, 1));
+            p.GainResources(Resource.Glass, 1);
+            Assert.Throws<ArgumentException>(() => p.PayResources(Resource.Iron, 1));
         }
     }
 }

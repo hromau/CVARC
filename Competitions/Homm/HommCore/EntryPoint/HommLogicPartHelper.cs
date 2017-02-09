@@ -36,13 +36,13 @@ namespace HoMM
             var rules = new HommRules();
 
             logicPart.CreateWorld = () => new HommWorld(pids.Take(playersCount).ToArray());
-            logicPart.CreateDefaultSettings = () => new GameSettings { OperationalTimeLimit = 5, TimeLimit = 90 };
+            logicPart.CreateDefaultSettings = () => new GameSettings { OperationalTimeLimit = 5, TimeLimit = 1000 };
 
             logicPart.WorldStateType = typeof(HommWorldState);
             logicPart.CreateWorldState = seed => new HommWorldState(int.Parse(seed));
-            //logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
 
-            logicPart.PredefinedWorldStates.Add(new Random().Next().ToString());
+            //logicPart.PredefinedWorldStates.AddRange(Enumerable.Range(0, 5).Select(i => i.ToString()));
+            logicPart.PredefinedWorldStates.Add(HommRules.DebugSeed.ToString());
 
             var actorFactory = ActorFactory.FromRobot(new HommRobot(), rules);
             

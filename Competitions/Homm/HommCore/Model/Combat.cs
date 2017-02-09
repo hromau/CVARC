@@ -49,6 +49,18 @@ namespace HoMM
                 var p2NewArmy = ResolveTurn(p1, p2, atkDmgMod);
                 var p1NewArmy = ResolveTurn(p2, p1, defDmgMod);
 
+                Debugger.Log("Resolve turn:");
+
+                Debugger.Log("First army:");
+
+                foreach (var kv in p1NewArmy)
+                    Debugger.Log($"{kv.Key} - {kv.Value}");
+
+                Debugger.Log("Second army:");
+
+                foreach (var kv in p2NewArmy)
+                    Debugger.Log($"{kv.Key} - {kv.Value}");
+
                 foreach (var unitType in p1NewArmy.Keys)
                     p1.Army[unitType] = p1NewArmy[unitType];
                 foreach (var unitType in p2NewArmy.Keys)

@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace HoMM.World
 {
-    public class MapGeneratorHelper
+    public partial class MapGeneratorHelper
     {
         const int mapSize = 18;
 
@@ -41,7 +41,7 @@ namespace HoMM.World
         }
 
         private Resource[] spawnableResources =
-            new[] { Resource.Ore, Resource.Wood, Resource.Gold, Resource.Horses };
+            new[] { Resource.Iron, Resource.Glass, Resource.Gold, Resource.Ebony };
 
         private UnitType[] spawnableDwellings =
             new[] { UnitType.Cavalry, UnitType.Infantry, UnitType.Ranged };
@@ -51,15 +51,16 @@ namespace HoMM.World
         {
             builder = builder
                 .With(new SimpleSpawner(
-                    (map, maze, location) => new Dwelling(UnitFactory.FromType(UnitType.Militia),
-                        location, UnitConstants.WeeklyGrowth[UnitType.Militia]),
+                    (map, maze, location) => new Dwelling(UnitType.Militia,
+                        location, location == Location.Zero ? location - Vector2i.One : location + Vector2i.One,
+                        UnitConstants.WeeklyGrowth[UnitType.Militia]),
                     maze => new[] { Location.Zero, Location.Max(maze.Size) }));
 
             var dwellingsConfig = new SpawnerConfig(Location.Zero, 30, 100, 0.2);
 
             foreach (var unitType in spawnableDwellings)
                 builder = builder.With(new GraphSpawner(random, dwellingsConfig,
-                    (map, maze, loc) => new Dwelling(UnitFactory.FromType(unitType), loc,
+                    (map, maze, loc) => new Dwelling(unitType, loc,
                         FindPlaceForBuilding(map, maze, loc), UnitConstants.WeeklyGrowth[unitType]),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
 
@@ -129,7 +130,7 @@ namespace HoMM.World
         {
             var guardsConfig = new SpawnerConfig(Location.Zero, 16.5, 100, 1);
             return builder.With(new DistanceSpawner(random, guardsConfig,
-                (map, maze, p) => NeutralArmy.BuildRandom(p, 600, random, UnitType.Cavalry, 0.2),
+                (map, maze, p) => NeutralArmy.BuildRandom(p, 400, random),
                 symmetricFactory: (original, location) => ((NeutralArmy)original).Copy(location)));
         }
 
@@ -142,12 +143,12 @@ namespace HoMM.World
             return builder
 
                 .With(new GraphSpawner(random, easyTier,
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 150, random, UnitType.Militia, 0.25),
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 75, random),
                     (map, maze, location) => map[location].Any(x => x is Mine),
                     (original, location) => ((NeutralArmy)original).Copy(location)))
 
                 .With(new GraphSpawner(random, hardTier, 
-                    (map, maze, location) => NeutralArmy.BuildRandom(location, 400, random, UnitType.Infantry, 0),
+                    (map, maze, location) => NeutralArmy.BuildRandom(location, 225, random),
                     (map, maze, location) => map[location].Any(x => x is Mine),
                     (original, location) => ((NeutralArmy)original).Copy(location)));
         }

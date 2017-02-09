@@ -27,19 +27,25 @@ namespace HoMM.World
 
         public override void CreateWorld()
         {
-            Debugger.Log(WorldState.Seed);
+            Debugger.Log("Starting seed: " + WorldState.Seed);
 
             CommonEngine = GetEngine<ICommonEngine>();
             HommEngine = GetEngine<HommEngine>();
 
             Random = new Random(WorldState.Seed);
 
-            var map = new MapGeneratorHelper().CreateMap(Random);
+            var map = WorldState.Seed == HommRules.DebugSeed 
+                ? new MapGeneratorHelper().CreateDebugMap(Random)
+                : new MapGeneratorHelper().CreateMap(Random);
+
             Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);
 
             connecter = new RoundToUnityConnecter(HommEngine, CommonEngine);
             connecter.Connect(Round);
+
+            foreach (var player in Players)
+                Round.Update(player, player.Location);
 
             Clocks.AddTrigger(new TimerTrigger(_ => Round.DailyTick(), HommRules.Current.DailyTickInterval));
         }

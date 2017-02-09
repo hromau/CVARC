@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
+using Newtonsoft.Json.Linq;
 using ProxyCommon;
 
 namespace MultiplayerProxy
@@ -27,7 +28,7 @@ namespace MultiplayerProxy
         {
             log.Debug("CreatePlayerInPool call");
             var settings = await client.ReadJsonAsync<GameSettings>();
-            //await client.ReadJobject();
+            await client.ReadJsonAsync<JObject>(); // ignore worldstate
             var levelName = settings.LoadingData;
             var errorMessage = CheckForErrors(settings);
             if (!string.IsNullOrEmpty(errorMessage))

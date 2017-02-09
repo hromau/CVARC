@@ -17,9 +17,7 @@ public partial class LogScript : PlayScript
 
     protected override void Initialization()
     {
-        var model = Dispatcher.LogModel; // теперь всю инфу о логах мы получаем ТАК.
-
-        reader = new LogPlayer(model.LogFile);
+        reader = new LogPlayer(Dispatcher.LogModel);
         var engines = Dispatcher.Loader.GetCompetitions(reader.GameSettings.LoadingData).EnginesFactory(); // если я правильно понимаю, можно и так
         reader.StartEngines(engines);
         commonEngine = engines.OfType<CommonEngine>().SingleOrDefault();

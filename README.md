@@ -98,11 +98,33 @@ namespace UnityCommons
 
 ```json
 {
-    "TutorialCompetitions": "Pudge",
-    "TutorialLevel": "Level2",
-    "DlcBundles": ["pudge"],
-    "DlcAssemblies": ["Pudge.dll"],
-    "DebugTypes": ["XXX"]
+  "TutorialCompetitions": "homm",
+  "TutorialLevel": "level1",
+  "DlcBundles": [
+    "pudge",
+    "homm"
+  ],
+  "DlcAssemblies": [
+    "pudge.dll",
+    "homm.dll"
+  ],
+  "Version": 3,
+  "Debugging": {
+    "AlwaysOn": false,
+    "AlwaysOff": false,
+    "EnabledTypes": [
+      "ExampleType"
+    ],
+    "CallStackRoots": [
+      {
+        "Type": "ExampleType",
+        "Method": "ExampleMethod"
+      }
+    ],
+    "EnabledNamespaces": [
+      "ExampleNamespace"
+    ]
+  }
 }
 ```
 
@@ -118,5 +140,17 @@ namespace UnityCommons
 `DlcAssemblies` - имена загружаемых библиотек. 
 Должны совпадать с тем, что лежит в Dlc/Assemblies.
 
-`DebugTypes` - имена типов, для которых будут выводиться отладочные сообщения в консоль 
-или в *_Data/output_log.txt, когда юнити-проект собран.
+`Debugging` - настройки вывода отладочных сообщений, которые будут выводиться в консоль или в файл log.txt
+
+## Запуск интеграционных тестов
+
+1. Открыть /Competition.sln и собрать
+
+2. Открыть Unity в /uCvarc/ и запустить
+
+3. Запустить /runSinglePlayerProxyDebugMode.bat 
+
+4. Запустить проект интеграционных тестов
+
+
+

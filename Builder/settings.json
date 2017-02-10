@@ -1,16 +1,18 @@
 {
-  "TutorialCompetitions": "Pudge",
-  "TutorialLevel": "Final",
+  "TutorialCompetitions": "pudge",
+  "TutorialLevel": "final",
   "DlcBundles": [
     "pudge",
+    "homm"
   ],
   "DlcAssemblies": [
-    "Pudge.dll",
+    "pudge.dll",
+    "homm"
   ],
-  "Version": 2,
+  "Version": 3,
   "Debugging": {
     "AlwaysOn": false,
-    "AlwaysOff": false,
+    "AlwaysOff": true,
 	"EnabledTypes":["LogWriter"]
   }
 }

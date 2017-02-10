@@ -22,5 +22,5 @@ packages
 uCVARC/settings.json
 version
 /binaries/
-ucvarc.zip
+ucvarc*.zip
 /Release/

@@ -15,8 +15,7 @@ namespace Builder
         const string UnityEditorPath = @"C:\Program Files\Unity\Editor\Unity.exe";
         const string SevenZ = @"C:\Program Files\7-Zip\7z.exe";
         const string I18Source = @"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity";
-
-        const string ucvarc_zip = "ucvarc.zip";
+        
         const string Release = "Release";
         const string BinariesName = "Binaries";
 
@@ -40,15 +39,16 @@ namespace Builder
             Console.WriteLine("OK");
         }
 
-        static void DeleteAndXCopy(string from, string to, params string[] subdirectoriesToDelete)
+        static void XCopyThenDelete(string from, string to, params string[] subdirectoriesToDelete)
         {
+            XCopy(from, to);
             foreach (var d in subdirectoriesToDelete)
             {
-                var name = from + "\\" + d;
+                var name = to + "\\" + d;
                 if (Directory.Exists(name))
-                    Directory.Delete(name,true);
+                    Directory.Delete(name, true);
             }
-            XCopy(from, to);
+
         }
 
         static void CopyProjectAndCorrectReferences(string path)
@@ -59,7 +59,7 @@ namespace Builder
             if (Directory.Exists(dest))
                 Directory.Delete(dest, true);
             Directory.CreateDirectory(dest);
-            DeleteAndXCopy(path, dest, "bin", "obj");
+            XCopyThenDelete(path, dest, "bin", "obj");
 
             var projFile = new DirectoryInfo(dest).GetFiles("*.csproj").Single();
 
@@ -104,10 +104,13 @@ namespace Builder
         static void Main(string[] args)
         {
             Environment.CurrentDirectory = "..\\..\\..\\";
-
             Console.Write("Cleaning up folders... ");
-            if (File.Exists(ucvarc_zip)) File.Delete(ucvarc_zip);
+
+            foreach (var file in Directory.GetFiles(".","ucvarc*.zip"))
+                File.Delete(file);
+
             if (Directory.Exists(Release)) Directory.Delete(Release, true);
+
             Directory.CreateDirectory(Release);
             Directory.CreateDirectory(BinariesPath);
 
@@ -144,6 +147,9 @@ namespace Builder
             Console.WriteLine("OK");
 
             Console.Write("Zipping... ");
+
+            var ucvarc_zip = string.Format("ucvarc-{0:yy-MM-dd-hh-mm}.zip", DateTime.Now);
+
             var zipProcess = Process.Start(new ProcessStartInfo
             {
                 FileName = SevenZ,

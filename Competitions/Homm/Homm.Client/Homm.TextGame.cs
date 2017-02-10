@@ -72,7 +72,6 @@ namespace Homm.Client
 
             client.OnSensorDataReceived += Print;
             client.OnInfo += OnInfo;
-            client.OnError += OnError;
 
             var sensorData = client.Configurate(ip, port, Program.CvarcTag, operationalTimeLimit: 1000);
 

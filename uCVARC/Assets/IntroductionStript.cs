@@ -66,7 +66,7 @@ public class IntroductionStript : MonoBehaviour
         MenuButton(button, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(data));
         MenuButton(button, "LOG!", Color.white, () =>
         {
-            Dispatcher.LogModel = UnityConstants.LogFolderRoot + "\\play" + LogNames.Extension;
+            Dispatcher.LogModel = Constants.LogFolderRoot + "\\play" + LogNames.Extension;
 
             Dispatcher.SwitchScene("LogRound");
         });

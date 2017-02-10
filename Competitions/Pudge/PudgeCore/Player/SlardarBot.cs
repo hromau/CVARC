@@ -4,6 +4,7 @@ using System.Linq;
 using AIRLab.Mathematics;
 using CVARC.V2;
 using Pudge.Units.WADUnit;
+using Infrastructure;
 
 namespace Pudge.Player
 {
@@ -71,25 +72,57 @@ namespace Pudge.Player
         }
         public List<PudgeRobot> GetEnemiesInScope()
         {
+            Debugger.Log("Slardar " + slardar.ControllerId + " is searching for enemies");
             var engine = slardar.World.GetEngine<ICommonEngine>();
             var slardarLocation = engine.GetAbsoluteLocation(slardar.ObjectId);
-            return slardar.World.Actors
+            var actors = slardar.World.Actors
                 .Where(a => a is PudgeRobot)
                 .Select(a => Compatibility.Check<PudgeRobot>(this, a))
-                .Where(a => a.ObjectId != slardar.ObjectId && !a.IsDisabled)
-                .Where(a => !a.IsInvisible)
-                .Where(a =>
-                {
-                    var pudgeLocation = a.World.GetEngine<ICommonEngine>().GetAbsoluteLocation(a.ObjectId);
-                    var distance = Geometry.Distance(pudgeLocation.ToPoint3D(), slardarLocation.ToPoint3D());
-                    return distance <
-                           slardar.Rules.ForwardVisibilityRadius &&
-                           GetAngleToTarget(slardarLocation, pudgeLocation) < 45 ||
-                           distance < slardar.Rules.SideVisibilityRadius;
-                }
-                            )
-                .Select(a => Compatibility.Check<PudgeRobot>(this, a))
                 .ToList();
+            var result = new List<PudgeRobot>();
+            foreach(var e in actors)
+            {
+                Debugger.Log("Considering " + e.ObjectId);
+                if (e.ObjectId == slardar.ObjectId)
+                    Debugger.Log("is Slardar");
+                else if (e.IsDisabled)
+                    Debugger.Log("is Disabled");
+                else if (e.IsInvisible)
+                    Debugger.Log("is Invosible");
+                else
+                {
+                    var pudgeLocation = e.World.GetEngine<ICommonEngine>().GetAbsoluteLocation(e.ObjectId);
+                    var distance = Geometry.Distance(pudgeLocation.ToPoint3D(), slardarLocation.ToPoint3D());
+                    var angle = GetAngleToTarget(slardarLocation, pudgeLocation);
+                    Debugger.Log("Target in at distance " + distance + " in angle " + angle);
+                    if (angle < 45)
+                    {
+                        if (distance < slardar.Rules.ForwardVisibilityRadius)
+                        {
+                            Debugger.Log("Is inside forward visibility "+slardar.Rules.ForwardVisibilityRadius);
+                            result.Add(e);
+                        }
+                        else
+                        {
+                            Debugger.Log("Is outside forward visibility " + slardar.Rules.ForwardVisibilityRadius);
+                        }
+                    }
+                    else
+                    {
+                        if (distance < slardar.Rules.SideVisibilityRadius)
+                        {
+                            Debugger.Log("Is inside side  visibility " + slardar.Rules.SideVisibilityRadius);
+                            result.Add(e);
+                        }
+                        else
+                        {
+                            Debugger.Log("Is outside side visibility " +slardar.Rules.SideVisibilityRadius);
+                            
+                        }
+                    }
+                }
+            }
+            return result;
         }
     }
 }

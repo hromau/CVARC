@@ -21,7 +21,7 @@ namespace Assets.Servers
                 return false;
 
             var connection = listener.AcceptTcpClient();
-            Dispatcher.LogModel = connection.ReadJson<LogModel>();
+            Dispatcher.LogModel = connection.ReadJson<string>();
             connection.Close();
             return true;
         }

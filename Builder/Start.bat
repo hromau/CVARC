@@ -1,3 +1,3 @@
-﻿@echo off
+@echo off
 cd Binaries
 SingleplayerProxy.exe

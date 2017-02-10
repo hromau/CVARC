@@ -51,7 +51,6 @@
     <Compile Include="ActorSettings.cs" />
     <Compile Include="Debugger.cs" />
     <Compile Include="DebuggerConfig.cs" />
-    <Compile Include="LogModel.cs" />
     <Compile Include="ServiceUnityCommand.cs" />
     <Compile Include="WorldState.cs" />
     <Compile Include="LoadingData.cs" />

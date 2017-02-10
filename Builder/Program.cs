@@ -130,12 +130,14 @@ namespace Builder
 
             XCopy(@"uCvarc\Dlc", BinariesPath + "\\Dlc");
             XCopy(@"Commons\SingleplayerProxy\bin\Debug", BinariesPath);
-            
+            XCopy(@"Commons\ReplayRunner\bin\Debug", BinariesPath);
+
 
             CopyProjectAndCorrectReferences(@"Competitions\Pudge\PudgeClient");
 
             Console.Write("Copying common files... ");
             File.Copy("Builder\\Start.bat", Release + "\\Start.bat", true);
+            File.Copy("Builder\\RegisterCvarcReplay.bat", Release + "\\RegisterCvarcReplay.bat", true);
             File.Copy("Builder\\settings.json", BinariesPath+"\\settings.json", true);
 
             Console.WriteLine("OK");

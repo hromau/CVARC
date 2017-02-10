@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -13,12 +14,11 @@ namespace MultiplayerProxy
     public static class GameServer
     {
         private static readonly ILog log = LogManager.GetLogger(nameof(GameServer));
+        private static Dictionary<LoadingData, string[]> LevelToControllerIds;
 
         public static async Task StartGame(ClientWithSettings[] clientsWithSettings, LoadingData levelName)
         {
             log.Debug("StartGame call");
-
-            
             var settings = CreateGameSettings(clientsWithSettings, levelName);
 
             try
@@ -51,7 +51,7 @@ namespace MultiplayerProxy
 
         private static GameSettings CreateGameSettings(ClientWithSettings[] settings, LoadingData levelName)
         {
-            var controllerList = MultiplayerProxyConfigurations.LevelToControllerIds[levelName];
+            var controllerList = LevelToControllerIds[levelName];
             var defaultSettings = MultiplayerProxyConfigurations.DefaultGameSettings;
             defaultSettings.LoadingData = levelName;
             defaultSettings.ActorSettings = controllerList.Select((t, i) => new ActorSettings
@@ -74,7 +74,7 @@ namespace MultiplayerProxy
                 log.Error("Cant connect to unity server!");
                 throw;
             }
-            
+
             return tcpClient;
         }
 
@@ -89,6 +89,28 @@ namespace MultiplayerProxy
             var result = await mainConnection.ReadJsonAsync<GameResult>();
             WebServer.SendResult(result);
             Pool.CheckGame();
+        }
+
+        public static Dictionary<LoadingData, string[]> GetControllersIdList()
+        {
+            if (LevelToControllerIds != null)
+                return LevelToControllerIds;
+            try
+            {
+                var service = new TcpClient();
+                service.Connect(MultiplayerProxyConfigurations.ServiceEndPoint);
+                service.WriteJson(ServiceUnityCommand.GetCompetitionsList);
+                LevelToControllerIds = 
+                    service.ReadJson<Dictionary<string, string[]>>()
+                    .ToDictionary(kvp => LoadingData.Parse(kvp.Key), kvp => kvp.Value);
+                return LevelToControllerIds;
+            }
+            catch (Exception e)
+            {
+                log.Error("cant load list of controllers id", e);
+                throw;
+            }
+            
         }
     }
 }

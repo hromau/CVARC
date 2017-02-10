@@ -13,7 +13,7 @@ public static class Dispatcher
     public static Loader Loader { get; private set; }
     public static GameManager GameManager { get; private set; }
     public static IWorld CurrentWorld { get; private set; }
-    public static LogModel LogModel { get; set; }
+    public static string LogModel { get; set; }
 
     static ServiceServer serviceServer;
     

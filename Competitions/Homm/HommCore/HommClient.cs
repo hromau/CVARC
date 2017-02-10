@@ -16,12 +16,12 @@ namespace HoMM
         where TSensorData : class
     {
 
-        public const string AssemblyName = "Homm";
-        public string LevelName { get { return "Level1"; } }
+        public const string AssemblyName = "homm";
+        public string LevelName { get { return "level1"; } }
 
 
         public TSensorData Configurate(string ip, int port, Guid cvarcTag,
-            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false)
+            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false, bool debugMap=false)
         {
             var configs = new GameSettings();
             configs.LoadingData = new LoadingData();
@@ -43,7 +43,7 @@ namespace HoMM
 
             configs.TimeLimit = timeLimit;
             configs.OperationalTimeLimit = operationalTimeLimit;
-            return Configurate(port, configs, new HommWorldState(seed), ip);
+            return Configurate(port, configs, new HommWorldState(seed, debugMap), ip);
         }
 
         public TSensorData Move(Direction direction)

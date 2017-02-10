@@ -8,10 +8,10 @@ namespace HoMM
     {
         public IEnumerable<Competitions> GetLevels()
         {
-            yield return new Competitions("Homm", "Level1", new HommLogicPartHelper(1),
+            yield return new Competitions("homm", "level1", new HommLogicPartHelper(1),
                 () => new UKeyboard(), HommEnginesMaker.CreateEngines);
 
-            yield return new Competitions("Homm", "Level2", new HommLogicPartHelper(2),
+            yield return new Competitions("homm", "level2", new HommLogicPartHelper(2),
                 () => new UKeyboard(), HommEnginesMaker.CreateEngines);
         }
     }

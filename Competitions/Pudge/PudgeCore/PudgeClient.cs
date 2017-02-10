@@ -11,12 +11,12 @@ namespace Pudge
 {
     public class PudgeClient : CvarcClient<PudgeSensorsData, PudgeCommand, PudgeWorldState>
     {
-        public const string AssemblyName = "Pudge";
+        public const string AssemblyName = "pudge";
         public string LevelName { get; set; }
 
         public PudgeClient()
         {
-            LevelName = "Final";
+            LevelName = "final";
         }
             
 

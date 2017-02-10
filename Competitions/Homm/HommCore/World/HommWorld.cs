@@ -34,9 +34,7 @@ namespace HoMM.World
 
             Random = new Random(WorldState.Seed);
 
-            var map = WorldState.Seed == HommRules.DebugSeed 
-                ? new MapGeneratorHelper().CreateDebugMap(Random)
-                : new MapGeneratorHelper().CreateMap(Random);
+            var map = WorldState.Debug? new MapGeneratorHelper().CreateDebugMap(Random) : new MapGeneratorHelper().CreateMap(Random);
 
             Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);

@@ -10,10 +10,12 @@ namespace HoMM.World
     public class HommWorldState : WorldState
     {
         public int Seed { get; }
+        public bool Debug { get; }
 
-        public HommWorldState(int seed)
+        public HommWorldState(int seed, bool debug=false)
         {
             Seed = seed;
+            Debug = debug;
         }
     }
 }

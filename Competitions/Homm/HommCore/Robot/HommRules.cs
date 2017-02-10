@@ -9,8 +9,7 @@ namespace HoMM.Rules
 {
     public class HommRules : IRules
     {
-        public static int DebugSeed = -0xBADC0DE;
-
+      
         public static readonly HommRules Current = new HommRules();
         public const string StandingBotName = "Standing";
 

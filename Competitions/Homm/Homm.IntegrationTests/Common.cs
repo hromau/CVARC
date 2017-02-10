@@ -18,7 +18,7 @@ namespace Homm.IntegrationTests
         public void Init()
         {
             client = new HommClient<HommSensorData>();
-            sensorData = client.Configurate("127.0.0.1", 18700, Guid.Empty, operationalTimeLimit: 5);
+            sensorData = client.Configurate("127.0.0.1", 18700, Guid.Empty, operationalTimeLimit: 5, debugMap:true);
         }
 
         [TearDown]

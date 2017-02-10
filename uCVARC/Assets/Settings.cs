@@ -17,7 +17,7 @@ public class Settings
     public List<string> DlcAssemblies { get; set; }
     public int Version { get; set; }
 
-    const int DueVersion = 2;
+    const int DueVersion = 3;
 
     public DebuggerConfig Debugging { get; set; }
 
@@ -28,10 +28,10 @@ public class Settings
 
     private Settings(bool def)
      {
-        TutorialCompetitions = "Homm";
-        TutorialLevel = "Level1";
+        TutorialCompetitions = "homm";
+        TutorialLevel = "level1";
         DlcBundles = new List<string>() { "pudge", "homm" };
-        DlcAssemblies = new List<string>() { "Pudge.dll", "HoMM.dll" };
+        DlcAssemblies = new List<string>() { "pudge.dll", "homm.dll" };
         Debugging = new DebuggerConfig()
         {
             AlwaysOff = false,

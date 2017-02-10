@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PudgeClient", "Competitions
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homm.IntegrationTests", "Competitions\Homm\Homm.IntegrationTests\Homm.IntegrationTests.csproj", "{06D77B47-A208-4FC9-9353-2377E15948D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplayRunner", "Commons\ReplayRunner\ReplayRunner.csproj", "{C4628474-E596-457B-A17E-FCFD6956F903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{06D77B47-A208-4FC9-9353-2377E15948D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06D77B47-A208-4FC9-9353-2377E15948D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06D77B47-A208-4FC9-9353-2377E15948D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4628474-E596-457B-A17E-FCFD6956F903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4628474-E596-457B-A17E-FCFD6956F903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4628474-E596-457B-A17E-FCFD6956F903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4628474-E596-457B-A17E-FCFD6956F903}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

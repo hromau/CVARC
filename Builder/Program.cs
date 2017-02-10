@@ -125,7 +125,7 @@ namespace Builder
 
             Console.Write("Copying I18* libraries... ");
             foreach (var file in new DirectoryInfo(I18Source).GetFiles("i18*.dll"))
-                File.Copy(file.FullName, BinariesPath + @"\ucvarc_Data\Managed\" + file.Name);
+                File.Copy(file.FullName, BinariesPath + @"\ucvarc_Data\Managed\" + file.Name, true);
             Console.WriteLine("OK");
 
             XCopy(@"uCvarc\Dlc", BinariesPath + "\\Dlc");
@@ -134,6 +134,7 @@ namespace Builder
 
 
             CopyProjectAndCorrectReferences(@"Competitions\Pudge\PudgeClient");
+            CopyProjectAndCorrectReferences(@"Competitions\homm\homm.client");
 
             Console.Write("Copying common files... ");
             File.Copy("Builder\\Start.bat", Release + "\\Start.bat", true);

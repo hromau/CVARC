@@ -44,7 +44,7 @@ namespace CVARC.V2
         public string Type { get; internal set; }
     }
 
-    class GameLogEntry
+    public class GameLogEntry
     {
         public double Time { get; set; }
         public GameLogEntryType Type { get; set; }

@@ -7,7 +7,7 @@
   ],
   "DlcAssemblies": [
     "pudge.dll",
-    "homm"
+    "homm.dll"
   ],
   "Version": 3,
   "Debugging": {

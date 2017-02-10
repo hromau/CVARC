@@ -21,7 +21,7 @@ namespace Assets.Dlc
         {
             foreach (var bundleName in Settings.Current.DlcBundles)
             {
-                if (!Dlc.BundleCache.ContainsKey(bundleName))
+                if (!Dlc.BundleCache.ContainsKey(bundleName.ToLower()))
                 {
                     var bundleUrl = UriConstructor.GetUriForBundle(bundleName);
                     StartCoroutine(LoadBundle(bundleName, bundleUrl));
@@ -33,7 +33,7 @@ namespace Assets.Dlc
         {
             foreach (var assemblyName in Settings.Current.DlcAssemblies)
             {
-                if (!Dlc.AssemblyCache.Contains(assemblyName))
+                if (!Dlc.AssemblyCache.Contains(assemblyName.ToLower()))
                 {
                     var assemblyUrl = UriConstructor.GetPathForDlcAssembly(assemblyName);
                     LoadAssembly(assemblyUrl);
@@ -58,6 +58,9 @@ namespace Assets.Dlc
 
         private IEnumerator LoadBundle(string bundleName, string bundleUrl)
         {
+            bundleName = bundleName.ToLower();
+            bundleUrl = bundleUrl.ToLower();
+
             if (bundleUrl == null)
                 throw new ArgumentException("Expected bundleUrl to be string, got null");
 

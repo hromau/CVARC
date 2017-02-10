@@ -18,6 +18,8 @@ namespace CVARC.V2
 
 		public void AddLevel(string competitions, string level, Func<Competitions> factory)
 		{
+            competitions = competitions.ToLower();
+            level = level.ToLower();
 			if (!Levels.ContainsKey(competitions))
 				Levels[competitions] = new Dictionary<string, Func<Competitions>>();
 			Levels[competitions][level] = factory;
@@ -25,6 +27,8 @@ namespace CVARC.V2
 
 		public Competitions GetCompetitions(string assemblyName, string level)
 		{
+            assemblyName = assemblyName.ToLower();
+            level = level.ToLower();
 			return Levels[assemblyName][level]();
 		}
 

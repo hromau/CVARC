@@ -17,6 +17,7 @@ namespace Pudge
         {
             //TODO: Здесь какая-то херня. Как вообще вызывать правила 1 и 2 недели?
             yield return new Competitions("Pudge", "Final", new ReleaseLogicPartHelper(2), () => new UKeyboard(), PudgeEngineMaker.CreateEngines);
+            yield return new Competitions("Pudge", "Debug", new DebugLogicPartHelper(), () => new UKeyboard(), PudgeEngineMaker.CreateEngines);
         }
     }
 }

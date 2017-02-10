@@ -12,7 +12,14 @@ namespace Pudge
     public class PudgeClient : CvarcClient<PudgeSensorsData, PudgeCommand, PudgeWorldState>
     {
         public const string AssemblyName = "Pudge";
-        public string LevelName { get { return "Final"; } }
+        public string LevelName { get; set; }
+
+        public PudgeClient()
+        {
+            LevelName = "Final";
+        }
+            
+
 
         public PudgeSensorsData Configurate(string ip, int port, Guid cvarcTag, 
             int timeLimit = 90, int operationalTimeLimit = 1000, bool isOnLeftSide = true, int seed = 0, bool speedUp = false)

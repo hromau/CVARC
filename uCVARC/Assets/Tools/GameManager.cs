@@ -3,7 +3,7 @@ using Assets.Servers;
 using Assets.Tools;
 using CVARC.V2;
 using Infrastructure;
-
+using System.Linq;
 
 namespace Assets
 {
@@ -63,8 +63,21 @@ namespace Assets
         {
             var loadingData = tutorialLoadingData;
             tutorialLoadingData = null;
+            var settings = DefaultWorldInfoCreator.GetDefaultGameSettings(loadingData);
+
+            //заполняем ActorSettings, чтобы потом работал ReplayDebugger
+            settings.ActorSettings = Dispatcher.Loader.GetCompetitions(loadingData).Logic.Actors.Keys.Select(z => new ActorSettings
+            {
+                IsBot = false,
+                ControllerId = z,
+                PlayerSettings=new PlayerSettings
+                {
+                     CvarcTag=Guid.Empty
+                }
+            }).ToList();
+
             return Dispatcher.Loader.CreateWorld(
-                DefaultWorldInfoCreator.GetDefaultGameSettings(loadingData),
+                settings,
                 new TutorialControllerFactory(),
                 DefaultWorldInfoCreator.GetDefaultWorldState(loadingData));
         }

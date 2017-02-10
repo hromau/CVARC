@@ -49,11 +49,11 @@ namespace ReplayDebugger
             client.Connect(SingleplayerProxyConfigurations.UnityEndPoint);
             client.WriteJson(GameSettings);
             client.WriteJson(worldState);
-            foreach(var e in new[] { "Left", "Right" })
+            foreach(var e in GameSettings.ActorSettings.Select(z=>z.ControllerId))
             {
                 var commandClient = new TcpClient();
                 commandClient.Connect(SingleplayerProxyConfigurations.UnityEndPoint);
-                new Thread(() => RunClient(client, commands[e])).Start();
+                new Thread(() => RunClient(commandClient, commands[e])).Start();
             }
             client.ReadJson<GameResult>();
         }

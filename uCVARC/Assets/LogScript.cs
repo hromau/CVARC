@@ -18,7 +18,11 @@ public partial class LogScript : PlayScript
     protected override void Initialization()
     {
         reader = new LogPlayer(Dispatcher.LogModel);
-        var engines = Dispatcher.Loader.GetCompetitions(reader.GameSettings.LoadingData).EnginesFactory(); // если я правильно понимаю, можно и так
+
+        var engines = Dispatcher.Loader
+            .GetCompetitions(reader.GameSettings.LoadingData)
+            .EnginesFactory(reader.GameSettings); // если я правильно понимаю, можно и так
+
         reader.StartEngines(engines);
         commonEngine = engines.OfType<CommonEngine>().SingleOrDefault();
         if (commonEngine == null)

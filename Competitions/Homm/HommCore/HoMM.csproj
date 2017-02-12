@@ -64,7 +64,6 @@
     <Compile Include="Engine\HommEngineHighLevelApi.cs" />
     <Compile Include="Engine\InternalHommEngine.cs" />
     <Compile Include="Engine\TerrainType.cs" />
-    <Compile Include="EntryPoint\HommEnginesMaker.cs" />
     <Compile Include="Generators\Spawners\SimpleSpawner.cs" />
     <Compile Include="HommClient.cs" />
     <Compile Include="Model\Tile\TileObjects\IBuilding.cs" />

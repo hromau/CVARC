@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace CVARC.V2
     {
         public readonly LogicPart Logic;
         public readonly Func<IKeyboard> KeyboardFactory;
-        public readonly Func<List<IEngine>> EnginesFactory;
+        public readonly Func<GameSettings, List<IEngine>> EnginesFactory;
         public readonly string LevelName;
         public readonly string CompetitionsName;
 
-        public Competitions(string competitionName, string levelName, LogicPartHelper logicPartHelper, Func<IKeyboard> keyboardFactory, Func<List<IEngine>> enginesFactory)
+        public Competitions(string competitionName, string levelName, LogicPartHelper logicPartHelper, Func<IKeyboard> keyboardFactory, Func<GameSettings, List<IEngine>> enginesFactory)
         {
             CompetitionsName = competitionName;
             LevelName = levelName;

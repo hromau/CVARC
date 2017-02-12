@@ -85,7 +85,7 @@ namespace CVARC.V2
 
             Debugger.Log("About to init engines");
             //Initializing world
-            this.Engines = competitions.EnginesFactory();
+            this.Engines = competitions.EnginesFactory(configuration);
             
             Debugger.Log("Init engines OK");
 

@@ -1,4 +1,5 @@
-﻿using HoMM.Rules;
+﻿using HoMM.Engine;
+using HoMM.Rules;
 using System;
 
 namespace HoMM.Robot.HexagonalMovement
@@ -27,8 +28,7 @@ namespace HoMM.Robot.HexagonalMovement
 
             if (Wait == true)
             {
-                //robot.World.HommEngine.Freeze(robot.ControllerId);
-                //robot.World.HommEngine.SetPosition(robot.ControllerId, robot.Player.Location.X, robot.Player.Location.Y);
+                robot.World.HommEngine.SetAnimation(robot.ControllerId, Animation.Idle);
                 return HommRules.Current.WaitDuration;
             }
 

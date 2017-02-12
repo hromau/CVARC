@@ -58,8 +58,8 @@ namespace HoMM.Rules
         public double MovementFailsDuration => WaitDuration;
         public double PurchaseDuration => MovementDuration;
         public double GarrisonBuildDuration => MovementDuration;
-        public double CombatDuration => MovementDuration;
+        public double CombatDuration => 2;
         public double DailyTickInterval => 5;
-        public double RespawnInterval => 1;
+        public double RespawnInterval => 2;
     }
 }

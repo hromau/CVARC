@@ -10,7 +10,8 @@ namespace HoMM.MapViewer
     public partial class MapViewForm : Form
     {
         int diameter = 16;
-        int mapSize = 18;
+        int mapSize = 0;
+        int defaultComboboxEntry = 3;
         
         public MapViewForm()
         {
@@ -35,12 +36,20 @@ namespace HoMM.MapViewer
             for (var size = 4; size < 20; ++size)
                 mapSizeBox.Items.Add(2 * size);
             
-            mapSizeBox.SelectedIndex = 5;
+            mapSizeBox.SelectedIndex = defaultComboboxEntry;
 
             generateButton.Click += (s, e) =>
             {
                 mapSize = (int)mapSizeBox.SelectedItem;
-                map = generator.GenerateMap(mapSize);
+
+                map = null;
+
+                while (map == null)
+                {
+                    try { map = generator.GenerateMap(mapSize); }
+                    catch { }
+                }
+
                 this.Invalidate();
             };
 
@@ -84,7 +93,6 @@ namespace HoMM.MapViewer
 
         Dictionary<TileTerrain, Color> terrainColor = new Dictionary<TileTerrain, Color>
         {
-            { TileTerrain.Arid, Color.Khaki },
             { TileTerrain.Desert, Color.LightGoldenrodYellow },
             { TileTerrain.Grass, Color.LightGreen },
             { TileTerrain.Marsh, Color.Pink },
@@ -95,10 +103,10 @@ namespace HoMM.MapViewer
         Dictionary<Resource, Color> resourceColor = new Dictionary<Resource, Color>
         {
             
-            { Resource.Horses, Color.DarkGray },
-            { Resource.Ore, Color.Cyan },
+            { Resource.Ebony, Color.DarkGray },
+            { Resource.Iron, Color.Cyan },
             { Resource.Gold, Color.Yellow },
-            { Resource.Wood, Color.Brown }
+            { Resource.Glass, Color.Brown }
         };
 
         Dictionary<UnitType, Color> dwellingColor = new Dictionary<UnitType, Color>
@@ -109,7 +117,7 @@ namespace HoMM.MapViewer
             { UnitType.Ranged, Color.Brown }
         };
 
-        private Color GetColor(List<TileObject> objects, TileTerrain terrain,
+        private Color GetColor(IEnumerable<TileObject> objects, TileTerrain terrain,
             bool drawWalls = false,
             bool drawTerrain = false,
             bool drawPiles = false,

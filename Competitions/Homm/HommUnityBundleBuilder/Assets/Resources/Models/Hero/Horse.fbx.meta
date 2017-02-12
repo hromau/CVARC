@@ -1,0 +1,3031 @@
+fileFormatVersion: 2
+guid: b5d5d3c3bff9c904caf7c4a4be97f142
+timeCreated: 1478026661
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: fl_quarter
+    100002: fl_quarter_end
+    100004: fr_quarter
+    100006: fr_quarter_end
+    100008: //RootNode
+    100010: Horse
+    100012: Horse01
+    100014: Horse01_Head
+    100016: Horse01_HeadNub
+    100018: Horse01_HeadNub_end
+    100020: Horse01_L_Calf
+    100022: Horse01_L_Clavicle
+    100024: Horse01_L_Finger0
+    100026: Horse01_L_Finger0Nub
+    100028: Horse01_L_Finger0Nub_end
+    100030: Horse01_L_Foot
+    100032: Horse01_L_Forearm
+    100034: Horse01_L_Hand
+    100036: Horse01_L_Thigh
+    100038: Horse01_L_Toe0
+    100040: Horse01_L_Toe0Nub
+    100042: Horse01_L_Toe0Nub_end
+    100044: Horse01_L_UpperArm
+    100046: Horse01_Neck
+    100048: Horse01_Neck1
+    100050: Horse01_Pelvis
+    100052: Horse01_R_Calf
+    100054: Horse01_R_Clavicle
+    100056: Horse01_R_Finger0
+    100058: Horse01_R_Finger0Nub
+    100060: Horse01_R_Finger0Nub_end
+    100062: Horse01_R_Foot
+    100064: Horse01_R_Forearm
+    100066: Horse01_R_Hand
+    100068: Horse01_R_Thigh
+    100070: Horse01_R_Toe0
+    100072: Horse01_R_Toe0Nub
+    100074: Horse01_R_Toe0Nub_end
+    100076: Horse01_R_UpperArm
+    100078: Horse01_Spine
+    100080: Horse01_Spine1
+    100082: Horse01_Tail
+    100084: Horse01_Tail1
+    100086: Horse01_TailNub
+    100088: Horse01_TailNub_end
+    100090: Mesh
+    100092: prop_chest
+    100094: prop_chest_end
+    100096: prop_Footsteps
+    100098: prop_Footsteps_end
+    100100: prop_head
+    100102: prop_head_end
+    100104: prop_rider
+    100106: prop_rider_end
+    100108: prop_saddle
+    100110: prop_saddle_end
+    100112: rl_quarter
+    100114: rl_quarter_end
+    100116: rr_quarter
+    100118: rr_quarter_end
+    400000: fl_quarter
+    400002: fl_quarter_end
+    400004: fr_quarter
+    400006: fr_quarter_end
+    400008: Horse
+    400010: //RootNode
+    400012: Horse01
+    400014: Horse01_Head
+    400016: Horse01_HeadNub
+    400018: Horse01_HeadNub_end
+    400020: Horse01_L_Calf
+    400022: Horse01_L_Clavicle
+    400024: Horse01_L_Finger0
+    400026: Horse01_L_Finger0Nub
+    400028: Horse01_L_Finger0Nub_end
+    400030: Horse01_L_Foot
+    400032: Horse01_L_Forearm
+    400034: Horse01_L_Hand
+    400036: Horse01_L_Thigh
+    400038: Horse01_L_Toe0
+    400040: Horse01_L_Toe0Nub
+    400042: Horse01_L_Toe0Nub_end
+    400044: Horse01_L_UpperArm
+    400046: Horse01_Neck
+    400048: Horse01_Neck1
+    400050: Horse01_Pelvis
+    400052: Horse01_R_Calf
+    400054: Horse01_R_Clavicle
+    400056: Horse01_R_Finger0
+    400058: Horse01_R_Finger0Nub
+    400060: Horse01_R_Finger0Nub_end
+    400062: Horse01_R_Foot
+    400064: Horse01_R_Forearm
+    400066: Horse01_R_Hand
+    400068: Horse01_R_Thigh
+    400070: Horse01_R_Toe0
+    400072: Horse01_R_Toe0Nub
+    400074: Horse01_R_Toe0Nub_end
+    400076: Horse01_R_UpperArm
+    400078: Horse01_Spine
+    400080: Horse01_Spine1
+    400082: Horse01_Tail
+    400084: Horse01_Tail1
+    400086: Horse01_TailNub
+    400088: Horse01_TailNub_end
+    400090: Mesh
+    400092: prop_chest
+    400094: prop_chest_end
+    400096: prop_Footsteps
+    400098: prop_Footsteps_end
+    400100: prop_head
+    400102: prop_head_end
+    400104: prop_rider
+    400106: prop_rider_end
+    400108: prop_saddle
+    400110: prop_saddle_end
+    400112: rl_quarter
+    400114: rl_quarter_end
+    400116: rr_quarter
+    400118: rr_quarter_end
+    4300000: Horse
+    4300002: Mesh
+    7400000: Idle
+    7400002: Idle.001
+    7400004: Idle.002
+    7400006: Horse_Walk
+    7400008: Horse_Walk.001
+    7400010: Horse_Walk.002
+    7400012: Horse_Run
+    7400014: Horse_Run.001
+    7400016: Horse_Run.002
+    7400018: Horse_Walk.003
+    7400020: Horse_Walk.004
+    7400022: Idle.003
+    7400024: Idle.004
+    7400026: Horse_Die
+    7400028: Horse01|Horse_Die
+    7400030: Horse01|Horse_Run
+    7400032: Horse01|Horse_Walk
+    7400034: Horse01|Idle
+    7400036: Horse01|Horse_Attack
+    9500000: //RootNode
+    13700000: Horse
+    13700002: Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 1
+    animationPositionError: 1
+    animationScaleError: 1
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle.001
+      takeName: Idle.001
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle.002
+      takeName: Idle.002
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Walk
+      takeName: Horse_Walk
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Walk.001
+      takeName: Horse_Walk.001
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Walk.002
+      takeName: Horse_Walk.002
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Run
+      takeName: Horse_Run
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Run.001
+      takeName: Horse_Run.001
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Run.002
+      takeName: Horse_Run.002
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Walk.003
+      takeName: Horse_Walk.003
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Walk.004
+      takeName: Horse_Walk.004
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle.003
+      takeName: Idle.003
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle.004
+      takeName: Idle.004
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse_Die
+      takeName: Horse_Die
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse01|Horse_Die
+      takeName: Horse01|Horse_Die
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse01|Horse_Run
+      takeName: Horse01|Horse_Run
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse01|Horse_Walk
+      takeName: Horse01|Horse_Walk
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse01|Idle
+      takeName: Horse01|Idle
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Horse01|Horse_Attack
+      takeName: Horse01|Horse_Attack
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Horse
+        weight: 1
+      - path: Horse01
+        weight: 1
+      - path: Horse01/Horse01_Pelvis
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_L_Thigh/Horse01_L_Calf/Horse01_L_Foot/Horse01_L_Toe0/Horse01_L_Toe0Nub/Horse01_L_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_R_Thigh/Horse01_R_Calf/Horse01_R_Foot/Horse01_R_Toe0/Horse01_R_Toe0Nub/Horse01_R_Toe0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/fl_quarter/fl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_L_Clavicle/Horse01_L_UpperArm/Horse01_L_Forearm/Horse01_L_Hand/Horse01_L_Finger0/Horse01_L_Finger0Nub/Horse01_L_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/Horse01_HeadNub/Horse01_HeadNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_Neck1/Horse01_Head/prop_head/prop_head_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/fr_quarter/fr_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/Horse01_Neck/Horse01_R_Clavicle/Horse01_R_UpperArm/Horse01_R_Forearm/Horse01_R_Hand/Horse01_R_Finger0/Horse01_R_Finger0Nub/Horse01_R_Finger0Nub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Spine1/prop_chest/prop_chest_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/Horse01_Tail/Horse01_Tail1/Horse01_TailNub/Horse01_TailNub_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_rider/prop_rider_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/Horse01_Spine/prop_saddle/prop_saddle_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rl_quarter/rl_quarter_end
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter
+        weight: 1
+      - path: Horse01/Horse01_Pelvis/rr_quarter/rr_quarter_end
+        weight: 1
+      - path: Horse01/prop_Footsteps
+        weight: 1
+      - path: Horse01/prop_Footsteps/prop_Footsteps_end
+        weight: 1
+      - path: Mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

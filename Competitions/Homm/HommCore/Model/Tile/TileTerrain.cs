@@ -8,14 +8,13 @@ namespace HoMM
     {
         public static readonly TileTerrain Road = new TileTerrain(0.75);
         public static readonly TileTerrain Grass = new TileTerrain(1);
-        public static readonly TileTerrain Arid = new TileTerrain(1.25);
-        public static readonly TileTerrain Snow = new TileTerrain(1.5);
-        public static readonly TileTerrain Desert = new TileTerrain(1.5);
-        public static readonly TileTerrain Marsh = new TileTerrain(1.75);
+        public static readonly TileTerrain Snow = new TileTerrain(1.3);
+        public static readonly TileTerrain Desert = new TileTerrain(1.15);
+        public static readonly TileTerrain Marsh = new TileTerrain(1.3);
 
         public static readonly IEnumerable<TileTerrain> Nature = new TileTerrain[]
         {
-            Grass, Arid, Snow, Desert, Marsh
+            Grass, Snow, Desert, Marsh
         };
 
         public double TravelCost { get; private set; }
@@ -27,7 +26,6 @@ namespace HoMM
 
         static Dictionary<char, TileTerrain> terrainParser = new Dictionary<char, TileTerrain>
         {
-            { 'A', Arid },
             { 'D', Desert },
             { 'G', Grass },
             { 'M', Marsh },

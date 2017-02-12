@@ -12,5 +12,6 @@ namespace Infrastructure
         public bool EnableLog { get; set; }
         public string LogFile { get; set; }
         public bool SpeedUp { get; set; }
+        public bool SpectacularView { get; set; }
     }
 }

@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: 452fb6e0e1a1c1b4c9086e0ff59f0e23
+timeCreated: 1477843870
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Axe
+    100004: //RootNode
+    100006: Base
+    100008: Cylinder02_None
+    100010: Fu_L
+    100012: Fu_R
+    100014: Hand_L
+    100016: Hand_R
+    100018: Huefte_L
+    100020: Huefte_R
+    100022: Kopf
+    100024: OberArm_L
+    100026: OberArm_R
+    100028: OberSchenkel_L
+    100030: OberSchenkel_R
+    100032: Ruecken
+    100034: Schulter_L
+    100036: Schulter_R
+    100038: Shield
+    100040: UnterArm_L
+    100042: UnterArm_R
+    100044: UnterSchenkel_L
+    100046: UnterSchenkel_R
+    400000: Armature
+    400002: Axe
+    400004: //RootNode
+    400006: Base
+    400008: Cylinder02_None
+    400010: Fu_L
+    400012: Fu_R
+    400014: Hand_L
+    400016: Hand_R
+    400018: Huefte_L
+    400020: Huefte_R
+    400022: Kopf
+    400024: OberArm_L
+    400026: OberArm_R
+    400028: OberSchenkel_L
+    400030: OberSchenkel_R
+    400032: Ruecken
+    400034: Schulter_L
+    400036: Schulter_R
+    400038: Shield
+    400040: UnterArm_L
+    400042: UnterArm_R
+    400044: UnterSchenkel_L
+    400046: UnterSchenkel_R
+    4300000: Cylinder02_None
+    7400000: Default Take
+    7400002: attack
+    7400004: die
+    7400006: hitattack
+    7400008: standing
+    7400010: walk
+    9500000: //RootNode
+    13700000: Cylinder02_None
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: attack
+      takeName: attack
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: die
+      takeName: die
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: hitattack
+      takeName: hitattack
+      firstFrame: 0
+      lastFrame: 14
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: standing
+      takeName: standing
+      firstFrame: 0
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk
+      takeName: walk
+      firstFrame: 19
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fu_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fu_R
+        weight: 1
+      - path: Armature/Base/Ruecken
+        weight: 1
+      - path: Armature/Base/Ruecken/Kopf
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_L/OberArm_L/UnterArm_L/Hand_L/Axe
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Ruecken/Schulter_R/OberArm_R/UnterArm_R/Hand_R/Shield
+        weight: 1
+      - path: Cylinder02_None
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

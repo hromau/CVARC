@@ -45,6 +45,7 @@ namespace HoMM.Robot
             Debugger.Log("Die!");
 
             World.CommonEngine.DeleteObject(ControllerId);
+
             var respawnTime = World.Clocks.CurrentTime + HommRules.Current.RespawnInterval;
 
             ControlTrigger.ScheduledTime = respawnTime + 0.001;

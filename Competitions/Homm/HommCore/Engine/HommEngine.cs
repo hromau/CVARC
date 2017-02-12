@@ -9,7 +9,12 @@ namespace HoMM.Engine
     {
         public LogWriter LogWriter { get; set; }
 
-        private InternalHommEngine engine = new InternalHommEngine();
+        private BaseHommEngine engine;
+
+        public HommEngine(bool fancyGraphics)
+        {
+            engine = fancyGraphics ? new FancyHommEngine() : new SimpleHommEngine() as BaseHommEngine;
+        }
 
         [ToLog]
         public void CreateObject(string id, MapObject mapObject, int x = 0, int y = 0)
@@ -40,17 +45,10 @@ namespace HoMM.Engine
         }
 
         [ToLog]
-        public void SetCameraPosition(float x, float y, float z)
+        public void SetUpScene(int width, int height)
         {
-            this.Log($"{nameof(SetCameraPosition)}", x, y, z);
-            engine.SetCameraPosition(new Vector3(x, y, z));
-        }
-
-        [ToLog]
-        public void SetCameraRotation(float x, float y, float z)
-        {
-            this.Log($"{nameof(SetCameraRotation)}", x, y, z);
-            engine.SetCameraRotation(Quaternion.Euler(x, y, z));
+            this.Log($"{nameof(SetUpScene)}", width, height);
+            engine.SetUpScene(width, height);
         }
 
         [ToLog]
@@ -64,7 +62,21 @@ namespace HoMM.Engine
         public void SetColor(string id, float r, float g, float b)
         {
             this.Log($"{nameof(SetColor)}", id, r, g, b);
-            InternalHommEngine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
+            engine.SetColor(ObjectsCache.FindGameObject(id), new Color(r, g, b));
+        }
+
+        [ToLog]
+        public void SetRotation(string id, float angleRad)
+        {
+            this.Log($"{nameof(SetRotation)}", angleRad);
+            engine.SetRotation(ObjectsCache.FindGameObject(id), angleRad);
+        }
+
+        [ToLog]
+        public void SetAnimation(string id, Animation animation)
+        {
+            this.Log($"{nameof(SetAnimation)}", animation);
+            engine.SetAnimation(ObjectsCache.FindGameObject(id), animation);
         }
     }
 }

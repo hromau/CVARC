@@ -37,10 +37,10 @@ namespace Assets
             var light = new GameObject("Main Light");
             light.AddComponent<Light>();
             light.GetComponent<Light>().type = LightType.Directional;
-            light.GetComponent<Light>().shadows = LightShadows.Hard;
-            light.GetComponent<Light>().shadowStrength = 0.7f;
+            light.GetComponent<Light>().shadows = LightShadows.Soft;
+            light.GetComponent<Light>().shadowStrength = 1;
             light.transform.position = new Vector3(0, 2 * Metrics.Meter, 0);
-            light.transform.rotation = Quaternion.Euler(45, 160, 0);
+            light.transform.rotation = Quaternion.Euler(45, 230, 0);
         }
 
         void CreateScoresFields()

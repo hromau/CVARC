@@ -2,14 +2,33 @@
 {
     public enum MapObject
     {
-        Dwelling,
-        Garrison,
-        Mine,
-        NeutralArmy,
-        ResourcesPile,
-        Hexagon,
-        Flag,
         Hero,
-        Wall
+        Infantry,
+        Cavalry,
+        Militia,
+        Ranged,
+
+        Flag,
+        HexMarker,
+        CircleMarker,
+        SwordMarker,
+        PickaxeMarker,
+
+        Mine,
+        ResourcesPile,
+        Dwelling,
+        Castle,
+
+        GrassTile,
+        SnowTile,
+        RoadTile,
+        MarshTile,
+        DesertTile,
+
+        Wall,
+        Mountains,
+        SummerForest,
+        WinterForest,
+        DeathForest
     }
 }

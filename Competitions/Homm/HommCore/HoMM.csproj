@@ -60,10 +60,13 @@
     <Compile Include="ClientClasses\LocationInfo.cs" />
     <Compile Include="ClientClasses\MapData.cs" />
     <Compile Include="ClientClasses\MapInfo.cs" />
+    <Compile Include="Engine\Animation.cs" />
+    <Compile Include="Engine\FancyHommEngine.cs" />
+    <Compile Include="Engine\HommPrefabs.cs" />
+    <Compile Include="Engine\SimpleHommEngine.cs" />
     <Compile Include="EntryPoint\DlcEntryPoint.cs" />
-    <Compile Include="Engine\HommEngineHighLevelApi.cs" />
-    <Compile Include="Engine\InternalHommEngine.cs" />
-    <Compile Include="Engine\TerrainType.cs" />
+    <Compile Include="Engine\HommObjectsCreationHelper.cs" />
+    <Compile Include="Engine\BaseHommEngine.cs" />
     <Compile Include="Generators\Spawners\SimpleSpawner.cs" />
     <Compile Include="HommClient.cs" />
     <Compile Include="Model\Tile\TileObjects\IBuilding.cs" />

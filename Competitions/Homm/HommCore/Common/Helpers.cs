@@ -21,6 +21,11 @@ namespace HoMM
             return source[random.Next(0, source.Count)];
         }
 
+        public static T ChoiceWithProbability<T>(this Random random, double probability, T first, T second)
+        {
+            return random.NextDouble() < probability ? first : second;
+        }
+
         public static TEnum Choice<TEnum>(this Random random)
         {
             var values = Enum.GetValues(typeof(TEnum));

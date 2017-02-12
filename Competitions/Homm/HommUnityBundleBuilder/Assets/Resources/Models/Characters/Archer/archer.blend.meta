@@ -1,0 +1,1021 @@
+fileFormatVersion: 2
+guid: 2f9d7eb4c93e6b348a8850eed4de48b0
+timeCreated: 1477827843
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armature
+    100004: Base
+    100006: Bauch
+    100008: Fuss_L
+    100010: Fuss_R
+    100012: Hand_L
+    100014: Hand_R
+    100016: Hintern
+    100018: Huefte_L
+    100020: Huefte_R
+    100022: Kopf
+    100024: Nacken
+    100026: norse_archer
+    100028: OberArm_L
+    100030: OberArm_R
+    100032: OberKoerper
+    100034: OberSchenkel_L
+    100036: OberSchenkel_R
+    100038: Schulter_L
+    100040: Schulter_R
+    100042: UnterArm_L
+    100044: UnterArm_R
+    100046: UnterSchenkel_L
+    100048: UnterSchenkel_R
+    100050: WeaponStretch_L
+    400000: //RootNode
+    400002: Armature
+    400004: Base
+    400006: Bauch
+    400008: Fuss_L
+    400010: Fuss_R
+    400012: Hand_L
+    400014: Hand_R
+    400016: Hintern
+    400018: Huefte_L
+    400020: Huefte_R
+    400022: Kopf
+    400024: Nacken
+    400026: norse_archer
+    400028: OberArm_L
+    400030: OberArm_R
+    400032: OberKoerper
+    400034: OberSchenkel_L
+    400036: OberSchenkel_R
+    400038: Schulter_L
+    400040: Schulter_R
+    400042: UnterArm_L
+    400044: UnterArm_R
+    400046: UnterSchenkel_L
+    400048: UnterSchenkel_R
+    400050: WeaponStretch_L
+    4300000: norse_archer
+    7400000: Default Take
+    7400002: Ambient
+    7400004: Attack
+    7400006: Die
+    7400008: PaintStunt
+    7400010: Standart
+    7400012: Walk
+    7400014: Walk2
+    7400016: Walk3
+    7400018: Walk_Final_Duck
+    7400020: Walk_PreFinal
+    9500000: //RootNode
+    13700000: norse_archer
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 199
+      lastFrame: 208
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Ambient
+      takeName: Ambient
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Attack
+      firstFrame: 200
+      lastFrame: 208
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: Die
+      firstFrame: 200
+      lastFrame: 208
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PaintStunt
+      takeName: PaintStunt
+      firstFrame: 0
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Standart
+      takeName: Standart
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 200
+      lastFrame: 208
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk2
+      takeName: Walk2
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk3
+      takeName: Walk3
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk_Final_Duck
+      takeName: Walk_Final_Duck
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk_PreFinal
+      takeName: Walk_PreFinal
+      firstFrame: 200
+      lastFrame: 209
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Base
+        weight: 1
+      - path: Armature/Base/Hintern
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Nacken/Kopf
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_L/OberArm_L/UnterArm_L/Hand_L/WeaponStretch_L
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R
+        weight: 1
+      - path: Armature/Base/Hintern/Bauch/OberKoerper/Schulter_R/OberArm_R/UnterArm_R/Hand_R
+        weight: 1
+      - path: Armature/Base/Huefte_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L
+        weight: 1
+      - path: Armature/Base/Huefte_L/OberSchenkel_L/UnterSchenkel_L/Fuss_L
+        weight: 1
+      - path: Armature/Base/Huefte_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R
+        weight: 1
+      - path: Armature/Base/Huefte_R/OberSchenkel_R/UnterSchenkel_R/Fuss_R
+        weight: 1
+      - path: norse_archer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

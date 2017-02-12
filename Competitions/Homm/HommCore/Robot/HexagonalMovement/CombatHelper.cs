@@ -32,7 +32,11 @@ namespace HoMM.Robot.HexagonalMovement
             hommEngine.Freeze(player.Name);
             hommEngine.Freeze(other.UnityId);
 
-            // TODO: show combat animation
+            hommEngine.SetRotation(player.Name, robotTile.Location.GetDirectionTo(otherTile.Location).ToUnityAngle());
+            hommEngine.SetRotation(other.UnityId, otherTile.Location.GetDirectionTo(robotTile.Location).ToUnityAngle());
+
+            hommEngine.SetAnimation(player.Name, Animation.Attack);
+            hommEngine.SetAnimation(other.UnityId, Animation.Attack);
 
             var combatTriggerTime = world.Clocks.CurrentTime + HommRules.Current.CombatDuration;
 
@@ -44,7 +48,6 @@ namespace HoMM.Robot.HexagonalMovement
                 {
                     if (other is TileObject)
                     {
-                        commonEngine.DeleteObject(other.UnityId);
                         ((TileObject)other).OnRemove();
                     }
 
@@ -59,6 +62,10 @@ namespace HoMM.Robot.HexagonalMovement
                             .Single()
                             .Die();
                     }
+                }
+                else
+                {
+                    hommEngine.SetAnimation(other.UnityId, Animation.Idle);
                 }
 
                 if (player.HasNoArmy())

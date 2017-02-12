@@ -25,6 +25,7 @@ namespace HoMM.Robot.ArmyInterface
             if (armyForGarrison == null) return UnitResponse.Denied();
 
             actor.World.HommEngine.Freeze(actor.ControllerId);
+            actor.World.HommEngine.SetAnimation(actor.ControllerId, Animation.Idle);
 
             if (!CheckCommandCorrect(armyForGarrison))
                 return UnitResponse.Accepted(HommRules.Current.GarrisonBuildDuration);
@@ -75,7 +76,7 @@ namespace HoMM.Robot.ArmyInterface
             garrison.UnityId = "Garrison " + lastId++;
 
             actor.World.Round.Map[location].AddObject(garrison);
-            actor.World.HommEngine.CreateObject(garrison.UnityId, MapObject.Garrison, location.X, location.Y);
+            actor.World.HommObjectsCreationHelper.CreateArmy(garrison, garrison.location);
             actor.World.HommEngine.SetFlag(garrison.UnityId, owner.Name);
 
             return garrison;

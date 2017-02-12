@@ -3,25 +3,29 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.AccessControl;
 using Infrastructure;
 using UnityEngine;
 
+using Random = System.Random;
+
 namespace HoMM.Engine
 {
-    public class RoundToUnityConnecter
+    class RoundToUnityConnecter
     {
         private IHommEngine hommEngine;
         private ICommonEngine commonEngine;
-        private HommEngineHighLevelApi api;
+        private HommObjectsCreationHelper objectsCreationHelper;
 
         private List<Color> availablePlayerColors = new List<Color> { Color.red, Color.blue };
         private Dictionary<string, Color> playerColorMapping = new Dictionary<string, Color>();
 
-        public RoundToUnityConnecter(IHommEngine hommEngine, ICommonEngine commonEngine)
+        public RoundToUnityConnecter(IHommEngine hommEngine, ICommonEngine commonEngine, 
+            HommObjectsCreationHelper objectsCreationHelper)
         {
             this.hommEngine = hommEngine;
             this.commonEngine = commonEngine;
-            api = new HommEngineHighLevelApi(hommEngine);
+            this.objectsCreationHelper = objectsCreationHelper;
         }
 
         private static Dictionary<MapObject, int> counter = new Dictionary<MapObject, int>
@@ -29,7 +33,7 @@ namespace HoMM.Engine
             { MapObject.Mine, 0 },
             { MapObject.Dwelling, 0 },
             { MapObject.ResourcesPile, 0 },
-            { MapObject.NeutralArmy, 0 },
+            { MapObject.Infantry, 0 },
             { MapObject.Wall, 0 }
         };
 
@@ -37,7 +41,7 @@ namespace HoMM.Engine
         {
             var map = round.Map;
 
-            api.SetCameraToCenter(map.Width, map.Height);
+            hommEngine.SetUpScene(map.Width, map.Height);
 
             for (var i = 0; i < round.Players.Length; ++i)
             {
@@ -46,7 +50,7 @@ namespace HoMM.Engine
                 playerColorMapping[player.Name] = color;
 
                 Debugger.Log("Creating player...");
-                api.CreatePlayer(player.Name, color, player.Location);
+                objectsCreationHelper.CreatePlayer(player, color);
             }
 
             var buildings = new HashSet<Location>(map
@@ -57,26 +61,17 @@ namespace HoMM.Engine
 
             foreach (var location in Location.Square(map.Size))
             {
-                api.CreateHexagon(GetTerrainType(map[location].Terrain), location);
+                var tile = map[location];
 
-                foreach (var tileObject in map[location].Objects)
+                objectsCreationHelper.CreateHexagon(tile.Terrain, location);
+
+                foreach (var tileObject in tile.Objects)
                     if (!(tileObject is Wall && buildings.Contains(location)))
-                        CreateTileObject(tileObject);
+                        CreateTileObject(tileObject, tile.Terrain, map.Size);
             }
         }
 
-        private static TerrainType GetTerrainType(TileTerrain terrain)
-        {
-            if (terrain == TileTerrain.Grass) return TerrainType.Grass;
-            if (terrain == TileTerrain.Road) return TerrainType.Road;
-            if (terrain == TileTerrain.Arid) return TerrainType.Arid;
-            if (terrain == TileTerrain.Desert) return TerrainType.Desert;
-            if (terrain == TileTerrain.Marsh) return TerrainType.Marsh;
-            if (terrain == TileTerrain.Snow) return TerrainType.Snow;
-            return TerrainType.Undefined;
-        }
-
-        private void CreateTileObject(TileObject tileObject)
+        private void CreateTileObject(TileObject tileObject, TileTerrain terrain, MapSize mapSize)
         {
             if (tileObject == null) return;
 
@@ -93,27 +88,27 @@ namespace HoMM.Engine
             if (tileObject is Mine)
             {
                 tileObject.UnityId = $"Mine {counter[MapObject.Mine]++}";
-                hommEngine.CreateObject(tileObject.UnityId, MapObject.Mine, x, y);
+                objectsCreationHelper.CreateMine((Mine)tileObject);
             }
             if (tileObject is Dwelling)
             {
                 tileObject.UnityId = $"Dwelling {counter[MapObject.Dwelling]++}";
-                hommEngine.CreateObject(tileObject.UnityId, MapObject.Dwelling, x, y);
+                objectsCreationHelper.CreateDwelling((Dwelling)tileObject, mapSize);
             }
             if (tileObject is ResourcePile)
             {
                 tileObject.UnityId = $"Resources pile {counter[MapObject.ResourcesPile]++}";
-                hommEngine.CreateObject(tileObject.UnityId, MapObject.ResourcesPile, x, y);
+                objectsCreationHelper.CreateResourcePile((ResourcePile)tileObject);
             }
             if (tileObject is NeutralArmy)
             {
-                tileObject.UnityId = $"Neutral army {counter[MapObject.NeutralArmy]++}";
-                hommEngine.CreateObject(tileObject.UnityId, MapObject.NeutralArmy, x, y);
+                tileObject.UnityId = $"Neutral army {counter[MapObject.Infantry]++}";
+                objectsCreationHelper.CreateArmy((NeutralArmy)tileObject, tileObject.location);
             }
             if (tileObject is Wall)
             {
                 tileObject.UnityId = $"Wall {counter[MapObject.Wall]++}";
-                hommEngine.CreateObject(tileObject.UnityId, MapObject.Wall, x, y);
+                objectsCreationHelper.CreateWall((Wall)tileObject, terrain);
             }
 
             if (tileObject.UnityId == null)

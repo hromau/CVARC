@@ -69,6 +69,8 @@ namespace HoMM.Robot.HexagonalMovement
         {
             hommEngine.Freeze(player.Name);
             hommEngine.SetPosition(player.Name, player.Location.X, player.Location.Y);
+            hommEngine.SetRotation(player.Name, movementDirection.ToUnityAngle());
+            hommEngine.SetAnimation(robot.ControllerId, Animation.Gallop);
 
             return HommRules.Current.MovementFailsDuration;
         }
@@ -134,6 +136,9 @@ namespace HoMM.Robot.HexagonalMovement
         private void MakeTurn(IHommRobot robot)
         {
             player.DisiredLocation = newLocation;
+
+            hommEngine.SetAnimation(robot.ControllerId, Animation.Gallop);
+            hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
             hommEngine.Move(robot.Player.Name, movementDirection, movementDuration);
 
             world.Clocks.AddTrigger(new LocationTrigger(robot.World.Clocks.CurrentTime,

@@ -7,7 +7,7 @@ namespace HoMM.World
 {
     public partial class MapGeneratorHelper
     {
-        const int mapSize = 18;
+        const int mapSize = 14;
 
         public Map CreateMap(Random r)
         {
@@ -56,7 +56,7 @@ namespace HoMM.World
                         UnitConstants.WeeklyGrowth[UnitType.Militia]),
                     maze => new[] { Location.Zero, Location.Max(maze.Size) }));
 
-            var dwellingsConfig = new SpawnerConfig(Location.Zero, 30, 100, 0.2);
+            var dwellingsConfig = new SpawnerConfig(Location.Zero, 15, 100, 0.2);
 
             foreach (var unitType in spawnableDwellings)
                 builder = builder.With(new GraphSpawner(random, dwellingsConfig,
@@ -70,7 +70,7 @@ namespace HoMM.World
         private HommMapGenerator.BuilderOnSelectEntities AddMines(
             HommMapGenerator.BuilderOnSelectEntities builder, Random random)
         {
-            var minesConfig = new SpawnerConfig(Location.Zero, 40, 100, 0.2);
+            var minesConfig = new SpawnerConfig(Location.Zero, 25, 100, 0.2);
 
             foreach (var resource in spawnableResources)
             {
@@ -108,8 +108,8 @@ namespace HoMM.World
         private HommMapGenerator.BuilderOnSelectEntities AddPiles(
             HommMapGenerator.BuilderOnSelectEntities builder, Random random)
         {
-            var nearPiles = new SpawnerConfig(Location.Zero, 3, 25, 0.3);
-            var farPiles = new SpawnerConfig(Location.Zero, 25, 100, 0.1);
+            var nearPiles = new SpawnerConfig(Location.Zero, 3, 15, 0.3);
+            var farPiles = new SpawnerConfig(Location.Zero, 15, 100, 0.1);
 
             foreach (var resource in spawnableResources)
             {
@@ -128,7 +128,7 @@ namespace HoMM.World
         private HommMapGenerator.BuilderOnSelectEntities AddGuards(
             HommMapGenerator.BuilderOnSelectEntities builder, Random random)
         {
-            var guardsConfig = new SpawnerConfig(Location.Zero, 16.5, 100, 1);
+            var guardsConfig = new SpawnerConfig(Location.Zero, 12.5, 100, 1);
             return builder.With(new DistanceSpawner(random, guardsConfig,
                 (map, maze, p) => NeutralArmy.BuildRandom(p, 400, random),
                 symmetricFactory: (original, location) => ((NeutralArmy)original).Copy(location)));
@@ -137,8 +137,8 @@ namespace HoMM.World
         private HommMapGenerator.BuilderOnSelectEntities AddEnemies(
             HommMapGenerator.BuilderOnSelectEntities builder, Random random)
         {
-            var easyTier = new SpawnerConfig(Location.Zero, 0, 70, 1);
-            var hardTier = new SpawnerConfig(Location.Zero, 70, 100, 1);
+            var easyTier = new SpawnerConfig(Location.Zero, 0, 40, 1);
+            var hardTier = new SpawnerConfig(Location.Zero, 40, 100, 1);
 
             return builder
 

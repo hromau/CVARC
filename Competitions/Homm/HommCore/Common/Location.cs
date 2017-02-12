@@ -123,6 +123,26 @@ namespace HoMM
                 " and not supported by this method!");
         }
 
+        public Direction GetDirectionTo(Location neighborLocation)
+        {
+            var isEven = X % 2 == 0;
+
+            if (neighborLocation == new Location(Y - 1, X))
+                return Direction.Up;
+            if (neighborLocation == new Location(Y + 1, X))
+                return Direction.Down;
+            if (neighborLocation == new Location(isEven ? Y - 1 : Y, X - 1))
+                return Direction.LeftUp;
+            if (neighborLocation == new Location(isEven ? Y : Y + 1, X - 1))
+                return Direction.LeftDown;
+            if (neighborLocation == new Location(isEven ? Y - 1 : Y, X + 1))
+                return Direction.RightUp;
+            if (neighborLocation == new Location(isEven ? Y : Y + 1, X + 1))
+                return Direction.RightDown;
+
+            throw new ArgumentException($"Expected {nameof(neighborLocation)} to be adjacent, got something else.");
+        }
+
         public override string ToString()
         {
             return $"{{ X = {X}; Y = {Y} }}";

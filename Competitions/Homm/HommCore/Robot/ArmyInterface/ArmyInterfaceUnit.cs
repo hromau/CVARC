@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.Engine;
 using HoMM.Robot;
 using HoMM.Rules;
 using Infrastructure;
@@ -20,6 +21,7 @@ namespace HoMM.Robot.ArmyInterface
             if (order == null) return UnitResponse.Denied();
 
             actor.World.HommEngine.Freeze(actor.ControllerId);
+            actor.World.HommEngine.SetAnimation(actor.ControllerId, Animation.Idle);
 
             order.Apply(actor.Player);
 

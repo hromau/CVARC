@@ -9,12 +9,11 @@ namespace HoMM.World
 {
     public sealed class HommWorld : World<HommWorldState>
     {
-        public HommEngine HommEngine { get; private set; }
+        public IHommEngine HommEngine { get; private set; }
+        public HommObjectsCreationHelper HommObjectsCreationHelper { get; private set; }
         public ICommonEngine CommonEngine { get; private set; }
         public Round Round { get; private set; }
         public Random Random { get; private set; }
-
-        private RoundToUnityConnecter connecter;
 
         public Player[] Players { get; private set; }
 
@@ -30,7 +29,7 @@ namespace HoMM.World
             Debugger.Log("Starting seed: " + WorldState.Seed);
 
             CommonEngine = GetEngine<ICommonEngine>();
-            HommEngine = GetEngine<HommEngine>();
+            HommEngine = GetEngine<IHommEngine>();
 
             Random = new Random(WorldState.Seed);
 
@@ -39,8 +38,10 @@ namespace HoMM.World
             Players = players.Select(pid => CreatePlayer(pid, map)).ToArray();
             Round = new Round(map, Players);
 
-            connecter = new RoundToUnityConnecter(HommEngine, CommonEngine);
-            connecter.Connect(Round);
+            HommObjectsCreationHelper = new HommObjectsCreationHelper(Random, HommEngine);
+
+            var roundConnecter = new RoundToUnityConnecter(HommEngine, CommonEngine, HommObjectsCreationHelper);
+            roundConnecter.Connect(Round);
 
             foreach (var player in Players)
                 Round.Update(player, player.Location);

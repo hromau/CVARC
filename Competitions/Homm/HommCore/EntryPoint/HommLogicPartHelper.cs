@@ -46,7 +46,7 @@ namespace HoMM
             logicPart.WorldStateType = typeof(HommWorldState);
             logicPart.CreateWorldState = seed => seed == "debug" ? new HommWorldState(0, true) : new HommWorldState(int.Parse(seed), false);
 
-            logicPart.PredefinedWorldStates.Add("9");
+            logicPart.PredefinedWorldStates.Add("debug");
 
             var actorFactory = ActorFactory.FromRobot(new HommRobot(), rules);
             

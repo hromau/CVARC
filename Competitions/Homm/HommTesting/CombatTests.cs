@@ -77,121 +77,124 @@ namespace HexModelTesting
         [Test]
         public void ResolveCombat_TwoUnits_ShouldWin_SingleUnitOfSameType()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: twoInfantry, defencing: oneInfantry));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: twoInfantry, defending: oneInfantry));
 
-            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 2 } });
-            result.DefencingArmy.Should().BeEmpty();
+            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_OneUnit_ShouldLose_TwoUnitsOfSameType()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: oneInfantry, defencing: twoInfantry));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: oneInfantry, defending: twoInfantry));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefencingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
+            result.DefendingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
         }
 
         [Test]
         public void ResolveCombat_TenRanged_ShouldWin_TenInfantry()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenRanged, defencing: tenInfantry));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenRanged, defending: tenInfantry));
+            var countLeft = 10 - (int)Math.Floor(10 * UnitConstants.CombatMod[UnitType.Infantry][UnitType.Ranged]);
 
-            result.AttackingArmy[UnitType.Ranged].Should().BeGreaterThan(0);
-            result.AttackingArmy.Should().HaveCount(1);
-            result.DefencingArmy.Should().BeEmpty();
+            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Ranged, countLeft } });
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_TenInfantry_ShouldWin_FiveCavalry()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenInfantry, defencing: fiveCavalry));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenInfantry, defending: fiveCavalry));
+            var countLeft = 10 - (int)Math.Floor(5 * UnitConstants.CombatMod[UnitType.Cavalry][UnitType.Infantry]
+                * UnitConstants.CombatPower[UnitType.Cavalry] / UnitConstants.CombatPower[UnitType.Infantry]);
 
-            result.AttackingArmy[UnitType.Infantry].Should().BeGreaterThan(0);
-            result.AttackingArmy.Should().HaveCount(1);
-            result.DefencingArmy.Should().BeEmpty();
+            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, countLeft } });
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_FiveCavalry_ShouldWin_TenRanged()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: fiveCavalry, defencing: tenRanged));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: fiveCavalry, defending: tenRanged));
 
-            result.AttackingArmy[UnitType.Cavalry].Should().BeGreaterThan(0);
-            result.AttackingArmy.Should().HaveCount(1);
-            result.DefencingArmy.Should().BeEmpty();
+            var countLeft = 5 - (int)Math.Floor(10 * UnitConstants.CombatMod[UnitType.Ranged][UnitType.Cavalry]
+                * UnitConstants.CombatPower[UnitType.Ranged] / UnitConstants.CombatPower[UnitType.Cavalry]);
+
+            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Cavalry, countLeft } });
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_SmallArmy_ShouldLose_MiddleArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericSmallArmy, defencing: genericMiddleArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericSmallArmy, defending: genericMiddleArmy));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefencingArmy.Should().NotBeEmpty();
+            result.DefendingArmy.Should().NotBeEmpty();
         }
 
         [Test]
         public void ResolveCombat_SmallArmy_ShouldLose_BigArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericSmallArmy, defencing: genericBigArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericSmallArmy, defending: genericBigArmy));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefencingArmy.Should().NotBeEmpty();
+            result.DefendingArmy.Should().NotBeEmpty();
         }
 
         [Test]
         public void ResolveCombat_MiddleArmy_ShouldLose_BigArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericMiddleArmy, defencing: genericBigArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericMiddleArmy, defending: genericBigArmy));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefencingArmy.Should().NotBeEmpty();
+            result.DefendingArmy.Should().NotBeEmpty();
         }
 
         [Test]
         public void ResolveCombat_MiddleArmy_ShouldWin_SmallArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericMiddleArmy, defencing: genericSmallArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericMiddleArmy, defending: genericSmallArmy));
 
             result.AttackingArmy.Should().NotBeEmpty();
-            result.DefencingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_BigArmy_ShouldWin_SmallArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericBigArmy, defencing: genericSmallArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericBigArmy, defending: genericSmallArmy));
 
             result.AttackingArmy.Should().NotBeEmpty();
-            result.DefencingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_BigArmy_ShouldWin_MiddleArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericBigArmy, defencing: genericMiddleArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: genericBigArmy, defending: genericMiddleArmy));
 
             result.AttackingArmy.Should().NotBeEmpty();
-            result.DefencingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
         public void ResolveCombat_ZergRush_ShouldLose_BalancedArmy()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: zergRush, defencing: balancedArmy));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: zergRush, defending: balancedArmy));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefencingArmy.Should().NotBeEmpty();
+            result.DefendingArmy.Should().NotBeEmpty();
         }
 
         [Test]
         public void ResolveCombat_ZergRush_ShouldWin_RedHerring()
         {
-            var result = Combat.ResolveBattle(new ArmiesPair(attacking: zergRush, defencing: redHerring));
+            var result = Combat.ResolveBattle(new ArmiesPair(attacking: zergRush, defending: redHerring));
 
             result.AttackingArmy.Should().NotBeEmpty();
-            result.DefencingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]
@@ -200,17 +203,17 @@ namespace HexModelTesting
             var firstEmpty = Combat.ResolveBattle(new ArmiesPair(new Dictionary<UnitType, int>(), oneInfantry));
 
             firstEmpty.AttackingArmy.Should().BeEmpty();
-            firstEmpty.DefencingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
+            firstEmpty.DefendingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
 
             var secondEmpty = Combat.ResolveBattle(new ArmiesPair(oneInfantry, new Dictionary<UnitType, int>()));
 
             secondEmpty.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
-            secondEmpty.DefencingArmy.Should().BeEmpty();
+            secondEmpty.DefendingArmy.Should().BeEmpty();
 
             var bothEmpty = Combat.ResolveBattle(new ArmiesPair(new Dictionary<UnitType, int>(), new Dictionary<UnitType, int>()));
 
             bothEmpty.AttackingArmy.Should().BeEmpty();
-            bothEmpty.DefencingArmy.Should().BeEmpty();
+            bothEmpty.DefendingArmy.Should().BeEmpty();
         }
 
         [Test]

@@ -10,11 +10,11 @@ namespace HoMM
 {
     public class ArmiesPair : Combat.CombatResult
     {
-        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defencing) : base(attacking, defencing) { }
+        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
 
         internal bool BothAreNotEmpty()
         {
-            return AttackingArmy.Any(x => x.Value > 0) && DefencingArmy.Any(x => x.Value > 0);
+            return AttackingArmy.Any(x => x.Value > 0) && DefendingArmy.Any(x => x.Value > 0);
         }
 
         internal void Log()
@@ -26,7 +26,7 @@ namespace HoMM
 
             Debugger.Log("Defencing army:");
 
-            foreach (var kv in DefencingArmy)
+            foreach (var kv in DefendingArmy)
                 Debugger.Log($"{kv.Key} - {kv.Value}");
         }
     }
@@ -36,21 +36,21 @@ namespace HoMM
         public class CombatResult
         {
             public Dictionary<UnitType, int> AttackingArmy { get; }
-            public Dictionary<UnitType, int> DefencingArmy { get; }
+            public Dictionary<UnitType, int> DefendingArmy { get; }
 
-            protected CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defencing)
+            protected CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending)
             {
                 AttackingArmy = attacking;
-                DefencingArmy = defencing;
+                DefendingArmy = defending;
             }
         }
 
-        internal static void ResolveBattle(ICombatable attacking, ICombatable defencing)
+        internal static void ResolveBattle(ICombatable attacking, ICombatable defending)
         {
-            var combatResult = ResolveBattle(new ArmiesPair(attacking.Army, defencing.Army));
+            var combatResult = ResolveBattle(new ArmiesPair(attacking.Army, defending.Army));
 
             attacking.SetArmy(combatResult.AttackingArmy);
-            defencing.SetArmy(combatResult.DefencingArmy);
+            defending.SetArmy(combatResult.DefendingArmy);
         }
 
 
@@ -60,8 +60,8 @@ namespace HoMM
 
             while (armies.BothAreNotEmpty())
             {
-                var defencingArmyAfterAttack = ResolveOneTurn(armies.AttackingArmy, armies.DefencingArmy);
-                var attackingArmyAfterAttack = ResolveOneTurn(defencingArmyAfterAttack, armies.AttackingArmy);
+                var defencingArmyAfterAttack = ResolveOneTurn(armies.AttackingArmy, armies.DefendingArmy);
+                var attackingArmyAfterAttack = ResolveOneTurn(armies.DefendingArmy, armies.AttackingArmy);
 
                 armies = new ArmiesPair(attackingArmyAfterAttack, defencingArmyAfterAttack);
                 armies.Log();

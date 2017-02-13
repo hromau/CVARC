@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace HoMM
 
         public static void SetArmy(this ICombatable c, Dictionary<UnitType, int> army)
         {
+            if (army == c.Army) return;
+
             c.Army.Clear();
 
             foreach (var kv in army)

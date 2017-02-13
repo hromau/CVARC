@@ -10,6 +10,8 @@ namespace HoMM
     {
         Dictionary<UnitType, int> Army { get; }
         string UnityId { get; }
+
+        void SetUnitsCount(UnitType unitType, int count);
     }
 
     static class CombatableExtensions
@@ -26,10 +28,11 @@ namespace HoMM
         {
             if (army == c.Army) return;
 
-            c.Army.Clear();
+            foreach (var kv in c.Army.Where(kv => !army.ContainsKey(kv.Key)).ToArray())
+                c.SetUnitsCount(kv.Key, 0);
 
             foreach (var kv in army)
-                c.Army[kv.Key] = kv.Value;
+                c.SetUnitsCount(kv.Key, kv.Value);
         }
     }
 }

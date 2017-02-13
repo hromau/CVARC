@@ -61,5 +61,20 @@ namespace HoMM.Rules
         public double CombatDuration => 2;
         public double DailyTickInterval => 5;
         public double RespawnInterval => 2;
+
+        public int MineCaptureScores => 10;
+        public int DwellingCaptureScores => 20;
+        public int ResourcesGainScores => 1;
+        public int NeutralArmyDefeatScores => 10;
+        public int GarrisonDefeatScores => 10;
+        public int OtherPlayerDefeatScores => 100;
+
+        public Dictionary<UnitType, int> UnitDefeatScores = new Dictionary<UnitType, int>
+        {
+            {UnitType.Cavalry, 2 },
+            {UnitType.Infantry, 1 },
+            {UnitType.Militia, 1 },
+            {UnitType.Ranged, 1 },
+        };
     }
 }

@@ -1,10 +1,7 @@
-using CVARC.V2;
 using Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace HoMM
 {
@@ -17,8 +14,10 @@ namespace HoMM
             return AttackingArmy.Any(x => x.Value > 0) && DefendingArmy.Any(x => x.Value > 0);
         }
 
-        internal void Log()
+        internal void Log(string combatState)
         {
+            Debugger.Log(combatState);
+
             Debugger.Log("Attackig army:");
 
             foreach (var kv in AttackingArmy)
@@ -56,7 +55,7 @@ namespace HoMM
 
         public static CombatResult ResolveBattle(ArmiesPair armies)
         {
-            armies.Log();
+            armies.Log("Combat began");
 
             while (armies.BothAreNotEmpty())
             {
@@ -64,7 +63,8 @@ namespace HoMM
                 var attackingArmyAfterAttack = ResolveOneTurn(armies.DefendingArmy, armies.AttackingArmy);
 
                 armies = new ArmiesPair(attackingArmyAfterAttack, defendingArmyAfterAttack);
-                armies.Log();
+
+                armies.Log("Next turn");
             }
 
             return armies;

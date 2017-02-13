@@ -2,7 +2,9 @@
 using HoMM.Engine;
 using HoMM.Rules;
 using HoMM.World;
+using Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HoMM.Robot.HexagonalMovement
@@ -42,13 +44,23 @@ namespace HoMM.Robot.HexagonalMovement
 
             world.Clocks.AddTrigger(new OneTimeTrigger(combatTriggerTime, () =>
             {
+                var initialOtherArmy = new Dictionary<UnitType, int>(other.Army);
+
                 Combat.ResolveBattle(player, other);
+
+                var armies = new ArmiesPair(player.Army, other.Army);
+                armies.Log("after Combat.ResolveBattle");
 
                 if (other.HasNoArmy())
                 {
+                    Debugger.Log("other has no army");
+
                     if (other is TileObject)
                     {
+                        Debugger.Log("other is tile object, delete it");
+
                         ((TileObject)other).OnRemove();
+                        player.OnVictoryAchieved(other, initialOtherArmy);
                     }
 
                     if (other is Player)
@@ -61,6 +73,8 @@ namespace HoMM.Robot.HexagonalMovement
                             .Where(x => x.Player.Name == otherPlayer.Name)
                             .Single()
                             .Die();
+
+                        player.OnVictoryAchieved(otherPlayer, otherPlayer.Army);
                     }
                 }
                 else

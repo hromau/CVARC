@@ -19,7 +19,11 @@ namespace HoMM
 
         private static List<IEngine> CreateEngines(GameSettings settings)
         {
-            return new List<IEngine> { new CommonEngine(), new HommEngine(settings.SpectacularView) };
+            return new List<IEngine> {
+                new CommonEngine(),
+                new HommEngine(settings.SpectacularView),
+                new HommUserInterfaceEngine(),
+            };
         }
     }
 }

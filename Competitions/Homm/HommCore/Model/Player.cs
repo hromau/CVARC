@@ -18,7 +18,6 @@ namespace HoMM
 
         public string UnityId => Name;
 
-
         public Player(string name, Map map)
         {
             Name = name;
@@ -30,6 +29,24 @@ namespace HoMM
                 Army.Add(t, 0);
             this.map = map;
         }
+
+
+        public event Action<Resource, int> ResourcesGained;
+        public event Action<Resource, int> ResourcesPaid;
+        public event Action<Resource, int> ResourcesUpdated;
+        public event Action<ICombatable, Dictionary<UnitType, int>> VictoryAchieved;
+        public event Action<Mine> MineCaptured;
+        public event Action<Dwelling> DwellingCaptured;
+        public event Action<UnitType, int> ArmyUpdated;
+
+        internal void OnResourcesGained(Resource resource, int deltaAmount) => ResourcesGained?.Invoke(resource, deltaAmount);
+        internal void OnResourcesPaid(Resource resource, int deltaAmount) => ResourcesPaid?.Invoke(resource, deltaAmount);
+        internal void OnResourcesUpdated(Resource resource, int currentAmount) => ResourcesUpdated?.Invoke(resource, currentAmount);
+        internal void OnVictoryAchieved(ICombatable opponent, Dictionary<UnitType, int> army) => VictoryAchieved?.Invoke(opponent, army);
+        internal void OnMineCaptured(Mine mine) => MineCaptured?.Invoke(mine);
+        internal void OnDwellingCaptured(Dwelling dwelling) => DwellingCaptured?.Invoke(dwelling);
+        internal void OnArmyUpdated(UnitType unit, int count) => ArmyUpdated?.Invoke(unit, count);
+
 
         public int CheckResourceAmount(Resource res)
         {
@@ -46,6 +63,9 @@ namespace HoMM
                 throw new ArgumentException("Cannot 'gain' negative resources!");
             Resources[res] += amount;
 
+            OnResourcesGained(res, amount);
+            OnResourcesUpdated(res, Resources[res]);
+
             Debugger.Log($"{Name} got {amount} pieces of {res}");
         }
 
@@ -56,6 +76,9 @@ namespace HoMM
             if (amount > Resources[res])
                 throw new ArgumentException("Not enough " + res.ToString() + " to pay " + amount);
             Resources[res] -= amount;
+
+            OnResourcesPaid(res, amount);
+            OnResourcesUpdated(res, Resources[res]);
         }
 
 
@@ -64,6 +87,13 @@ namespace HoMM
             if (!Army.ContainsKey(unitType))
                 Army.Add(unitType, 0);
             Army[unitType] += amount;
+            OnArmyUpdated(unitType, Army[unitType]);
+        }
+
+        public void SetUnitsCount(UnitType unitType, int amount)
+        {
+            Army[unitType] = amount;
+            OnArmyUpdated(unitType, amount);
         }
 
         public bool TryBuyUnits(int unitsToBuy)

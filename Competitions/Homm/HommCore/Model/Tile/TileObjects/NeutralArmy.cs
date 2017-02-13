@@ -59,5 +59,10 @@ namespace HoMM
         {
             return new NeutralArmy(new Dictionary<UnitType, int>(Army), location);
         }
+
+        public void SetUnitsCount(UnitType unitType, int count)
+        {
+            Army[unitType] = count;
+        }
     }
 }

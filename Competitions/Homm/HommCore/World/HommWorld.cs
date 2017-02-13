@@ -40,7 +40,9 @@ namespace HoMM.World
 
             HommObjectsCreationHelper = new HommObjectsCreationHelper(Random, HommEngine);
 
-            var roundConnecter = new RoundToUnityConnecter(HommEngine, CommonEngine, HommObjectsCreationHelper);
+            var uiEngine = GetEngine<IHommUserInterfaceEngine>();
+
+            var roundConnecter = new RoundToUnityConnecter(HommEngine, CommonEngine, uiEngine, HommObjectsCreationHelper);
             roundConnecter.Connect(Round);
 
             foreach (var player in Players)
@@ -60,6 +62,7 @@ namespace HoMM.World
         {
             var player = new Player(controllerId, map);
             player.Location = GetRespawnLocation(controllerId, map);
+            ScoresConnector.Connect(Scores, player);
             return player;
         }
     }

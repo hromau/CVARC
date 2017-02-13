@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HoMM
 {
@@ -32,6 +33,11 @@ namespace HoMM
                 if (this.HasNoArmy())
                     Owner = p;
             }
+        }
+
+        public void SetUnitsCount(UnitType unitType, int count)
+        {
+            Army[unitType] = count;
         }
     }
 }

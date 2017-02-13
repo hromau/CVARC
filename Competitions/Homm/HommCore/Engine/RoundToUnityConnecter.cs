@@ -15,14 +15,16 @@ namespace HoMM.Engine
     {
         private IHommEngine hommEngine;
         private ICommonEngine commonEngine;
+        private IHommUserInterfaceEngine uiEngine;
         private HommObjectsCreationHelper objectsCreationHelper;
 
         private List<Color> availablePlayerColors = new List<Color> { Color.red, Color.blue };
         private Dictionary<string, Color> playerColorMapping = new Dictionary<string, Color>();
 
         public RoundToUnityConnecter(IHommEngine hommEngine, ICommonEngine commonEngine, 
-            HommObjectsCreationHelper objectsCreationHelper)
+            IHommUserInterfaceEngine uiEngine, HommObjectsCreationHelper objectsCreationHelper)
         {
+            this.uiEngine = uiEngine;
             this.hommEngine = hommEngine;
             this.commonEngine = commonEngine;
             this.objectsCreationHelper = objectsCreationHelper;
@@ -51,6 +53,8 @@ namespace HoMM.Engine
 
                 Debugger.Log("Creating player...");
                 objectsCreationHelper.CreatePlayer(player, color);
+
+                ConnectUi(player);
             }
 
             var buildings = new HashSet<Location>(map
@@ -161,6 +165,15 @@ namespace HoMM.Engine
         private void DeleteHandler(TileObject obj)
         {
             commonEngine.DeleteObject(obj.UnityId);
+        }
+
+        private void ConnectUi(Player player)
+        {
+            uiEngine.InitUi(player.Name, player.Name == TwoPlayersId.Left ? UiLocation.Left : UiLocation.Right);
+
+            player.ArmyUpdated += (unit, count) => uiEngine.UpdateArmy(player.Name, unit, count);
+
+            player.ResourcesUpdated += (res, count) => uiEngine.UpdateResources(player.Name, res, count);
         }
     }
 }

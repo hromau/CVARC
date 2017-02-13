@@ -63,6 +63,8 @@
     <Compile Include="Engine\Animation.cs" />
     <Compile Include="Engine\FancyHommEngine.cs" />
     <Compile Include="Engine\HommPrefabs.cs" />
+    <Compile Include="Engine\HommUserInterfaceEngine.cs" />
+    <Compile Include="Engine\IHommUserInterfaceEngine.cs" />
     <Compile Include="Engine\SimpleHommEngine.cs" />
     <Compile Include="EntryPoint\DlcEntryPoint.cs" />
     <Compile Include="Engine\HommObjectsCreationHelper.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Generators\Spawners\DistanceSpawner.cs" />
     <Compile Include="Generators\Spawners\SpawnerConfig.cs" />
     <Compile Include="Generators\Spawners\GraphSpawner.cs" />
+    <Compile Include="World\ScoresConnector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Grid.jpg" />

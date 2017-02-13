@@ -45,7 +45,10 @@ namespace HoMM
 
         public override void InteractWithPlayer(Player p)
         {
+            if (p == Owner) return;
+
             Owner = p;
+            p.OnDwellingCaptured(this);
         }
     }
 }

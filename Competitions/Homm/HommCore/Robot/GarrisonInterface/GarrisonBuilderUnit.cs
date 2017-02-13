@@ -51,7 +51,7 @@ namespace HoMM.Robot.ArmyInterface
                 var unitType = kv.Key;
                 var amount = kv.Value;
 
-                player.Army[kv.Key] = player.Army[kv.Key] - kv.Value;
+                player.SetUnitsCount(kv.Key, player.Army[kv.Key] - kv.Value);
             }
         }
 

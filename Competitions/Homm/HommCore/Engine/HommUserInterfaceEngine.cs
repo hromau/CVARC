@@ -82,7 +82,7 @@ namespace HoMM.Engine
 
                 builder.Append($"{id}\n\n");
 
-                builder.Append($"Resources:\n");
+                builder.Append($"Treasure:\n");
 
                 foreach (var resource in Resources)
                     builder.Append($"{resource.Key} - {resource.Value}\n");

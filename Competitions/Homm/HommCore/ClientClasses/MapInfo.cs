@@ -7,6 +7,8 @@ namespace HoMM.ClientClasses
     {
         public LocationInfo Location { get; set; }
 
+        public Terrain Terrain { get; set; }
+
         public Wall Wall { get; set; }
         public Garrison Garrison { get; set; }
         public NeutralArmy NeutralArmy { get; set; }
@@ -22,7 +24,7 @@ namespace HoMM.ClientClasses
 
         public override string ToString()
         {
-            string describe = null;
+            string describe = Terrain.ToString();
 
             if (Wall != null) describe = "Wall";
             if (Garrison != null) describe = "Garrison with " + ArmyString(Garrison.Army);
@@ -36,6 +38,15 @@ namespace HoMM.ClientClasses
         }
     }
 
+    public enum Terrain
+    {
+        Grass,
+        Snow,
+        Desert,
+        Marsh,
+        Road,
+    }
+
     public class Wall
     {
 
@@ -43,10 +54,10 @@ namespace HoMM.ClientClasses
 
     public class Garrison
     {
-        public Hero Owner { get; set; }
+        public string Owner { get; set; }
         public Dictionary<UnitType, int> Army { get; set; }
 
-        public Garrison(Hero owner, Dictionary<UnitType, int> army)
+        public Garrison(string owner, Dictionary<UnitType, int> army)
         {
             Owner = owner;
             Army = new Dictionary<UnitType, int>(army);
@@ -66,9 +77,9 @@ namespace HoMM.ClientClasses
     public class Mine
     {
         public Resource Resource { get; set; }
-        public Hero Owner { get; set; }
+        public string Owner { get; set; }
 
-        public Mine(Resource resource, Hero owner)
+        public Mine(Resource resource, string owner)
         {
             Resource = resource;
             Owner = owner;

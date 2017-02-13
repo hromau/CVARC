@@ -11,70 +11,72 @@ namespace HoMM.Sensors
     {
         public override  MapData Measure()
         {
-            var heroes = Actor.World.Players
-                .Select(x => new MapObjectData { Hero = new Hero(x.Name, x.Army), Location = x.Location.ToLocationInfo() });
+            var players = Actor.World.Players;
 
             var objects = Actor.World.Round.Map
-                .SelectMany(tile => tile.Objects.Select(x => BuildMapInfo(tile, x)));
+                .Select(tile => BuildMapInfo(tile, players.Where(x => x.Location == tile.Location).FirstOrDefault()));
 
             var data = new MapData();
-            data.Objects=objects.Union(heroes).ToList();
+
+            data.Objects=objects.ToList();
             data.Width = Actor.World.Round.Map.Width;
             data.Height = Actor.World.Round.Map.Height;
+
             return data;
         }
 
-        private static MapObjectData BuildMapInfo(Tile tile, TileObject obj)
+        private static MapObjectData BuildMapInfo(Tile tile, Player player)
         {
-            var mapInfo = new MapObjectData { Location = tile.Location.ToLocationInfo() };
+            var mapInfo = new MapObjectData { Location = tile.Location.ToLocationInfo(), Terrain = terrain[tile.Terrain] };
 
-            Hero owner = null;
+            if (player != null)
+                mapInfo.Hero = new Hero(player.Name, player.Army);
 
-            if (obj is CapturableObject)
+            foreach (var obj in tile.Objects)
             {
-                var capt = (CapturableObject)obj;
-                owner = capt.Owner == null ? null : new Hero(capt.Owner.Name, capt.Owner.Army);
+                string owner = null;
+
+                if (obj is CapturableObject)
+                {
+                    var capt = (CapturableObject)obj;
+                    owner = capt.Owner == null ? null : capt.Owner.Name;
+                }
+
+                if (obj is Wall)
+                    mapInfo.Wall = new ClientClasses.Wall();
+
+                if (obj is Garrison)
+                    mapInfo.Garrison = new ClientClasses.Garrison(owner, ((Garrison)obj).Army);
+
+                if (obj is NeutralArmy)
+                    mapInfo.NeutralArmy = new ClientClasses.NeutralArmy(((NeutralArmy)obj).Army);
+
+                if (obj is Mine)
+                    mapInfo.Mine = new ClientClasses.Mine(((Mine)obj).Resource, owner);
+
+                if (obj is Dwelling)
+                {
+                    var dw = (Dwelling)obj;
+                    mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits);
+                }
+
+                if (obj is ResourcePile)
+                {
+                    var rp = (ResourcePile)obj;
+                    mapInfo.ResourcePile = new ClientClasses.ResourcePile(rp.Resource, rp.Quantity);
+                }
             }
 
-            if (obj is Wall)
-            {
-                mapInfo.Wall = new ClientClasses.Wall();
-                return mapInfo;
-            }
-
-            if (obj is Garrison)
-            {
-                mapInfo.Garrison = new ClientClasses.Garrison(owner, ((Garrison)obj).Army);
-                return mapInfo;
-            }
-
-            if (obj is NeutralArmy)
-            {
-                mapInfo.NeutralArmy = new ClientClasses.NeutralArmy(((NeutralArmy)obj).Army);
-                return mapInfo;
-            }
-
-            if (obj is Mine)
-            {
-                mapInfo.Mine = new ClientClasses.Mine(((Mine)obj).Resource, owner);
-                return mapInfo;
-            }
-
-            if (obj is Dwelling)
-            {
-                var dw = (Dwelling)obj;
-                mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits);
-                return mapInfo;
-            }
-            
-            if (obj is ResourcePile)
-            {
-                var rp = (ResourcePile)obj;
-                mapInfo.ResourcePile = new ClientClasses.ResourcePile(rp.Resource, rp.Quantity);
-                return mapInfo;
-            }
-
-            throw new ArgumentException("unrecognized object");
+            return mapInfo;
         }
+
+        private static Dictionary<TileTerrain, Terrain> terrain = new Dictionary<TileTerrain, Terrain>()
+        {
+            {TileTerrain.Desert, Terrain.Desert },
+            {TileTerrain.Grass, Terrain.Grass },
+            {TileTerrain.Marsh, Terrain.Marsh },
+            {TileTerrain.Road, Terrain.Road },
+            {TileTerrain.Snow, Terrain.Snow }
+        };
     }
 }

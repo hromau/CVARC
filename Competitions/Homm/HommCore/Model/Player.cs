@@ -10,8 +10,6 @@ namespace HoMM
     public class Player : ICombatable
     {
         public string Name { get; private set; }
-        public int Attack { get; private set; }
-        public int Defence { get; private set; }
         private Map map;
         public Dictionary<Resource, int> Resources { get; }
         public Location Location { get; set; }
@@ -31,14 +29,6 @@ namespace HoMM
             foreach (UnitType t in Enum.GetValues(typeof(UnitType)))
                 Army.Add(t, 0);
             this.map = map;
-            Attack = 1;
-            Defence = 1;
-        }
-
-        public Player(string name, Map map, int attack, int defence) : this(name, map)
-        {
-            Attack = attack;
-            Defence = defence;
         }
 
         public int CheckResourceAmount(Resource res)

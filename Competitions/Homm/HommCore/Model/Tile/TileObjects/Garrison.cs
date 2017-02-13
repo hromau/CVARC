@@ -6,8 +6,6 @@ namespace HoMM
     {
         public override bool IsPassable => true;
 
-        public int Attack { get; } = 0;
-        public int Defence { get; } = 0;
         public Dictionary<UnitType, int> Army { get; private set; }
         public Garrison(Dictionary<UnitType, int> guards, Location location, Player owner) : base(location)
         {

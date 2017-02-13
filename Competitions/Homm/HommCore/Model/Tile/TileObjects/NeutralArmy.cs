@@ -7,8 +7,6 @@ namespace HoMM
 {
     public class NeutralArmy : TileObject, ICombatable
     {
-        public int Attack { get; } = 0;
-        public int Defence { get; } = 0;
         public Dictionary<UnitType, int> Army { get; private set; }
         public CapturableObject GuardedObject { get; private set; }
 

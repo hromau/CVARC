@@ -7,14 +7,11 @@ namespace HoMM
 {
     public interface ICombatable
     {
-        int Attack { get; }
-        int Defence { get; }
         Dictionary<UnitType, int> Army { get; }
         string UnityId { get; }
-
     }
 
-    public static class ICombatableExtensions
+    static class CombatableExtensions
     {
         public static bool HasNoArmy(this ICombatable c)
         {
@@ -22,6 +19,14 @@ namespace HoMM
                 if (stack.Value > 0)
                     return false;
             return true;
+        }
+
+        public static void SetArmy(this ICombatable c, Dictionary<UnitType, int> army)
+        {
+            c.Army.Clear();
+
+            foreach (var kv in army)
+                c.Army[kv.Key] = kv.Value;
         }
     }
 }

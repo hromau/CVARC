@@ -24,7 +24,7 @@ namespace HoMM
             foreach (var kv in AttackingArmy)
                 Debugger.Log($"{kv.Key} - {kv.Value}");
 
-            Debugger.Log("Defencing army:");
+            Debugger.Log("Defending army:");
 
             foreach (var kv in DefendingArmy)
                 Debugger.Log($"{kv.Key} - {kv.Value}");
@@ -60,10 +60,10 @@ namespace HoMM
 
             while (armies.BothAreNotEmpty())
             {
-                var defencingArmyAfterAttack = ResolveOneTurn(armies.AttackingArmy, armies.DefendingArmy);
+                var defendingArmyAfterAttack = ResolveOneTurn(armies.AttackingArmy, armies.DefendingArmy);
                 var attackingArmyAfterAttack = ResolveOneTurn(armies.DefendingArmy, armies.AttackingArmy);
 
-                armies = new ArmiesPair(attackingArmyAfterAttack, defencingArmyAfterAttack);
+                armies = new ArmiesPair(attackingArmyAfterAttack, defendingArmyAfterAttack);
                 armies.Log();
             }
 

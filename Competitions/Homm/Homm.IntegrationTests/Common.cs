@@ -2,7 +2,6 @@
 using HoMM.ClientClasses;
 using NUnit.Framework;
 using System;
-using HoMM.Engine;
 
 namespace Homm.IntegrationTests
 {

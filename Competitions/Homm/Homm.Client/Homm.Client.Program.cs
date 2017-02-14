@@ -17,9 +17,6 @@ namespace Homm.Client
         public static void Main()
         {
             TextGame.Start();
-        }
-     
-
-       
+        } 
     }
 }

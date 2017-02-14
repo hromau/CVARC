@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CVARC.V2;
 
 namespace Homm.Client
 {
@@ -18,7 +19,8 @@ namespace Homm.Client
             Console.WriteLine($"You are here: ({data.Location.X},{data.Location.Y})");
 
             Console.WriteLine($"You have {data.MyTreasury.Select(z => z.Value + " " + z.Key).Aggregate((a, b) => a + ", " + b)}");
-
+            if(data.MyArmy.Count > 0)
+                Console.WriteLine($"You have {data.MyArmy.Select(z => z.Value + " " + z.Key).Aggregate((a, b) => a + ", " + b)}");
             var location = data.Location.ToLocation();
 
             Console.Write("W: ");
@@ -73,7 +75,7 @@ namespace Homm.Client
             client.OnSensorDataReceived += Print;
             client.OnInfo += OnInfo;
 
-            var sensorData = client.Configurate(ip, port, Program.CvarcTag, operationalTimeLimit: 1000);
+            var sensorData = client.Configurate(ip, port, Program.CvarcTag, operationalTimeLimit: 1000, debugMap: true);
 
             while (true)
             {
@@ -101,7 +103,9 @@ namespace Homm.Client
                     case ConsoleKey.D:
                         client.Move(Direction.RightDown);
                         break;
-
+                    case ConsoleKey.B:
+                        client.PurchaseUnits(1);
+                        break;
                 }
             }
         }

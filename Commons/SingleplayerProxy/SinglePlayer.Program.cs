@@ -64,12 +64,13 @@ namespace SingleplayerProxy
         static void StartUnity()
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
-                //Process.Start(SingleplayerProxyConfigurations.UnityExePath, );
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = SingleplayerProxyConfigurations.UnityExePath
-                });
-            TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8));
+                Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+            while (string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8))))
+            {
+                Console.WriteLine("Cant get answer from unity! Timeout. If its actually started, close it");
+                if (!SingleplayerProxyConfigurations.DebugMode)
+                    Process.Start(SingleplayerProxyConfigurations.UnityExePath);
+            }
         }
 
         static void UpdateUnityIfNeeded()

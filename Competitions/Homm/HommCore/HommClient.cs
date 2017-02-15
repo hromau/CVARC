@@ -21,12 +21,13 @@ namespace HoMM
 
 
         public TSensorData Configurate(string ip, int port, Guid cvarcTag,
-            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false, bool debugMap=false)
+            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false, bool debugMap=false, bool spectacularView=true)
         {
             var configs = new GameSettings();
             configs.LoadingData = new LoadingData();
             configs.LoadingData.AssemblyName = AssemblyName;
             configs.LoadingData.Level = LevelName;
+            configs.SpectacularView = spectacularView;
             configs.SpeedUp = speedUp;
             configs.ActorSettings = new List<ActorSettings>
             {

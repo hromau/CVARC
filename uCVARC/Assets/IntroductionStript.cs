@@ -10,6 +10,7 @@ public class IntroductionStript : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 30;
         if (serverIsRunned) return;
         Dispatcher.Start();
         serverIsRunned = true;

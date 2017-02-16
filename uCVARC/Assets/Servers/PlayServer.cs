@@ -41,7 +41,13 @@ namespace Assets.Servers
                 Debug.Log("Failed");
                 return false;
             }
+
+            Debugger.Log("Requested game " + gameSettings.LoadingData.AssemblyName + "." + gameSettings.LoadingData.Level);
+
             var competitions = Dispatcher.Loader.GetCompetitions(gameSettings.LoadingData);
+
+            Debugger.Log("Game found in loader");
+
             var worldState = (WorldState)worldStateObj.ToObject(competitions.Logic.WorldStateType);
             var players = new Dictionary<string, TcpClient>();
             if (worldState.Undefined)
@@ -50,7 +56,10 @@ namespace Assets.Servers
                 worldState = DefaultWorldInfoCreator.GetDefaultWorldState(gameSettings.LoadingData);
             }
             foreach (var settings in gameSettings.ActorSettings.Where(x => !x.IsBot))
+            {
                 players[settings.ControllerId] = listener.AcceptTcpClient();
+                Debugger.Log("Accepted client " + settings.ControllerId);
+            }
 
             Debugger.Log("Accepted " + players.Count + " connections");
 

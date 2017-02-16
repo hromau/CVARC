@@ -32,6 +32,7 @@ namespace Assets.Servers
                 try
                 {
                     var commandType = client.ReadJson<ServiceUnityCommand>();
+                    Debugger.Log("Accepted service command " + commandType.ToString());
                     switch (commandType)
                     {
                         case ServiceUnityCommand.Ping:

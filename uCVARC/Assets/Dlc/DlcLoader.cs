@@ -5,6 +5,7 @@ using UnityCommons;
 using UnityEngine;
 using System.Reflection;
 using System.Linq;
+using Infrastructure;
 
 namespace Assets.Dlc
 {
@@ -12,6 +13,7 @@ namespace Assets.Dlc
     {
         public void Start()
         {
+            Debugger.Log("DlcLoader started");
             LoadBundles();
             LoadAssemblies();
             PrefabLoader.SetAssetBundles(Dlc.BundleCache);
@@ -21,11 +23,18 @@ namespace Assets.Dlc
         {
             foreach (var bundleName in Settings.Current.DlcBundles)
             {
+                Debugger.Log("Loading bundle " + bundleName);
                 if (!Dlc.BundleCache.ContainsKey(bundleName.ToLower()))
                 {
                     var bundleUrl = UriConstructor.GetUriForBundle(bundleName);
                     StartCoroutine(LoadBundle(bundleName, bundleUrl));
+                    Debugger.Log("Loaded bundle " + bundleName);
                 }
+                else
+                {
+                    Debugger.Log("Already loaded bundle " + bundleName);
+                }
+                
             }
         }
 
@@ -33,11 +42,17 @@ namespace Assets.Dlc
         {
             foreach (var assemblyName in Settings.Current.DlcAssemblies)
             {
+                Debugger.Log("Loading assembly " + assemblyName);
                 if (!Dlc.AssemblyCache.Contains(assemblyName.ToLower()))
                 {
                     var assemblyUrl = UriConstructor.GetPathForDlcAssembly(assemblyName);
                     LoadAssembly(assemblyUrl);
                     Dlc.AssemblyCache.Add(assemblyName);
+                    Debugger.Log("Loaded assembly " + assemblyName);
+                }
+                else
+                {
+                    Debugger.Log("Already loaded assembly " + assemblyName);
                 }
             }
         }

@@ -37,6 +37,7 @@ public static class Dispatcher
             File.AppendAllText("log.txt", str+"\n");
         };
 
+        Debugger.AddException("**************  UNITY STARTED " + DateTime.Now);
         Application.logMessageReceived += Application_logMessageReceived;
 
         if (!Directory.Exists(Constants.LogFolderRoot))
@@ -93,10 +94,15 @@ public static class Dispatcher
         switch (GameManager.CheckGame())
         {
             case RunType.Play:
+                Debugger.Log("Starting remote game");
+                SwitchScene("Round");
+                break;
             case RunType.Tutorial:
+                Debug.Log("Starting tutorial game");
                 SwitchScene("Round");
                 break;
             case RunType.Log:
+                Debugger.Log("Starting log");
                 SwitchScene("LogRound");
                 break;
         }

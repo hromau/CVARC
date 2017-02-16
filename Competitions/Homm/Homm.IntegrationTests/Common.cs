@@ -5,7 +5,7 @@ using System;
 
 namespace Homm.IntegrationTests
 {
-    public partial class Tests
+    public partial class Hero_should
     {
         HommClient<HommSensorData> client;
         HommSensorData sensorData;

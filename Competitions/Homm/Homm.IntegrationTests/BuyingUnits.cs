@@ -6,7 +6,7 @@ using Dwelling = HoMM.ClientClasses.Dwelling;
 
 namespace Homm.IntegrationTests
 {
-    partial class Tests
+    partial class Hero_should
     {
         private void GainAllResources()
         {

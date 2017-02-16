@@ -6,7 +6,7 @@ using HoMM.ClientClasses;
 
 namespace Homm.IntegrationTests
 {
-    partial class Tests
+    partial class Hero_should
     {
         [Test]
         public void DontGetResources_WhenLocationIsEmpty()

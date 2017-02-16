@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace Homm.IntegrationTests
 {
-    partial class Tests
+    partial class Hero_should
     {
         [Test]
         public void AllMinesHaventOwner_WhenGameStarts()

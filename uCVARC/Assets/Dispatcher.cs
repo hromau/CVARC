@@ -7,6 +7,7 @@ using Assets.Servers;
 using Assets.Tools;
 using Infrastructure;
 using UnityCommons;
+using System;
 
 public static class Dispatcher
 {
@@ -36,6 +37,8 @@ public static class Dispatcher
             File.AppendAllText("log.txt", str+"\n");
         };
 
+        Application.logMessageReceived += Application_logMessageReceived;
+
         if (!Directory.Exists(Constants.LogFolderRoot))
             Directory.CreateDirectory(Constants.LogFolderRoot);
 
@@ -51,6 +54,23 @@ public static class Dispatcher
             new Thread(serviceServer.Work).Start();
         }
     }
+
+
+    static bool inException = false;
+
+    private static void Application_logMessageReceived(string condition, string stackTrace, LogType type)
+    {
+        if (inException) return;
+        inException = true;
+        try
+        {
+            Debugger.AddException("Unity exception " + condition + "\n" + stackTrace);
+            Application.Quit();
+        }
+        catch { }
+    }
+
+
 
     public static void FillLoader(IDlcEntryPoint entryPoint)
     {

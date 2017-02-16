@@ -18,12 +18,18 @@ namespace Infrastructure
         {
             string message = "";
             Exception e1 = e;
-            while(e1!=null)
+            while (e1 != null)
             {
-                message += e1.GetType().Name+" "+e1.Message + "\n";
+                message += e1.GetType().Name + " " + e1.Message + "\n";
                 e1 = e1.InnerException;
             }
             message += e.StackTrace;
+            AddException(message);
+        }
+
+
+        public static void AddException(string message)
+        { 
             lock (lockObject)
             {
                 if (Logger != null)

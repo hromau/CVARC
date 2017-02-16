@@ -163,5 +163,20 @@ namespace CVARC.V2
             AddEntry(entry);
         }
 
+        public void AddOutgoingSensorData(string controllerId, object sensorData)
+        {
+            var entry = new GameLogEntry
+            {
+                Time = CurrentTime,
+                Type = GameLogEntryType.OutgoingSensorData,
+                OutgoingSensorData = new OutgoingSensorDataCommandLogEntry
+                {
+                    ControllerId = controllerId,
+                    SensorData = JObject.FromObject(sensorData)
+                }
+            };
+            AddEntry(entry);
+        }
+
     }
 }

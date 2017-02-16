@@ -27,6 +27,7 @@ namespace CVARC.V2
             var sensorData = controllable.GetSensorData();
             Debugger.Log("Sending sensor data");
             controller.SendSensorData(sensorData);
+            controllable.World.Logger.AddOutgoingSensorData(controllable.ControllerId, sensorData);
             Debugger.Log("Getting command");
             var command = controller.GetCommand();
 			if (command == null) return false;

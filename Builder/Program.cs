@@ -126,6 +126,7 @@ namespace Builder
             unityProcess.WaitForExit();
             Console.WriteLine("Done");
 
+         
             Console.Write("Copying I18* libraries... ");
             foreach (var file in new DirectoryInfo(I18Source).GetFiles("i18*.dll"))
                 File.Copy(file.FullName, BinariesPath + @"\ucvarc_Data\Managed\" + file.Name, true);
@@ -134,6 +135,12 @@ namespace Builder
             XCopy(@"uCvarc\Dlc", BinariesPath + "\\Dlc");
             XCopy(@"Commons\SingleplayerProxy\bin\Debug", BinariesPath);
             XCopy(@"Commons\ReplayRunner\bin\Debug", BinariesPath);
+
+            Console.Write("Deleting log.txt ... ");
+            var logFileName = BinariesPath + "\\log.txt";
+            if (File.Exists(logFileName))
+                File.Delete(logFileName);
+            Console.WriteLine("OK");
 
 
             CopyProjectAndCorrectReferences(@"Competitions\Pudge\PudgeClient");

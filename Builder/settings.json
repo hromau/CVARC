@@ -12,7 +12,11 @@
   "Version": 3,
   "Debugging": {
     "AlwaysOn": false,
-    "AlwaysOff": true,
-	"EnabledTypes":["LogWriter"]
+    "AlwaysOff": false,
+    "EnabledTypes": [
+    "DlcLoader",
+	  "Dispatcher",
+	  "PlayServer"
+    ]
   }
 }

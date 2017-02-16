@@ -65,7 +65,7 @@ namespace SingleplayerProxy
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
                 Process.Start(SingleplayerProxyConfigurations.UnityExePath);
-            while (string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(8))))
+            while (string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(10))))
             {
                 Console.WriteLine("Cant get answer from unity! Timeout. If its actually started, close it");
                 if (!SingleplayerProxyConfigurations.DebugMode)

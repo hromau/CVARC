@@ -46,11 +46,11 @@ namespace Homm.Client
 
 
             var path = new[] { Direction.RightDown, Direction.RightUp, Direction.RightDown, Direction.RightUp, Direction.LeftDown, Direction.Down, Direction.RightDown, Direction.RightDown, Direction.RightUp };
-            client.PurchaseUnits(1000);
+            sensorData = client.PurchaseUnits(1);
             foreach (var e in path)
-                client.Move(e);
-            client.Move(Direction.RightDown);
-
+                sensorData = client.Move(e);
+            sensorData = client.Move(Direction.RightDown);
+            client.Exit();
         }
 
 

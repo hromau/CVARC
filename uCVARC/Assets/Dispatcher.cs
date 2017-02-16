@@ -62,10 +62,11 @@ public static class Dispatcher
     private static void Application_logMessageReceived(string condition, string stackTrace, LogType type)
     {
         if (inException) return;
+        if (type != LogType.Exception) return;
         inException = true;
         try
         {
-            Debugger.AddException("Unity exception " + condition + "\n" + stackTrace);
+            Debugger.AddException("Unity exception. Condition +`" + condition + "`, stackTrace: " + stackTrace + "\n\n\n\n");
             Application.Quit();
         }
         catch { }

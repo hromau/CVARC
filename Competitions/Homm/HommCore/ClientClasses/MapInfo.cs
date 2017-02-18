@@ -28,7 +28,7 @@ namespace HoMM.ClientClasses
 
             if (Wall != null) describe = "Wall";
             if (Garrison != null) describe = "Garrison with " + ArmyString(Garrison.Army);
-            if (NeutralArmy != null) describe = "Neutral army" + ArmyString(NeutralArmy.Army);
+            if (NeutralArmy != null) describe = "Neutral army with " + ArmyString(NeutralArmy.Army);
             if (Mine != null) describe = "Mine of "+Mine.Resource.ToString();
             if (Dwelling != null) describe = "Dwelling of " + Dwelling.UnitType;
             if (ResourcePile != null) describe = "Resource pile of "+ResourcePile.Amount+" "+ResourcePile.Resource.ToString();

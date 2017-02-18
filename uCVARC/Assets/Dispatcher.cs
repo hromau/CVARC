@@ -8,6 +8,8 @@ using Assets.Tools;
 using Infrastructure;
 using UnityCommons;
 using System;
+using System.Collections;
+using Assets.Dlc;
 
 public static class Dispatcher
 {
@@ -22,13 +24,11 @@ public static class Dispatcher
     static bool switchingScenes;
     static bool shutdown;
 
-
+    static bool isStarted;
     
 
-    public static void Start()
+    public static IEnumerator Start(Func<IEnumerator, Coroutine> startCoroutine)
     {
-
-
         Time.timeScale = Constants.TimeScale;
         Debugger.Config = Settings.Current.Debugging;
         Debugger.Logger += str =>
@@ -54,6 +54,10 @@ public static class Dispatcher
             serviceServer = new ServiceServer(Constants.ServicePort);
             new Thread(serviceServer.Work).Start();
         }
+
+        yield return startCoroutine(new DlcLoader(startCoroutine).LoadAllDlc());
+
+        isStarted = true;
     }
 
 
@@ -86,6 +90,8 @@ public static class Dispatcher
 
     public static void IntroductionTick()
     {
+        if (!isStarted) return;
+
         if (shutdown)
         {
             OnDispose();
@@ -137,6 +143,8 @@ public static class Dispatcher
     // самый ГЛОБАЛЬНЫЙ выход, из всей юнити. Вызывается из сцен.
     public static void OnDispose()
     {
+        if (!isStarted) return;
+
         isGameOver = false;
         if (CurrentWorld != null)
         {

@@ -63,7 +63,7 @@ public class Menu : MonoBehaviour
     void Server()
     {
         startedAt = DateTime.Now;
-        Dispatcher.Start();
+        StartCoroutine(Dispatcher.Start(StartCoroutine));
         
     }
 

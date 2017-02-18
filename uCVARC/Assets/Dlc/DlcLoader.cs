@@ -9,17 +9,24 @@ using Infrastructure;
 
 namespace Assets.Dlc
 {
-    public class DlcLoader : MonoBehaviour
+    public class DlcLoader
     {
-        public void Start()
+        Func<IEnumerator, Coroutine> startCoroutine;
+
+        public DlcLoader(Func<IEnumerator, Coroutine> startCoroutine)
+        {
+            this.startCoroutine = startCoroutine;
+        }
+
+        public IEnumerator LoadAllDlc()
         {
             Debugger.Log("DlcLoader started");
-            LoadBundles();
+            yield return startCoroutine(LoadBundles());
             LoadAssemblies();
             PrefabLoader.SetAssetBundles(Dlc.BundleCache);
         }
 
-        private void LoadBundles()
+        private IEnumerator LoadBundles()
         {
             foreach (var bundleName in Settings.Current.DlcBundles)
             {
@@ -27,7 +34,7 @@ namespace Assets.Dlc
                 if (!Dlc.BundleCache.ContainsKey(bundleName.ToLower()))
                 {
                     var bundleUrl = UriConstructor.GetUriForBundle(bundleName);
-                    StartCoroutine(LoadBundle(bundleName, bundleUrl));
+                    yield return startCoroutine(LoadBundle(bundleName, bundleUrl));
                     Debugger.Log("Loaded bundle " + bundleName);
                 }
                 else
@@ -79,24 +86,20 @@ namespace Assets.Dlc
             if (bundleUrl == null)
                 throw new ArgumentException("Expected bundleUrl to be string, got null");
 
-            WWW www = new WWW(bundleUrl);
-            yield return www;
+            using (var www = new WWW(bundleUrl))
+            {
+                while (!www.isDone)
+                    yield return www;
 
-            if (www.error != null)
-                throw new Exception("WWW error:" + www.error);
+                if (www.error != null)
+                    throw new Exception("WWW error:" + www.error);
 
-            while (!www.isDone)
-                yield break;
+                if (www.assetBundle == null) throw new InvalidDataException();
 
-            if (www.assetBundle == null) throw new InvalidDataException();
+                Dlc.BundleCache[bundleName] = www.assetBundle;
 
-            Dlc.BundleCache[bundleName] = www.assetBundle;
+                Debugger.Log("Done loading asset bundle: " + bundleName);
+            }
         }
-
-        //private void SendBundles()
-        //{
-        //    PrefabLoader.SetAssetBundles(Dlc.BundleCache);
-        //    Dispatcher.FillLoader();
-        //}
     }
 }

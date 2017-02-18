@@ -12,7 +12,7 @@ public class IntroductionStript : MonoBehaviour
     {
         Application.targetFrameRate = 30;
         if (serverIsRunned) return;
-        Dispatcher.Start();
+        StartCoroutine(Dispatcher.Start(StartCoroutine));
         serverIsRunned = true;
     }
 

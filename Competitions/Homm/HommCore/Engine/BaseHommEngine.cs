@@ -62,7 +62,20 @@ namespace HoMM.Engine
             SetPosition(obj, x, y);
             obj.name = id;
 
-            if (mapObject == MapObject.Hero) InitColor(obj);
+            switch (mapObject)
+            {
+                case MapObject.Hero:
+                    InitColor(obj);
+                    break;
+                case MapObject.Militia:
+                case MapObject.Ranged:
+                    obj.transform.localScale *= 0.9f;
+                    break;
+                case MapObject.Cavalry:
+                    obj.transform.localScale *= 1.35f;
+                    obj.transform.Translate(0, 0.06f, 0);
+                    break;
+            }
 
             return obj;
         }

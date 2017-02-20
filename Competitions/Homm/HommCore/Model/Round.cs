@@ -53,13 +53,11 @@ namespace HoMM
             Debugger.Log("Daily tick");
 
             foreach (var tile in Map)
-                foreach (var obj in tile.Objects)
-                    if (obj is Mine)
-                    {
-                        var m = obj as Mine;
-                        if (m.Owner != null)
-                            m.Owner.GainResources(m.Resource, m.Yield);
-                    }
+                foreach (var mine in tile.Objects.Where(x => x is Mine).Cast<Mine>())
+                {
+                    mine.Owner?.GainResources(mine.Resource, mine.Yield);
+                    mine.Owner?.OnMineOwnForHour(mine);
+                }
 
             DaysPassed++;
             if (DaysPassed % 7 == 0)

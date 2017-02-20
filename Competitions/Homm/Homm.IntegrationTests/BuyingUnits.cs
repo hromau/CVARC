@@ -76,7 +76,7 @@ namespace Homm.IntegrationTests
 
         private void CheckTreasuryAfterUnitBuying(Dwelling dwelling, int requestedCount)
         {
-            var unitCost = UnitConstants.UnitCost[dwelling.UnitType];
+            var unitCost = HommRules.Current.Units.UnitCost[dwelling.UnitType];
             sensorData.MyTreasury.Where(res => !unitCost.ContainsKey(res.Key) && res.Value == MaxResourceCount)
                                  .Should().HaveCount(4 - unitCost.Keys.Count);
 

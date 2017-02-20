@@ -53,7 +53,7 @@ namespace HoMM.World
                 .With(new SimpleSpawner(
                     (map, maze, location) => new Dwelling(UnitType.Militia,
                         location, location == Location.Zero ? location - Vector2i.One : location + Vector2i.One,
-                        UnitConstants.WeeklyGrowth[UnitType.Militia]),
+                        HommRules.Current.Units.WeeklyGrowth[UnitType.Militia]),
                     maze => new[] { Location.Zero, Location.Max(maze.Size) }));
 
             var dwellingsConfig = new SpawnerConfig(Location.Zero, 15, 100, 0.2);
@@ -61,7 +61,7 @@ namespace HoMM.World
             foreach (var unitType in spawnableDwellings)
                 builder = builder.With(new GraphSpawner(random, dwellingsConfig,
                     (map, maze, loc) => new Dwelling(unitType, loc,
-                        FindPlaceForBuilding(map, maze, loc), UnitConstants.WeeklyGrowth[unitType]),
+                        FindPlaceForBuilding(map, maze, loc), HommRules.Current.Units.WeeklyGrowth[unitType]),
                     (map, maze, loc) => IsGoodPlaceForBuilding(map, maze, loc)));
 
             return builder;

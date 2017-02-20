@@ -1,6 +1,5 @@
 ﻿using CVARC.V2;
 using HoMM.Engine;
-using HoMM.Rules;
 using HoMM.World;
 using System.Linq;
 
@@ -8,15 +7,15 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class MovementHelper
     {
-        Location newLocation;
-        IHommEngine hommEngine;
+        readonly Location newLocation;
+        readonly IHommEngine hommEngine;
         ICommonEngine commonEngine;
-        HommWorld world;
-        Player player;
-        Map map;
-        IHommRobot robot;
-        double movementDuration;
-        Direction movementDirection;
+        readonly HommWorld world;
+        readonly Player player;
+        readonly Map map;
+        readonly IHommRobot robot;
+        readonly double movementDuration;
+        readonly Direction movementDirection;
 
         public MovementHelper(IHommRobot robot, Direction movementDirection)
         {

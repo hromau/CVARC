@@ -1,7 +1,6 @@
 ﻿using CVARC.V2;
 using HoMM.Engine;
 using HoMM.Robot;
-using HoMM.Rules;
 using Infrastructure;
 
 namespace HoMM.Robot.ArmyInterface

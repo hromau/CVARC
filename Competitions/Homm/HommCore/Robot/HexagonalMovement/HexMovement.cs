@@ -1,5 +1,4 @@
 ﻿using HoMM.Engine;
-using HoMM.Rules;
 using System;
 
 namespace HoMM.Robot.HexagonalMovement

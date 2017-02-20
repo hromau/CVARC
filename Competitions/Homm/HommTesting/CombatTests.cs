@@ -96,7 +96,7 @@ namespace HexModelTesting
         public void ResolveCombat_TenRanged_ShouldWin_TenInfantry()
         {
             var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenRanged, defending: tenInfantry));
-            var countLeft = 10 - (int)Math.Floor(10 * UnitConstants.CombatMod[UnitType.Infantry][UnitType.Ranged]);
+            var countLeft = 10 - (int)Math.Floor(10 * HommRules.Current.Units.CombatMod[UnitType.Infantry][UnitType.Ranged]);
 
             result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Ranged, countLeft } });
             result.DefendingArmy.Should().BeEmpty();
@@ -106,8 +106,8 @@ namespace HexModelTesting
         public void ResolveCombat_TenInfantry_ShouldWin_FiveCavalry()
         {
             var result = Combat.ResolveBattle(new ArmiesPair(attacking: tenInfantry, defending: fiveCavalry));
-            var countLeft = 10 - (int)Math.Floor(5 * UnitConstants.CombatMod[UnitType.Cavalry][UnitType.Infantry]
-                * UnitConstants.CombatPower[UnitType.Cavalry] / UnitConstants.CombatPower[UnitType.Infantry]);
+            var countLeft = 10 - (int)Math.Floor(5 * HommRules.Current.Units.CombatMod[UnitType.Cavalry][UnitType.Infantry]
+                * HommRules.Current.Units.CombatPower[UnitType.Cavalry] / HommRules.Current.Units.CombatPower[UnitType.Infantry]);
 
             result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, countLeft } });
             result.DefendingArmy.Should().BeEmpty();
@@ -118,8 +118,8 @@ namespace HexModelTesting
         {
             var result = Combat.ResolveBattle(new ArmiesPair(attacking: fiveCavalry, defending: tenRanged));
 
-            var countLeft = 5 - (int)Math.Floor(10 * UnitConstants.CombatMod[UnitType.Ranged][UnitType.Cavalry]
-                * UnitConstants.CombatPower[UnitType.Ranged] / UnitConstants.CombatPower[UnitType.Cavalry]);
+            var countLeft = 5 - (int)Math.Floor(10 * HommRules.Current.Units.CombatMod[UnitType.Ranged][UnitType.Cavalry]
+                * HommRules.Current.Units.CombatPower[UnitType.Ranged] / HommRules.Current.Units.CombatPower[UnitType.Cavalry]);
 
             result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Cavalry, countLeft } });
             result.DefendingArmy.Should().BeEmpty();

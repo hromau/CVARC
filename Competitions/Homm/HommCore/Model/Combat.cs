@@ -100,13 +100,13 @@ namespace HoMM
 
         private static int CalculateArmyLossWhenTargetDies(UnitType targetType, int targetCount)
         {
-            return UnitConstants.CombatPower[targetType] * targetCount;
+            return HommRules.Current.Units.CombatPower[targetType] * targetCount;
         }
 
         private static int GetKilledUnitsCountForTarget(UnitType attackerType, int attackerCount, UnitType targetType, int targetCount)
         {
-            var producedDamage = UnitConstants.CombatPower[attackerType] * attackerCount * UnitConstants.CombatMod[attackerType][targetType];
-            var killedUnits = (int)Math.Floor(producedDamage / UnitConstants.CombatPower[targetType]);
+            var producedDamage = HommRules.Current.Units.CombatPower[attackerType] * attackerCount * HommRules.Current.Units.CombatMod[attackerType][targetType];
+            var killedUnits = (int)Math.Floor(producedDamage / HommRules.Current.Units.CombatPower[targetType]);
             return Math.Min(killedUnits, targetCount);
         }
     }

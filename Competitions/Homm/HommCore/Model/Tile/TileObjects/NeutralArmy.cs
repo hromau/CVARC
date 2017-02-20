@@ -39,17 +39,17 @@ namespace HoMM
             var dominatingUnitType = random.Choice<UnitType>();
             var dominationFraction = 0.7;
 
-            var dominatorCombatPower = UnitConstants.CombatPower[dominatingUnitType];
+            var dominatorCombatPower = HommRules.Current.Units.CombatPower[dominatingUnitType];
             var dominatingUnitsCount = (int)Math.Ceiling((armyStrength * dominationFraction) / dominatorCombatPower);
 
             var army = new Dictionary<UnitType, int> { { dominatingUnitType, dominatingUnitsCount } };
-            var currentStrength = dominatingUnitsCount * UnitConstants.CombatPower[dominatingUnitType];
+            var currentStrength = dominatingUnitsCount * HommRules.Current.Units.CombatPower[dominatingUnitType];
 
             while(currentStrength < armyStrength)
             {
                 var nextUnit = random.Choice<UnitType>();
                 army[nextUnit] = army.GetOrDefault(nextUnit, 0) + 1;
-                currentStrength += UnitConstants.CombatPower[nextUnit];
+                currentStrength += HommRules.Current.Units.CombatPower[nextUnit];
             }
 
             return new NeutralArmy(army, location);

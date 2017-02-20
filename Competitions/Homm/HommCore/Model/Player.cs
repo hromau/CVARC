@@ -32,21 +32,18 @@ namespace HoMM
 
 
         public event Action<Resource, int> ResourcesGained;
-        public event Action<Resource, int> ResourcesPaid;
         public event Action<Resource, int> ResourcesUpdated;
         public event Action<ICombatable, Dictionary<UnitType, int>> VictoryAchieved;
-        public event Action<Mine> MineCaptured;
-        public event Action<Dwelling> DwellingCaptured;
         public event Action<UnitType, int> ArmyUpdated;
+        public event Action<UnitType, int> UnitsAdded;
+        public event Action<Mine> OwnMineForHour;
 
         internal void OnResourcesGained(Resource resource, int deltaAmount) => ResourcesGained?.Invoke(resource, deltaAmount);
-        internal void OnResourcesPaid(Resource resource, int deltaAmount) => ResourcesPaid?.Invoke(resource, deltaAmount);
         internal void OnResourcesUpdated(Resource resource, int currentAmount) => ResourcesUpdated?.Invoke(resource, currentAmount);
         internal void OnVictoryAchieved(ICombatable opponent, Dictionary<UnitType, int> army) => VictoryAchieved?.Invoke(opponent, army);
-        internal void OnMineCaptured(Mine mine) => MineCaptured?.Invoke(mine);
-        internal void OnDwellingCaptured(Dwelling dwelling) => DwellingCaptured?.Invoke(dwelling);
         internal void OnArmyUpdated(UnitType unit, int count) => ArmyUpdated?.Invoke(unit, count);
-
+        internal void OnUnitsAdded(UnitType unit, int count) => UnitsAdded?.Invoke(unit, count);
+        internal void OnMineOwnForHour(Mine mine) => OwnMineForHour?.Invoke(mine);
 
         public int CheckResourceAmount(Resource res)
         {
@@ -74,10 +71,9 @@ namespace HoMM
             if (amount < 0)
                 throw new ArgumentException("Cannot 'pay' positive resources!");
             if (amount > Resources[res])
-                throw new ArgumentException("Not enough " + res.ToString() + " to pay " + amount);
+                throw new ArgumentException($"Not enough {res} to pay {amount}");
             Resources[res] -= amount;
 
-            OnResourcesPaid(res, amount);
             OnResourcesUpdated(res, Resources[res]);
         }
 
@@ -88,6 +84,7 @@ namespace HoMM
                 Army.Add(unitType, 0);
             Army[unitType] += amount;
             OnArmyUpdated(unitType, Army[unitType]);
+            OnUnitsAdded(unitType, amount);
         }
 
         public void SetUnitsCount(UnitType unitType, int amount)

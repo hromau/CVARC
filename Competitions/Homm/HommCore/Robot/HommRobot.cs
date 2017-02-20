@@ -1,6 +1,5 @@
 ﻿using CVARC.V2;
 using HoMM.Engine;
-using HoMM.Rules;
 using HoMM.Sensors;
 using HoMM.Robot.ArmyInterface;
 using HoMM.Robot.HexagonalMovement;
@@ -37,7 +36,7 @@ namespace HoMM.Robot
             base.AdditionalInitialization();
 
             if (World != null)
-                Player = World.Players.Where(p => p.Name == ControllerId).Single();
+                Player = World.Players.Single(p => p.Name == ControllerId);
         }
 
         public void Die()

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using FluentAssertions;
 using HoMM;
-using HoMM.Rules;
 using NUnit.Framework;
 
 namespace Homm.IntegrationTests
@@ -38,7 +37,7 @@ namespace Homm.IntegrationTests
             CaptureAllMines();
             MoveHero(Direction.Down);
             MoveHero(Direction.RightDown, 10);
-            sensorData.MyTreasury.Values.All(val => val == HommRules.Current.MineCaptureScores)
+            sensorData.MyTreasury.Values.All(val => val == HommRules.Current.MineDailyYield)
                                         .Should().BeTrue();
 
         }

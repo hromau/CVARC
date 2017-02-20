@@ -1,6 +1,5 @@
 ﻿using CVARC.V2;
 using HoMM.Engine;
-using HoMM.Rules;
 using HoMM.World;
 using Infrastructure;
 using System;
@@ -11,10 +10,10 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class CombatHelper
     {
-        IHommRobot robot;
-        HommWorld world;
-        Player player;
-        IHommEngine hommEngine;
+        readonly IHommRobot robot;
+        readonly HommWorld world;
+        readonly Player player;
+        readonly IHommEngine hommEngine;
         ICommonEngine commonEngine;
 
         public CombatHelper(IHommRobot robot)

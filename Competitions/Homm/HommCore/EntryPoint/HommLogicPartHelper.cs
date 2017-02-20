@@ -1,7 +1,6 @@
 ﻿using CVARC.V2;
 using HoMM.Engine;
 using HoMM.Robot;
-using HoMM.Rules;
 using HoMM.Robot.ArmyInterface;
 using HoMM.Robot.HexagonalMovement;
 using HoMM.World;

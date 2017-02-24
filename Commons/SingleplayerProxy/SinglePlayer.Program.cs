@@ -84,7 +84,8 @@ namespace SingleplayerProxy
                     return;
                 }
                 Console.WriteLine("Update available! Start to download...");
-                KillUnity();
+                if (IsUnityUp())
+                    KillUnity();
                 Thread.Sleep(1000);
                 WebHelper.DownloadFile(SingleplayerProxyConfigurations.UrlToGetUpdate, "update.zip").Wait();
                 InstallUpdate("update.zip");

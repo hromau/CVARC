@@ -18,7 +18,10 @@ namespace SingleplayerProxy
         static void Main(string[] args)
         {
             if (args.Length == 1 && args[0] == "-d")
+            {
                 SingleplayerProxyConfigurations.DebugMode = true;
+                SingleplayerProxyConfigurations.UpdateEnabled = false;
+            }
 
             ReloadVersion();
 

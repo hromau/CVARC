@@ -6,7 +6,7 @@ namespace SingleplayerProxy
     public static class SingleplayerProxyConfigurations
     {
         public static bool DebugMode = false; // do not check and do not start unity
-        public const bool UpdateEnabled = true;
+        public static bool UpdateEnabled = true;
         public const string PathToVersionFile = "version";
         public static readonly string PathToUnityDir = AppDomain.CurrentDomain.BaseDirectory;
         public const string UnityExePath = "ucvarc.exe";

@@ -187,7 +187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1675365854}
   - component: {fileID: 1675365855}
-  - component: {fileID: 1675365856}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -219,16 +218,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2aa663d8aadf804894d405160514c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuBackground: {fileID: 0}
   ButtonTexture: {fileID: 2800000, guid: 54988868e5334ba45bcbcee2c2194bb4, type: 3}
---- !u!114 &1675365856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1675365853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a1a3b650b425e48bd24d71f1ca9423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

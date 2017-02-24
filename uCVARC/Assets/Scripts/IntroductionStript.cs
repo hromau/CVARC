@@ -30,7 +30,7 @@ public class IntroductionStript : MonoBehaviour
     const float buttonWidth = 150.0f;
     const float buttonHeight = 30.0f;
 
-    public Texture MenuBackground, ButtonTexture;
+    public Texture ButtonTexture;
 
     public void OnGUI()
     {

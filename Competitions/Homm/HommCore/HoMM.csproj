@@ -133,7 +133,7 @@
     <Compile Include="Robot\ArmyInterface\IArmyInterfaceCommand.cs" />
     <Compile Include="Robot\ArmyInterface\ArmyInterfaceUnit.cs" />
     <Compile Include="Common\Direction.cs" />
-    <Compile Include="Robot\ArmyInterface\PurchaseOrder.cs" />
+    <Compile Include="Robot\ArmyInterface\HireOrder.cs" />
     <Compile Include="Robot\HexagonalMovement\IHexMovCommand.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovUnit.cs" />
     <Compile Include="Robot\IHommRobot.cs" />

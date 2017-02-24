@@ -20,7 +20,7 @@ namespace Homm.IntegrationTests
         public void DontBuy_WhenCurrentLocationIsEmpty()
         {
             GainAllResources();
-            sensorData = client.PurchaseUnits(100);
+            sensorData = client.HireUnits(100);
             sensorData.MyTreasury.Values.All(val => val == MaxResourceCount).Should().BeTrue();
             sensorData.MyArmy.Values.All(val => val == 0).Should().BeTrue();
         }
@@ -63,7 +63,7 @@ namespace Homm.IntegrationTests
             dwelling.UnitType.Should().Be(requestedUnitType);
             var requestedCount = dwelling.AvailableToBuyCount;
 
-            sensorData = client.PurchaseUnits(requestedCount);
+            sensorData = client.HireUnits(requestedCount);
             CheckUnitsCount(dwelling, requestedCount);
             CheckTreasuryAfterUnitBuying(dwelling, requestedCount);
         }

@@ -26,7 +26,7 @@ namespace HoMM
                 pool.Add(Keys.Q, () => new HommCommand { Movement = new HexMovement(Direction.LeftUp) });
                 pool.Add(Keys.E, () => new HommCommand { Movement = new HexMovement(Direction.RightUp) });
 
-                pool.Add(Keys.Space, () => new HommCommand { Order = new PurchaseOrder(5) });
+                pool.Add(Keys.Space, () => new HommCommand { Order = new HireOrder(5) });
 
                 pool.Add(Keys.X, () => new HommCommand
                 {
@@ -42,7 +42,7 @@ namespace HoMM
                 pool.Add(Keys.U, () => new HommCommand { Movement = new HexMovement(Direction.LeftUp) });
                 pool.Add(Keys.O, () => new HommCommand { Movement = new HexMovement(Direction.RightUp) });
 
-                pool.Add(Keys.Enter, () => new HommCommand { Order = new PurchaseOrder(5) });
+                pool.Add(Keys.Enter, () => new HommCommand { Order = new HireOrder(5) });
 
                 pool.Add(Keys.M, () => new HommCommand
                 {

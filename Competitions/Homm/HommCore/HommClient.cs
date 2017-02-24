@@ -52,9 +52,9 @@ namespace HoMM
             return Act(new HommCommand { Movement = new HexMovement(direction) });
         }
 
-        public TSensorData PurchaseUnits(int count)
+        public TSensorData HireUnits(int count)
         {
-            return Act(new HommCommand { Order = new PurchaseOrder(count) });
+            return Act(new HommCommand { Order = new HireOrder(count) });
         }
 
         public TSensorData BuildGarrison(Dictionary<UnitType, int> garrisonArmy)

@@ -16,7 +16,7 @@ namespace HoMM.Robot
         public HexMovement Movement { get; set; }
 
         [DataMember]
-        public PurchaseOrder Order { get; set; }
+        public HireOrder Order { get; set; }
 
         [DataMember]
         public Dictionary<UnitType, int> WaitInGarrison { get; set; }

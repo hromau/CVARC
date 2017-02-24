@@ -78,8 +78,7 @@ public static class Dispatcher
 
     public static void FillLoader(Competitions level)
     {
-        var currentLevel = level; // это здесь не просто так: http://stackoverflow.com/questions/14907987/access-to-foreach-variable-in-closure-warning
-        Loader.AddLevel(level.CompetitionsName.ToLower(), level.LevelName.ToLower(), () => currentLevel);
+        Loader.AddLevel(level.CompetitionsName.ToLower(), level.LevelName.ToLower(), () => level);
         Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
     }
 

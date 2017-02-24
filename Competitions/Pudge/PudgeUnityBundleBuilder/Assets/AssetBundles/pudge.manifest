@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1617657172
+CRC: 389060407
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 19a6432c15197a8876f24ffccef80530
+    Hash: 7d2f6a7dfd14ecf38a5f1e165bd6b761
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1025815026f403eb9c5f697bfe701e13
+    Hash: 88a9a3fe9089f4a3d847e240d364a623
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -67,6 +67,7 @@ Assets:
 - Assets/Resources/GrassTexture.png
 - Assets/Resources/Prefabs/GoldXPRune.prefab
 - Assets/Resources/Materials/Transparent.mat
+- Assets/Background.png
 - Assets/Resources/Prefabs/IllusionRune.prefab
 - Assets/Resources/Prefabs/Ward.prefab
 - Assets/PudgeSource/Pudge.bytes

@@ -13,7 +13,7 @@ namespace HoMM.Engine
         {
             base.SetUpScene(width, height);
 
-            var desk = PrefabLoader.GetPrefab<GameObject>("homm", "desktop");
+            var desk = AssetLoader.LoadAsset<GameObject>("homm", "desktop");
             GameObject.Instantiate(desk);
         }
 

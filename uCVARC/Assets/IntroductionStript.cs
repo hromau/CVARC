@@ -3,6 +3,7 @@ using System;
 using Assets;
 using Infrastructure;
 using CVARC.V2;
+using Assets.Dlc;
 
 public class IntroductionStript : MonoBehaviour
 {
@@ -26,52 +27,50 @@ public class IntroductionStript : MonoBehaviour
         Dispatcher.OnDispose();
     }
 
-    const float
-        kMenuWidth = 400.0f, // ширина меню то, куда кнопочки натыканы
-        kMenuHeight = 241.0f,
-        kButtonWidth = 175.0f,
-        kButtonHeight = 30.0f;
+    const float buttonWidth = 150.0f;
+    const float buttonHeight = 30.0f;
 
-    public Texture menuBackground, button;
+    public Texture MenuBackground, ButtonTexture;
 
     public void OnGUI()
     {
-        GUI.Window(
-            0,
-            new Rect(
-                (Screen.width - kMenuWidth) * 0.5f,
-                (Screen.height - kMenuHeight) * 0.5f,
-                kMenuWidth,
-                kMenuHeight),
-            TestsWindow,
-            "CVARC Pudge Wars");
+        var windowRect = new Rect(
+            Screen.width * 0.2f, Screen.height * 0.2f,
+            Screen.width * 0.6f, Screen.height * 0.6f
+       );
+
+        if (!Dispatcher.isStarted)
+        {
+            GUI.Window(0, windowRect, _ => { }, "Loading...");
+            return;
+        }
+
+        var competitionsName = Dlc.FullCompetitionsName[Settings.Current.TutorialCompetitions];
+        GUI.Window(0, windowRect, _ => MainMenuWindow(windowRect), "CVARC - " + competitionsName);
     }
 
-    void TestsWindow(int windowID)
+    void MainMenuWindow(Rect windowRect)
     {
-        Rect menuRect = new Rect(
-            10,
-            25,
-            kMenuWidth - 20,
-            kMenuHeight - 35
-        );
+        var menuBackground = Dlc.MenuBackgroundForCompetitions[Settings.Current.TutorialCompetitions];
 
-        GUI.DrawTexture(menuRect, menuBackground);
+        Rect backgroundRect = new Rect(3, 17, windowRect.width-6, windowRect.height-20);
+        GUI.DrawTexture(backgroundRect, menuBackground, ScaleMode.ScaleAndCrop);
 
-        LoadingData data = new LoadingData();
-        data.AssemblyName = Settings.Current.TutorialCompetitions;
-        data.Level = Settings.Current.TutorialLevel;
-        
+        Rect menuRect = new Rect(50, 50, 200, 200);
         GUILayout.BeginArea(menuRect);
 
-        MenuButton(button, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(data));
-        
+        MenuButton(ButtonTexture, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(new LoadingData
+        {
+            AssemblyName = Settings.Current.TutorialCompetitions,
+            Level = Settings.Current.TutorialLevel
+        }));
+
         GUILayout.EndArea();
     }
 
     public static void MenuButton(Texture icon, string text, Color color, Action pressAction)
     {
-        Rect rect = GUILayoutUtility.GetRect(kButtonWidth, kButtonHeight, GUILayout.Width(kButtonWidth), GUILayout.Height(kButtonHeight));
+        Rect rect = GUILayoutUtility.GetRect(buttonWidth, buttonHeight, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight));
         switch (Event.current.type)
         {
             case EventType.MouseUp:
@@ -93,7 +92,7 @@ public class IntroductionStript : MonoBehaviour
 
     public static string TextField(string startText)
     {
-        Rect rect = GUILayoutUtility.GetRect(kButtonWidth, kButtonHeight, GUILayout.Width(kButtonWidth), GUILayout.Height(kButtonHeight));
+        Rect rect = GUILayoutUtility.GetRect(buttonWidth, buttonHeight, GUILayout.Width(buttonWidth), GUILayout.Height(buttonHeight));
         return GUI.TextField(rect, startText);
     }
 }

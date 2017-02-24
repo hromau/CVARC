@@ -22,8 +22,8 @@ namespace Assets.Dlc
         {
             Debugger.Log("DlcLoader started");
             yield return startCoroutine(LoadBundles());
+            AssetLoader.SetAssetBundles(Dlc.BundleCache);
             LoadAssemblies();
-            PrefabLoader.SetAssetBundles(Dlc.BundleCache);
         }
 
         private IEnumerator LoadBundles()
@@ -73,9 +73,19 @@ namespace Assets.Dlc
                 .Where(t => typeof(IDlcEntryPoint).IsAssignableFrom(t))
                 .Single();
 
-            var entryPoint = (IDlcEntryPoint)Activator.CreateInstance(entryPointType);
+            var assemblyEntryPoint = (IDlcEntryPoint)Activator.CreateInstance(entryPointType);
 
-            Dispatcher.FillLoader(entryPoint);
+            ActivateEntryPoint(assemblyEntryPoint);
+        }
+
+        private void ActivateEntryPoint(IDlcEntryPoint entryPoint)
+        {
+            foreach (var level in entryPoint.GetLevels())
+            {
+                Dispatcher.FillLoader(level);
+                Dlc.MenuBackgroundForCompetitions[level.CompetitionsName] = entryPoint.MenuBackground;
+                Dlc.FullCompetitionsName[level.CompetitionsName] = entryPoint.FullCompetitionsName;
+            }
         }
 
         private IEnumerator LoadBundle(string bundleName, string bundleUrl)

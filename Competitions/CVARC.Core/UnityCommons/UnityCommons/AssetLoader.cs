@@ -7,12 +7,12 @@ using Object = UnityEngine.Object;
 
 namespace UnityCommons
 {
-    public class PrefabNotFoundException : ApplicationException
+    public class AssetNotFoundException : ApplicationException
     {
-        static string messageTemplate = "Prefab `{0}` is not found in bundle `{1}`!";
+        static string messageTemplate = "Asset `{0}` is not found in bundle `{1}`!";
 
-        public PrefabNotFoundException(string prefabName, string bundleName)
-            : base(string.Format(messageTemplate, prefabName, bundleName)) { }
+        public AssetNotFoundException(string assetName, string bundleName)
+            : base(string.Format(messageTemplate, assetName, bundleName)) { }
     }
 
     public class BundleNotFoundException : ApplicationException
@@ -23,7 +23,7 @@ namespace UnityCommons
             : base(string.Format(messageTemplate, bundleName)) { }
     }
 
-    public static class PrefabLoader
+    public static class AssetLoader
     {
         private static Dictionary<string, AssetBundle> _assetBundles;
 
@@ -32,7 +32,7 @@ namespace UnityCommons
             _assetBundles = bundles;
         }
 
-        private static Object InstantiatePrefab(string bundle, string name)
+        private static Object LoadAsset(string bundle, string name, Type type)
         {
             if (_assetBundles == null)
             {
@@ -43,15 +43,15 @@ namespace UnityCommons
             if (!_assetBundles.ContainsKey(bundle))
                 throw new BundleNotFoundException(bundle);
 
-            return _assetBundles[bundle].LoadAsset(name);
+            return _assetBundles[bundle].LoadAsset(name, type);
         }
 
-        public static T GetPrefab<T>(string bundle, string name) where T : UnityEngine.Object
+        public static T LoadAsset<T>(string bundle, string name) where T : Object
         {
-            var prefab = InstantiatePrefab(bundle, name);
-            if (prefab == null)
-                throw new PrefabNotFoundException(name, bundle);
-            return (T)prefab;
+            var asset = LoadAsset(bundle, name, typeof(T)) as T;
+            if (asset == null)
+                throw new AssetNotFoundException(name, bundle);
+            return asset;
         }
     }
 }

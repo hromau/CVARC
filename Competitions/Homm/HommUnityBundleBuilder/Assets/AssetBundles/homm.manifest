@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2236184691
+CRC: 2322416612
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fa1a9f3f7e12b64ca3125d9ba10efd6b
+    Hash: 1b3aab00c74d663de0c309b6b658b674
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1d7593e7cef527b203d8bbac90c7a89f
@@ -41,11 +41,16 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Prefabs/desktop.prefab
+- Assets/Backgrounds/bg3.png
 - Assets/Prefabs/dwelling.prefab
+- Assets/Backgrounds/bg7.png
 - Assets/Prefabs/infantry.prefab
 - Assets/Prefabs/deathForest.prefab
+- Assets/Backgrounds/bg1.png
 - Assets/Prefabs/hero.prefab
 - Assets/Prefabs/pickaxeMarker.prefab
+- Assets/Backgrounds/bg2.png
+- Assets/Backgrounds/bg4.png
 - Assets/Prefabs/roadTile.prefab
 - Assets/Prefabs/marshTile.prefab
 - Assets/Prefabs/circleMarker.prefab
@@ -54,11 +59,13 @@ Assets:
 - Assets/Prefabs/snowTile.prefab
 - Assets/Prefabs/mine.prefab
 - Assets/Prefabs/ranged.prefab
+- Assets/Backgrounds/bg6.png
 - Assets/Prefabs/summerForest.prefab
 - Assets/Prefabs/resources.prefab
 - Assets/Prefabs/mountains.prefab
 - Assets/Prefabs/winterForest.prefab
 - Assets/Prefabs/grassTile.prefab
+- Assets/Backgrounds/bg5.png
 - Assets/Prefabs/flag.prefab
 - Assets/Prefabs/castle.prefab
 - Assets/Prefabs/swordMarker.prefab

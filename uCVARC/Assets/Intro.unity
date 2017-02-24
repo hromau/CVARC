@@ -219,9 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2aa663d8aadf804894d405160514c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuBackground: {fileID: 2800000, guid: 4e0717c92cfbb0d4bbe2b7ba6b2acded, type: 3}
-  button: {fileID: 2800000, guid: 54988868e5334ba45bcbcee2c2194bb4, type: 3}
-  logFile: CvarcTestLog
+  MenuBackground: {fileID: 0}
+  ButtonTexture: {fileID: 2800000, guid: 54988868e5334ba45bcbcee2c2194bb4, type: 3}
 --- !u!114 &1675365856
 MonoBehaviour:
   m_ObjectHideFlags: 0

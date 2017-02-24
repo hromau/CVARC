@@ -24,7 +24,7 @@ public static class Dispatcher
     static bool switchingScenes;
     static bool shutdown;
 
-    static bool isStarted;
+    public static bool isStarted;
     
 
     public static IEnumerator Start(Func<IEnumerator, Coroutine> startCoroutine)
@@ -76,16 +76,11 @@ public static class Dispatcher
         catch { }
     }
 
-
-
-    public static void FillLoader(IDlcEntryPoint entryPoint)
+    public static void FillLoader(Competitions level)
     {
-        foreach (var level in entryPoint.GetLevels())
-        {
-            var currentLevel = level; // это здесь не просто так: http://stackoverflow.com/questions/14907987/access-to-foreach-variable-in-closure-warning
-            Loader.AddLevel(level.CompetitionsName.ToLower(), level.LevelName.ToLower(), () => currentLevel);
-            Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
-        }
+        var currentLevel = level; // это здесь не просто так: http://stackoverflow.com/questions/14907987/access-to-foreach-variable-in-closure-warning
+        Loader.AddLevel(level.CompetitionsName.ToLower(), level.LevelName.ToLower(), () => currentLevel);
+        Debugger.Log(level.CompetitionsName + " " + level.LevelName + " is loaded");
     }
 
     public static void IntroductionTick()

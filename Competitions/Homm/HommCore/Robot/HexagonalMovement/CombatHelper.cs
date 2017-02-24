@@ -59,7 +59,6 @@ namespace HoMM.Robot.HexagonalMovement
                         Debugger.Log("other is tile object, delete it");
 
                         ((TileObject)other).OnRemove();
-                        player.OnVictoryAchieved(other, initialOtherArmy);
                     }
 
                     if (other is Player)
@@ -72,9 +71,9 @@ namespace HoMM.Robot.HexagonalMovement
                             .Where(x => x.Player.Name == otherPlayer.Name)
                             .Single()
                             .Die();
-
-                        player.OnVictoryAchieved(otherPlayer, otherPlayer.Army);
                     }
+
+                    player.OnVictoryAchieved(other, initialOtherArmy);
                 }
                 else
                 {
@@ -90,8 +89,8 @@ namespace HoMM.Robot.HexagonalMovement
                     onPlayerWin();
                 }
 
-                robotTile.EndFight();
-                otherTile.EndFight();
+                robotTile.EndCombat();
+                otherTile.EndCombat();
             }));
         }
     }

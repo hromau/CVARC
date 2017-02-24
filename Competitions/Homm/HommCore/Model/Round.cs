@@ -56,7 +56,7 @@ namespace HoMM
                 foreach (var mine in tile.Objects.Where(x => x is Mine).Cast<Mine>())
                 {
                     mine.Owner?.GainResources(mine.Resource, mine.Yield);
-                    mine.Owner?.OnMineOwnForHour(mine);
+                    mine.Owner?.OnMineOwnForOneDay(mine);
                 }
 
             DaysPassed++;

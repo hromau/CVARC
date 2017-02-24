@@ -36,14 +36,14 @@ namespace HoMM
         public event Action<ICombatable, Dictionary<UnitType, int>> VictoryAchieved;
         public event Action<UnitType, int> ArmyUpdated;
         public event Action<UnitType, int> UnitsAdded;
-        public event Action<Mine> OwnMineForHour;
+        public event Action<Mine> OwnMineForOneDay;
 
         internal void OnResourcesGained(Resource resource, int deltaAmount) => ResourcesGained?.Invoke(resource, deltaAmount);
         internal void OnResourcesUpdated(Resource resource, int currentAmount) => ResourcesUpdated?.Invoke(resource, currentAmount);
         internal void OnVictoryAchieved(ICombatable opponent, Dictionary<UnitType, int> army) => VictoryAchieved?.Invoke(opponent, army);
         internal void OnArmyUpdated(UnitType unit, int count) => ArmyUpdated?.Invoke(unit, count);
         internal void OnUnitsAdded(UnitType unit, int count) => UnitsAdded?.Invoke(unit, count);
-        internal void OnMineOwnForHour(Mine mine) => OwnMineForHour?.Invoke(mine);
+        internal void OnMineOwnForOneDay(Mine mine) => OwnMineForOneDay?.Invoke(mine);
 
         public int CheckResourceAmount(Resource res)
         {

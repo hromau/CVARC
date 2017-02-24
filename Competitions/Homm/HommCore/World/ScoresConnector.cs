@@ -13,13 +13,17 @@ namespace HoMM.World
             var r = HommRules.Current;
             var id = player.Name;
 
-            player.UnitsAdded += (unit, count) => scoreboard.Add(id, r.Units.Scores[unit], $"War: {count} {unit} {(count == 1 ? "is" : "are")} hired.");
+            player.UnitsAdded += (unit, count) => 
+                scoreboard.Add(id, r.Units.Scores[unit]*count, $"Military: {count} {unit} {(count == 1 ? "is" : "are")} hired.");
 
-            player.ResourcesGained += (res, count) => scoreboard.Add(id, r.ResourcesGainScores*count, $"Economics: got {count} {res}.");
+            player.ResourcesGained += (res, count) => 
+                scoreboard.Add(id, r.ResourcesGainScores, $"Economics: got {count} {res}.");
 
-            player.OwnMineForHour += _ => scoreboard.Add(id, r.MineOwningScores, "Domination: own mine");
+            player.OwnMineForOneDay += _ => 
+                scoreboard.Add(id, r.MineOwningScores, "Domination: own mine");
 
-            player.VictoryAchieved += (opponent, army) => scoreboard.Add(id, GetArmyDefeatBonus(army), "War: victory is achieved in combat.");
+            player.VictoryAchieved += (opponent, army) => 
+                scoreboard.Add(id, GetArmyDefeatBonus(army), "War: victory is achieved in combat.");
         }
 
         private static int GetArmyDefeatBonus(Dictionary<UnitType, int> army)

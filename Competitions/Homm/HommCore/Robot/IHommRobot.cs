@@ -7,6 +7,7 @@ namespace HoMM.Robot
     {
         new HommWorld World { get; }
         Player Player { get; }
+        bool IsDead { get; }
 
         void Die();
     }

@@ -94,6 +94,7 @@ namespace HoMM.Robot.HexagonalMovement
             return world.Actors
                 .Where(x => x is IHommRobot)
                 .Cast<IHommRobot>()
+                .Where(x => !x.IsDead)
                 .Where(x => x.Player.Location == newLocation)
                 .FirstOrDefault();
         }
@@ -101,6 +102,7 @@ namespace HoMM.Robot.HexagonalMovement
         private double HandleOtherRobot(IHommRobot otherRobot)
         {
             BeginCombat(otherRobot.Player, map[robot.Player.Location], map[newLocation]);
+            otherRobot.ControlTrigger.ScheduledTime += HommRules.Current.CombatDuration;
             return HommRules.Current.CombatDuration;
         }
 
@@ -109,6 +111,7 @@ namespace HoMM.Robot.HexagonalMovement
             return world.Actors
                 .Where(x => x is IHommRobot)
                 .Cast<IHommRobot>()
+                .Where(x => !x.IsDead)
                 .Where(x => x.Player.DisiredLocation == newLocation)
                 .FirstOrDefault();
         }

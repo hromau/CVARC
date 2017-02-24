@@ -21,6 +21,8 @@ namespace HoMM.Robot
         public IHommEngine HommEngine { get; }
         public Map Map => World.Round.Map;
 
+        public bool IsDead { get; private set; }
+
         public HommRobot()
         {
             Units = new List<IUnit>
@@ -37,11 +39,15 @@ namespace HoMM.Robot
 
             if (World != null)
                 Player = World.Players.Single(p => p.Name == ControllerId);
+
+            Debugger.Log($"Initialize robot. ObjectId: {ObjectId}, ControllerId: {ControllerId}");
         }
 
         public void Die()
         {
             Debugger.Log("Die!");
+
+            IsDead = true;
 
             World.CommonEngine.DeleteObject(ControllerId);
 
@@ -55,6 +61,8 @@ namespace HoMM.Robot
                 Player.DisiredLocation = Player.Location;
 
                 World.HommEngine.CreateObject(ControllerId, MapObject.Hero, Player.Location.X, Player.Location.Y);
+
+                IsDead = false;
             }));
         }
     }

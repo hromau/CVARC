@@ -66,7 +66,7 @@ namespace CVARC.V2
             catch(Exception e)
             {
                 controller.SendError(e);
-                nextTime = base.ThisCall + 1;
+                nextTime = double.PositiveInfinity;
             }
         }
     }

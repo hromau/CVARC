@@ -74,6 +74,8 @@ namespace CVARC.V2
                 return result.Item1;
             }
 
+            SendError(new Exception("Operational time limit exceed"));
+
             Thread.Sleep(100);//without this sleep, if computer performs badly and units contain multiple triggers, the server will be stopped before test client receives data, hence client will throw exception.
        
 			client.Close();

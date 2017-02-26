@@ -90,5 +90,15 @@ namespace CVARC.V2
                 Message = JObject.FromObject(sensorData)
             };
         }
+
+        public void SendError(Exception e)
+        {
+            var msh = new PlayerMessage
+            {
+                MessageType = MessageType.Error,
+                Message = JObjectHelper.CreateSimple<string>(e.GetType().Name + ": " + e.Message)
+            };
+            client.WriteJson(msh);
+        }
     }
 }

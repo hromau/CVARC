@@ -7,7 +7,7 @@ namespace HoMM.Sensors
     {
         public override bool Measure()
         {
-            return Actor.IsDisabled;
+            return Actor.IsDead;
         }
     }
 }

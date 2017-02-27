@@ -62,9 +62,13 @@ namespace ReplayDebugger
         {
             foreach(var e in list)
             {
-                client.ReadJson<JObject>();
+                var  q= client.ReadJson<PlayerMessage>();
+                if (q.MessageType == MessageType.Error)
+                    Console.WriteLine(q.Message);
                 client.WriteJson(e);
+                Console.Write(".");
             }
+            Console.WriteLine("Done");
             client.Close();
         }
 

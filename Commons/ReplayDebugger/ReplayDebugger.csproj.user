@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>"D:\Downloads\e498253f-16e4-47de-b9a7-6492a62a22b7.cvarcreplay"</StartArguments>
+    <StartArguments>"D:\Downloads\eb24b49c-5443-4cd3-98d8-7608bcf41d9b %281%29.cvarcreplay"</StartArguments>
   </PropertyGroup>
 </Project>

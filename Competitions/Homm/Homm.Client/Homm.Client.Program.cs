@@ -31,7 +31,7 @@ namespace Homm.Client
                 Program.CvarcTag, 
                 timeLimit : 90,             // Продолжительность матча в секундах (исключая время, которое "думает" ваша программа). 
                 
-                operationalTimeLimit: 5,    // Суммарное время в секундах, которое разрешается "думать" вашей программе. 
+                operationalTimeLimit: 20,    // Суммарное время в секундах, которое разрешается "думать" вашей программе. 
                                             // Вы можете увеличить это время для отладки, чтобы ваш клиент не был отключен, пока вы разглядываете программу в режиме дебаггинга
                 
                 seed: 0,                    // seed карты. Используйте этот параметр, чтобы получать одну и ту же карту и отлаживаться на ней
@@ -43,6 +43,7 @@ namespace Homm.Client
                 
                 );
 
+         
 
             var path = new[] { Direction.RightDown, Direction.RightUp, Direction.RightDown, Direction.RightUp, Direction.LeftDown, Direction.Down, Direction.RightDown, Direction.RightDown, Direction.RightUp };
             sensorData = client.HireUnits(1);

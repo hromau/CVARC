@@ -65,6 +65,7 @@ namespace ReplayDebugger
                 client.ReadJson<JObject>();
                 client.WriteJson(e);
             }
+            client.Close();
         }
 
         private static Dictionary<string,List<JObject>> ParseCommands(ZipEntry replayFile)

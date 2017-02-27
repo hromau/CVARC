@@ -100,7 +100,11 @@ namespace CVARC.V2
                 MessageType = MessageType.Error,
                 Message = JObjectHelper.CreateSimple<string>(e.GetType().Name + ": " + e.Message)
             };
-            client.WriteJson(msh);
+            try
+            {
+                client.WriteJson(msh);
+            }
+            catch { }
         }
     }
 }

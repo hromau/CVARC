@@ -26,6 +26,11 @@ namespace CVARC.V2
         public void Initialize(IActor controllableActor)
         {
             OperationalTimeLimit = controllableActor.World.Configuration.OperationalTimeLimit;
+            controllableActor.World.Exit += () =>
+              {
+                  SendError(new Exception("Time limit exceed"));
+                  client.Close();
+              };
         }
 
         PlayerMessage playerMessage;

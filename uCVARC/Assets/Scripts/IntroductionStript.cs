@@ -27,17 +27,22 @@ public class IntroductionStript : MonoBehaviour
         Dispatcher.OnDispose();
     }
 
-    const float buttonWidth = 150.0f;
-    const float buttonHeight = 30.0f;
+    const int buttonWidth = 150;
+    const int buttonHeight = 30;
+
+    const int windowWidth = 400;
+    const int windowHeight = 400;
+
+    const int menuHeight = 200;
+    const int menuWidth = buttonWidth;
 
     public Texture ButtonTexture;
 
     public void OnGUI()
     {
-        var windowRect = new Rect(
-            Screen.width * 0.2f, Screen.height * 0.2f,
-            Screen.width * 0.6f, Screen.height * 0.6f
-       );
+
+
+        var windowRect = new Rect((Screen.width - windowWidth) / 2, (Screen.height - windowHeight) / 2, windowWidth, windowHeight);
 
         if (!Dispatcher.isStarted)
         {
@@ -46,17 +51,16 @@ public class IntroductionStript : MonoBehaviour
         }
 
         var competitionsName = Dlc.FullCompetitionsName[Settings.Current.TutorialCompetitions];
+        var backgroundRect = new Rect(0, 0, Screen.width, Screen.height);
+
+        GUI.DrawTexture(backgroundRect, Dlc.MenuBackgroundForCompetitions[Settings.Current.TutorialCompetitions], ScaleMode.ScaleAndCrop);
         GUI.Window(0, windowRect, _ => MainMenuWindow(windowRect), "CVARC - " + competitionsName);
     }
 
     void MainMenuWindow(Rect windowRect)
     {
-        var menuBackground = Dlc.MenuBackgroundForCompetitions[Settings.Current.TutorialCompetitions];
 
-        Rect backgroundRect = new Rect(3, 17, windowRect.width-6, windowRect.height-20);
-        GUI.DrawTexture(backgroundRect, menuBackground, ScaleMode.ScaleAndCrop);
-
-        Rect menuRect = new Rect(50, 50, 200, 200);
+        Rect menuRect = new Rect((windowRect.width - menuWidth) / 2, (windowRect.height - menuHeight) / 2, menuWidth, menuHeight);
         GUILayout.BeginArea(menuRect);
 
         MenuButton(ButtonTexture, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(new LoadingData

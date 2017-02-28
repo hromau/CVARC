@@ -29,8 +29,7 @@ namespace HoMM
             };
         }
 
-        public Texture MenuBackground => 
-            AssetLoader.LoadAsset<Texture>("homm", $"bg{ new System.Random().Choice(Enumerable.Range(1, 7).ToArray()) }");
+        public Texture MenuBackground => AssetLoader.LoadAsset<Texture>("homm", "bg.jpg");
 
         public string FullCompetitionsName => "Heroes of Might and Magic";
     }

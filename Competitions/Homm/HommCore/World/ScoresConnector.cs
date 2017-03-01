@@ -14,20 +14,18 @@ namespace HoMM.World
             var id = player.Name;
 
             player.UnitsAdded += (unit, count) => 
-                scoreboard.Add(id, r.Units.Scores[unit]*count, $"{count} {unit} {(count == 1 ? "is" : "are")} hired.", "Military");
+                scoreboard.Add(id, r.Units.Scores[unit]*count, $"{count} {unit} {(count == 1 ? "is" : "are")} hired.", "Military", "Main");
 
             player.ResourcesGained += (res, count) => 
-                scoreboard.Add(id, r.ResourcesGainScores, $"Got {count} {res}.", "Economics");
+                scoreboard.Add(id, r.ResourcesGainScores, $"Got {count} {res}.", "Economics", "Main");
 
             player.OwnMineForOneDay += _ => 
-                scoreboard.Add(id, r.MineOwningScores, "Mine is owned.", "Domination");
+                scoreboard.Add(id, r.MineOwningScores, "Mine is owned.", "Domination", "Main");
 
             player.VictoryAchieved += (opponent, army) => 
-                scoreboard.Add(id, GetArmyDefeatBonus(army), "Victory is achieved in combat.", "War");
+                scoreboard.Add(id, GetArmyDefeatBonus(army), "Victory is achieved in combat.", "War", "Main");
 
-
-            foreach (var scoreType in new[] { "Military", "Economics", "Domination", "War" })
-                scoreboard.Add(id, 0, "Initial score", scoreType);
+            scoreboard.Add(id, 0, "Initial score", "Military", "Economics", "Domination", "War", "Main");
         }
 
         private static int GetArmyDefeatBonus(Dictionary<UnitType, int> army)

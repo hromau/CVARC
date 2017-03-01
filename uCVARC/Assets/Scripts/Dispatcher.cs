@@ -131,15 +131,7 @@ public static class Dispatcher
 
         Debug.Log("game over. disposing");
 
-        var scores = CurrentWorld.Scores.Records
-            .ToDictionary(
-                x => x.Key, 
-                x => x.Value
-                    .GroupBy(z => z.Type)
-                    .ToDictionary(z => z.Key, z => z.Sum(r => r.Count))
-        );
-
-        GameManager.EndGame(new GameResult(scores));
+        GameManager.EndGame(new GameResult(CurrentWorld.Scores.GetSumByType()));
         LogModel = null;
         SwitchScene("Intro");
     }

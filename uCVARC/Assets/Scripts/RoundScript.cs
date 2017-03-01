@@ -6,6 +6,8 @@ using CVARC.V2;
 using AIRLab;
 using Infrastructure;
 using UnityCommons;
+using System.Collections.Generic;
+using System.Text;
 
 public partial class RoundScript : PlayScript
 {
@@ -48,13 +50,35 @@ public partial class RoundScript : PlayScript
             return;
         }
 
-        foreach (var player in world.Scores.GetAllScores())
+        UpdateScores();
+    }
+
+    void UpdateScores()
+    {
+        foreach (var player in world.Scores.GetSumByType())
         {
-            if (player.Item1 == "Left")
-                scoresTextLeft.text = "Left Scores: " + player.Item2;
-            if (player.Item1 == "Right")
-                scoresTextRight.text = "Right Scores: " + player.Item2;
+            var playerName = player.Key;
+            var playerScores = player.Value;
+
+            UpdateScoresForPlayer(playerName, playerScores);
         }
+    }
+
+    void UpdateScoresForPlayer(string playerName, Dictionary<string, int> scores)
+    {
+        var stringBuilder = new StringBuilder();
+
+        stringBuilder.AppendLine(playerName + " scores:");
+
+        foreach (var record in scores.OrderBy(x => x.Key))
+        {
+            var type = record.Key;
+            var count = record.Value;
+
+            stringBuilder.AppendLine(type + " " + count);
+        }
+
+        scoresTextLeft.text = stringBuilder.ToString();
     }
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс
@@ -74,7 +98,7 @@ public partial class RoundScript : PlayScript
 
     void OnGUI()
     {
-        var rect = new Rect(new Vector2(10, 20), new Vector2(100, 30));
+        var rect = new Rect(new Vector2(100, 20), new Vector2(100, 30));
         switch (Event.current.type)
         {
             case EventType.MouseUp:

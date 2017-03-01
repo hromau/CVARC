@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CVARC.V2
 {
-    public class SelfIdSensor : Sensor<string,IActor>
+    public class ActorIdSensor : Sensor<string,IActor>
     {
         public override string Measure()
         {

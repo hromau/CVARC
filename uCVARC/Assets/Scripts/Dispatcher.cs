@@ -10,6 +10,7 @@ using UnityCommons;
 using System;
 using System.Collections;
 using Assets.Dlc;
+using System.Linq;
 
 public static class Dispatcher
 {
@@ -129,7 +130,16 @@ public static class Dispatcher
             return;
 
         Debug.Log("game over. disposing");
-        GameManager.EndGame(new GameResult());
+
+        var scores = CurrentWorld.Scores.Records
+            .ToDictionary(
+                x => x.Key, 
+                x => x.Value
+                    .GroupBy(z => z.Type)
+                    .ToDictionary(z => z.Key, z => z.Sum(r => r.Count))
+        );
+
+        GameManager.EndGame(new GameResult(scores));
         LogModel = null;
         SwitchScene("Intro");
     }

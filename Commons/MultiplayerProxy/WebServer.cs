@@ -14,7 +14,7 @@ namespace MultiplayerProxy
         public static void SendResult(GameResult result)
         {
             log.Debug("SendResults call");
-            log.Debug("Заглушка. Мы получили результат от сервера: " + result.Hehmeh);
+            log.Debug("Заглушка. Мы получили результат от сервера: " + result.ToString());
         }
 
         public static bool CvarcTagExists(Guid guid) => true; //playerGuids.Contains(guid); TODO!!!

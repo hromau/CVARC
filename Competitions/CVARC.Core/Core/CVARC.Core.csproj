@@ -131,7 +131,9 @@
     <Compile Include="Sensors\Implementation\Location\LocatorItem.cs" />
     <Compile Include="Sensors\Implementation\Location\LocatorSensor.cs" />
     <Compile Include="Sensors\Implementation\Location\RobotLocationSensor.cs" />
-    <Compile Include="Sensors\Implementation\SelfIdSensor.cs" />
+    <Compile Include="Sensors\Implementation\ScoresSensor.cs" />
+    <Compile Include="Sensors\Implementation\ActorIdSensor.cs" />
+    <Compile Include="Sensors\Implementation\TimeSensor.cs" />
     <Compile Include="Sensors\ISensor.cs" />
     <Compile Include="Sensors\Sensor.cs" />
     <Compile Include="Sensors\SensorPack.cs" />

@@ -126,7 +126,9 @@ namespace SingleplayerProxy
                 var resultTask = mainConnection.ReadJsonAsync<GameResult>();
                 resultTask.ContinueWith(x =>
                 {
-                    Console.WriteLine(x.IsFaulted ? "Cant get game results." : "Game result is " + x.Result.Hehmeh);
+                    Console.WriteLine(x.IsFaulted 
+                        ? $"Cant get game results. Reason: {x.Exception}" 
+                        : "The game was finished with the following results:" + Environment.NewLine + x.Result.ToString());
                 });
             }
             catch (Exception e)

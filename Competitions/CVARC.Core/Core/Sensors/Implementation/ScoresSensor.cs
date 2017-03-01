@@ -1,13 +1,12 @@
 ﻿using System.Linq;
-using CVARC.V2;
 
-namespace Pudge.Sensors
+namespace CVARC.V2
 {
-    public abstract class ScoreSensor : Sensor<int, IActor>
+    public abstract class ScoresSensor : Sensor<int, IActor>
     {
         public readonly bool MeasureSelf;
 
-        public ScoreSensor(bool measureSelf)
+        public ScoresSensor(bool measureSelf)
         {
             MeasureSelf = measureSelf;
         }
@@ -22,8 +21,8 @@ namespace Pudge.Sensors
         }
     }
 
-    public class SelfScoreSensor : ScoreSensor
+    public class SelfScoresSensor : ScoresSensor
     {
-        public SelfScoreSensor() : base(true) { }
+        public SelfScoresSensor() : base(true) { }
     }
 }

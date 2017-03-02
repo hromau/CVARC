@@ -47,19 +47,34 @@ namespace HoMM
             return Configurate(port, configs, new HommWorldState(seed, debugMap), ip);
         }
 
-        public TSensorData Move(Direction direction)
+        public TSensorData Move(Direction movementDirection)
         {
-            return Act(new HommCommand { Movement = new HexMovement(direction) });
+            return Act(new HommCommand { Movement = new HexMovement(movementDirection) });
         }
 
-        public TSensorData HireUnits(int count)
+        public TSensorData Wait(double waitDurationInSeconds)
         {
-            return Act(new HommCommand { Order = new HireOrder(count) });
+            if (waitDurationInSeconds <= 0)
+                throw new ArgumentException($"Parameter '{nameof(waitDurationInSeconds)}' should be greater than zero.");
+
+            return Act(new HommCommand { Movement = new HexMovement(waitDurationInSeconds) });
         }
 
-        public TSensorData BuildGarrison(Dictionary<UnitType, int> garrisonArmy)
+        public TSensorData HireUnits(int amountOfUnitsToHire)
         {
-            return Act(new HommCommand { WaitInGarrison = garrisonArmy });
+            if (amountOfUnitsToHire <= 0)
+                throw new ArgumentException($"Parameter '{nameof(amountOfUnitsToHire)}' should be greater than zero. Cannot hire a negative amount of units.");
+
+            return Act(new HommCommand { Order = new HireOrder(amountOfUnitsToHire) });
+        }
+
+        public TSensorData BuildGarrison(Dictionary<UnitType, int> armyToLeftInGarrison)
+        {
+            foreach (var kv in armyToLeftInGarrison)
+                if (kv.Value <= 0)
+                    throw new ArgumentException($"Units count in garrison should be greater than zero. Cannot create garrison from negative amount of units.");
+
+            return Act(new HommCommand { WaitInGarrison = armyToLeftInGarrison });
         }
     }
 }

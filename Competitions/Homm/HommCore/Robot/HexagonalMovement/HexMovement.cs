@@ -1,4 +1,5 @@
-﻿using HoMM.Engine;
+﻿using HoMM.ClientClasses;
+using HoMM.Engine;
 using System;
 
 namespace HoMM.Robot.HexagonalMovement
@@ -7,17 +8,19 @@ namespace HoMM.Robot.HexagonalMovement
     public class HexMovement
     {
         public Direction MovementDirection { get; set; }
-        public bool Wait { get; set; }
+        public double WaitDuration { get; set; }
+
+        public HexMovement() { }
 
         public HexMovement(Direction direction)
         {
             MovementDirection = direction;
-            Wait = false;
+            WaitDuration = 0;
         }
 
-        public HexMovement()
+        public HexMovement(double waitDuration)
         {
-            Wait = true;
+            WaitDuration = waitDuration;
         }
 
         public double Apply(IHommRobot robot)
@@ -25,10 +28,10 @@ namespace HoMM.Robot.HexagonalMovement
             robot.World.HommEngine.Freeze(robot.ControllerId);
             robot.World.HommEngine.SetPosition(robot.ControllerId, robot.Player.Location.X, robot.Player.Location.Y);
 
-            if (Wait == true)
+            if (WaitDuration != 0)
             {
                 robot.World.HommEngine.SetAnimation(robot.ControllerId, Animation.Idle);
-                return HommRules.Current.WaitDuration;
+                return WaitDuration;
             }
 
             return new MovementHelper(robot, MovementDirection).CheckForCombatAndMovePlayer();

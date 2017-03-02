@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
 using HoMM.Robot;
 using HoMM.Robot.ArmyInterface;
@@ -53,7 +54,7 @@ namespace HoMM
                 logicPart.Actors[pid] = actorFactory;
 
             logicPart.Bots[HommRules.StandingBotName] = () => 
-                new Bot<HommCommand>(_ => new HommCommand { Movement = new HexMovement() });
+                new Bot<HommCommand>(_ => new HommCommand { Movement = new HexMovement(waitDuration: 0.5) });
 
             return logicPart;
         }

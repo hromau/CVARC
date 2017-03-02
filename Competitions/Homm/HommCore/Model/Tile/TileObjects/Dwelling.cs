@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 
 namespace HoMM
 {

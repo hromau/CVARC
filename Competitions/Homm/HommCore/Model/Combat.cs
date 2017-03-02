@@ -3,15 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HoMM
+namespace HoMM.ClientClasses
 {
-    public class ArmiesPair : Combat.CombatResult
+    public class ArmiesPair
     {
-        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
+        public Dictionary<UnitType, int> AttackingArmy { get; }
+        public Dictionary<UnitType, int> DefendingArmy { get; }
+
+        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending)
+        {
+            AttackingArmy = attacking;
+            DefendingArmy = defending;
+        }
 
         internal bool BothAreNotEmpty()
         {
-            return AttackingArmy.Any(x => x.Value > 0) && DefendingArmy.Any(x => x.Value > 0);
+            return !IsEmpty(AttackingArmy) && !IsEmpty(DefendingArmy);
+        }
+
+        internal bool IsEmpty(Dictionary<UnitType, int> army)
+        {
+            return army.All(x => x.Value <= 0);
         }
 
         internal void Log(string combatState)
@@ -32,28 +44,24 @@ namespace HoMM
 
     public static class Combat
     {
-        public class CombatResult
+        public class CombatResult : ArmiesPair
         {
-            public Dictionary<UnitType, int> AttackingArmy { get; }
-            public Dictionary<UnitType, int> DefendingArmy { get; }
+            public CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
 
-            protected CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending)
-            {
-                AttackingArmy = attacking;
-                DefendingArmy = defending;
-            }
+            public bool IsAttackerWin => !IsEmpty(AttackingArmy) && IsEmpty(DefendingArmy);
+            public bool IsDefenderWin => !IsEmpty(DefendingArmy) && IsEmpty(AttackingArmy);
         }
 
-        internal static void ResolveBattle(ICombatable attacking, ICombatable defending)
+        internal static void Resolve(ICombatable attacking, ICombatable defending)
         {
-            var combatResult = ResolveBattle(new ArmiesPair(attacking.Army, defending.Army));
+            var combatResult = Resolve(new ArmiesPair(attacking.Army, defending.Army));
 
             attacking.SetArmy(combatResult.AttackingArmy);
             defending.SetArmy(combatResult.DefendingArmy);
         }
 
 
-        public static CombatResult ResolveBattle(ArmiesPair armies)
+        public static CombatResult Resolve(ArmiesPair armies)
         {
             armies.Log("Combat began");
 
@@ -67,7 +75,7 @@ namespace HoMM
                 armies.Log("Next turn");
             }
 
-            return armies;
+            return new CombatResult(armies.AttackingArmy, armies.DefendingArmy);
         }
 
         private static Dictionary<UnitType, int> ResolveOneTurn(Dictionary<UnitType, int> attackingArmy, Dictionary<UnitType, int> defendingArmy)

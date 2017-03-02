@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
 using HoMM.Robot;
 using Infrastructure;

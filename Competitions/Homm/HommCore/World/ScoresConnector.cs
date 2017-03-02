@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace HoMM.World
                 scoreboard.Add(id, r.ResourcesGainScores, $"Got {count} {res}.", "Economics", "Main");
 
             player.OwnMineForOneDay += _ => 
-                scoreboard.Add(id, r.MineOwningScores, "Mine is owned.", "Domination", "Main");
+                scoreboard.Add(id, r.MineOwningDailyScores, "Mine is owned.", "Domination", "Main");
 
             player.VictoryAchieved += (opponent, army) => 
                 scoreboard.Add(id, GetArmyDefeatBonus(army), "Victory is achieved in combat.", "War", "Main");

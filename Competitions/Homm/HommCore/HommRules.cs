@@ -5,7 +5,7 @@ using HoMM.Robot.HexagonalMovement;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace HoMM
+namespace HoMM.ClientClasses
 {
     public class HommRules : IRules
     {
@@ -50,24 +50,23 @@ namespace HoMM
                 });
             }
 
-            pool.StopCommand = () => new HommCommand { Movement = new HexMovement() };
+            pool.StopCommand = () => new HommCommand { Movement = new HexMovement(waitDuration: 0.1) };
         }
 
         public double MovementDuration => 0.5;
-        public double WaitDuration => 0.1;
-        public double MovementFailsDuration => WaitDuration;
-        public double PurchaseDuration => MovementDuration;
+        public double MovementFailsDuration => 0.1;
+        public double UnitsHireDuration => MovementDuration;
         public double GarrisonBuildDuration => MovementDuration;
         public double CombatDuration => 2;
         public double DailyTickInterval => 5;
         public double RespawnInterval => 2;
 
-        public int MineOwningScores => 1;
+        public int MineOwningDailyScores => 1;
         public int ResourcesGainScores => 1;
 
-        public int MineDailyYield => 10;
+        public int MineDailyResourceYield => 10;
         public int DwellingCapacity => 32;
 
-        public UnitConstants Units { get; } = new UnitConstants();
+        internal UnitsConstants Units { get; } = new UnitsConstants();
     }
 }

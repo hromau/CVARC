@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 
 namespace HoMM
 {
@@ -10,7 +11,7 @@ namespace HoMM
 
         public override bool IsPassable => true;
 
-        public int Yield => HommRules.Current.MineDailyYield;
+        public int Yield => HommRules.Current.MineDailyResourceYield;
 
         public Mine(Resource res, Location location) : this(res, location, location) { }
 

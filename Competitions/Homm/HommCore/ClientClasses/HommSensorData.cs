@@ -25,9 +25,6 @@ namespace HoMM.ClientClasses
         [FromSensor(typeof(ActorIdSensor))]
         public string MyRespawnSide { get; set; }
 
-        [FromSensor(typeof(SelfScoresSensor))]
-        public int MyScores { get; set; }
-
         [FromSensor(typeof(TreasurySensor))]
         public Dictionary<Resource,int> MyTreasury { get; set; }
 

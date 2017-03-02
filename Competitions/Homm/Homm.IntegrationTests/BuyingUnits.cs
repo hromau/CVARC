@@ -3,6 +3,7 @@ using FluentAssertions;
 using HoMM;
 using NUnit.Framework;
 using Dwelling = HoMM.ClientClasses.Dwelling;
+using HoMM.ClientClasses;
 
 namespace Homm.IntegrationTests
 {
@@ -76,7 +77,7 @@ namespace Homm.IntegrationTests
 
         private void CheckTreasuryAfterUnitBuying(Dwelling dwelling, int requestedCount)
         {
-            var unitCost = HommRules.Current.Units.UnitCost[dwelling.UnitType];
+            var unitCost = UnitsConstants.Current.UnitCost[dwelling.UnitType];
             sensorData.MyTreasury.Where(res => !unitCost.ContainsKey(res.Key) && res.Value == MaxResourceCount)
                                  .Should().HaveCount(4 - unitCost.Keys.Count);
 

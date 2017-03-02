@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
 using HoMM.Robot;
 using Infrastructure;
@@ -34,7 +35,7 @@ namespace HoMM.Robot.ArmyInterface
             foreach (var kv in actor.Player.Army)
                 Debugger.Log($"{kv.Key} - {kv.Value}");
 
-            return UnitResponse.Accepted(HommRules.Current.PurchaseDuration);
+            return UnitResponse.Accepted(HommRules.Current.UnitsHireDuration);
         }
     }
 }

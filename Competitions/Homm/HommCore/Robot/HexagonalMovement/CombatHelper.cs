@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
 using HoMM.World;
 using Infrastructure;
@@ -45,7 +46,7 @@ namespace HoMM.Robot.HexagonalMovement
             {
                 var initialOtherArmy = new Dictionary<UnitType, int>(other.Army);
 
-                Combat.ResolveBattle(player, other);
+                Combat.Resolve(player, other);
 
                 var armies = new ArmiesPair(player.Army, other.Army);
                 armies.Log("after Combat.ResolveBattle");

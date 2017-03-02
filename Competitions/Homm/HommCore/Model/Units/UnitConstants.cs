@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HoMM
+namespace HoMM.ClientClasses
 {
-    public class UnitConstants
+    public class UnitsConstants
     {
+        public static UnitsConstants Current = new UnitsConstants();        // Эта штука только для пользователей! 
+                                                                            // При написании кода внутри библиотеки нужно 
+                                                                            // использовать HommRules.Current.Units
+
+        internal UnitsConstants() { }
+
         public readonly Dictionary<UnitType, int> WeeklyGrowth = new Dictionary<UnitType, int>
         {
             [UnitType.Infantry] = 16,

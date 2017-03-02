@@ -1,4 +1,5 @@
-﻿using HoMM.Generators;
+﻿using HoMM.ClientClasses;
+using HoMM.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -125,7 +125,7 @@
     <Compile Include="Model\Units\UnitFactory.cs" />
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
-    <Compile Include="Robot\HommRules.cs" />
+    <Compile Include="HommRules.cs" />
     <Compile Include="Sensors\TreasurySensor.cs" />
     <Compile Include="Sensors\ArmySensor.cs" />
     <Compile Include="ClientClasses\HommSensorData.cs" />

@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace HoMM
 
         public override void InteractWithPlayer(Player p)
         {
-            Combat.ResolveBattle(p, this);
+            Combat.Resolve(p, this);
             if (this.HasNoArmy())
                 OnRemove();
         }

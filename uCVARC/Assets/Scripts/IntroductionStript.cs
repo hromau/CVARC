@@ -40,8 +40,6 @@ public class IntroductionStript : MonoBehaviour
 
     public void OnGUI()
     {
-
-
         var windowRect = new Rect((Screen.width - windowWidth) / 2, (Screen.height - windowHeight) / 2, windowWidth, windowHeight);
 
         if (!Dispatcher.isStarted)
@@ -63,13 +61,22 @@ public class IntroductionStript : MonoBehaviour
         Rect menuRect = new Rect((windowRect.width - menuWidth) / 2, (windowRect.height - menuHeight) / 2, menuWidth, menuHeight);
         GUILayout.BeginArea(menuRect);
 
-        MenuButton(ButtonTexture, "Tutorial", Color.white, () => Dispatcher.GameManager.RequestTutorial(new LoadingData
+        MenuButton(ButtonTexture, "Play with Keyboard", Color.white, () => Dispatcher.GameManager.RequestTutorial(new LoadingData
         {
             AssemblyName = Settings.Current.TutorialCompetitions,
             Level = Settings.Current.TutorialLevel
         }));
 
+        Separator(20);
+
+        MenuButton(ButtonTexture, "Quit", Color.white, () => Application.Quit());
+
         GUILayout.EndArea();
+    }
+
+    public static void Separator(int height)
+    {
+        GUILayoutUtility.GetRect(buttonWidth, height, GUILayout.Width(buttonWidth), GUILayout.Height(height));
     }
 
     public static void MenuButton(Texture icon, string text, Color color, Action pressAction)

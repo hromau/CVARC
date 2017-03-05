@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
@@ -11,13 +12,13 @@ namespace MultiplayerProxy
         private static readonly ILog log = LogManager.GetLogger(nameof(WebServer));
         private static Guid[] playerGuids = new Guid[0];
 
-        public static void SendResult(GameResult result)
+        public static void SendResult(WebCommonResults result)
         {
             log.Debug("SendResults call");
-            log.Debug("Заглушка. Мы получили результат от сервера: " + result.ToString());
+            WebHelper.PutAsync(result, MultiplayerProxyConfigurations.UriToPutResult + "?apiKey=" + MultiplayerProxyConfigurations.ApiKey);
         }
 
-        public static bool CvarcTagExists(Guid guid) => true; //playerGuids.Contains(guid); TODO!!!
+        public static bool CvarcTagExists(Guid guid) => playerGuids.Contains(guid);
 
         public static async Task UpdateCvarcTagList()
         {
@@ -25,13 +26,12 @@ namespace MultiplayerProxy
             {
                 log.Debug("Time to update cvarctag list!");
                 var newGuids = await WebHelper.ReadFromUrlAsync<Guid[]>(
-                    $"{MultiplayerProxyConfigurations.UriToCvarcTagList}?password={MultiplayerProxyConfigurations.WebPassword}");
+                    $"{MultiplayerProxyConfigurations.UriToCvarcTagList}?apiKey={MultiplayerProxyConfigurations.ApiKey}");
                 if (newGuids != null)
                     playerGuids = newGuids;
                 else
                     log.Warn("Cant get cvarctag list :(");
                 await Task.Delay(MultiplayerProxyConfigurations.CvarcTagListTimeToLive);
-                log.Debug("WAH");
             }
         }
     }

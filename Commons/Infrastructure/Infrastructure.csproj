@@ -52,6 +52,7 @@
     <Compile Include="Debugger.cs" />
     <Compile Include="DebuggerConfig.cs" />
     <Compile Include="ServiceUnityCommand.cs" />
+    <Compile Include="WebCommonResults.cs" />
     <Compile Include="WorldState.cs" />
     <Compile Include="LoadingData.cs" />
     <Compile Include="Serializer.cs" />

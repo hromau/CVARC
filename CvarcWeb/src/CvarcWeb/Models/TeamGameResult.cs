@@ -7,6 +7,7 @@ namespace CvarcWeb.Models
         public int TeamGameResultId { get; set; }
         public virtual Game Game { get; set; }
         public virtual Team Team { get; set; }
+        public string Role { get; set; }
         public virtual ICollection<Result> Results { get; set; }
     }
 }

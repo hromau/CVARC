@@ -152,8 +152,8 @@ namespace CvarcWeb.Services
         private Game GenerateMatchOfTeams(string team1, string team2)
         {
             var gameResult = new Game { GameName = RandomString(random.Next(8, 20)), PathToLog = "http://kek.com" };
-            var firstTeam = context.Teams.FirstOrDefault(t => t.Name == team1) ?? new Team { CvarcTag = team1, Name = team1 };
-            var secondTeam = context.Teams.FirstOrDefault(t => t.Name == team2) ?? new Team { CvarcTag = team2, Name = team2 };
+            var firstTeam = context.Teams.FirstOrDefault(t => t.Name == team1) ?? new Team { CvarcTag = Guid.NewGuid(), Name = team1 };
+            var secondTeam = context.Teams.FirstOrDefault(t => t.Name == team2) ?? new Team { CvarcTag = Guid.NewGuid(), Name = team2 };
             var firstTeamGameResult = new TeamGameResult { Team = firstTeam, Game = gameResult };
             var secondTeamGameResult = new TeamGameResult { Team = secondTeam, Game = gameResult };
             var result1 = new Result { TeamGameResult = firstTeamGameResult, Scores = random.Next(100), ScoresType = "MainScores" };

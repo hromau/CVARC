@@ -31,7 +31,7 @@ namespace MultiplayerProxy
                 foreach (var client in clientsWithSettings.Select(c => c.Client))
                     CreateConnectionBetweenPlayerAndServer(client);
 
-                await GetResultAndSendToWeb(mainConnection);
+                await GetResultAndSendToWeb(mainConnection, settings);
             }
             catch (SocketException e)
             {
@@ -84,10 +84,17 @@ namespace MultiplayerProxy
             Proxy.CreateChainAndStart(client, server);
         }
 
-        private static async Task GetResultAndSendToWeb(TcpClient mainConnection)
+        private static async Task GetResultAndSendToWeb(TcpClient mainConnection, GameSettings settings)
         {
             var result = await mainConnection.ReadJsonAsync<GameResult>();
-            WebServer.SendResult(result);
+            var webResult = new WebCommonResults();
+            webResult.GameName = "18273";
+            webResult.PathToLog = settings.LogFile;
+            webResult.RoleToCvarcTag = settings.ActorSettings
+                .Where(s => !s.IsBot)
+                .ToDictionary(s => s.ControllerId, s => s.PlayerSettings.CvarcTag);
+            webResult.Scores = result.ScoresByPlayer;
+            WebServer.SendResult(webResult);
             Pool.CheckGame();
         }
 

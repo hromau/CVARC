@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using CvarcWeb.Data;
 using CvarcWeb.Models;
 using CvarcWeb.Tournaments.Playoff;
@@ -33,8 +34,30 @@ namespace CvarcWeb.Controllers
         {
             var games = GetGames(filters);
             var total = games.Count();
-            return new JsonResult(new { games = GetPage(filters, games), total },
-                                  new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+            return new JsonResult(new {games = GetPage(filters, games), total},
+                new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+        }
+
+        [HttpPut]
+        public ActionResult Add(string apiKey)
+        {
+            if (apiKey != WebConstants.ApiKey)
+                return new JsonResult(new { success = false });
+            try
+            {
+                var request = HttpContext.Request;
+                var contentLength = (int)request.ContentLength.Value;
+                var data = new byte[contentLength];
+                request.Body.Read(data, 0, contentLength);
+                var json = Encoding.UTF8.GetString(data);
+                var result = JsonConvert.DeserializeObject<WebCommonResults>(json);
+                result.SaveToDb(context);
+                return new JsonResult(new { success = true });
+            }
+            catch (Exception)
+            {
+                return new JsonResult(new { success = false });
+            }
         }
 
         private IQueryable<Game> GetGames(GameFilterModel filters)
@@ -56,7 +79,7 @@ namespace CvarcWeb.Controllers
                          .Take(GamesPerPage)
                          .ToArray();
 
-        public static string RandomString(int length)
+        private static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
@@ -64,7 +87,7 @@ namespace CvarcWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateTestDb()
+        private IActionResult CreateTestDb()
         {
             //if (context.Games.AsQueryable().Any(g => g.GameName == "TestGame"))
             //return new ContentResult {Content = "nope!"};

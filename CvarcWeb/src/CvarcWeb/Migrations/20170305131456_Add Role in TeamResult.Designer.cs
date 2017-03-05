@@ -8,9 +8,10 @@ using CvarcWeb.Data;
 namespace CvarcWeb.Migrations
 {
     [DbContext(typeof(CvarcDbContext))]
-    partial class CvarcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170305131456_Add Role in TeamResult")]
+    partial class AddRoleinTeamResult
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

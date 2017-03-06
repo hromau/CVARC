@@ -13,10 +13,10 @@ namespace HoMM
     {
         public IEnumerable<Competitions> GetLevels()
         {
-            yield return new Competitions("homm", "level1", new HommLogicPartHelper(playersCount: 1),
+            yield return new Competitions("homm", HommLevel.Level1.ToString(), new HommLogicPartHelper(playersCount: 1),
                 () => new UKeyboard(), CreateEngines);
 
-            yield return new Competitions("homm", "level2", new HommLogicPartHelper(playersCount: 2),
+            yield return new Competitions("homm", HommLevel.Level2.ToString(), new HommLogicPartHelper(playersCount: 2),
                 () => new UKeyboard(), CreateEngines);
         }
 

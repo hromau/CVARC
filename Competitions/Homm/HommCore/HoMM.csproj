@@ -71,6 +71,7 @@
     <Compile Include="Engine\BaseHommEngine.cs" />
     <Compile Include="Generators\Spawners\SimpleSpawner.cs" />
     <Compile Include="HommClient.cs" />
+    <Compile Include="HommLevel.cs" />
     <Compile Include="Model\Tile\TileObjects\IBuilding.cs" />
     <Compile Include="Robot\GarrisonInterface\GarrisonBuilderUnit.cs" />
     <Compile Include="Robot\GarrisonInterface\IArmyInterfaceCommand.cs" />

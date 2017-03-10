@@ -45,9 +45,8 @@ namespace CvarcWeb
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
 
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddReact();
-
+            var tournamentsMap = Configuration.GetSection("TournamentsMap");
+            services.Configure<TournamentsMap>(tournamentsMap);
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -83,11 +82,7 @@ namespace CvarcWeb
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            //app.UseReact(config =>
-            //{
-//              config.SetLoadBabel(false);
-//              config.AddScriptWithoutTransform("~/Scripts/first.js");
-            //});
+
             app.UseStaticFiles();
 
             app.UseIdentity();

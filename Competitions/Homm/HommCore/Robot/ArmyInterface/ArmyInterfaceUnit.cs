@@ -8,9 +8,9 @@ namespace HoMM.Robot.ArmyInterface
 {
     class ArmyInterfaceUnit : IUnit
     {
-        private IHommRobot actor;
+        private HommRobot actor;
 
-        public ArmyInterfaceUnit(IHommRobot actor)
+        public ArmyInterfaceUnit(HommRobot actor)
         {
             this.actor = actor;
         }

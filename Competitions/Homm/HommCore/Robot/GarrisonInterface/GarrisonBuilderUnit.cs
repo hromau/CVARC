@@ -12,9 +12,9 @@ namespace HoMM.Robot.ArmyInterface
     {
         private static int lastId;
 
-        private IHommRobot actor;
+        private HommRobot actor;
 
-        public GarrisonBuilderUnit(IHommRobot actor)
+        public GarrisonBuilderUnit(HommRobot actor)
         {
             this.actor = actor;
         }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace HoMM.Sensors
 {
-    public class TreasurySensor : Sensor<Dictionary<Resource, int>, IHommRobot>
+    public class TreasurySensor : Sensor<Dictionary<Resource, int>, HommRobot>
     {
         public override Dictionary<Resource, int> Measure()
         {

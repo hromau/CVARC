@@ -3,12 +3,12 @@ using HoMM.World;
 
 namespace HoMM.Robot
 {
-    public interface IHommRobot : IActor
-    {
-        new HommWorld World { get; }
-        Player Player { get; }
-        bool IsDead { get; }
+    //public interface IHommRobot : IActor
+    //{
+    //    new HommWorld World { get; }
+    //    Player Player { get; }
+    //    bool IsDead { get; }
 
-        void Die();
-    }
+    //    void Die();
+    //}
 }

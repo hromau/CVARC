@@ -267,3 +267,14 @@ input[class*="typeahead"] {
     cursor: default;
     background-color: #aaa;
 }
+
+.score-type {
+    margin-left: 20px;
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.score {
+    flex-basis: 50%;
+    text-align: left;
+}

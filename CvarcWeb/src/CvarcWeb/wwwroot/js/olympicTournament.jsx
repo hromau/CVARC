@@ -1,5 +1,6 @@
 ﻿import {Component} from 'react';
 import Game from './game';
+import {getMainScore, isMainScore, sumOtherScores, getWinner} from './gameHelper';
 
 class OlympicTournament extends Component {
     getStagesFromTree(tournamentTree) {
@@ -20,10 +21,6 @@ class OlympicTournament extends Component {
         return stages.reverse();
     }
     
-    getMainScores(tgr) {
-        return tgr.Results.filter(r => r.ScoresType === "MainScores")[0].Scores;
-    }
-
     getGamesFromStage(stage, i) {
         const games = stage.map(match => {
             const results = match.Game.TeamGameResults;
@@ -53,20 +50,13 @@ class OlympicTournament extends Component {
         return result;
     }
 
-    getWinner(match) {
-        if (this.getMainScores(match.TeamGameResults[0]) > this.getMainScores(match.TeamGameResults[1])) {
-            return match.TeamGameResults[0].Team.Name;
-        }
-        return match.TeamGameResults[1].Team.Name;
-    }
-
     render() {
         const tournamentTree = this.props.tournament;
         const thirdPlaceGame = this.props.tournament.ThirdPlaceMatch.Game;
-        const topWinner = this.getMainScores(thirdPlaceGame.TeamGameResults[0]) > this.getMainScores(thirdPlaceGame.TeamGameResults[1]);
+        const topWinner = getMainScores(thirdPlaceGame.TeamGameResults[0]) > (thirdPlaceGame.TeamGameResults[1]);
         const stages = this.getStagesFromTree(tournamentTree);
-        const winnerTeam = this.getWinner(tournamentTree.FinalMatch.Game);
-        const thirdTeam = this.getWinner(tournamentTree.ThirdPlaceMatch.Game);
+        const winnerTeam = getWinner(tournamentTree.FinalMatch.Game);
+        const thirdTeam = getWinner(tournamentTree.ThirdPlaceMatch.Game);
 
         return (
         <div>
@@ -94,12 +84,12 @@ class OlympicTournament extends Component {
         		    <li className="spacer">&nbsp;</li>
                     <li className={`game game-top${topWinner ? " winner" : ""}`} key={thirdPlaceGame.GameId + (topWinner ? " winner" : "")}>
                         <span className="team-name">{thirdPlaceGame.TeamGameResults[0].Team.Name}</span>
-                        <span className="score">{this.getMainScores(thirdPlaceGame.TeamGameResults[0])}</span>
+                        <span className="score">{getMainScores(thirdPlaceGame.TeamGameResults[0])}</span>
                     </li>
                     <li className="game game-spacer" key={thirdPlaceGame.GameId + " game-spacer"}>&nbsp;<Game {...thirdPlaceGame} isHidden={true} stage={0} key={thirdPlaceGame.GameId + " hidden-game"} /></li>
                     <li className={`game game-bottom${!topWinner ? " winner" : ""}`} key={thirdPlaceGame.GameId + (!topWinner ? " winner" : "")}>
                         <span className="team-name">{thirdPlaceGame.TeamGameResults[1].Team.Name}</span>
-                        <span className="score">{this.getMainScores(thirdPlaceGame.TeamGameResults[1])}</span>
+                        <span className="score">{getMainScores(thirdPlaceGame.TeamGameResults[1])}</span>
                     </li>
                     <li className="spacer" key={thirdPlaceGame.GameId + " spacer"}>&nbsp;</li>
                 </ul>

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CvarcWeb.Data;
 using CvarcWeb.Models;
-using CvarcWeb.Tournaments.Playoff;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -89,8 +87,6 @@ namespace CvarcWeb.Controllers
         [HttpGet]
         private IActionResult CreateTestDb()
         {
-            //if (context.Games.AsQueryable().Any(g => g.GameName == "TestGame"))
-            //return new ContentResult {Content = "nope!"};
             for (var i = 0; i < 100; i++)
                 AddRandomData();
             return new ContentResult { Content = "yep!" };

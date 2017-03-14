@@ -13,11 +13,16 @@ namespace HoMM
     {
         public IEnumerable<Competitions> GetLevels()
         {
-            yield return new Competitions("homm", HommLevel.Level1.ToString(), new HommLogicPartHelper(playersCount: 1),
-                () => new UKeyboard(), CreateEngines);
+            yield return Competitions(HommLevel.Level1, new HommLogicPartHelper(playersCount: 1, limitView: false));
 
-            yield return new Competitions("homm", HommLevel.Level2.ToString(), new HommLogicPartHelper(playersCount: 2),
-                () => new UKeyboard(), CreateEngines);
+            yield return Competitions(HommLevel.Level2, new HommLogicPartHelper(playersCount: 2, limitView: false));
+
+            yield return Competitions(HommLevel.Level3, new HommLogicPartHelper(playersCount: 2, limitView: true));
+        }
+
+        private static Competitions Competitions(HommLevel level, HommLogicPartHelper logicPartHelper)
+        {
+            return new Competitions("homm", level.ToString(), logicPartHelper, () => new UKeyboard(), CreateEngines);
         }
 
         private static List<IEngine> CreateEngines(GameSettings settings)

@@ -137,7 +137,6 @@
     <Compile Include="Robot\ArmyInterface\HireOrder.cs" />
     <Compile Include="Robot\HexagonalMovement\IHexMovCommand.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovUnit.cs" />
-    <Compile Include="Robot\IHommRobot.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovement.cs" />
     <Compile Include="Sensors\DeathSensor.cs" />
     <Compile Include="Sensors\LocationSensor.cs" />

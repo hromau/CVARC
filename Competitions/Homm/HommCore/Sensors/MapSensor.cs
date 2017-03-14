@@ -7,22 +7,23 @@ using System.Linq;
 
 namespace HoMM.Sensors
 {
-    public class MapSensor : Sensor<MapData, IHommRobot>
+    public class MapSensor : Sensor<MapData, HommRobot>
     {
         public override  MapData Measure()
         {
-            var players = Actor.World.Players;
+            var players = Actor.World.Players
+                .Where(p => p.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius);
 
             var objects = Actor.World.Round.Map
+                .Where(x => x.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius)
                 .Select(tile => BuildMapInfo(tile, players.Where(x => x.Location == tile.Location).FirstOrDefault()));
 
-            var data = new MapData();
-
-            data.Objects=objects.ToList();
-            data.Width = Actor.World.Round.Map.Width;
-            data.Height = Actor.World.Round.Map.Height;
-
-            return data;
+            return new MapData()
+            {
+                Objects = objects.ToList(),
+                Width = Actor.World.Round.Map.Width,
+                Height = Actor.World.Round.Map.Height
+            };
         }
 
         private static MapObjectData BuildMapInfo(Tile tile, Player player)

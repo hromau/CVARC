@@ -14,11 +14,11 @@ namespace HoMM.Robot.HexagonalMovement
         readonly HommWorld world;
         readonly Player player;
         readonly Map map;
-        readonly IHommRobot robot;
+        readonly HommRobot robot;
         readonly double movementDuration;
         readonly Direction movementDirection;
 
-        public MovementHelper(IHommRobot robot, Direction movementDirection)
+        public MovementHelper(HommRobot robot, Direction movementDirection)
         {
             this.robot = robot;
             this.movementDirection = movementDirection;
@@ -90,34 +90,34 @@ namespace HoMM.Robot.HexagonalMovement
             return HommRules.Current.CombatDuration;
         }
 
-        private IHommRobot CheckOtherRobot()
+        private HommRobot CheckOtherRobot()
         {
             return world.Actors
-                .Where(x => x is IHommRobot)
-                .Cast<IHommRobot>()
+                .Where(x => x is HommRobot)
+                .Cast<HommRobot>()
                 .Where(x => !x.IsDead)
                 .Where(x => x.Player.Location == newLocation)
                 .FirstOrDefault();
         }
 
-        private double HandleOtherRobot(IHommRobot otherRobot)
+        private double HandleOtherRobot(HommRobot otherRobot)
         {
             BeginCombat(otherRobot.Player, map[robot.Player.Location], map[newLocation]);
             otherRobot.ControlTrigger.ScheduledTime += HommRules.Current.CombatDuration;
             return HommRules.Current.CombatDuration;
         }
 
-        private IHommRobot CheckMovementCollision()
+        private HommRobot CheckMovementCollision()
         {
             return world.Actors
-                .Where(x => x is IHommRobot)
-                .Cast<IHommRobot>()
+                .Where(x => x is HommRobot)
+                .Cast<HommRobot>()
                 .Where(x => !x.IsDead)
                 .Where(x => x.Player.DisiredLocation == newLocation)
                 .FirstOrDefault();
         }
 
-        private double HandleMovementCollision(IHommRobot collisionRobot)
+        private double HandleMovementCollision(HommRobot collisionRobot)
         {
             robot.World.Clocks.AddTrigger(new OneTimeTrigger(collisionRobot.ControlTrigger.ScheduledTime,
                 () => BeginCombat(collisionRobot.Player, map[robot.Player.Location], map[newLocation])));
@@ -136,7 +136,7 @@ namespace HoMM.Robot.HexagonalMovement
             });
         }
 
-        private void MakeTurn(IHommRobot robot)
+        private void MakeTurn(HommRobot robot)
         {
             player.DisiredLocation = newLocation;
 

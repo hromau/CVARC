@@ -23,7 +23,7 @@ namespace HoMM.Robot.HexagonalMovement
             WaitDuration = waitDuration;
         }
 
-        public double Apply(IHommRobot robot)
+        public double Apply(HommRobot robot)
         {
             robot.World.HommEngine.Freeze(robot.ControllerId);
             robot.World.HommEngine.SetPosition(robot.ControllerId, robot.Player.Location.X, robot.Player.Location.Y);

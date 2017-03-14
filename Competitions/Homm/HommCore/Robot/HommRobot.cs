@@ -12,19 +12,21 @@ using HoMM.ClientClasses;
 
 namespace HoMM.Robot
 {
-    public class HommRobot : Robot<HommWorld, HommSensorData, HommCommand, HommRules>,
-        IHommRobot
+    public class HommRobot : Robot<HommWorld, HommSensorData, HommCommand, HommRules>
     {
         public override IEnumerable<IUnit> Units { get; }
 
         public Player Player { get; private set; }
         public IHommEngine HommEngine { get; }
         public Map Map => World.Round.Map;
+        public double ViewRadius { get; }
 
         public bool IsDead { get; private set; }
 
-        public HommRobot()
+        public HommRobot(double visibilityRadius)
         {
+            ViewRadius = visibilityRadius;
+
             Units = new List<IUnit>
             {
                 new HexMovUnit(this),

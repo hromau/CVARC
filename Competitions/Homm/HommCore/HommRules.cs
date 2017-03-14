@@ -67,6 +67,8 @@ namespace HoMM.ClientClasses
         public int MineDailyResourceYield => 10;
         public int DwellingCapacity => 32;
 
+        public double HeroViewRadius => 5;
+
         internal UnitsConstants Units { get; } = new UnitsConstants();
     }
 }

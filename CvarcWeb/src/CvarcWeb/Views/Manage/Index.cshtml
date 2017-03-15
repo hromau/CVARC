@@ -21,7 +21,7 @@
                 <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
             }
         </dd>
-        <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal">
+        <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal" enctype="multipart/form-data">
             <dt>Upload your solution: </dt>
             <div class="col-md-10">
                 <input type="file" name="Solution" id="solution-picker" class="btn btn-default"/>

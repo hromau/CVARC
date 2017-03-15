@@ -19,8 +19,7 @@ namespace Assets.Tools
         public static void AddDefaultLogSettings(GameSettings settings)
         {
             settings.EnableLog = true;
-            settings.LogFile = Path.Combine(Constants.LogFolderRoot, Guid.NewGuid().ToString() + LogNames.Extension);
-
+            settings.LogFile = Path.GetFullPath(Path.Combine(Constants.LogFolderRoot, Guid.NewGuid() + LogNames.Extension));
         }
 
         public static GameSettings GetDefaultGameSettings(LoadingData loadingData)

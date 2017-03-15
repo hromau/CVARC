@@ -88,8 +88,8 @@ namespace MultiplayerProxy
         {
             var result = await mainConnection.ReadJsonAsync<GameResult>();
             var webResult = new WebCommonResults();
-            webResult.GameName = "18273";
-            webResult.PathToLog = settings.LogFile;
+            webResult.GameName = settings.LoadingData.ToString();
+            webResult.PathToLog = result.PathToLogFile;
             webResult.RoleToCvarcTag = settings.ActorSettings
                 .Where(s => !s.IsBot)
                 .ToDictionary(s => s.ControllerId, s => s.PlayerSettings.CvarcTag);

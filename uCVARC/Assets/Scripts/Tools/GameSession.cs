@@ -21,6 +21,9 @@ namespace Assets.Tools
             // на случай спидапа сетим обратно
             Dispatcher.SetTimeScale(Constants.TimeScale);
 
+            if (result != null && World != null && World.Configuration != null)
+                result.PathToLogFile = World.Configuration.LogFile;
+
             try
             {
                 proxyConnection.WriteJson(result);

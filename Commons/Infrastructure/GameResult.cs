@@ -7,6 +7,7 @@ namespace Infrastructure
     public class GameResult
     {
         public Dictionary<string, Dictionary<string, int>> ScoresByPlayer { get; set; }
+        public string PathToLogFile { get; set; }
 
         [Obsolete("Parameterless constructor is left for serializer, do not call it directly.")]
         public GameResult() { }

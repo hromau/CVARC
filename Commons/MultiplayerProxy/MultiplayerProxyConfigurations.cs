@@ -14,11 +14,12 @@ namespace MultiplayerProxy
         public static readonly string UriToCvarcTagList = "http://homm.ulearn.me/Teams/GetAllCvarcTags";
         public static readonly string UriToPutResult = "http://homm.ulearn.me/Games/Add";
         public static readonly TimeSpan CvarcTagListTimeToLive = TimeSpan.FromMinutes(5);
-        
-        public static readonly GameSettings DefaultGameSettings = new GameSettings
+
+        public static GameSettings DefaultGameSettings => new GameSettings
         {
             TimeLimit = 90,
             OperationalTimeLimit = 1000
         };
     }
 }
+

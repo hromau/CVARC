@@ -79,7 +79,8 @@ namespace MultiplayerProxy
 
         private static string CheckForErrors(GameSettings settings)
         {
-            if (!GameServer.GetControllersIdList().ContainsKey(settings.LoadingData))
+            // это не иф, а ебучий костыль. blame юра.
+            if (!GameServer.GetControllersIdList().Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString())))
                 return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)

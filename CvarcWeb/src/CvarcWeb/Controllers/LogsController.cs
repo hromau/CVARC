@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using CvarcWeb.Data;
 using CvarcWeb.Models;
@@ -22,7 +23,9 @@ namespace CvarcWeb.Controllers
         [HttpGet]
         public IActionResult GetLog(int gameId)
         {
-            return File(context.Games.First(g => g.GameId == gameId).PathToLog, "application/octet-stream");
+            var pathToLog = context.Games.First(g => g.GameId == gameId).PathToLog;
+            var content = System.IO.File.ReadAllBytes(pathToLog);
+            return File(content, "application/octet-stream", Path.GetFileName(pathToLog));
         }
     }
 }

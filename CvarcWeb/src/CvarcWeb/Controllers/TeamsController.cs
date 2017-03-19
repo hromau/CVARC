@@ -5,6 +5,7 @@ using CvarcWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CvarcWeb.Controllers
 {
@@ -20,7 +21,7 @@ namespace CvarcWeb.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpPost]
         public ActionResult Create(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
@@ -33,13 +34,21 @@ namespace CvarcWeb.Controllers
                 Name = name
             });
             user.Team = created.Entity;
+            context.TeamLogs.Add(new TeamLog
+            {
+                Action = 0,
+                Team = created.Entity,
+                User = user,
+                Time = DateTime.Now
+            });
+
             context.SaveChanges();
 
             return new ContentResult {Content = "OK"};
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpPost]
         public ActionResult CreateRequest(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
@@ -54,7 +63,8 @@ namespace CvarcWeb.Controllers
         }
 
         [Authorize]
-        public ActionResult AcceptJoin(string userId)
+        [HttpPost]
+        public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;
             var team = context.Teams.First(t => t.OwnerId == user.Id);
@@ -62,7 +72,38 @@ namespace CvarcWeb.Controllers
             if (request == null)
                 return null;
             context.TeamRequests.Remove(request);
-            context.Users.First(u => u.Id == userId).Team = team;
+            var joinedUser = context.Users.First(u => u.Id == userId);
+            joinedUser.Team = team;
+
+            context.TeamLogs.Add(new TeamLog
+            {
+                Action = 1,
+                Team = team,
+                User = joinedUser,
+                Time = DateTime.Now
+            });
+
+            context.SaveChanges();
+            return Content("OK");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult LeaveTeam()
+        {
+            var userId = userManager.GetUserAsync(User).Result.Id;
+            var userWithTeam = context.Users.Include(u => u.Team).First(u => u.Id == userId);
+            var team = userWithTeam.Team;
+            userWithTeam.Team = null;
+
+            context.TeamLogs.Add(new TeamLog
+            {
+                Action = 2,
+                Team = team,
+                User = userWithTeam,
+                Time = DateTime.Now
+            });
+
             context.SaveChanges();
             return Content("OK");
         }

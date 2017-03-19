@@ -21,6 +21,7 @@ namespace CvarcWeb.Data
         public DbSet<TeamGameResult> TeamGameResults { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<TeamRequest> TeamRequests { get; set; }
+        public DbSet<TeamLog> TeamLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

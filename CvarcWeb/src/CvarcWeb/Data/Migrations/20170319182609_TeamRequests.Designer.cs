@@ -8,9 +8,10 @@ using CvarcWeb.Data;
 namespace CvarcWeb.Data.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170319182609_TeamRequests")]
+    partial class TeamRequests
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -110,13 +111,9 @@ namespace CvarcWeb.Data.Migrations
                     b.Property<int>("TeamId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("CanOwnerLeave");
-
                     b.Property<Guid>("CvarcTag");
 
                     b.Property<string>("LinkToImage");
-
-                    b.Property<int>("MaxSize");
 
                     b.Property<string>("Name");
 

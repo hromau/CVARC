@@ -8,9 +8,9 @@ namespace CvarcWeb.Controllers
 {
     public class LogsController : Controller
     {
-        private readonly CvarcDbContext context;
+        private readonly UserDbContext context;
 
-        public LogsController(CvarcDbContext context)
+        public LogsController(UserDbContext context)
         {
             this.context = context;
         }

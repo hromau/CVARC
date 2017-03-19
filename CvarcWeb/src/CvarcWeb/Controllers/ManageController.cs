@@ -19,12 +19,13 @@ namespace CvarcWeb.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
-        private readonly CvarcDbContext context;
+        private readonly UserDbContext context;
+        const string solutionDir = "Solutions/";
 
         public ManageController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        ILoggerFactory loggerFactory, CvarcDbContext context)
+        ILoggerFactory loggerFactory, UserDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -135,14 +136,10 @@ namespace CvarcWeb.Controllers
             var file = Request.Form.Files["Solution"];
 
             var user = await GetCurrentUserAsync();
-            if (user.Team == null)
+            var team = context.Teams.First(t => t.OwnerId == user.Id);
+            if (team == null)
             {
-                return new ContentResult {Content = "Error. You not in team."};
-            }
-
-            if (user.Team.Owner.Id.ToString() != user.Id)
-            {
-                return new ContentResult { Content = "Error. you not an owner of team." };
+                return new ContentResult {Content = "Error. You not in team or u not creator of team."};
             }
 
             if (!file.FileName.EndsWith(".zip"))
@@ -150,11 +147,9 @@ namespace CvarcWeb.Controllers
                 return new ContentResult { Content = "Error. file extension is not zip." };
             }
 
-            const string dir = "Solutions/";
-
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-            using (var stream = System.IO.File.OpenWrite(dir + user.Team.Name + ".zip"))
+            if (!Directory.Exists(solutionDir))
+                Directory.CreateDirectory(solutionDir);
+            using (var stream = System.IO.File.OpenWrite(solutionDir + team.TeamId + ".zip"))
                 await file.CopyToAsync(stream);
             
             return RedirectToAction(nameof(Index));

@@ -7,8 +7,8 @@ namespace CvarcWeb.Data.Repositories
 {
     public class GamesRepository
     {
-        private readonly CvarcDbContext context;
-        public GamesRepository(CvarcDbContext context)
+        private readonly UserDbContext context;
+        public GamesRepository(UserDbContext context)
         {
             this.context = context;
         }

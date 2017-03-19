@@ -10,15 +10,13 @@ namespace CvarcWeb.Controllers
 {
     public class TeamsController : Controller
     {
-        private readonly CvarcDbContext context;
-        private readonly UserDbContext userContext;
+        private readonly UserDbContext context;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public TeamsController(CvarcDbContext context, UserManager<ApplicationUser> userManager, UserDbContext userContext)
+        public TeamsController(UserDbContext context, UserManager<ApplicationUser> userManager)
         {
             this.context = context;
             this.userManager = userManager;
-            this.userContext = userContext;
         }
 
         [Authorize]
@@ -31,24 +29,42 @@ namespace CvarcWeb.Controllers
             var created= context.Teams.Add(new Team
             {
                 CvarcTag = Guid.NewGuid(),
-                Owner = user,
+                OwnerId = user.Id,
                 Name = name
             });
-            context.SaveChanges();
             user.Team = created.Entity;
-            userContext.SaveChanges();
+            context.SaveChanges();
 
             return new ContentResult {Content = "OK"};
         }
 
-        public ActionResult TryJoin(string name)
+        [Authorize]
+        [HttpGet]
+        public ActionResult CreateRequest(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
-            //var team = context.Teams.First(t => t.Name == name);
-            //if (team == null || context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.UserId.ToString() == user.Id))
-            //    return new ContentResult { Content = "NE OK" };
-            //context.TeamRequests.Add(new TeamRequest {Team = team, });
-            return new ContentResult {Content = user.Team.ToString()};
+            var team = context.Teams.First(t => t.Name == name);
+            if (team == null || 
+                context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == user.Id) ||
+                team.OwnerId == user.Id)
+                return new ContentResult { Content = "NE OK" };
+            context.TeamRequests.Add(new TeamRequest { Team = team, User = user});
+            context.SaveChanges();
+            return new ContentResult {Content = "OK"};
+        }
+
+        [Authorize]
+        public ActionResult AcceptJoin(string userId)
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var team = context.Teams.First(t => t.OwnerId == user.Id);
+            var request = context.TeamRequests.First(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
+            if (request == null)
+                return null;
+            context.TeamRequests.Remove(request);
+            context.Users.First(u => u.Id == userId).Team = team;
+            context.SaveChanges();
+            return Content("OK");
         }
 
         [HttpGet]

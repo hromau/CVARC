@@ -7,9 +7,11 @@ namespace CvarcWeb.Models
     {
         public int TeamId { get; set; }
         public string Name { get; set; }
-        public ApplicationUser Owner { get; set; }
+        public string OwnerId { get; set; }
         public Guid CvarcTag { get; set; }
         public string LinkToImage { get; set; }
         public virtual ICollection<ApplicationUser> Members { get; set; }
+        public int MaxSize { get; set; }
+        public bool CanOwnerLeave { get; set; }
     }
 }

@@ -10,11 +10,6 @@ namespace CvarcWeb.Models
     {
         public int TeamRequestId { get; set; }
         public virtual Team Team { get; set; }
-        public int UserId { get; set; }
-
-        //public ApplicationUser GetUser(UserDbContext context)
-        //{
-        //    return context.Users.First(u => u.Id == Team.Owner.Id.ToString());
-        //}
+        public virtual ApplicationUser User { get; set; }
     }
 }

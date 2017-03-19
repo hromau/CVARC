@@ -17,7 +17,7 @@ namespace CvarcWeb.Models
 
     public static class WebCommonResultExtensions
     {
-        public static void SaveToDb(this WebCommonResults result, CvarcDbContext context)
+        public static void SaveToDb(this WebCommonResults result, UserDbContext context)
         {
             var game = new Game
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CvarcWeb.Migrations
+namespace CvarcWeb.Data.Migrations
 {
     public partial class Init : Migration
     {
@@ -29,13 +29,35 @@ namespace CvarcWeb.Migrations
                 {
                     TeamId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CvarcTag = table.Column<string>(nullable: true),
+                    CvarcTag = table.Column<Guid>(nullable: false),
                     LinkToImage = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    OwnerId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teams", x => x.TeamId);
+                    table.ForeignKey(
+                        name: "FK_Teams_AspNetUsers_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tournaments",
+                columns: table => new
+                {
+                    TournamentId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    TournamentTree = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tournaments", x => x.TournamentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -45,6 +67,7 @@ namespace CvarcWeb.Migrations
                     TeamGameResultId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     GameId = table.Column<int>(nullable: true),
+                    Role = table.Column<string>(nullable: true),
                     TeamId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -91,6 +114,12 @@ namespace CvarcWeb.Migrations
                 column: "TeamGameResultId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Teams_OwnerId",
+                table: "Teams",
+                column: "OwnerId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TeamGameResults_GameId",
                 table: "TeamGameResults",
                 column: "GameId");
@@ -105,6 +134,9 @@ namespace CvarcWeb.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Results");
+
+            migrationBuilder.DropTable(
+                name: "Tournaments");
 
             migrationBuilder.DropTable(
                 name: "TeamGameResults");

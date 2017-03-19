@@ -8,9 +8,10 @@ using CvarcWeb.Data;
 namespace CvarcWeb.Data.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170319182250_Init2")]
+    partial class Init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -110,13 +111,9 @@ namespace CvarcWeb.Data.Migrations
                     b.Property<int>("TeamId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("CanOwnerLeave");
-
                     b.Property<Guid>("CvarcTag");
 
                     b.Property<string>("LinkToImage");
-
-                    b.Property<int>("MaxSize");
 
                     b.Property<string>("Name");
 
@@ -145,24 +142,6 @@ namespace CvarcWeb.Data.Migrations
                     b.HasIndex("TeamId");
 
                     b.ToTable("TeamGameResults");
-                });
-
-            modelBuilder.Entity("CvarcWeb.Models.TeamRequest", b =>
-                {
-                    b.Property<int>("TeamRequestId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("TeamId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("TeamRequestId");
-
-                    b.HasIndex("TeamId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("TeamRequests");
                 });
 
             modelBuilder.Entity("CvarcWeb.Models.Tournament", b =>
@@ -311,17 +290,6 @@ namespace CvarcWeb.Data.Migrations
                     b.HasOne("CvarcWeb.Models.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId");
-                });
-
-            modelBuilder.Entity("CvarcWeb.Models.TeamRequest", b =>
-                {
-                    b.HasOne("CvarcWeb.Models.Team", "Team")
-                        .WithMany()
-                        .HasForeignKey("TeamId");
-
-                    b.HasOne("CvarcWeb.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

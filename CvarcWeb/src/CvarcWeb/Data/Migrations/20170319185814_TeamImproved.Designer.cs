@@ -8,9 +8,10 @@ using CvarcWeb.Data;
 namespace CvarcWeb.Data.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170319185814_TeamImproved")]
+    partial class TeamImproved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

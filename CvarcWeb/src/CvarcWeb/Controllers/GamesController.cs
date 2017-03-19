@@ -14,10 +14,10 @@ namespace CvarcWeb.Controllers
     public class GamesController : Controller
     {
         private static readonly Random random = new Random(0);
-        private readonly CvarcDbContext context;
+        private readonly UserDbContext context;
         private const int GamesPerPage = 30;
 
-        public GamesController(CvarcDbContext context)
+        public GamesController(UserDbContext context)
         {
             this.context = context;
         }

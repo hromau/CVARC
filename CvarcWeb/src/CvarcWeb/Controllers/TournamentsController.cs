@@ -16,13 +16,13 @@ namespace CvarcWeb.Controllers
 {
     public class TournamentsController : Controller
     {
-        private readonly CvarcDbContext context;
+        private readonly UserDbContext context;
         private readonly TournamentGenerator tournamentGenerator;
         private readonly GamesRepository gamesRepository;
 
         private readonly Dictionary<string, int> tournamentsMap;
 
-        public TournamentsController(CvarcDbContext context,
+        public TournamentsController(UserDbContext context,
                                      TournamentGenerator tournamentGenerator,
                                      GamesRepository gamesRepository,
                                      IOptions<TournamentsMap> tournamentsMap)

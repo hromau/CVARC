@@ -45,8 +45,6 @@ namespace CvarcWeb
             // Add framework services.
             services.AddDbContext<UserDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<CvarcDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
 
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;

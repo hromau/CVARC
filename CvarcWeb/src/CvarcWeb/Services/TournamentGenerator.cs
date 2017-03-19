@@ -11,8 +11,8 @@ namespace CvarcWeb.Services
     public class TournamentGenerator
     {
         private readonly Random random;
-        private readonly CvarcDbContext context;
-        public TournamentGenerator(CvarcDbContext context, Random random)
+        private readonly UserDbContext context;
+        public TournamentGenerator(UserDbContext context, Random random)
         {
             this.context = context;
             this.random = random;

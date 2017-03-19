@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using CvarcWeb.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CvarcWeb.Models;
 using CvarcWeb.Models.ManageViewModels;
-using CvarcWeb.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace CvarcWeb.Controllers
 {
@@ -18,14 +19,16 @@ namespace CvarcWeb.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger _logger;
+        private readonly CvarcDbContext context;
 
         public ManageController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        ILoggerFactory loggerFactory)
+        ILoggerFactory loggerFactory, CvarcDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            this.context = context;
             _logger = loggerFactory.CreateLogger<ManageController>();
         }
 
@@ -122,6 +125,16 @@ namespace CvarcWeb.Controllers
                 return View(model);
             }
             return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UploadSolution(IList<IFormFile> files)
+        {
+            //TODO: сохранение файла
+            var file = Request.Form.Files["Solution"];
+            
+            return RedirectToAction(nameof(Index));
         }
 
         #region Helpers

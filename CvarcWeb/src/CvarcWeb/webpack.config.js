@@ -12,9 +12,9 @@ var WATCH_MODE = process.env.WATCH_MODE;
 module.exports = [{
     context: path.join(__dirname, 'wwwroot/entries'),
     entry: {
-        index: "./pages/index",
-        games: ["./pages/games", "./styles/games"],
-        tournaments: ["./pages/tournaments", "./styles/tournaments"]
+        index: ["whatwg-fetch", "./pages/index"],
+        games: ["whatwg-fetch", "./pages/games", "./styles/games"],
+        tournaments: ["whatwg-fetch", "./pages/tournaments", "./styles/tournaments"]
     },
 
     externals: {

@@ -131,6 +131,11 @@ h2 {
     background-color: rgba(154, 0, 0, 0.69);
 }
 
+.team-result.draw {
+    background-color: #999;
+    border-radius: 0 0 12px 12px;
+}
+
 .team-name {
     overflow: hidden;
     white-space: nowrap;
@@ -261,4 +266,15 @@ input[class*="typeahead"] {
 .page-number.current {
     cursor: default;
     background-color: #aaa;
+}
+
+.score-type {
+    margin-left: 20px;
+    flex-basis: 100%;
+    text-align: left;
+}
+
+.score {
+    flex-basis: 50%;
+    text-align: left;
 }

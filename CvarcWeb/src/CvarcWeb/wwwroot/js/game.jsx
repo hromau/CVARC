@@ -1,36 +1,22 @@
 ﻿import {Component} from 'react';
+import GameHelper from './gameHelper';
 
 class Game extends Component {
     compareResults(res1, res2) {
-        if (this.getMainScore(res1) !==  this.getMainScore(res2)) {
-            return this.getMainScore(res1) - this.getMainScore(res2);
-        }
-        return this.sumOtherScores(res1) - this.sumOtherScores(res2);
-    }
-    
-    isMainScore(res) {
-        return res.ScoresType === "MainScores";
-    }
-
-    sumOtherScores(res) {
-        return res.Results.filter(r => !this.isMainScore(r)).reduce((sum, cur) => sum + cur.Scores, 0);
-    }
-
-    getMainScore(teamResults) {
-        return teamResults.Results.filter(this.isMainScore)[0].Scores;
+        return GameHelper.getMainScore(res1) - GameHelper.getMainScore(res2);
     }
 
     getTeamClasses(game, i) {
         const sortedResults = JSON.parse(JSON.stringify(game.TeamGameResults)).sort((a, b) => this.compareResults(a, b));
-        const isPvp = game.TeamGameResults.length > 1;
+        const isSoloGame = game.TeamGameResults.length === 1;
         const isWinner = () => this.compareResults(sortedResults[1], game.TeamGameResults[i]) === 0 &&
                        this.compareResults(sortedResults[0], game.TeamGameResults[i]) !== 0;
         const isDraw = () => this.compareResults(sortedResults[0], sortedResults[1]) === 0;
-        return isPvp && !isDraw()
-                    ? isWinner() 
-                        ? "team-result winner" 
-                        : "team-result looser" 
-                    : "team-result";
+        return "team-result " + (!isSoloGame && !isDraw()
+                    ? isWinner()
+                        ? "winner" 
+                        : "looser" 
+                    : "draw");
 
     }
 
@@ -49,7 +35,7 @@ class Game extends Component {
         });
 
         return (
-            <div className={this.props.isHidden ? "hidden-game " : "game"} data-stage={this.props.stage + 1}>
+            <div className={this.props.isHidden ? "hidden-game " : "game"}>
                 <div className="game-id">
                     <a href={game.PathToLog}>#{game.GameId}</a>
                 </div>

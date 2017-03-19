@@ -11,11 +11,14 @@ using CvarcWeb.Data.Repositories;
 using CvarcWeb.Models;
 using CvarcWeb.Services;
 using CvarcWeb.Tournaments.Playoff;
+using Microsoft.Extensions.FileProviders;
 
 namespace CvarcWeb
 {
     public class Startup
     {
+        private IHostingEnvironment _hostingEnvironment;
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -31,6 +34,7 @@ namespace CvarcWeb
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+            _hostingEnvironment = env;
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -45,9 +49,11 @@ namespace CvarcWeb
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
 
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddReact();
+            var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
+            services.AddSingleton(physicalProvider);
 
+            var tournamentsMap = Configuration.GetSection("TournamentsMap");
+            services.Configure<TournamentsMap>(tournamentsMap);
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -83,11 +89,7 @@ namespace CvarcWeb
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            //app.UseReact(config =>
-            //{
-//              config.SetLoadBabel(false);
-//              config.AddScriptWithoutTransform("~/Scripts/first.js");
-            //});
+
             app.UseStaticFiles();
 
             app.UseIdentity();

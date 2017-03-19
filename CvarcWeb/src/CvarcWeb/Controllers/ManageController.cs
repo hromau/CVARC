@@ -133,6 +133,29 @@ namespace CvarcWeb.Controllers
         {
             //TODO: сохранение файла
             var file = Request.Form.Files["Solution"];
+
+            var user = await GetCurrentUserAsync();
+            if (user.Team == null)
+            {
+                return new ContentResult {Content = "Error. You not in team."};
+            }
+
+            if (user.Team.Owner.Id.ToString() != user.Id)
+            {
+                return new ContentResult { Content = "Error. you not an owner of team." };
+            }
+
+            if (!file.FileName.EndsWith(".zip"))
+            {
+                return new ContentResult { Content = "Error. file extension is not zip." };
+            }
+
+            const string dir = "Solutions/";
+
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            using (var stream = System.IO.File.OpenWrite(dir + user.Team.Name + ".zip"))
+                await file.CopyToAsync(stream);
             
             return RedirectToAction(nameof(Index));
         }

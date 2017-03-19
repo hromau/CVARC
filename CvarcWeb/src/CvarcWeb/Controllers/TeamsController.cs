@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using CvarcWeb.Data;
 using CvarcWeb.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CvarcWeb.Controllers
@@ -9,10 +11,44 @@ namespace CvarcWeb.Controllers
     public class TeamsController : Controller
     {
         private readonly CvarcDbContext context;
+        private readonly UserDbContext userContext;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public TeamsController(CvarcDbContext context)
+        public TeamsController(CvarcDbContext context, UserManager<ApplicationUser> userManager, UserDbContext userContext)
         {
             this.context = context;
+            this.userManager = userManager;
+            this.userContext = userContext;
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Create(string name)
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            if (context.Teams.Any(t => t.Name == name))
+                return new ContentResult { Content = "NE OK" };
+            var created= context.Teams.Add(new Team
+            {
+                CvarcTag = Guid.NewGuid(),
+                Owner = user,
+                Name = name
+            });
+            context.SaveChanges();
+            user.Team = created.Entity;
+            userContext.SaveChanges();
+
+            return new ContentResult {Content = "OK"};
+        }
+
+        public ActionResult TryJoin(string name)
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            //var team = context.Teams.First(t => t.Name == name);
+            //if (team == null || context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.UserId.ToString() == user.Id))
+            //    return new ContentResult { Content = "NE OK" };
+            //context.TeamRequests.Add(new TeamRequest {Team = team, });
+            return new ContentResult {Content = user.Team.ToString()};
         }
 
         [HttpGet]

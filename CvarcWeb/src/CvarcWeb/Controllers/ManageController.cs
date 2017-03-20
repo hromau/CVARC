@@ -132,7 +132,6 @@ namespace CvarcWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadSolution(IList<IFormFile> files)
         {
-            //TODO: сохранение файла
             var file = Request.Form.Files["Solution"];
 
             var user = await GetCurrentUserAsync();

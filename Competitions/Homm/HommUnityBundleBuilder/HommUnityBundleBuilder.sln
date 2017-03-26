@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HommUnityBundleBuilder", "HommUnityBundleBuilder.csproj", "{DA92EF2D-0F26-320B-8524-3ECED2E6D6AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HommUnityBundleBuilder.Editor", "HommUnityBundleBuilder.Editor.csproj", "{F5E55C98-6F22-8624-58A8-9FD14CD8189B}"

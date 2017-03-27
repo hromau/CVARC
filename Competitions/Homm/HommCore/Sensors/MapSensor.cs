@@ -1,6 +1,7 @@
 ﻿using CVARC.V2;
 using HoMM.ClientClasses;
 using HoMM.Robot;
+using Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,7 @@ namespace HoMM.Sensors
                 if (obj is CapturableObject)
                 {
                     var capt = (CapturableObject)obj;
-                    owner = capt.Owner == null ? null : capt.Owner.Name;
+                    owner = capt.Owner?.Name;
                 }
 
                 if (obj is Wall)
@@ -58,7 +59,7 @@ namespace HoMM.Sensors
                 if (obj is Dwelling)
                 {
                     var dw = (Dwelling)obj;
-                    mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits);
+                    mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits, owner);
                 }
 
                 if (obj is ResourcePile)

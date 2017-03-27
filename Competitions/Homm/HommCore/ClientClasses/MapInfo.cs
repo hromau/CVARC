@@ -30,9 +30,9 @@ namespace HoMM.ClientClasses
             if (Garrison != null) describe = "Garrison with " + ArmyString(Garrison.Army);
             if (NeutralArmy != null) describe = "Neutral army with " + ArmyString(NeutralArmy.Army);
             if (Mine != null) describe = "Mine of "+Mine.Resource.ToString();
-            if (Dwelling != null) describe = "Dwelling of " + Dwelling.UnitType;
+            if (Dwelling != null) describe = "Dwelling of " + Dwelling.UnitType+", owner:"+Dwelling.Owner;
             if (ResourcePile != null) describe = "Resource pile of "+ResourcePile.Amount+" "+ResourcePile.Resource.ToString();
-            if (Hero != null) describe = "Other hero with " + ArmyString(Hero.Army);
+            if (Hero != null) describe = "Hero with " + ArmyString(Hero.Army);
 
             return describe ?? "Nothing";
         }
@@ -90,11 +90,13 @@ namespace HoMM.ClientClasses
     {
         public UnitType UnitType { get; set; }
         public int AvailableToBuyCount { get; set; }
+        public string Owner { get; set; }
 
-        public Dwelling(UnitType unitType, int availableCount)
+        public Dwelling(UnitType unitType, int availableCount, string owner)
         {
             UnitType = unitType;
             AvailableToBuyCount = availableCount;
+            Owner = owner;
         }
     }
 

@@ -20,6 +20,8 @@ namespace HoMM.Robot.ArmyInterface
             var order = Compatibility.Check<IArmyInterfaceCommand>(this, command).Order;
             if (order == null) return UnitResponse.Denied();
 
+            if (actor.IsDead) return UnitResponse.Accepted(HommRules.Current.UnitsHireDuration);
+
             actor.World.HommEngine.Freeze(actor.ControllerId);
             actor.World.HommEngine.SetAnimation(actor.ControllerId, Animation.Idle);
 

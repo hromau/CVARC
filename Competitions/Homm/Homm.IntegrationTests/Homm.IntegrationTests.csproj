@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuyingUnits.cs" />
+    <Compile Include="CheckDead.cs" />
     <Compile Include="FightingWithOtherArmy.cs" />
     <Compile Include="GarrisonBuilding.cs" />
     <Compile Include="MineСapturing.cs" />

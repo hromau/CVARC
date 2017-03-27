@@ -14,8 +14,9 @@ namespace MultiplayerProxy
 {
     public static class Pool
     {
-        private static readonly ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>> pool = 
+        private static readonly ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>> pool =
             new ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>>();
+
         private static bool needToCheck;
         private static readonly ILog log = LogManager.GetLogger(nameof(Pool));
         private static readonly Dictionary<LoadingData, string[]> levelToControllerIds;
@@ -28,17 +29,21 @@ namespace MultiplayerProxy
                 if (levelToControllerIds == null)
                     Thread.Sleep(100);
             }
-            log.Info("loaded keys: " + string.Join(", ", levelToControllerIds.Keys.Select(x => x.ToString())));
+            log.Info("loaded keys: " + string.Join(", ", levelToControllerIds.Select(x => $"\n  {x.Key.ToString()} values: {string.Join("|", x.Value)}")));
             Task.Factory.StartNew(GameChecker, TaskCreationOptions.LongRunning);
             log.Info("Checker task started");
         }
 
         public static async Task CreatePlayerInPool(TcpClient client)
         {
+            try
+            {
             log.Debug("CreatePlayerInPool call");
             var settings = await client.ReadJsonAsync<GameSettings>();
             await client.ReadJsonAsync<JObject>(); // ignore worldstate
             var levelName = settings.LoadingData;
+            levelName.AssemblyName = levelName.AssemblyName.ToLower();
+            levelName.Level = levelName.Level.ToLower();
             var errorMessage = CheckForErrors(settings);
             if (!string.IsNullOrEmpty(errorMessage))
             {
@@ -56,13 +61,20 @@ namespace MultiplayerProxy
                 Settings = actorSettings.PlayerSettings
             });
 
-            //PlayerMessageHelper.SendMessage(client, MessageType.Info,
-            //    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
+                PlayerMessageHelper.SendMessage(client, MessageType.Info,
+                    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
 
-            // Пока так :(
-            log.Info(PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
+                // Пока так :(
+                log.Info(PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
 
             CheckGame();
+            }
+            catch (Exception e)
+            {
+                log.Error("error while accept player", e);
+                PlayerMessageHelper.SendMessage(client, MessageType.Error, "something went wrong! please, contact administrator (fokychuk47@ya.ru)");
+                throw;
+            }
         }
 
         public static void CheckGame() => needToCheck = true;
@@ -72,7 +84,7 @@ namespace MultiplayerProxy
             log.Debug("TryStartGame call");
             foreach (var levelName in pool.Keys)
             {
-                var controllerIdsLength = GameServer.GetControllersIdList()[levelName].Length;
+                var controllerIdsLength = GetByLoadingData(levelName).Length;
                 if (pool[levelName].Count < controllerIdsLength)
                     continue;
                 var players = new List<ClientWithSettings>();
@@ -118,6 +130,13 @@ namespace MultiplayerProxy
                 needToCheck = false;
                 await TryStartGame();
             }
+        }
+
+        private static string[] GetByLoadingData(LoadingData ld)
+        {
+            var value = levelToControllerIds.Keys.Single(
+                k => k.ToString().Equals(ld.ToString(), StringComparison.CurrentCultureIgnoreCase));
+            return levelToControllerIds[value];
         }
     }
 }

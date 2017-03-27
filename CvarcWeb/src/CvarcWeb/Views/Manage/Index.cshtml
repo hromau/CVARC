@@ -30,6 +30,7 @@
                     @Model.Team.CvarcTag
                 }
             </dd>
+            <hr />
             <dt>Password:</dt>
             <dd>
                 @if (Model.HasPassword)
@@ -41,14 +42,19 @@
                     <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
                 }
             </dd>
-            <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal" enctype="multipart/form-data">
-                <dt>Upload your solution: </dt>
-                <div class="col-md-10">
-                    <input type="file" name="Solution" id="solution-picker" class="btn btn-default" />
-                    <button type="submit" class="btn btn-default">Upload</button>
-                </div>
-            </form>
-            @if (!Model.CanOwnerLeave && Model.MaxSize == 1)
+            <hr />
+            <dt>Upload your solution: </dt>
+            <dd>
+                <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <div class="col-md-10">
+                        <input type="file" name="Solution" id="solution-picker" class="btn btn-default" />
+                        <button type="submit" class="btn btn-default">Upload</button>
+                    </div>
+
+                </form>
+            </dd>
+            <hr/>
+            @if (@Model.MaxSize == 1 && !Model.CanOwnerLeave)
             {
 
             }

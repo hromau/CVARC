@@ -72,8 +72,9 @@ namespace CvarcWeb.Controllers
                 RequestsInUserTeam = GetRequestsInUserTeam(),
                 UserRequestsInOtherTeam = GetUserRequestsInOtherTeams(),
                 HasOwnTeam = hasOwnTeam,
-                Team = team
-                //HasTeam = context.Teams.Any(t => t.OwnerId != user.Id && t.Members)
+                Team = team,
+                MaxSize = team?.MaxSize ?? 0,
+                CanOwnerLeave = team?.CanOwnerLeave ?? false,
             };
 
             return View(model);

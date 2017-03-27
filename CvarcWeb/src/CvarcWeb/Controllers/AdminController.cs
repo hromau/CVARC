@@ -79,7 +79,7 @@ namespace CvarcWeb.Controllers
                 var msg = "";
                 try
                 {
-                    var data = line.Split(';');
+                    var data = line.Trim().Split(';');
                     msg += "splited! ";
                     var passwd = GeneratePass();
                     var user = new ApplicationUser

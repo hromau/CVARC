@@ -37,10 +37,10 @@ class Game extends Component {
         return (
             <div className={this.props.isHidden ? "hidden-game " : "game"}>
                 <div className="game-id">
-                    <a href={game.PathToLog}>#{game.GameId}</a>
+                    <a>#{game.GameId}</a>
                 </div>
                 <div className="game-log">
-                    <a href={game.PathToLog}><div></div></a>
+                    <a href={`/Logs/${game.GameId}`}><div></div></a>
                 </div>
                 <div className="game-results">{results}</div>
             </div>

@@ -71,7 +71,7 @@ namespace CvarcWeb.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string userName, string password)
         {
-            var user = context.Users.First(u => u.UserName == userName);
+            var user = context.Users.First(u => u.UserName.Equals(userName, StringComparison.CurrentCultureIgnoreCase));
             var token = userManager.GeneratePasswordResetTokenAsync(user).Result;
             userManager.ResetPasswordAsync(user, token, password).Wait();
             return RedirectToAction(nameof(Index));
@@ -124,8 +124,8 @@ namespace CvarcWeb.Controllers
                         "Hello!\n" +
                         "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
                         $"Your login: {user.Email}\n" +
-                        $"Your password: {passwd}\n" +
-                        "Pleasant coding! And let luck always be on your side.");
+                        $"Your password: {passwd} \n" +
+                        "Pleasant coding! And let luck always be on your side. \n <3");
                     msg += "email sent";
                 }
                 catch (Exception e)

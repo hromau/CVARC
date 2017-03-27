@@ -15,6 +15,7 @@ namespace CvarcWeb.Services
     {
         public void SendEmail(string email, string subject, string text)
         {
+            text = text.Replace("\n", "<br/>");
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("CvarcTeam", "cvarc-team@gmail.com"));
             message.To.Add(new MailboxAddress("", email));

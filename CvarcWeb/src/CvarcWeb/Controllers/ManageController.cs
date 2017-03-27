@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,14 +11,15 @@ using Microsoft.Extensions.Logging;
 using CvarcWeb.Models;
 using CvarcWeb.Models.ManageViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace CvarcWeb.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ILogger _logger;
         private readonly UserDbContext context;
         const string solutionDir = "Solutions/";
@@ -27,8 +29,8 @@ namespace CvarcWeb.Controllers
         SignInManager<ApplicationUser> signInManager,
         ILoggerFactory loggerFactory, UserDbContext context)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
             this.context = context;
             _logger = loggerFactory.CreateLogger<ManageController>();
         }
@@ -41,22 +43,41 @@ namespace CvarcWeb.Controllers
             ViewData["StatusMessage"] =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                : message == ManageMessageId.TeamAlreadyExistsError ? "Team with this name already exists"
+                : message == ManageMessageId.CreateTeamSuccess ? "Team has been created"
+                : message == ManageMessageId.CreateRequestSuccess ? "Request has been created"
+                : message == ManageMessageId.CreateRequestError ? "Team with this name doesn't exist or you created request in this team already"
                 : message == ManageMessageId.Error ? "ERROR!"
                 : "";
+            if (message.ToString().EndsWith("error", StringComparison.CurrentCultureIgnoreCase))
+                ViewData["IsError"] = true;
+            else
+                ViewData["IsError"] = false;
 
             var user = await GetCurrentUserAsync();
             if (user == null)
             {
                 return View("Error");
             }
+            var team = context.Teams.Include(t => t.Members).FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            var hasOwnTeam = team?.OwnerId == user.Id;
             var model = new IndexViewModel
             {
-                HasPassword = await _userManager.HasPasswordAsync(user),
-                PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
-                TwoFactor = await _userManager.GetTwoFactorEnabledAsync(user),
-                Logins = await _userManager.GetLoginsAsync(user),
-                BrowserRemembered = await _signInManager.IsTwoFactorClientRememberedAsync(user)
+                HasPassword = await userManager.HasPasswordAsync(user),
+                PhoneNumber = await userManager.GetPhoneNumberAsync(user),
+                TwoFactor = await userManager.GetTwoFactorEnabledAsync(user),
+                Logins = await userManager.GetLoginsAsync(user),
+                BrowserRemembered = await signInManager.IsTwoFactorClientRememberedAsync(user),
+                RequestsInUserTeam = GetRequestsInUserTeam(),
+                UserRequestsInOtherTeam = GetUserRequestsInOtherTeams(),
+                HasOwnTeam = hasOwnTeam,
+                Team = team,
+                MaxSize = team?.MaxSize ?? 0,
+                CanOwnerLeave = team?.CanOwnerLeave ?? false,
+                HasTeam = team != null,
+                HasSolution = team != null && System.IO.File.Exists(solutionDir + team.TeamId + ".zip")
             };
+
             return View(model);
         }
 
@@ -81,10 +102,10 @@ namespace CvarcWeb.Controllers
             var user = await GetCurrentUserAsync();
             if (user != null)
             {
-                var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                var result = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    await signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User changed their password successfully.");
                     return RedirectToAction(nameof(Index), new { Message = ManageMessageId.ChangePasswordSuccess });
                 }
@@ -116,10 +137,10 @@ namespace CvarcWeb.Controllers
             var user = await GetCurrentUserAsync();
             if (user != null)
             {
-                var result = await _userManager.AddPasswordAsync(user, model.NewPassword);
+                var result = await userManager.AddPasswordAsync(user, model.NewPassword);
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction(nameof(Index), new { Message = ManageMessageId.SetPasswordSuccess });
                 }
                 AddErrors(result);
@@ -132,7 +153,6 @@ namespace CvarcWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadSolution(IList<IFormFile> files)
         {
-            //TODO: сохранение файла
             var file = Request.Form.Files["Solution"];
 
             var user = await GetCurrentUserAsync();
@@ -155,6 +175,46 @@ namespace CvarcWeb.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DownloadSolution()
+        {
+            var user = await GetCurrentUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id) ??
+                       context.Teams.FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            if (team != null && System.IO.File.Exists(solutionDir + team.TeamId + ".zip"))
+                return File(System.IO.File.OpenRead(solutionDir + team.TeamId + ".zip"), "application/octet-stream", team.Name + ".zip");
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        private IEnumerable<TeamRequest> GetRequestsInUserTeam()
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
+            if (team == null)
+                return Enumerable.Empty<TeamRequest>();
+            return
+                context.TeamRequests
+                    .Include(r => r.Team)
+                    .Include(r => r.User)
+                    .Where(r => r.Team.TeamId == team.TeamId)
+                    .ToArray()
+                    .Select(t => new { Request = t, User = t.User })
+                    .GroupBy(t => t.User.Id)
+                    .Select(g => g.Last().Request);
+        }
+
+        private IEnumerable<TeamRequest> GetUserRequestsInOtherTeams()
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            return context.TeamRequests.Include(r => r.Team).Where(r => r.User.Id == user.Id);
+        }
+
         #region Helpers
 
         private void AddErrors(IdentityResult result)
@@ -169,12 +229,16 @@ namespace CvarcWeb.Controllers
         {
             ChangePasswordSuccess,
             SetPasswordSuccess,
-            Error
+            Error,
+            CreateTeamSuccess,
+            TeamAlreadyExistsError,
+            CreateRequestError,
+            CreateRequestSuccess
         }
 
         private Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return _userManager.GetUserAsync(HttpContext.User);
+            return userManager.GetUserAsync(HttpContext.User);
         }
 
         #endregion

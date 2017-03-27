@@ -21,6 +21,7 @@ namespace CvarcWeb.Controllers
         }
 
         [HttpGet]
+        [Route("/Logs/{gameId}")]
         public IActionResult GetLog(int gameId)
         {
             var pathToLog = context.Games.First(g => g.GameId == gameId).PathToLog;

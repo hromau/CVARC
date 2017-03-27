@@ -17,9 +17,11 @@ namespace MultiplayerProxy
             new ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>>();
         private static bool needToCheck;
         private static readonly ILog log = LogManager.GetLogger(nameof(Pool));
+        private static readonly Dictionary<LoadingData, string[]> levelToControllerIds;
 
         static Pool()
         {
+            levelToControllerIds = GameServer.GetControllersIdList();
             Task.Factory.StartNew(GameChecker, TaskCreationOptions.LongRunning);
             log.Info("Checker task started");
         }
@@ -47,8 +49,8 @@ namespace MultiplayerProxy
                 Settings = actorSettings.PlayerSettings
             });
 
-            //PlayerMessageHelper.SendMessage(client, MessageType.Info, 
-            //    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, MultiplayerProxyConfigurations.LevelToControllerIds[levelName].Length));
+            PlayerMessageHelper.SendMessage(client, MessageType.Info,
+                PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
 
             CheckGame();
         }
@@ -80,7 +82,7 @@ namespace MultiplayerProxy
         private static string CheckForErrors(GameSettings settings)
         {
             // это не иф, а ебучий костыль. blame юра.
-            if (!GameServer.GetControllersIdList().Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString())))
+            if (!levelToControllerIds.Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString())))
                 return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)

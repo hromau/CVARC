@@ -17,5 +17,14 @@ namespace CvarcWeb.Models.ManageViewModels
         public bool TwoFactor { get; set; }
 
         public bool BrowserRemembered { get; set; }
+
+        public IEnumerable<TeamRequest> RequestsInUserTeam { get; set; } 
+        public IEnumerable<TeamRequest> UserRequestsInOtherTeam { get; set; } 
+        public bool HasTeam { get; set; }
+        public Team Team { get; set; }
+        public bool HasOwnTeam { get; set; }
+        public int MaxSize { get; set; }
+        public bool CanOwnerLeave { get; set; }
+        public bool HasSolution { get; set; }
     }
 }

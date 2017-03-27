@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Robot;
 using HoMM.World;
 using Infrastructure;
@@ -22,6 +23,10 @@ namespace HoMM.Robot.HexagonalMovement
             if (movement == null) return UnitResponse.Denied();
             Debugger.Log("Accepted HexMovCommand");
 
+            if (actor.IsDead)
+                return UnitResponse.Accepted(movement.WaitDuration > 0 
+                    ? movement.WaitDuration 
+                    : HommRules.Current.MovementDuration);
 
             var movementDuration = movement.Apply(actor);
 

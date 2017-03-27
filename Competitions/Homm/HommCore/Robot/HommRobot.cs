@@ -53,9 +53,9 @@ namespace HoMM.Robot
 
             World.CommonEngine.DeleteObject(ControllerId);
 
-            var respawnTime = World.Clocks.CurrentTime + HommRules.Current.RespawnInterval;
+            var respawnTime = World.Clocks.CurrentTime + HommRules.Current.RespawnInterval - 0.001;
 
-            ControlTrigger.ScheduledTime = respawnTime + 0.001;
+            ControlTrigger.ScheduledTime = World.Clocks.CurrentTime;
 
             World.Clocks.AddTrigger(new OneTimeTrigger(respawnTime, () =>
             {

@@ -10,8 +10,7 @@ using CvarcWeb.Data;
 using CvarcWeb.Data.Repositories;
 using CvarcWeb.Models;
 using CvarcWeb.Services;
-using CvarcWeb.Tournaments.Playoff;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace CvarcWeb
 {
@@ -50,6 +49,7 @@ namespace CvarcWeb
             var physicalProvider = _hostingEnvironment.ContentRootFileProvider;
             services.AddSingleton(physicalProvider);
 
+            services.AddAuthorization(options => options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("admin")));
             var tournamentsMap = Configuration.GetSection("TournamentsMap");
             services.Configure<TournamentsMap>(tournamentsMap);
 
@@ -66,6 +66,10 @@ namespace CvarcWeb
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
+                options.Cookies.ApplicationCookie.AccessDeniedPath = new PathString("/");
+                options.Cookies.ApplicationCookie.LoginPath = new PathString("/Account/Login");
+                options.Cookies.ApplicationCookie.LogoutPath = new PathString("/");
+                options.Cookies.ApplicationCookie.AutomaticChallenge = false;
             })
             .AddEntityFrameworkStores<UserDbContext>()
             .AddDefaultTokenProviders();
@@ -85,7 +89,7 @@ namespace CvarcWeb
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Games/Index");
             }
 
             app.UseStaticFiles();

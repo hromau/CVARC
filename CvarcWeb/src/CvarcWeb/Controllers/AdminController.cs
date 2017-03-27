@@ -9,53 +9,63 @@ using CvarcWeb.Models;
 using CvarcWeb.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CvarcWeb.Controllers
 {
+    [Authorize(Policy = "RequireAdminRole")]
     public class AdminController : Controller
     {
+        private const string AdminEmail = "av_mironov@skbkontur.ru";
+        private static readonly Random rand = new Random();
         private readonly UserDbContext context;
-        private readonly UserManager<ApplicationUser> userManager;
-        private const string adminEmail = "fokychuk47@ya.ru";
-        private const string adminPass = "hardPasswd14";
-        private static Random rand = new Random();
+        private const string AdminEmail2 = "fokychuk47@ya.ru";
         private readonly IEmailSender emailSender;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public AdminController(UserDbContext context, UserManager<ApplicationUser> userManager, IEmailSender emailSender)
+        public AdminController(UserDbContext context, UserManager<ApplicationUser> userManager, IEmailSender emailSender, RoleManager<IdentityRole> roleManager)
         {
             this.context = context;
             this.userManager = userManager;
             this.emailSender = emailSender;
+            this.roleManager = roleManager;
+        }
+        public async Task<ActionResult> Index()
+        {
+            if (context.Users.Any())
+                context.Users.RemoveRange(context.Users);
+            if (!context.Users.Any())
+            {
+                await RegisterAdmin(AdminEmail);
+                await RegisterAdmin(AdminEmail2);
+            }
+            return View();
         }
 
-        public ActionResult Index()
+        private async Task RegisterAdmin(string email)
         {
-            if (!context.Users.Any(u => u.Email == adminEmail))
-                userManager.CreateAsync(new ApplicationUser {Email = adminEmail, UserName = adminEmail}, adminPass)
-                    .Wait();
-
-            CheckAdminUser();
-
-            return View();
+            userManager.CreateAsync(
+                                new ApplicationUser { Email = email, UserName = email },
+                                "1q2w3e")
+                                .Wait();
+            await roleManager.CreateAsync(new IdentityRole("admin"));
+            await userManager.AddToRoleAsync(context.Users.First(u => u.Email == email), "admin");
         }
 
         [HttpPost]
         public ActionResult ChangePassword(string userName, string password)
         {
-            CheckAdminUser();
-
             var user = context.Users.First(u => u.UserName == userName);
             var token = userManager.GeneratePasswordResetTokenAsync(user).Result;
             userManager.ResetPasswordAsync(user, token, password).Wait();
-            return Content("OK");
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         public ActionResult ITPlanetRegistrationFromCSV()
         {
-            CheckAdminUser();
-
             var file = Request.Form.Files["RegInfo"];
             var ms = new MemoryStream();
             file.CopyTo(ms);
@@ -93,7 +103,12 @@ namespace CvarcWeb.Controllers
                     regedUser.Team = team.Entity;
                     context.SaveChanges();
                     msg += "team registered! ";
-                    emailSender.SendEmail(data[1], "IT-Planet credentials", $"Hi! This is your password: {passwd} \n here u can log in: homm.ulearn.me");
+                    emailSender.SendEmail(data[1], "IT-Planet credentials",
+                        "Hello!\n" +
+                        "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
+                        $"Your login: {user.Email}\n" +
+                        $"Your password: {passwd}\n" +
+                        "Pleasant coding! And let luck always be on your side.");
                     msg += "email sent";
                 }
                 catch (Exception e)
@@ -108,12 +123,6 @@ namespace CvarcWeb.Controllers
             messages.Add($"registered {messages.Count}/{lines.Length}");
 
             return Content(string.Join("\n", messages));
-        }
-
-        private void CheckAdminUser()
-        {
-            if (User.Identity.Name != adminEmail)
-                throw new Exception("fail");
         }
 
         private string GeneratePass()

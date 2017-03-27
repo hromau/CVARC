@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace CvarcWeb.Controllers
 {
+    [Authorize]
     public class TeamsController : Controller
     {
         private readonly UserDbContext context;
@@ -20,13 +22,12 @@ namespace CvarcWeb.Controllers
             this.userManager = userManager;
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult Create(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
             if (context.Teams.Any(t => t.Name == name))
-                return new ContentResult { Content = "NE OK" };
+                return RedirectToAction(nameof(ManageController.Index), "Manage", new { Message = ManageController.ManageMessageId.TeamAlreadyExistsError });
             var created= context.Teams.Add(new Team
             {
                 CvarcTag = Guid.NewGuid(),
@@ -43,34 +44,31 @@ namespace CvarcWeb.Controllers
             });
 
             context.SaveChanges();
-
-            return new ContentResult {Content = "OK"};
+            return RedirectToAction(nameof(ManageController.Index), "Manage", new {Message = ManageController.ManageMessageId.CreateTeamSuccess});
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult CreateRequest(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.First(t => t.Name == name);
+            var team = context.Teams.FirstOrDefault(t => t.Name == name);
             if (team == null || 
                 context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == user.Id) ||
                 team.OwnerId == user.Id)
-                return new ContentResult { Content = "NE OK" };
+                return RedirectToAction(nameof(ManageController.Index), "Manage", new { Message = ManageController.ManageMessageId.CreateRequestError });
             context.TeamRequests.Add(new TeamRequest { Team = team, User = user});
             context.SaveChanges();
-            return new ContentResult {Content = "OK"};
+            return RedirectToAction(nameof(ManageController.Index), "Manage", new { Message = ManageController.ManageMessageId.CreateRequestSuccess });
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;
             var team = context.Teams.First(t => t.OwnerId == user.Id);
-            var request = context.TeamRequests.First(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
+            var request = context.TeamRequests.FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
             if (request == null)
-                return null;
+                return RedirectToAction(nameof(ManageController.Index), "Manage");
             context.TeamRequests.Remove(request);
             var joinedUser = context.Users.First(u => u.Id == userId);
             joinedUser.Team = team;
@@ -84,11 +82,10 @@ namespace CvarcWeb.Controllers
             });
 
             context.SaveChanges();
-            return Content("OK");
+            return RedirectToAction(nameof(ManageController.Index));
         }
 
-        [Authorize]
-        [HttpPost]
+        [HttpGet]
         public ActionResult LeaveTeam()
         {
             var userId = userManager.GetUserAsync(User).Result.Id;
@@ -105,10 +102,11 @@ namespace CvarcWeb.Controllers
             });
 
             context.SaveChanges();
-            return Content("OK");
+            return RedirectToAction(nameof(ManageController.Index));
         }
 
         [HttpGet]
+        [Route("Teams/{teamNamePrefix}")]
         public JsonResult Index(string teamNamePrefix)
         {
             if (string.IsNullOrEmpty(teamNamePrefix))

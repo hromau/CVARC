@@ -14,7 +14,8 @@ module.exports = [{
     entry: {
         index: ["whatwg-fetch", "./pages/index"],
         games: ["whatwg-fetch", "./pages/games", "./styles/games"],
-        tournaments: ["whatwg-fetch", "./pages/tournaments", "./styles/tournaments"]
+        tournaments: ["whatwg-fetch", "./pages/tournaments", "./styles/tournaments"],
+        site: ["whatwg-fetch", "./styles/site"]
     },
 
     externals: {

@@ -138,10 +138,20 @@ namespace HoMM.Robot.HexagonalMovement
 
         private void MakeTurn(HommRobot robot)
         {
+            var enemySpawn = world.GetRespawnLocation(TwoPlayersId.Ids.First(id => id != robot.ControllerId), world.Round.Map);
+
+            hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
+
+            if (newLocation == enemySpawn)
+            {
+                hommEngine.SetAnimation(robot.ControllerId, Animation.Idle);
+                hommEngine.Freeze(robot.ControllerId);
+                return;
+            }
+
             player.DisiredLocation = newLocation;
 
             hommEngine.SetAnimation(robot.ControllerId, Animation.Gallop);
-            hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
             hommEngine.Move(robot.Player.Name, movementDirection, movementDuration);
 
             world.Clocks.AddTrigger(new LocationTrigger(robot.World.Clocks.CurrentTime,

@@ -36,8 +36,6 @@ namespace CvarcWeb.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            if (context.Users.Any())
-                context.Users.RemoveRange(context.Users);
             if (!context.Users.Any())
             {
                 await RegisterAdmin(AdminEmail);
@@ -59,7 +57,7 @@ namespace CvarcWeb.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string userName, string password)
         {
-            var user = context.Users.First(u => u.UserName == userName);
+            var user = context.Users.First(u => u.UserName.Equals(userName, StringComparison.CurrentCultureIgnoreCase));
             var token = userManager.GeneratePasswordResetTokenAsync(user).Result;
             userManager.ResetPasswordAsync(user, token, password).Wait();
             return RedirectToAction(nameof(Index));

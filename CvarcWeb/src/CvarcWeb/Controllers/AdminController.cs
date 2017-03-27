@@ -34,6 +34,20 @@ namespace CvarcWeb.Controllers
             this.emailSender = emailSender;
             this.roleManager = roleManager;
         }
+
+        [AllowAnonymous]
+        public string AdminReg()
+        {
+            if (!context.Users.Any())
+            {
+                RegisterAdmin(AdminEmail).Wait();
+                RegisterAdmin(AdminEmail2).Wait();
+                return "OK";
+            }
+
+            return "WAT R U DOIN HERE??";
+        }
+
         public async Task<ActionResult> Index()
         {
             if (!context.Users.Any())

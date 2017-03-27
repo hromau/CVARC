@@ -38,9 +38,6 @@ namespace CvarcWeb.Controllers
         [HttpGet]
         public IActionResult Index(string tournamentName)
         {
-            if (!context.Tournaments.Any())
-                ClearAndGenerateTournaments(5, 5);
-
             if (string.IsNullOrEmpty(tournamentName))
             {
                 return View();

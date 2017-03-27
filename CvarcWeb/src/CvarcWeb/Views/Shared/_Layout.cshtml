@@ -7,7 +7,7 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/dist/css/site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -28,11 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CvarcWeb</a>
+                <span class="navbar-brand" style="cursor: default">CvarcWeb</span>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Games" asp-action="Index">Games</a></li>
                     <li><a asp-area="" asp-controller="Tournaments" asp-action="Index">Tournaments</a></li>
                 </ul>
@@ -44,7 +43,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2016 - CvarcWeb</p>
+            <p>&copy; 2017 - CvarcWeb</p>
         </footer>
     </div>
 

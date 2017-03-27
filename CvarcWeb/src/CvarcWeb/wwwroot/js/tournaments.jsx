@@ -35,6 +35,14 @@ class Tournaments extends Component {
     }
 
     render() {
+        console.log(this.state.tournaments);
+        if (!this.state.tournaments.length) {
+            console.log("EMPTY");
+            $('.team-selector').hide();
+            return (
+                <div className="empty-tournaments">There is no tournament yet :(</div>
+            );
+        }
         const allTournaments = this.state.tournaments.map(t => 
             <li className="tournament-list-item" key={t} onClick={() => this.showTournament(t)}>
                 <label><input className="tournament-selector" type="radio" name="tournament-name"/><span className="tournament-name">{t}</span></label>

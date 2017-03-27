@@ -1,7 +1,4 @@
-﻿/*body {
-    background-color: rgba(0, 0, 0, 0.7);
-}*/
-.body-content {
+﻿.body-content {
     height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
@@ -12,6 +9,7 @@
 }
 
 footer {
+    color:black;
     align-self: center;
 }
 

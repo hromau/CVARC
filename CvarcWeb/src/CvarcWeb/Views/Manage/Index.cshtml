@@ -2,31 +2,151 @@
 @{
     ViewData["Title"] = "Manage your account";
 }
-
-<h2>@ViewData["Title"].</h2>
-<p class="text-success">@ViewData["StatusMessage"]</p>
-
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
-        <dd>
-            @if (Model.HasPassword)
+<div class="manage-container">
+    <h2>@ViewData["Title"].</h2>
+    @{ string messageClass = string.Empty; }
+    @if ((bool)ViewData["IsError"])
+    {
+        messageClass = "text-danger";
+    }
+    else
+    {
+        messageClass = "text-success";
+    }
+    <p class="@messageClass">@ViewData["StatusMessage"]</p>
+    <style>
+        dt {
+            font-size: 15px;
+            width: 250px !important;
+        }
+        dd {
+            margin-left: 270px !important;
+        }
+        .manage {
+            width: 1000px;
+        }
+        .requests-in-user-team, 
+        .request-to-join-team,
+        .upload-solution-form,
+        .download-solution-form
+        {
+            margin-top: -5px;
+        }
+    </style>
+    <dd class="manage">
+        <h4>Change your account settings</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Cvarc tag:</dt>
+            <dd>
+                @if (Model.Team?.CvarcTag == null)
+                {
+                    <span>You haven't team</span>
+                }
+                else
+                {
+                    @Model.Team.CvarcTag
+                }
+            </dd>
+            <hr />
+            <dt>Password:</dt>
+            <dd>
+                @if (Model.HasPassword)
+                {
+                    <a asp-controller="Manage" asp-action="ChangePassword" class="btn-bracketed">Change</a>
+                }
+                else
+                {
+                    <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
+                }
+            </dd>
+            <hr />
+            @if(Model.HasOwnTeam)
             {
-                <a asp-controller="Manage" asp-action="ChangePassword" class="btn-bracketed">Change</a>
+                <dt>Upload your solution: </dt>
+                <dd>
+                    <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal upload-solution-form" enctype="multipart/form-data" style="width: 400px;">
+                        <input type="file" name="Solution" id="solution-picker" class="btn btn-default upload-solution-form" style="display: inline; float: left; margin-right: 10px;"/>
+                        <button type="submit" class="btn btn-success">Upload</button>
+                    </form>
+                </dd>
+                <hr/>
             }
-            else
+            @if (Model.HasSolution)
             {
-                <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
+                <dt>Download latest solution:</dt>
+                <dd>
+                    <form asp-controller="Manage" asp-action="DownloadSolution" class="form-horizontal download-solution-form" style="width: 400px;" method="get">
+                        <button type="submit" class="btn btn-success">Download</button>
+                    </form>
+                </dd>
+                <hr />
             }
-        </dd>
-        <form asp-controller="Manage" asp-action="UploadSolution" method="post" class="form-horizontal" enctype="multipart/form-data">
-            <dt>Upload your solution: </dt>
-            <div class="col-md-10">
-                <input type="file" name="Solution" id="solution-picker" class="btn btn-default"/>
-                <button type="submit" class="btn btn-default">Upload</button>
-            </div>
-        </form>
-    </dl>
+            @if (@Model.MaxSize != 1 || Model.CanOwnerLeave)
+            {
+                if (Model.HasTeam || Model.HasOwnTeam)
+                {
+                    <dt>Your team:</dt>
+                    <dd>
+                        <span style="float: left; font-size: 20px; margin-top: -3px">@Model.Team.Name</span>
+                        <form asp-controller="Teams" asp-action="LeaveTeam" style="display: inline; margin-left: 10px;" method="get">
+                            <input type="submit" class="btn btn-danger" value="Leave" style="margin-top: -5px;"/>
+                        </form>
+                    </dd>
+                    <hr/>
+                }
+                else if (!Model.HasOwnTeam)
+                {
+                    <dt>Create team:</dt>
+                    <dd>
+                        <form asp-controller="Teams" asp-action="Create">
+                            <input type="text" name="name"/>
+                            <input type="submit" class="btn btn-default" value="Create"/>
+                        </form>
+                    </dd>
+                    <hr/>
+                }
+                if (Model.RequestsInUserTeam.Any() && Model.HasOwnTeam && Model.Team.MaxSize > Model.Team.Members.Count)
+                {
+                    <dt>Requests to your team:</dt>
+                    <dd class="requests-in-user-team">
+                        @{ int length = Model.RequestsInUserTeam.Count(); }
+                        @foreach (var req in Model.RequestsInUserTeam)
+                        {
+                            <form asp-controller="Teams" asp-action="AcceptRequest" method="POST">
+                                <span style="margin-right: 10px">@req.User.FIO</span>
+                                <input type="text" style="display: none" name="userId" value="@req.User.Id"/>
+                                <input type="submit" class="btn btn-success" value="Accept"/>
+                            </form>
+                            if (length-- != 1)
+                            {
+                                <hr />
+                            }
+                        }
+                    </dd>
+                    <hr/>
+                }
+                else if (Model.UserRequestsInOtherTeam.Any())
+                {
+                    <dt>Request to team:</dt>
+                    <dd>@Model.UserRequestsInOtherTeam.First().Team.Name</dd>
+                }
+                if (Model.HasTeam) 
+                { }
+                else if (!Model.UserRequestsInOtherTeam.Any())
+                {
+
+                    <form asp-controller="Teams" asp-action="CreateRequest" method="POST">
+                        <dt>Request to join team:</dt>
+                        <dd>
+                            <input id="request-team" type="text" name="name" class="request-to-join-team" style="margin-right: 10px;"/>
+                            <input id="create-request" class="btn btn-success request-to-join-team" type="submit" value="Send" />
+                        </dd>
+                    </form>
+                    <hr />
+                }
+            }
+        </dl>
+
+    </div>
 </div>

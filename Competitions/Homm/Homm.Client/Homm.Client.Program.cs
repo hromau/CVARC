@@ -10,13 +10,13 @@ namespace Homm.Client
     class Program
     {
         // Вставьте сюда свой личный CvarcTag для того, чтобы учавствовать в онлайн соревнованиях.
-        public static readonly Guid CvarcTag = Guid.Parse("00000000-0000-0000-0000-000000000000");
+        public static readonly Guid CvarcTag = Guid.Parse("f766414c-eee1-4c3c-b20e-baf373159478");
 
 
         public static void Main(string[] args)
         {
             if (args.Length == 0)
-                args = new[] { "127.0.0.1", "18700" };
+                args = new[] { "homm.ulearn.me", "18700" };
             var ip = args[0];
             var port = int.Parse(args[1]);
 

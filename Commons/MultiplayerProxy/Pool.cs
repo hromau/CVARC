@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
@@ -21,7 +22,13 @@ namespace MultiplayerProxy
 
         static Pool()
         {
-            levelToControllerIds = GameServer.GetControllersIdList();
+            while (levelToControllerIds == null)
+            {
+                levelToControllerIds = GameServer.GetControllersIdList();
+                if (levelToControllerIds == null)
+                    Thread.Sleep(100);
+            }
+            log.Info("loaded keys: " + string.Join(", ", levelToControllerIds.Keys.Select(x => x.ToString())));
             Task.Factory.StartNew(GameChecker, TaskCreationOptions.LongRunning);
             log.Info("Checker task started");
         }
@@ -49,8 +56,11 @@ namespace MultiplayerProxy
                 Settings = actorSettings.PlayerSettings
             });
 
-            PlayerMessageHelper.SendMessage(client, MessageType.Info,
-                PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
+            //PlayerMessageHelper.SendMessage(client, MessageType.Info,
+            //    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
+
+            // Пока так :(
+            log.Info(PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, levelToControllerIds[levelName].Length));
 
             CheckGame();
         }
@@ -82,7 +92,7 @@ namespace MultiplayerProxy
         private static string CheckForErrors(GameSettings settings)
         {
             // это не иф, а ебучий костыль. blame юра.
-            if (!levelToControllerIds.Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString())))
+            if (!levelToControllerIds.Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString(), StringComparison.CurrentCultureIgnoreCase)))
                 return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)

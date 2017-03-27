@@ -75,43 +75,5 @@ namespace CvarcWeb.Controllers
             filteredGames.Skip(model.Page * GamesPerPage)
                          .Take(GamesPerPage)
                          .ToArray();
-
-        private static string RandomString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        [HttpGet]
-        private IActionResult CreateTestDb()
-        {
-            for (var i = 0; i < 100; i++)
-                AddRandomData();
-            return new ContentResult { Content = "yep!" };
-        }
-
-        private void AddRandomData()
-        {
-            var gameResult = new Game { GameName = RandomString(random.Next(8, 20)), PathToLog = "C:/" };
-            var firstTeam = new Team { CvarcTag = Guid.NewGuid(), LinkToImage = "qwe", Name = RandomString(random.Next(8, 20)) };
-            var secondTeam = new Team { CvarcTag = Guid.NewGuid(), LinkToImage = "qwer", Name = RandomString(random.Next(8, 20)) };
-            var firstTeamGameResult = new TeamGameResult { Team = firstTeam, Game = gameResult };
-            var secondTeamGameResult = new TeamGameResult { Team = secondTeam, Game = gameResult };
-            var result1 = new Result { TeamGameResult = firstTeamGameResult, Scores = random.Next(100), ScoresType = "MainScores" };
-            var result2 = new Result { TeamGameResult = firstTeamGameResult, Scores = random.Next(100), ScoresType = "OtherScores" };
-            var result3 = new Result { TeamGameResult = secondTeamGameResult, Scores = random.Next(100), ScoresType = "MainScores" };
-            var result4 = new Result { TeamGameResult = secondTeamGameResult, Scores = random.Next(100), ScoresType = "OtherScores" };
-            context.Games.Add(gameResult);
-            context.Teams.Add(firstTeam);
-            context.Teams.Add(secondTeam);
-            context.TeamGameResults.Add(firstTeamGameResult);
-            context.TeamGameResults.Add(secondTeamGameResult);
-            context.Results.Add(result1);
-            context.Results.Add(result2);
-            context.Results.Add(result3);
-            context.Results.Add(result4);
-            context.SaveChanges();
-        }
     }
 }

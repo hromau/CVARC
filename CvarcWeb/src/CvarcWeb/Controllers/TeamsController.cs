@@ -147,10 +147,11 @@ namespace CvarcWeb.Controllers
         //    return new JsonResult(new {teams});
         //}
 
+        [AllowAnonymous]
         [HttpGet]
         public JsonResult GetAllCvarcTags(string apiKey)
         {
-            return new JsonResult(apiKey == "huj" ? context.Teams.Select(t => t.CvarcTag).ToArray() : new Guid[0]);
+            return new JsonResult(apiKey == WebConstants.ApiKey ? context.Teams.Select(t => t.CvarcTag).ToArray() : new Guid[0]);
         }
     }
 }

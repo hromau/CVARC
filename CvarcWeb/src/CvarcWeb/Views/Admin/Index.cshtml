@@ -7,9 +7,20 @@
 
 <form asp-action="ITPlanetRegistrationFromCSV" method="post" class="form-horizontal" enctype="multipart/form-data">
     <div class="form-horizontal">
-        <h4>it-planet regs</h4>
+        <h4>IT-planet regs</h4>
+        <hr/>
+        <input type="file" name="RegInfo" id="solution-picker" class="btn btn-default"/>
+        <input type="submit" value="Reg!" class="btn btn-default"/>
+    </div>
+</form>
+
+<hr />
+
+<form asp-action="MathMechRegistrationFromCSV" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>MathMechregs</h4>
         <hr />
-        <input type="file" name="RegInfo" id="solution-picker" class="btn btn-default" />
+        <input type="file" name="RegInfo" class="btn btn-default" />
         <input type="submit" value="Reg!" class="btn btn-default" />
     </div>
 </form>

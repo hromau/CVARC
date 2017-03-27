@@ -1,4 +1,6 @@
-﻿namespace CvarcWeb.Models
+﻿using System;
+
+namespace CvarcWeb.Models
 {
     public class TeamRequest
     {

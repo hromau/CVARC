@@ -59,9 +59,8 @@ namespace CvarcWeb.Controllers
             {
                 return View("Error");
             }
-            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id) ??
-                       context.Teams.FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
-            var hasOwnTeam = team != null;
+            var team = context.Teams.Include(t => t.Members).FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            var hasOwnTeam = team?.OwnerId == user.Id;
             var model = new IndexViewModel
             {
                 HasPassword = await userManager.HasPasswordAsync(user),
@@ -75,6 +74,8 @@ namespace CvarcWeb.Controllers
                 Team = team,
                 MaxSize = team?.MaxSize ?? 0,
                 CanOwnerLeave = team?.CanOwnerLeave ?? false,
+                HasTeam = team != null,
+                HasSolution = team != null && System.IO.File.Exists(solutionDir + team.TeamId + ".zip")
             };
 
             return View(model);
@@ -174,6 +175,22 @@ namespace CvarcWeb.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DownloadSolution()
+        {
+            var user = await GetCurrentUserAsync();
+            if (user == null)
+            {
+                return View("Error");
+            }
+            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id) ??
+                       context.Teams.FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            if (team != null && System.IO.File.Exists(solutionDir + team.TeamId + ".zip"))
+                return File(System.IO.File.OpenRead(solutionDir + team.TeamId + ".zip"), "application/octet-stream", team.Name + ".zip");
+            return RedirectToAction(nameof(Index));
+        }
+
 
         private IEnumerable<TeamRequest> GetRequestsInUserTeam()
         {
@@ -181,7 +198,15 @@ namespace CvarcWeb.Controllers
             var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
             if (team == null)
                 return Enumerable.Empty<TeamRequest>();
-            return context.TeamRequests.Include(r => r.Team).Where(r => r.Team.TeamId == team.TeamId);
+            return
+                context.TeamRequests
+                    .Include(r => r.Team)
+                    .Include(r => r.User)
+                    .Where(r => r.Team.TeamId == team.TeamId)
+                    .ToArray()
+                    .Select(t => new { Request = t, User = t.User })
+                    .GroupBy(t => t.User.Id)
+                    .Select(g => g.Last().Request);
         }
 
         private IEnumerable<TeamRequest> GetUserRequestsInOtherTeams()

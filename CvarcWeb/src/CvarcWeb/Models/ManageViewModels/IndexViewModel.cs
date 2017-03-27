@@ -25,5 +25,6 @@ namespace CvarcWeb.Models.ManageViewModels
         public bool HasOwnTeam { get; set; }
         public int MaxSize { get; set; }
         public bool CanOwnerLeave { get; set; }
+        public bool HasSolution { get; set; }
     }
 }

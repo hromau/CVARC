@@ -21,6 +21,8 @@ namespace CvarcWeb.Controllers
         private static readonly Random rand = new Random();
         private readonly UserDbContext context;
         private const string AdminEmail2 = "fokychuk47@ya.ru";
+        private const string MathMechRole = "MathMech";
+        private const string ItPlanetRole = "ItPlanet";
         private readonly IEmailSender emailSender;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
@@ -64,8 +66,10 @@ namespace CvarcWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult ITPlanetRegistrationFromCSV()
+        public async Task<ActionResult> ITPlanetRegistrationFromCSV()
         {
+            if (!roleManager.RoleExistsAsync(ItPlanetRole).Result)
+                await roleManager.CreateAsync(new IdentityRole(ItPlanetRole));
             var file = Request.Form.Files["RegInfo"];
             var ms = new MemoryStream();
             file.CopyTo(ms);
@@ -100,10 +104,67 @@ namespace CvarcWeb.Controllers
                         CvarcTag = Guid.NewGuid()
                     });
                     context.SaveChanges();
+                    await userManager.AddToRoleAsync(user, ItPlanetRole);
                     regedUser.Team = team.Entity;
                     context.SaveChanges();
                     msg += "team registered! ";
                     emailSender.SendEmail(data[1], "IT-Planet credentials",
+                        "Hello!\n" +
+                        "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
+                        $"Your login: {user.Email}\n" +
+                        $"Your password: {passwd}\n" +
+                        "Pleasant coding! And let luck always be on your side.");
+                    msg += "email sent";
+                }
+                catch (Exception e)
+                {
+                    msg += e.ToString();
+                    messages.Add(msg);
+                    break;
+                }
+                messages.Add(msg);
+            }
+
+            messages.Add($"registered {messages.Count}/{lines.Length}");
+
+            return Content(string.Join("\n", messages));
+        }
+
+        //hell-copy-paste!!1
+        [HttpPost]
+        public async Task<ActionResult> MathMechRegistrationFromCSV()
+        {
+            if (!roleManager.RoleExistsAsync(MathMechRole).Result)
+                await roleManager.CreateAsync(new IdentityRole(MathMechRole));
+            var file = Request.Form.Files["RegInfo"];
+            var ms = new MemoryStream();
+            file.CopyTo(ms);
+            var content = Encoding.UTF8.GetString(ms.ToArray());
+            var lines = content.Split('\n');
+
+            var messages = new List<string>();
+
+            foreach (var line in lines)
+            {
+                var msg = "";
+                try
+                {
+                    var data = line.Trim().Split(';');
+                    msg += "splited! ";
+                    var passwd = GeneratePass();
+                    var user = new ApplicationUser
+                    {
+                        FIO = data[0],
+                        Email = data[1],
+                        UserName = data[1]
+                    };
+                    msg += "user parsed! ";
+                    userManager.CreateAsync(user, passwd).Wait();
+                    msg += "user registered! ";
+                    context.SaveChanges();
+                    await userManager.AddToRoleAsync(user, MathMechRole);
+                    msg += "team registered! ";
+                    emailSender.SendEmail(data[1], "MathMech HOMM credentials",
                         "Hello!\n" +
                         "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
                         $"Your login: {user.Email}\n" +

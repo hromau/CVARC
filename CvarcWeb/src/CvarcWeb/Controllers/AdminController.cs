@@ -36,8 +36,6 @@ namespace CvarcWeb.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            if (context.Users.Any())
-                context.Users.RemoveRange(context.Users);
             if (!context.Users.Any())
             {
                 await RegisterAdmin(AdminEmail);

@@ -152,5 +152,18 @@ namespace CvarcWeb.Controllers
         {
             return new JsonResult(apiKey == "huj" ? context.Teams.Select(t => t.CvarcTag).ToArray() : new Guid[0]);
         }
+
+
+        [HttpPost]
+        public IActionResult SetTeamName(string teamName)
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
+            if (team == null)
+                return RedirectToAction(nameof(ManageController.Index), "Manage");
+            team.Name = teamName;
+            context.SaveChanges();
+            return RedirectToAction(nameof(ManageController.Index), "Manage");
+        }
     }
 }

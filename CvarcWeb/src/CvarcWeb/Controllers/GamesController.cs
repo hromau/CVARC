@@ -64,7 +64,7 @@ namespace CvarcWeb.Controllers
                             .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Team)
                             .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Results)
                             .Where(g => string.IsNullOrEmpty(filters.GameName) || g.GameName == filters.GameName)
-                            .Where(g => string.IsNullOrEmpty(filters.TeamName) || g.TeamGameResults.Any(gr => gr.Team.Name.StartsWith(filters.TeamName, StringComparison.CurrentCultureIgnoreCase)))
+                            .Where(g => string.IsNullOrEmpty(filters.TeamName) || g.TeamGameResults.Any(gr => gr.Team.Name != null && gr.Team.Name.StartsWith(filters.TeamName, StringComparison.CurrentCultureIgnoreCase)))
                             .AsQueryable();
             if (!filters.GameId.HasValue)
                 return foundGames;

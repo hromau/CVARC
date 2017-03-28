@@ -50,7 +50,7 @@ public static class Dispatcher
 
         GameManager = new GameManager();
 
-        if (Constants.NeedToOpenServicePort)
+        if (!Settings.Current.ServerBuild)
         {
             serviceServer = new ServiceServer(Constants.ServicePort);
             new Thread(serviceServer.Work).Start();

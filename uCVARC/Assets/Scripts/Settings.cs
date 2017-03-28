@@ -15,6 +15,7 @@ public class Settings
     public string TutorialLevel { get; set; }
     public List<string> DlcBundles { get; set; }
     public List<string> DlcAssemblies { get; set; }
+    public bool ServerBuild { get; set; }
     public int Version { get; set; }
 
     const int DueVersion = 3;
@@ -27,25 +28,26 @@ public class Settings
     }
 
     private Settings(bool def)
-     {
+    {
         TutorialCompetitions = "homm";
         TutorialLevel = "level1";
-        DlcBundles = new List<string>() { "pudge", "homm" };
-        DlcAssemblies = new List<string>() { "pudge.dll", "homm.dll" };
+        DlcBundles = new List<string>() {"pudge", "homm"};
+        DlcAssemblies = new List<string>() {"pudge.dll", "homm.dll"};
+        ServerBuild = false;
         Debugging = new DebuggerConfig()
         {
             AlwaysOff = false,
             AlwaysOn = false,
             CallStackRoots = new List<MethodName>
-               {
-                   new MethodName
-                   {
-                        Type="ExampleType",
-                         Method="ExampleMethod"
-                   }
-               },
-            EnabledNamespaces = new List<string> { "ExampleNamespace" },
-            EnabledTypes = new List<string> { "ExampleType" }
+            {
+                new MethodName
+                {
+                    Type = "ExampleType",
+                    Method = "ExampleMethod"
+                }
+            },
+            EnabledNamespaces = new List<string> {"ExampleNamespace"},
+            EnabledTypes = new List<string> {"ExampleType"}
         };
         Version = DueVersion;
 

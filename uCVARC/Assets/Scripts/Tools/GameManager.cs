@@ -14,12 +14,11 @@ namespace Assets
         private LoadingData tutorialLoadingData;
         private GameSession gameSession;
 
-        // еще сервер логов
         public GameManager()
         {
             playServer = new PlayServer(Constants.NetworkPort);
-            logServer = new LogServer(Constants.LogPort);
-            // еще сервер логов
+            if (!Settings.Current.ServerBuild)
+                logServer = new LogServer(Constants.LogPort);
         }
 
         public RunType CheckGame()
@@ -28,7 +27,7 @@ namespace Assets
                 return RunType.Play;
             if (tutorialLoadingData != null)
                 return RunType.Tutorial;
-            if (logServer.HasGame())
+            if (logServer != null && logServer.HasGame())
                 return RunType.Log;
 
             return RunType.NotReady;
@@ -85,7 +84,8 @@ namespace Assets
         public void Dispose()
         {
             playServer.Dispose();
-            logServer.Dispose();
+            if (logServer != null)
+                logServer.Dispose();
             if (gameSession != null)
                 gameSession.EndSession(null);
         }

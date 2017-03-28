@@ -1,4 +1,5 @@
-﻿@model IndexViewModel
+﻿@using Microsoft.AspNetCore.Html
+@model IndexViewModel
 @{
     ViewData["Title"] = "Manage your account";
 }
@@ -82,20 +83,44 @@
                 </dd>
                 <hr />
             }
-            @if (@Model.MaxSize != 1 || Model.CanOwnerLeave)
+            @if (Model.HasOwnTeam && Model.Team.Name == null)
             {
-                if (Model.HasTeam || Model.HasOwnTeam)
-                {
-                    <dt>Your team:</dt>
-                    <dd>
-                        <span style="float: left; font-size: 20px; margin-top: -3px">@Model.Team.Name</span>
+                <dt>Set name for your team</dt>
+                <dd>
+                    <form asp-controller="Teams" asp-action="SetTeamName" style="display: inline; margin-left: 10px;" method="post">
+                        <input type="text" name="teamName" style="display: inline; float: left; margin-right: 10px;"/>
+                        <button type="submit" class="btn btn-success" style="margin-top: -5px;">Set name</button>
+                    </form>
+                </dd>
+                <hr/>
+            }
+            @if (Model.HasTeam || Model.HasOwnTeam)
+            {
+                <dt>Your team:</dt>
+                <dd>
+                    <span style="float: left; font-size: 20px; margin-top: -3px">
+                        @if (Model.Team.Name != null)
+                        {
+                            @Model.Team.Name
+                        }
+                        else
+                        {
+                            @(new HtmlString("Your team not named"))
+                        }
+                    </span>
+                    @if (Model.HasOwnTeam && Model.CanOwnerLeave)
+                    {
                         <form asp-controller="Teams" asp-action="LeaveTeam" style="display: inline; margin-left: 10px;" method="get">
                             <input type="submit" class="btn btn-danger" value="Leave" style="margin-top: -5px;"/>
                         </form>
-                    </dd>
-                    <hr/>
-                }
-                else if (!Model.HasOwnTeam)
+                    }
+                </dd>
+            <hr />
+            }
+
+            @if (Model.MaxSize != 1 || Model.CanOwnerLeave)
+            {
+                if (!Model.HasOwnTeam)
                 {
                     <dt>Create team:</dt>
                     <dd>

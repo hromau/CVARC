@@ -1,5 +1,5 @@
 ﻿const getMainScore = teamResults => teamResults.Results.filter(isMainScore)[0].Scores;
-const isMainScore = res => res.ScoresType.localeCompare("main") || res.ScoresType.toLocaleLowerCase().startsWith("main");
+const isMainScore = res => res.ScoresType.localeCompare("main") === 0 || res.ScoresType.toLocaleLowerCase().startsWith("main");
 const sumOtherScores = res => res.Results.filter(r => !isMainScore(r)).reduce((sum, cur) => sum + cur.Scores, 0);
 const getWinner = match => {
     if (getMainScore(match.TeamGameResults[0]) > getMainScore(match.TeamGameResults[1])) {

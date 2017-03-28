@@ -74,6 +74,15 @@ namespace CvarcWeb.Controllers
         private static Game[] GetPage(GameFilterModel model, IQueryable<Game> filteredGames) => 
             filteredGames.Skip(model.Page * GamesPerPage)
                          .Take(GamesPerPage)
-                         .ToArray();
+                         .ToArray()
+                         .Select(g =>
+                         {
+                             g.PathToLog = null;
+                             g.TeamGameResults.ToList().ForEach(r =>
+                             {
+                                 r.Team.CvarcTag = Guid.Empty;
+                             });
+                             return g;
+                         }).ToArray();
     }
 }

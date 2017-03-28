@@ -49,12 +49,9 @@ public static class Dispatcher
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         GameManager = new GameManager();
-
-        if (!Settings.Current.ServerBuild)
-        {
-            serviceServer = new ServiceServer(Constants.ServicePort);
-            new Thread(serviceServer.Work).Start();
-        }
+        
+        serviceServer = new ServiceServer(Constants.ServicePort);
+        new Thread(serviceServer.Work).Start();
 
         yield return startCoroutine(new DlcLoader(startCoroutine).LoadAllDlc());
 

@@ -115,7 +115,7 @@ namespace MultiplayerProxy
             catch (Exception e)
             {
                 log.Error("cant load list of controllers id", e);
-                throw;
+                return null;
             }
             
         }

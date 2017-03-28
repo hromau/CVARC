@@ -64,7 +64,6 @@ namespace MultiplayerProxy
                 PlayerMessageHelper.SendMessage(client, MessageType.Info,
                     PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
 
-                // Пока так :(
                 log.Info(PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
 
             CheckGame();

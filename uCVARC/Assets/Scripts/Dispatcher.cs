@@ -131,7 +131,9 @@ public static class Dispatcher
 
         Debug.Log("game over. disposing");
 
-        GameManager.EndGame(new GameResult(CurrentWorld.Scores.GetSumByType()));
+        if (CurrentWorld != null)
+            GameManager.EndGame(new GameResult(CurrentWorld.Scores.GetSumByType()));
+
         LogModel = null;
         SwitchScene("Intro");
     }
@@ -169,7 +171,7 @@ public static class Dispatcher
         shutdown = true;
     }
 
-    public static void SwitchScene(string sceneName) // public очень плохо
+    private static void SwitchScene(string sceneName)
     {
         switchingScenes = true;
         Application.LoadLevel(sceneName);

@@ -16,7 +16,7 @@ namespace Homm.Client
         public static void Main(string[] args)
         {
             if (args.Length == 0)
-                args = new[] { "homm.ulearn.me", "18700" };
+                args = new[] { "127.0.0.1", "18700" };
             var ip = args[0];
             var port = int.Parse(args[1]);
 

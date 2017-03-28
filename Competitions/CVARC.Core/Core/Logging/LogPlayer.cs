@@ -106,7 +106,7 @@ namespace CVARC.V2
                 var method = engines[obj.EngineInvocation.EngineName].GetType().GetMethod(obj.EngineInvocation.MethodName);
                 if (method == null)
                     throw new Exception("Can not find method " + obj.EngineInvocation.MethodName + " in the engine " + obj.EngineInvocation.EngineName);
-                object[] arguments = ParseArguments(obj.EngineInvocation.Arguments, method.GetParameters());
+                object[] arguments = ParseArguments(obj.EngineInvocation.MethodName,obj.EngineInvocation.Arguments, method.GetParameters());
                 method.Invoke(engines[obj.EngineInvocation.EngineName], arguments);
             }
             if (obj.Type == GameLogEntryType.LocationCorrection)
@@ -123,17 +123,17 @@ namespace CVARC.V2
             }
         }
 
-        private object[] ParseArguments(string[] arguments, ParameterInfo[] parameterInfo)
+        private object[] ParseArguments(string methodName, string[] arguments, ParameterInfo[] parameterInfo)
         {
             if (arguments.Length != parameterInfo.Length)
-                throw new Exception("Wrong count of arguments: expected " + parameterInfo.Length + " but was " + arguments.Length);
+                throw new Exception("Wrong count of arguments for method "+methodName+": expected " + parameterInfo.Length + " but was " + arguments.Length);
             var result = new object[arguments.Length];
             for (int i = 0; i < result.Length; i++)
-                result[i] = Parse(arguments[i], parameterInfo[i].ParameterType);
+                result[i] = Parse(arguments[i], parameterInfo[i].ParameterType, methodName, i);
             return result;
         }
 
-        private object Parse(string v, Type parameterType)
+        private object Parse(string v, Type parameterType, string methodName, int index)
         {
             if (parameterType == typeof(string)) return v;
             if (parameterType == typeof(Frame3D)) return Frame3D.Parse(v);
@@ -142,7 +142,7 @@ namespace CVARC.V2
             if (parameterType == typeof(double)) return double.Parse(v);
             if (parameterType == typeof(Single)) return Single.Parse(v);
             if (parameterType == typeof(bool)) return bool.Parse(v);
-            throw new Exception("Parameter type " + parameterType.Name + " is not supported");
+            throw new Exception("Parameter type " + parameterType.Name + " is not supported. Method "+methodName+", index "+index);
         }
     }
 }

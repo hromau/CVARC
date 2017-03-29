@@ -18,7 +18,8 @@ namespace MultiplayerProxy
         public static GameSettings DefaultGameSettings => new GameSettings
         {
             TimeLimit = 90,
-            OperationalTimeLimit = 1000
+            OperationalTimeLimit = 1000,
+            SpectacularView = true
         };
     }
 }

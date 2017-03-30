@@ -68,7 +68,7 @@ namespace CvarcWeb.Controllers
                 TwoFactor = await userManager.GetTwoFactorEnabledAsync(user),
                 Logins = await userManager.GetLoginsAsync(user),
                 BrowserRemembered = await signInManager.IsTwoFactorClientRememberedAsync(user),
-                RequestsInUserTeam = GetRequestsInUserTeam(),
+                RequestsInUserTeam = GetRequestsInUserTeam(user),
                 UserRequestsInOtherTeam = GetUserRequestsInOtherTeams(),
                 HasOwnTeam = hasOwnTeam,
                 Team = team,
@@ -192,9 +192,8 @@ namespace CvarcWeb.Controllers
         }
 
 
-        private IEnumerable<TeamRequest> GetRequestsInUserTeam()
+        private IEnumerable<TeamRequest> GetRequestsInUserTeam(ApplicationUser user)
         {
-            var user = userManager.GetUserAsync(User).Result;
             var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
             if (team == null)
                 return Enumerable.Empty<TeamRequest>();

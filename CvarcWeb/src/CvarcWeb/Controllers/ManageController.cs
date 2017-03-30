@@ -59,7 +59,7 @@ namespace CvarcWeb.Controllers
             {
                 return View("Error");
             }
-            var team = context.Teams.Include(t => t.Members).FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            var team = context.Teams.Include(t => t.Members).LastOrDefault(t => t.Members.Any(u => u.Id == user.Id));
             var hasOwnTeam = team?.OwnerId == user.Id;
             var model = new IndexViewModel
             {
@@ -68,7 +68,7 @@ namespace CvarcWeb.Controllers
                 TwoFactor = await userManager.GetTwoFactorEnabledAsync(user),
                 Logins = await userManager.GetLoginsAsync(user),
                 BrowserRemembered = await signInManager.IsTwoFactorClientRememberedAsync(user),
-                RequestsInUserTeam = GetRequestsInUserTeam(user, team),
+                RequestsInUserTeam = GetRequestsInUserTeam(user),
                 UserRequestsInOtherTeam = GetUserRequestsInOtherTeams(),
                 HasOwnTeam = hasOwnTeam,
                 Team = team,
@@ -156,7 +156,7 @@ namespace CvarcWeb.Controllers
             var file = Request.Form.Files["Solution"];
 
             var user = await GetCurrentUserAsync();
-            var team = context.Teams.First(t => t.OwnerId == user.Id);
+            var team = context.Teams.LastOrDefault(t => t.OwnerId == user.Id);
             if (team == null)
             {
                 return new ContentResult {Content = "Error. You not in team or u not creator of team."};
@@ -184,22 +184,21 @@ namespace CvarcWeb.Controllers
             {
                 return View("Error");
             }
-            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id) ??
-                       context.Teams.FirstOrDefault(t => t.Members.Any(u => u.Id == user.Id));
+            var team = context.Teams.LastOrDefault(t => t.OwnerId == user.Id) ??
+                       context.Teams.LastOrDefault(t => t.Members.Any(u => u.Id == user.Id));
             if (team != null && System.IO.File.Exists(solutionDir + team.TeamId + ".zip"))
                 return File(System.IO.File.OpenRead(solutionDir + team.TeamId + ".zip"), "application/octet-stream", team.Name + ".zip");
             return RedirectToAction(nameof(Index));
         }
 
 
-        private IEnumerable<TeamRequest> GetRequestsInUserTeam(ApplicationUser user, Team team)
+        private IEnumerable<TeamRequest> GetRequestsInUserTeam(ApplicationUser user)
         {
-            //if (team.OwnerId != user.Id)
-            //    return Enumerable.Empty<TeamRequest>();
             return context.TeamRequests
                 .Include(r => r.Team)
+                .ThenInclude(t => t.Members)
                 .Include(r => r.User)
-                .Where(r => r.Team.TeamId == team.TeamId)
+                .Where(r => r.Team.OwnerId == user.Id && r.Team.Members.Any(m => m.Id == user.Id))
                 .ToArray();
         }
 

@@ -108,7 +108,7 @@
                             @(new HtmlString("Your team not named"))
                         }
                     </span>
-                    @if (Model.HasOwnTeam && Model.CanOwnerLeave)
+                    @if (Model.HasOwnTeam && Model.CanOwnerLeave || !Model.HasOwnTeam && Model.HasTeam)
                     {
                         <form asp-controller="Teams" asp-action="LeaveTeam" style="display: inline; margin-left: 10px;" method="get">
                             <input type="submit" class="btn btn-danger" value="Leave" style="margin-top: -5px;"/>

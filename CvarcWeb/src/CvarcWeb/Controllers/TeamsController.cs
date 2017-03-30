@@ -68,7 +68,7 @@ namespace CvarcWeb.Controllers
         public ActionResult CreateRequest(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.FirstOrDefault(t => t.Name == name);
+            var team = context.Teams.LastOrDefault(t => t.Name == name);
             if (team == null ||
                 context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == user.Id) ||
                 team.OwnerId == user.Id)
@@ -94,11 +94,9 @@ namespace CvarcWeb.Controllers
         public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.Include(t => t.Members).First(t => t.OwnerId == user.Id);
-            if (team.Members.Count == team.MaxSize)
-            {
-                RedirectToAction(nameof(ManageController.Index), "Manage");
-            }
+            var team = context.Teams.Include(t => t.Members).LastOrDefault(t => t.OwnerId == user.Id);
+            if (team == null || team.Members.Count == team.MaxSize)
+                return RedirectToAction(nameof(ManageController.Index), "Manage");
             var request =
                 context.TeamRequests.Include(r => r.Team).Include(r => r.User).FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
             if (request == null)
@@ -125,7 +123,7 @@ namespace CvarcWeb.Controllers
         {
             var user = userManager.GetUserAsync(User).Result;
             var allTeams = context.Teams.Include(t => t.Members).ToArray();
-            var team = allTeams.FirstOrDefault(t => t.Members.Any(m => m.Id == user.Id));
+            var team = allTeams.LastOrDefault(t => t.Members.Any(m => m.Id == user.Id));
             if (team == null)
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             user.Team = null;
@@ -169,7 +167,7 @@ namespace CvarcWeb.Controllers
         public IActionResult SetTeamName(string teamName)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
+            var team = context.Teams.LastOrDefault(t => t.OwnerId == user.Id);
             if (team == null)
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             team.Name = teamName;

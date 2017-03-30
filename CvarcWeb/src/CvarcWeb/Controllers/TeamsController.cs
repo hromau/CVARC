@@ -81,6 +81,16 @@ namespace CvarcWeb.Controllers
         }
 
         [HttpPost]
+        public ActionResult CancelRequest()
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var request = context.TeamRequests.Include(r => r.User).FirstOrDefault(r => r.User.Id == user.Id);
+            context.TeamRequests.Remove(request);
+            context.SaveChanges();
+            return RedirectToAction(nameof(ManageController.Index), "Manage");
+        }
+
+        [HttpPost]
         public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;

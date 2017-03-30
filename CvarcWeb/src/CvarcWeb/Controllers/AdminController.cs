@@ -17,10 +17,12 @@ namespace CvarcWeb.Controllers
     [Authorize(Policy = "RequireAdminRole")]
     public class AdminController : Controller
     {
-        private const string AdminEmail = "av_mironov@skbkontur.ru";
+        private const string AdminEmail = "fokychuk47@ya.ru";
+        private const string AdminEmail2 = "av_mironov@skbkontur.ru";
+        private const string AdminPassword = "1q2w3e";
         private static readonly Random rand = new Random();
         private readonly UserDbContext context;
-        private const string AdminEmail2 = "fokychuk47@ya.ru";
+        
         private const string MathMechRole = "MathMech";
         private const string ItPlanetRole = "ItPlanet";
         private readonly IEmailSender emailSender;
@@ -62,7 +64,7 @@ namespace CvarcWeb.Controllers
         {
             userManager.CreateAsync(
                                 new ApplicationUser { Email = email, UserName = email },
-                                "1q2w3e")
+                                AdminPassword)
                                 .Wait();
             await roleManager.CreateAsync(new IdentityRole("admin"));
             await userManager.AddToRoleAsync(context.Users.First(u => u.Email == email), "admin");
@@ -120,12 +122,7 @@ namespace CvarcWeb.Controllers
                     regedUser.Team = team.Entity;
                     context.SaveChanges();
                     msg += "team registered! ";
-                    emailSender.SendEmail(data[1], "IT-Planet credentials",
-                        "Hello!\n" +
-                        "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
-                        $"Your login: {user.Email}\n" +
-                        $"Your password: {passwd} \n" +
-                        "Pleasant coding! And let luck always be on your side. \n <3");
+                    emailSender.SendEmail(user.Email, "IT-Planet credentials", CreateEmailMessage(user.Email, passwd));
                     msg += "email sent";
                 }
                 catch (Exception e)
@@ -176,12 +173,7 @@ namespace CvarcWeb.Controllers
                     context.SaveChanges();
                     await userManager.AddToRoleAsync(user, MathMechRole);
                     msg += "team registered! ";
-                    emailSender.SendEmail(data[1], "MathMech HOMM credentials",
-                        "Hello!\n" +
-                        "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
-                        $"Your login: {user.Email}\n" +
-                        $"Your password: {passwd}\n" +
-                        "Pleasant coding! And let luck always be on your side.");
+                    emailSender.SendEmail(user.Email, "MathMech HOMM credentials", CreateEmailMessage(user.Email, passwd));
                     msg += "email sent";
                 }
                 catch (Exception e)
@@ -205,6 +197,15 @@ namespace CvarcWeb.Controllers
             for (var i = 0; i < 8; i++)
                 pass += chars[rand.Next(chars.Length - 1)];
             return pass;
+        }
+
+        private string CreateEmailMessage(string email, string password)
+        {
+            return "Hello!\n" +
+                "You recieved this mail because you are participating in programming competitions on homm.ulearn.me.\n" +
+                $"Your login: {email}\n" +
+                $"Your password: {password} \n" +
+                "Pleasant coding! And let luck always be on your side. \n <3";
         }
     }
 }

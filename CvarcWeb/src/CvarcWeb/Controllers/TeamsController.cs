@@ -100,7 +100,7 @@ namespace CvarcWeb.Controllers
                 RedirectToAction(nameof(ManageController.Index), "Manage");
             }
             var request =
-                context.TeamRequests.FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
+                context.TeamRequests.Include(r => r.Team).Include(r => r.User).FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
             if (request == null)
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             team.Members.Add(user);

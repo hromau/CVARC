@@ -68,7 +68,7 @@ namespace CvarcWeb.Controllers
                 TwoFactor = await userManager.GetTwoFactorEnabledAsync(user),
                 Logins = await userManager.GetLoginsAsync(user),
                 BrowserRemembered = await signInManager.IsTwoFactorClientRememberedAsync(user),
-                RequestsInUserTeam = GetRequestsInUserTeam(user),
+                RequestsInUserTeam = GetRequestsInUserTeam(user, team),
                 UserRequestsInOtherTeam = GetUserRequestsInOtherTeams(),
                 HasOwnTeam = hasOwnTeam,
                 Team = team,
@@ -192,20 +192,15 @@ namespace CvarcWeb.Controllers
         }
 
 
-        private IEnumerable<TeamRequest> GetRequestsInUserTeam(ApplicationUser user)
+        private IEnumerable<TeamRequest> GetRequestsInUserTeam(ApplicationUser user, Team team)
         {
-            var team = context.Teams.FirstOrDefault(t => t.OwnerId == user.Id);
-            if (team == null)
-                return Enumerable.Empty<TeamRequest>();
-            return
-                context.TeamRequests
-                    .Include(r => r.Team)
-                    .Include(r => r.User)
-                    .Where(r => r.Team.TeamId == team.TeamId)
-                    .ToArray()
-                    .Select(t => new { Request = t, User = t.User })
-                    .GroupBy(t => t.User.Id)
-                    .Select(g => g.Last().Request);
+            //if (team.OwnerId != user.Id)
+            //    return Enumerable.Empty<TeamRequest>();
+            return context.TeamRequests
+                .Include(r => r.Team)
+                .Include(r => r.User)
+                .Where(r => r.Team.TeamId == team.TeamId)
+                .ToArray();
         }
 
         private IEnumerable<TeamRequest> GetUserRequestsInOtherTeams()

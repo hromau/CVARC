@@ -94,7 +94,7 @@ namespace CvarcWeb.Controllers
         public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.First(t => t.OwnerId == user.Id);
+            var team = context.Teams.Include(t => t.Members).First(t => t.OwnerId == user.Id);
             if (team.Members.Count == team.MaxSize)
             {
                 RedirectToAction(nameof(ManageController.Index), "Manage");

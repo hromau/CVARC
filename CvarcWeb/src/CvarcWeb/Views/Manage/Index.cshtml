@@ -120,7 +120,7 @@
 
             @if (Model.MaxSize != 1 || Model.CanOwnerLeave)
             {
-                if (!Model.HasOwnTeam)
+                if (!Model.HasOwnTeam && !Model.HasTeam)
                 {
                     <dt>Create team:</dt>
                     <dd>
@@ -156,9 +156,7 @@
                     <dt>Request to team:</dt>
                     <dd>@Model.UserRequestsInOtherTeam.First().Team.Name</dd>
                 }
-                if (Model.HasTeam) 
-                { }
-                else if (!Model.UserRequestsInOtherTeam.Any())
+                if (!Model.HasTeam && !Model.UserRequestsInOtherTeam.Any())
                 {
 
                     <form asp-controller="Teams" asp-action="CreateRequest" method="POST">

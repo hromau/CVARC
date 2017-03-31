@@ -10,10 +10,12 @@ namespace Assets.Tools
 {
     public static class DefaultWorldInfoCreator
     {
+        private static readonly Random random = new Random();
+
         public static WorldState GetDefaultWorldState(LoadingData loadingData)
         {
             var competitions = Dispatcher.Loader.GetCompetitions(loadingData);
-            return competitions.Logic.CreateWorldState(competitions.Logic.PredefinedWorldStates.First());
+            return competitions.Logic.CreateWorldState(random.Next(20).ToString());
         }
 
         public static void AddDefaultLogSettings(GameSettings settings)

@@ -25,7 +25,7 @@ class Game extends Component {
         const results = game.TeamGameResults.map((r, i) => {
             const classes = this.getTeamClasses(game, i);
             return <div className={classes} key={r.TeamGameResultId}>
-                       <div className="team-name">{r.Team.Name}</div>
+                       <div className="team-name">{r.Team.Name || "Unnamed team"}</div>
                        {r.Results.map(res =>
                            <div className="scores" key={res.ResultId}>
                                <div className="score-type">{res.ScoresType}</div>

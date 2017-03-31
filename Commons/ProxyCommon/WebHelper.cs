@@ -17,7 +17,7 @@ namespace ProxyCommon
         public static void PutAsync<T>(T obj, string url)
         {
             var content = Encoding.UTF8.GetBytes(Serializer.Serialize(obj));
-            Console.WriteLine(Serializer.Serialize(obj));
+            log.Info($"Game end. Sending result to web: {content}");
             using (var client = new WebClient())
                 client.UploadData(new Uri(url), "PUT", content);
         }

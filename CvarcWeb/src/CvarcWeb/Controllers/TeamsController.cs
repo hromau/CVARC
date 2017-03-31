@@ -68,7 +68,7 @@ namespace CvarcWeb.Controllers
         public ActionResult CreateRequest(string name)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.FirstOrDefault(t => t.Name == name);
+            var team = context.Teams.LastOrDefault(t => t.Name == name);
             if (team == null ||
                 context.TeamRequests.Any(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == user.Id) ||
                 team.OwnerId == user.Id)
@@ -81,16 +81,24 @@ namespace CvarcWeb.Controllers
         }
 
         [HttpPost]
+        public ActionResult CancelRequest()
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var request = context.TeamRequests.Include(r => r.User).FirstOrDefault(r => r.User.Id == user.Id);
+            context.TeamRequests.Remove(request);
+            context.SaveChanges();
+            return RedirectToAction(nameof(ManageController.Index), "Manage");
+        }
+
+        [HttpPost]
         public ActionResult AcceptRequest(string userId)
         {
             var user = userManager.GetUserAsync(User).Result;
-            var team = context.Teams.First(t => t.OwnerId == user.Id);
-            if (team.Members.Count == team.MaxSize)
-            {
-                RedirectToAction(nameof(ManageController.Index), "Manage");
-            }
+            var team = context.Teams.Include(t => t.Members).LastOrDefault(t => t.OwnerId == user.Id);
+            if (team == null || team.Members.Count == team.MaxSize)
+                return RedirectToAction(nameof(ManageController.Index), "Manage");
             var request =
-                context.TeamRequests.FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
+                context.TeamRequests.Include(r => r.Team).Include(r => r.User).FirstOrDefault(tr => tr.Team.TeamId == team.TeamId && tr.User.Id == userId);
             if (request == null)
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             team.Members.Add(user);
@@ -115,7 +123,7 @@ namespace CvarcWeb.Controllers
         {
             var user = userManager.GetUserAsync(User).Result;
             var allTeams = context.Teams.Include(t => t.Members).ToArray();
-            var team = allTeams.FirstOrDefault(t => t.Members.Any(m => m.Id == user.Id));
+            var team = allTeams.LastOrDefault(t => t.Members.Any(m => m.Id == user.Id));
             if (team == null)
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             user.Team = null;
@@ -147,10 +155,24 @@ namespace CvarcWeb.Controllers
         //    return new JsonResult(new {teams});
         //}
 
+        [AllowAnonymous]
         [HttpGet]
         public JsonResult GetAllCvarcTags(string apiKey)
         {
-            return new JsonResult(apiKey == "huj" ? context.Teams.Select(t => t.CvarcTag).ToArray() : new Guid[0]);
+            return new JsonResult(apiKey == WebConstants.ApiKey ? context.Teams.Select(t => t.CvarcTag).ToArray() : new Guid[0]);
+        }
+
+
+        [HttpPost]
+        public IActionResult SetTeamName(string teamName)
+        {
+            var user = userManager.GetUserAsync(User).Result;
+            var team = context.Teams.LastOrDefault(t => t.OwnerId == user.Id);
+            if (team == null)
+                return RedirectToAction(nameof(ManageController.Index), "Manage");
+            team.Name = teamName;
+            context.SaveChanges();
+            return RedirectToAction(nameof(ManageController.Index), "Manage");
         }
     }
 }

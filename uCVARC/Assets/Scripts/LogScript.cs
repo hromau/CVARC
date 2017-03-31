@@ -46,9 +46,15 @@ public partial class LogScript : PlayScript
         // если после того, как этот метод вернет фолс, позвать его еще раз -- вылетит исключение
         // может быть стоит сделать так, чтоб он всегда возвращал фолс. 
         // FixedUpdate может быть вызван еще несколько раз, несмотря на вызов SetGameOver.
+
+        Debugger.Log("Calling reader.Play");
         if (!reader.Play(curWorldTime))
             Dispatcher.SetGameOver();
+
+        Debugger.Log("Calling update speeds");
         commonEngine.UpdateSpeeds();
+
+        Debugger.Log("Completed");
     }
 
     void OnDisable()

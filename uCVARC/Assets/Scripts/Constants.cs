@@ -12,10 +12,6 @@ public static class Constants
     public const int ServicePort = 14002;
     public const int LogPort = 14003;
     public const int NetworkPort = 15000;
-    public const int TimeScale = 1;
+    public static readonly int TimeScale = Settings.Current.ServerBuild ? 3 : 1;
     public const string LogFolderRoot = "GameLogs";
-
-    public const bool NeedToOpenServicePort = true;
-    
-    public const bool NeedToOpenLogPort = true;
 }

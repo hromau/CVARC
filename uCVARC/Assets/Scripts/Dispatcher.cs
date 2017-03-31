@@ -49,12 +49,9 @@ public static class Dispatcher
         Debugger.Log("======================= Tutorial competition:" + Settings.Current.TutorialCompetitions);
 
         GameManager = new GameManager();
-
-        if (Constants.NeedToOpenServicePort)
-        {
-            serviceServer = new ServiceServer(Constants.ServicePort);
-            new Thread(serviceServer.Work).Start();
-        }
+        
+        serviceServer = new ServiceServer(Constants.ServicePort);
+        new Thread(serviceServer.Work).Start();
 
         yield return startCoroutine(new DlcLoader(startCoroutine).LoadAllDlc());
 
@@ -131,7 +128,9 @@ public static class Dispatcher
 
         Debug.Log("game over. disposing");
 
-        GameManager.EndGame(new GameResult(CurrentWorld.Scores.GetSumByType()));
+        if (CurrentWorld != null)
+            GameManager.EndGame(new GameResult(CurrentWorld.Scores.GetSumByType()));
+
         LogModel = null;
         SwitchScene("Intro");
     }
@@ -169,7 +168,7 @@ public static class Dispatcher
         shutdown = true;
     }
 
-    public static void SwitchScene(string sceneName) // public очень плохо
+    private static void SwitchScene(string sceneName)
     {
         switchingScenes = true;
         Application.LoadLevel(sceneName);

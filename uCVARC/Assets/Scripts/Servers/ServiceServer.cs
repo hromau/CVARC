@@ -32,7 +32,7 @@ namespace Assets.Servers
                 try
                 {
                     var commandType = client.ReadJson<ServiceUnityCommand>();
-                    Debugger.Log("Accepted service command " + commandType.ToString());
+                    Debugger.Log("Accepted service command " + commandType);
                     switch (commandType)
                     {
                         case ServiceUnityCommand.Ping:
@@ -42,13 +42,15 @@ namespace Assets.Servers
                             client.WriteJson(GetControllersIdInfo());
                             break;
                         case ServiceUnityCommand.Shutdown:
+                            if (Settings.Current.ServerBuild)
+                                break;
                             client.WriteJson("ok");
                             client.Close();
                             Dispatcher.SetShutdown();
                             return;
                     }
                 }
-                catch (Exception) { }
+                catch (Exception e) { Debugger.Log("Ошибка в сервис сервере: " + e);}
                 finally { client.Close(); }
             }
         }

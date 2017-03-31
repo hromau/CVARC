@@ -225,5 +225,26 @@ namespace HexModelTesting
             oneInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1 } });
             twoInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 2} });
         }
+
+        [Test]
+        public void ResolveCombat_Both_ShouldLose_IfArmiesAreExactlySame()
+        {
+            var result = Combat.Resolve(new ArmiesPair(genericMiddleArmy, genericMiddleArmy));
+
+            result.AttackingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
+        }
+
+        [Test]
+        public void ResolveCombat_Both_ShouldLose_IfArmiesAreEquivalent()
+        {
+            var firstArmy = genericMiddleArmy;
+            var secondArmy = new Dictionary<UnitType, int>(genericMiddleArmy);
+
+            var result = Combat.Resolve(new ArmiesPair(firstArmy, secondArmy));
+
+            result.AttackingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
+        }
     }
 }

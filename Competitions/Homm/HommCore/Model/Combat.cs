@@ -46,7 +46,7 @@ namespace HoMM.ClientClasses
     {
         public class CombatResult : ArmiesPair
         {
-            public CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
+            internal CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
 
             public bool IsAttackerWin => !IsEmpty(AttackingArmy) && IsEmpty(DefendingArmy);
             public bool IsDefenderWin => !IsEmpty(DefendingArmy) && IsEmpty(AttackingArmy);

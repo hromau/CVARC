@@ -96,6 +96,7 @@ namespace HoMM.ClientClasses
                     })
                     .OrderByDescending(x => x.Loss)
                     .ThenByDescending(x => x.KilledInCombatCount)
+                    .ThenByDescending(x => HommRules.Current.Units.CombatMod[attackerType][x.UnitType])
                     .FirstOrDefault();
 
                 if (targetOfAttack != null)

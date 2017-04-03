@@ -26,7 +26,7 @@ namespace HoMM.Robot.HexagonalMovement
             commonEngine = world.CommonEngine;
         }
 
-        public void BeginCombat(ICombatable other, Tile robotTile, Tile otherTile, Action onPlayerWin)
+        public double BeginCombat(ICombatable other, Tile robotTile, Tile otherTile, Action onPlayerWin)
         {
             robotTile.BeginCombat();
             otherTile.BeginCombat();
@@ -93,6 +93,8 @@ namespace HoMM.Robot.HexagonalMovement
                 robotTile.EndCombat();
                 otherTile.EndCombat();
             }));
+
+            return combatTriggerTime;
         }
     }
 }

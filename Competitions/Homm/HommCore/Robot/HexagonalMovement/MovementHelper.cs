@@ -138,11 +138,9 @@ namespace HoMM.Robot.HexagonalMovement
 
         private void MakeTurn(HommRobot robot)
         {
-            var enemySpawn = world.GetRespawnLocation(TwoPlayersId.Ids.First(id => id != robot.ControllerId), world.Round.Map);
-
             hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
 
-            if (newLocation == enemySpawn)
+            if (world.IsEnemySpawn(newLocation, robot.ControllerId))
             {
                 hommEngine.SetAnimation(robot.ControllerId, Animation.Idle);
                 hommEngine.Freeze(robot.ControllerId);

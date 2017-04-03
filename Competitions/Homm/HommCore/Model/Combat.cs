@@ -80,7 +80,7 @@ namespace HoMM.ClientClasses
 
         private static Dictionary<UnitType, int> ResolveOneTurn(Dictionary<UnitType, int> attackingArmy, Dictionary<UnitType, int> defendingArmy)
         {
-            foreach (var attackingUnit in attackingArmy.Where(u => u.Value > 0))
+            foreach (var attackingUnit in attackingArmy.Where(u => u.Value > 0).OrderBy(x => x.Value).ThenBy(x => x.Key))
             {
                 var attackerType = attackingUnit.Key;
                 var attackerCount = attackingUnit.Value;
@@ -97,6 +97,7 @@ namespace HoMM.ClientClasses
                     .OrderByDescending(x => x.Loss)
                     .ThenByDescending(x => x.KilledInCombatCount)
                     .ThenByDescending(x => HommRules.Current.Units.CombatMod[attackerType][x.UnitType])
+                    .ThenBy(x => x.UnitType)
                     .FirstOrDefault();
 
                 if (targetOfAttack != null)

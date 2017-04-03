@@ -246,5 +246,20 @@ namespace HexModelTesting
             result.AttackingArmy.Should().BeEmpty();
             result.DefendingArmy.Should().BeEmpty();
         }
+
+        [Test]
+        public void ResolveCombat_Test_NoAmbiguousBehavior()
+        {
+            var firstArmyDescending = genericMiddleArmy.OrderByDescending(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+            var firstArmyAscending = genericMiddleArmy.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+
+            var secondArmy = genericSmallArmy;
+
+            var firstResult = Combat.Resolve(new ArmiesPair(firstArmyAscending, genericSmallArmy));
+            var secondResult = Combat.Resolve(new ArmiesPair(firstArmyDescending, genericSmallArmy));
+
+            firstResult.AttackingArmy.ShouldBeEquivalentTo(secondResult.AttackingArmy);
+            firstResult.DefendingArmy.ShouldBeEquivalentTo(secondResult.DefendingArmy);
+        }
     }
 }

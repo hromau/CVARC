@@ -33,8 +33,16 @@ namespace Infrastructure
 
     public class TournamentTask
     {
+        public int Id { get; set; }
         public List<TournamentParticipant> Participants { get; set; } = new List<TournamentParticipant>();
         public GameSettings GameSettings { get; set; }
         public JObject WorldState { get; set; }
     }
+
+    public class TournamentGameResult
+    {
+        public TournamentTask Task { get; set; }
+        public GameResult Result { get; set; }
+    }
+
 }

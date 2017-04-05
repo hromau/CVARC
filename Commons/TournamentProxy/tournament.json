@@ -1,0 +1,39 @@
+[
+  {
+    "Id": 1,
+    "Participants": [
+      {
+        "PathToExe": "C:\\Repos\\CVARC\\Competitions\\Homm\\Homm.Client\\bin\\Debug\\Homm.Client.exe",
+        "Id": 1
+      }
+    ],
+    "GameSettings": {
+      "LoadingData": {
+        "AssemblyName": "homm",
+        "Level": "level1"
+      },
+      "TimeLimit": 90.0,
+      "OperationalTimeLimit": 5.0,
+      "ActorSettings": [
+        {
+          "ControllerId": "Left",
+          "IsBot": false,
+          "BotName": null,
+          "PlayerSettings": {
+            "LinkToPhoto": null,
+            "CvarcTag": "00000000-0000-0000-0000-000000000000"
+          }
+        }
+      ],
+      "EnableLog": false,
+      "LogFile": null,
+      "SpeedUp": true,
+      "SpectacularView": false
+    },
+    "WorldState": {
+      "Seed": 123,
+      "Debug": false,
+      "Undefined": false
+    }
+  }
+]

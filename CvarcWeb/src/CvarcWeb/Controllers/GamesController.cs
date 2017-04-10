@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CvarcWeb.Data;
@@ -61,15 +60,11 @@ namespace CvarcWeb.Controllers
 
         private IQueryable<Game> GetGames(GameFilterModel filters)
         {
-            var teamIds =
-                new HashSet<int>(context.Teams
-                                        .Where(t => t.Name.StartsWith(filters.TeamName, StringComparison.CurrentCultureIgnoreCase))
-                                        .Select(t => t.TeamId));
             var foundGames = context.Games
                             .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Team)
                             .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Results)
                             .Where(g => string.IsNullOrEmpty(filters.GameName) || g.GameName == filters.GameName)
-                            .Where(g => g.TeamGameResults.Any(r => teamIds.Contains(r.Team.TeamId)))
+                            .Where(g => string.IsNullOrEmpty(filters.TeamName) || g.TeamGameResults.Any(gr => gr.Team.Name != null && gr.Team.Name.StartsWith(filters.TeamName, StringComparison.CurrentCultureIgnoreCase)))
                             .OrderByDescending(g => g.GameId)
                             .AsQueryable();
             if (!filters.GameId.HasValue)

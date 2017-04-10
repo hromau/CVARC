@@ -45,6 +45,8 @@ namespace CvarcWeb.Controllers
             
             if (tournamentName.Equals("all", StringComparison.CurrentCultureIgnoreCase))
             {
+                if (!User.IsInRole("admin"))
+                    return new JsonResult(new string[0]);
                 return new JsonResult(tournamentsMap.Keys.ToList());
             }
 

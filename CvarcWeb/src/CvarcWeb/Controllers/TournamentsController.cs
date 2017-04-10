@@ -88,7 +88,7 @@ namespace CvarcWeb.Controllers
             };
         }
 
-        private GroupViewModel MapGroup(int[][] group)
+        private GroupViewModel MapGroup(int[][] group, int groupNumber)
         {
             var gameIds = group.SelectMany(row => row).ToArray();
             var idToGameMap = gamesRepository.GetByIds(gameIds).ToDictionary(g => g.GameId, g => g);
@@ -103,6 +103,7 @@ namespace CvarcWeb.Controllers
                 for (var j = 0; j < groupSize; j++)
                     if (i != j)
                         groupViewModel.Games[i][j] = idToGameMap[group[i][j]];
+            groupViewModel.GroupName = $"Group 邃本groupNumber + 1}";
             return groupViewModel;
         }
 
@@ -158,9 +159,9 @@ namespace CvarcWeb.Controllers
         {
             var result = new Dictionary<string, int>();
             for (var i = 0; i < olympicTournamentsCount; i++)
-                result[$"Test olympic tournament ｹ{i}"] = tournamentGenerator.GenerateOlympic($"Test olympic tournament ｹ{i}", 8);
+                result[$"Test olympic tournament 邃本i}"] = tournamentGenerator.GenerateOlympic($"Test olympic tournament 邃本i}", 8);
             for (var i = 0; i < groupTournamentsCount; i++)
-                result[$"Test group tournament ｹ{i + groupTournamentsCount}"] = tournamentGenerator.GenerateGroup($"Test group tournament ｹ{i+ groupTournamentsCount}", 4);
+                result[$"Test group tournament 邃本i + groupTournamentsCount}"] = tournamentGenerator.GenerateGroup($"Test group tournament 邃本i+ groupTournamentsCount}", 4);
         }
     }
 }

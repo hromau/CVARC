@@ -9,7 +9,6 @@ using CvarcWeb.Tournaments.Common;
 using CvarcWeb.Tournaments.GroupStage;
 using CvarcWeb.Tournaments.Playoff;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace CvarcWeb.Controllers
@@ -19,18 +18,13 @@ namespace CvarcWeb.Controllers
         private readonly UserDbContext context;
         private readonly TournamentGenerator tournamentGenerator;
         private readonly GamesRepository gamesRepository;
-
-        private readonly Dictionary<string, int> tournamentsMap;
-
         public TournamentsController(UserDbContext context,
                                      TournamentGenerator tournamentGenerator,
-                                     GamesRepository gamesRepository,
-                                     IOptions<TournamentsMap> tournamentsMap)
+                                     GamesRepository gamesRepository)
         {
             this.context = context;
             this.tournamentGenerator = tournamentGenerator;
             this.gamesRepository = gamesRepository;
-            this.tournamentsMap = tournamentsMap.Value;
         }
 
         [Route(@"Tournaments/{tournamentName}")]
@@ -47,18 +41,16 @@ namespace CvarcWeb.Controllers
             {
                 if (!User.IsInRole("admin"))
                     return new JsonResult(new string[0]);
-                return new JsonResult(tournamentsMap.Keys.ToList());
+                return new JsonResult(context.Tournaments.Select(t => t.Name).ToList());
             }
-
-            if (!tournamentsMap.ContainsKey(tournamentName))
+            var tournament =
+                context.Tournaments.FirstOrDefault(
+                    t => t.Name.Equals(tournamentName, StringComparison.CurrentCultureIgnoreCase));
+            if (tournament == null)
                 return View();
 
             return
-                new JsonResult(
-                    context.Tournaments.Where(t => t.TournamentId == tournamentsMap[tournamentName])
-                                       .Select(MapTournamentToViewModel)
-                                       .Single(),
-                    new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
+                new JsonResult(MapTournamentToViewModel(tournament), new JsonSerializerSettings {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
 
         private ITournamentViewModel MapTournamentToViewModel(Tournament t)

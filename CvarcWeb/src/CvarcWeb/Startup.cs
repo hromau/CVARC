@@ -51,7 +51,6 @@ namespace CvarcWeb
 
             services.AddAuthorization(options => options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("admin")));
             var tournamentsMap = Configuration.GetSection("TournamentsMap");
-            services.Configure<TournamentsMap>(tournamentsMap);
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();

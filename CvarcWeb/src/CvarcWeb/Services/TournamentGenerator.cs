@@ -35,15 +35,15 @@ namespace CvarcWeb.Services
             var teamNames = Enumerable.Range(1, teamsCount).Select(i => $"team №{i}").ToArray();
             var group = new GroupTournament
                         {
-                            GameIds = Enumerable.Range(0, teamsCount).Select(_ => new int[teamsCount]).ToArray()
+                            GameIds = new []{Enumerable.Range(0, teamsCount).Select(_ => new int[teamsCount]).ToArray()}
                         };
             for (var i = 0; i < teamsCount; i++)
                 for (var j = 0; j < teamsCount; j++)
                     if (i != j)
                         if (i < j)
-                            group.GameIds[i][j] = GenerateMatchOfTeams(teamNames[i], teamNames[j]).GameId;
+                            group.GameIds[0][i][j] = GenerateMatchOfTeams(teamNames[i], teamNames[j]).GameId;
                         else
-                            group.GameIds[i][j] = group.GameIds[j][i];
+                            group.GameIds[0][i][j] = group.GameIds[0][j][i];
             var generatedTournament =
                 context.Tournaments.Add(new Tournament
                 {

@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupCompetitionPlanner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinglePlayReportMaker.cs" />
     <Compile Include="SingleRunCompetitionPlanner.cs" />
     <Compile Include="SolutionsExtracter.cs" />
     <Compile Include="TournamentVerifier.cs" />
@@ -63,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Competitions\Homm\HommCore\HoMM.csproj">
+      <Project>{8EF744AF-6898-4BC1-94E9-863348599360}</Project>
+      <Name>HoMM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{aee36e9e-5c5a-494d-95b8-b2c19294cc6a}</Project>
       <Name>Infrastructure</Name>

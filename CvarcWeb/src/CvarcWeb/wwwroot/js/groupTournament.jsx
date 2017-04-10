@@ -5,10 +5,7 @@ class GroupTournament extends Component {
     renderTable(table) {
         const name = table.GroupName;
         table = table.Games;
-        console.log(table);
-        window.TABLE = table;
         const teamNames = [table[0][1].TeamGameResults[0].Team.Name].concat(table[0].filter(g => g !== null).map(g => g.TeamGameResults[1].Team.Name));
-        console.log(teamNames);
         return (
             <table className="group-tournament" key={name}>
                 <thead>

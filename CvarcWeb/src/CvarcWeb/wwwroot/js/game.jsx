@@ -1,9 +1,9 @@
 ﻿import {Component} from 'react';
-import GameHelper from './gameHelper';
+import {getMainScore, isMainScore, sumOtherScores, getWinner} from './gameHelper';
 
 class Game extends Component {
     compareResults(res1, res2) {
-        return GameHelper.getMainScore(res1) - GameHelper.getMainScore(res2);
+        return getMainScore(res1) - getMainScore(res2);
     }
 
     getTeamClasses(gameResults, i) {

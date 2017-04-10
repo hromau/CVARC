@@ -207,5 +207,23 @@ namespace CvarcWeb.Controllers
                 $"Your password: {password} \n" +
                 "Pleasant coding! And let luck always be on your side. \n <3";
         }
+
+        public IActionResult CreateTournament(string name, TournamentType type)
+        {
+            var file = Request.Form.Files["TournamentInfo"];
+            using (var ms = new MemoryStream())
+            {
+                file.CopyTo(ms);
+                var content = Encoding.UTF8.GetString(ms.ToArray());
+                context.Tournaments.Add(new Tournament
+                {
+                    Name = name,
+                    TournamentTree = content,
+                    Type = type
+                });
+                context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+        }
     }
 }

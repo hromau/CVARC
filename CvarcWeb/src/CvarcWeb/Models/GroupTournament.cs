@@ -2,6 +2,6 @@
 {
     public class GroupTournament
     {
-        public int[][][] GameIds { get; set; }
+        public int?[][][] GameIds { get; set; }
     }
 }

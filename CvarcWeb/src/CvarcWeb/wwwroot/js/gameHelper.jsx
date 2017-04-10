@@ -8,9 +8,7 @@ const getWinner = match => {
     return match.TeamGameResults[1].Team.Name;
 }
 
-export default {
-    getMainScore,
-    isMainScore,
-    sumOtherScores,
-    getWinner
-}
+export { getMainScore} 
+export {isMainScore}
+export {sumOtherScores}
+export {getWinner}

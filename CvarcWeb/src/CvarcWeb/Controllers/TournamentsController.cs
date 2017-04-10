@@ -16,14 +16,11 @@ namespace CvarcWeb.Controllers
     public class TournamentsController : Controller
     {
         private readonly UserDbContext context;
-        private readonly TournamentGenerator tournamentGenerator;
         private readonly GamesRepository gamesRepository;
         public TournamentsController(UserDbContext context,
-                                     TournamentGenerator tournamentGenerator,
                                      GamesRepository gamesRepository)
         {
             this.context = context;
-            this.tournamentGenerator = tournamentGenerator;
             this.gamesRepository = gamesRepository;
         }
 
@@ -62,7 +59,7 @@ namespace CvarcWeb.Controllers
                     tournamentViewModel = MapOlympic(JsonConvert.DeserializeObject<OlympicTournament>(t.TournamentTree));
                     break;
                 case TournamentType.Group:
-                    tournamentViewModel = MapGroupTournament(JsonConvert.DeserializeObject<GroupTournament>(t.TournamentTree));
+                    tournamentViewModel = MapGroupTournament(new GroupTournament {GameIds = JsonConvert.DeserializeObject<int?[][][]>(t.TournamentTree)});
                     break;
                 default:
                     return null;
@@ -80,10 +77,10 @@ namespace CvarcWeb.Controllers
             };
         }
 
-        private GroupViewModel MapGroup(int[][] group, int groupNumber)
+        private GroupViewModel MapGroup(int?[][] group, int groupNumber)
         {
             var gameIds = group.SelectMany(row => row).ToArray();
-            var idToGameMap = gamesRepository.GetByIds(gameIds).ToDictionary(g => g.GameId, g => g);
+            var idToGameMap = gamesRepository.GetByIds(gameIds.Where(i => i.HasValue).Select(i => i.Value)).ToDictionary(g => g.GameId, g => g);
             var groupSize = group.Length;
             var groupViewModel = new GroupViewModel
             {
@@ -93,8 +90,8 @@ namespace CvarcWeb.Controllers
             };
             for (var i = 0; i < groupSize; i++)
                 for (var j = 0; j < groupSize; j++)
-                    if (i != j)
-                        groupViewModel.Games[i][j] = idToGameMap[group[i][j]];
+                    if (i < j)
+                        groupViewModel.Games[i][j] = idToGameMap[group[i][j].Value];
             groupViewModel.GroupName = $"Group №{groupNumber + 1}";
             return groupViewModel;
         }
@@ -145,15 +142,6 @@ namespace CvarcWeb.Controllers
                 queue.Enqueue(current.SecondPreviousStageMatch);
             }
             return gamesRepository.GetByIds(ids).ToDictionary(g => g.GameId, g => g);
-        }
-
-        private void ClearAndGenerateTournaments(int olympicTournamentsCount, int groupTournamentsCount)
-        {
-            var result = new Dictionary<string, int>();
-            for (var i = 0; i < olympicTournamentsCount; i++)
-                result[$"Test olympic tournament №{i}"] = tournamentGenerator.GenerateOlympic($"Test olympic tournament №{i}", 8);
-            for (var i = 0; i < groupTournamentsCount; i++)
-                result[$"Test group tournament №{i + groupTournamentsCount}"] = tournamentGenerator.GenerateGroup($"Test group tournament №{i+ groupTournamentsCount}", 4);
         }
     }
 }

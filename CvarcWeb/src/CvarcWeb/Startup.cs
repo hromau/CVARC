@@ -54,7 +54,6 @@ namespace CvarcWeb
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<TournamentGenerator>();
             services.AddTransient<GamesRepository>();
             services.AddSingleton<Random>();
 

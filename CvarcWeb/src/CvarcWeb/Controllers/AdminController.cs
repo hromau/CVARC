@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CvarcWeb.Controllers
 {
@@ -208,7 +209,7 @@ namespace CvarcWeb.Controllers
                 "Pleasant coding! And let luck always be on your side. \n <3";
         }
 
-        public IActionResult CreateTournament(string name, TournamentType type)
+        public IActionResult CreateTournament(string name, TournamentType type = TournamentType.Group)
         {
             var file = Request.Form.Files["TournamentInfo"];
             using (var ms = new MemoryStream())
@@ -224,6 +225,30 @@ namespace CvarcWeb.Controllers
                 context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
+        }
+
+        public ActionResult CreateManyGames()
+        {
+            var file = Request.Form.Files["ManyGames"];
+            using (var ms = new MemoryStream())
+            {
+                file.CopyTo(ms);
+                var content = Encoding.UTF8.GetString(ms.ToArray());
+                var objs = JsonConvert.DeserializeObject(content, typeof(WebCommonResults[][][])) as WebCommonResults[][][];
+                var groupTable = objs.Select(ConvertGroup).ToArray();
+                System.IO.File.WriteAllText("allah.out", JsonConvert.SerializeObject(groupTable));
+            }
+            return File("allah.out", "application/octet-stream", "lel.txt");
+        }
+
+        private int?[] ConvertLine(WebCommonResults[] results)
+        {
+            return results.Select(r => r?.SaveToDbAndGetGameId(context)).ToArray();
+        }
+
+        private int?[][] ConvertGroup(WebCommonResults[][] results)
+        {
+            return results.Select(ConvertLine).ToArray();
         }
     }
 }

@@ -70,32 +70,39 @@ namespace CvarcWeb.Controllers
                     tournamentViewModel = MapOlympic(JsonConvert.DeserializeObject<OlympicTournament>(t.TournamentTree));
                     break;
                 case TournamentType.Group:
-                    tournamentViewModel = MapGroup(JsonConvert.DeserializeObject<GroupTournament>(t.TournamentTree));
+                    tournamentViewModel = MapGroupTournament(JsonConvert.DeserializeObject<GroupTournament>(t.TournamentTree));
                     break;
                 default:
                     return null;
             }
-            tournamentViewModel.Name = t.Name;
-            tournamentViewModel.Id = t.TournamentId;
             tournamentViewModel.Type = t.Type;
             return tournamentViewModel;
         }
 
-        private GroupTournamentViewModel MapGroup(GroupTournament groupTournament)
+        private GroupTournamentViewModel MapGroupTournament(GroupTournament groupTournament)
         {
-            var gameIds = groupTournament.GameIds.SelectMany(row => row).ToArray();
+            return new GroupTournamentViewModel
+            {
+                Type = TournamentType.Group,
+                Groups = groupTournament.GameIds.Select(MapGroup).ToArray()
+            };
+        }
+
+        private GroupViewModel MapGroup(int[][] group)
+        {
+            var gameIds = group.SelectMany(row => row).ToArray();
             var idToGameMap = gamesRepository.GetByIds(gameIds).ToDictionary(g => g.GameId, g => g);
-            var groupSize = groupTournament.GameIds.Length;
-            var groupViewModel = new GroupTournamentViewModel
+            var groupSize = group.Length;
+            var groupViewModel = new GroupViewModel
             {
                 Games = Enumerable.Range(0, groupSize)
                                   .Select(_ => new Game[groupSize])
                                   .ToArray()
             };
-            for(var i = 0; i < groupSize; i++)
+            for (var i = 0; i < groupSize; i++)
                 for (var j = 0; j < groupSize; j++)
                     if (i != j)
-                        groupViewModel.Games[i][j] = idToGameMap[groupTournament.GameIds[i][j]];
+                        groupViewModel.Games[i][j] = idToGameMap[group[i][j]];
             return groupViewModel;
         }
 

@@ -1,11 +1,11 @@
 ﻿using CvarcWeb.Models;
+using CvarcWeb.Tournaments.GroupStage;
 
 namespace CvarcWeb.Tournaments.Common
 {
     public interface ITournamentViewModel
     {
-        string Name { get; set; }
-        int Id { get; set; }
+        GroupViewModel[] Groups { get; set; }
         TournamentType Type { get; set; }
     }
 }

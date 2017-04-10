@@ -2,8 +2,7 @@
 import {getMainScore, isMainScore, sumOtherScores, getWinner} from './gameHelper';
 
 class GroupTournament extends Component {
-    render() {
-        const table = this.props.tournament.Games;
+    renderTable(table) {
         const teamNames = [table[0][1].TeamGameResults[1].Team.Name].concat(table[0].filter(g => g !== null).map(g => g.TeamGameResults[0].Team.Name));
         return (
             <table className="group-tournament">
@@ -22,6 +21,14 @@ class GroupTournament extends Component {
                     ))}
                 </tbody>
             </table>
+        );
+    }
+    render() {
+        const tables = this.props.tournament.Groups;
+        return (
+            <div>
+                tables.map(t => renderTable(t));
+            </div>
         );
     }
 }

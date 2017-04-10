@@ -6,24 +6,29 @@ class Game extends Component {
         return GameHelper.getMainScore(res1) - GameHelper.getMainScore(res2);
     }
 
-    getTeamClasses(game, i) {
-        const sortedResults = JSON.parse(JSON.stringify(game.TeamGameResults)).sort((a, b) => this.compareResults(a, b));
-        const isSoloGame = game.TeamGameResults.length === 1;
-        const isWinner = () => this.compareResults(sortedResults[1], game.TeamGameResults[i]) === 0 &&
-                       this.compareResults(sortedResults[0], game.TeamGameResults[i]) !== 0;
+    getTeamClasses(gameResults, i) {
+        const sortedResults = JSON.parse(JSON.stringify(gameResults)).sort((a, b) => this.compareResults(a, b));
+        const isSoloGame = gameResults.length === 1;
+        const isWinner = () => this.compareResults(sortedResults[1], gameResults[i]) === 0 &&
+                       this.compareResults(sortedResults[0], gameResults[i]) !== 0;
         const isDraw = () => this.compareResults(sortedResults[0], sortedResults[1]) === 0;
-        return "team-result " + (!isSoloGame && !isDraw()
-                    ? isWinner()
-                        ? "winner" 
-                        : "looser" 
-                    : "draw");
-
+        if (isSoloGame) {
+            return "team-result draw";
+        }
+        if (isDraw()) {
+            return "team-result pair-draw";
+        }
+        if (isWinner()) {
+            return "team-result winner";
+        }
+        return "team-result looser";
     }
 
     render() {
         const game = this.props;
-        const results = game.TeamGameResults.map((r, i) => {
-            const classes = this.getTeamClasses(game, i);
+        var teamGameResults = JSON.parse(JSON.stringify(game.TeamGameResults)).sort((a, b) => a.Role.localeCompare(b.Role));
+        const results = teamGameResults.map((r, i) => {
+            const classes = this.getTeamClasses(teamGameResults, i);
             return <div className={classes} key={r.TeamGameResultId}>
                        <div className="team-name">{r.Team.Name || "Unnamed team"}</div>
                        {r.Results.map(res =>

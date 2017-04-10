@@ -12,17 +12,22 @@ class Game extends Component {
         const isWinner = () => this.compareResults(sortedResults[1], game.TeamGameResults[i]) === 0 &&
                        this.compareResults(sortedResults[0], game.TeamGameResults[i]) !== 0;
         const isDraw = () => this.compareResults(sortedResults[0], sortedResults[1]) === 0;
-        return "team-result " + (!isSoloGame && !isDraw()
-                    ? isWinner()
-                        ? "winner" 
-                        : "looser" 
-                    : "draw");
-
+        if (isSoloGame) {
+            return "team-result draw";
+        }
+        if (isDraw()) {
+            return "team-result pair-draw";
+        }
+        if (isWinner()) {
+            return "team-result winner";
+        }
+        return "team-result looser";
     }
 
     render() {
         const game = this.props;
-        const results = game.TeamGameResults.map((r, i) => {
+        var teamGameResults = JSON.parse(JSON.stringify(game.TeamGameResults)).sort((a, b) => a.localeCompare(b));
+        const results = teamGameResults.map((r, i) => {
             const classes = this.getTeamClasses(game, i);
             return <div className={classes} key={r.TeamGameResultId}>
                        <div className="team-name">{r.Team.Name || "Unnamed team"}</div>

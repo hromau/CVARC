@@ -169,7 +169,7 @@ namespace CvarcWeb.Controllers
 
             if (!Directory.Exists(solutionDir))
                 Directory.CreateDirectory(solutionDir);
-            using (var stream = System.IO.File.OpenWrite(solutionDir + team.TeamId + ".zip"))
+            using (var stream = System.IO.File.Open(solutionDir + team.TeamId + ".zip", FileMode.Create))
                 await file.CopyToAsync(stream);
             
             return RedirectToAction(nameof(Index));

@@ -78,7 +78,7 @@ public partial class RoundScript : PlayScript
             stringBuilder.AppendLine(type + " " + count);
         }
 
-        scoresTextLeft.text = stringBuilder.ToString();
+        (playerName == "Left" ? scoresTextLeft : scoresTextRight).text = stringBuilder.ToString();
     }
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс

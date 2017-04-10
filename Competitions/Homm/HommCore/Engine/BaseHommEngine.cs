@@ -84,6 +84,12 @@ namespace HoMM.Engine
 
         public void Freeze(GameObject obj)
         {
+            if (obj == null)
+            {
+                Debugger.Log($"Freeze was called, but parameter `{obj}` is null. Nothing to do.");
+                return;
+            }
+
             var rigidbody = obj.GetComponent<Rigidbody>();
             if (rigidbody != null) rigidbody.velocity = Vector3.zero;
         }

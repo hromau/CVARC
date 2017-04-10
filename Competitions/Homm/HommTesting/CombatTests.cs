@@ -225,5 +225,41 @@ namespace HexModelTesting
             oneInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1 } });
             twoInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 2} });
         }
+
+        [Test]
+        public void ResolveCombat_Both_ShouldLose_IfArmiesAreExactlySame()
+        {
+            var result = Combat.Resolve(new ArmiesPair(genericMiddleArmy, genericMiddleArmy));
+
+            result.AttackingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
+        }
+
+        [Test]
+        public void ResolveCombat_Both_ShouldLose_IfArmiesAreEquivalent()
+        {
+            var firstArmy = genericMiddleArmy;
+            var secondArmy = new Dictionary<UnitType, int>(genericMiddleArmy);
+
+            var result = Combat.Resolve(new ArmiesPair(firstArmy, secondArmy));
+
+            result.AttackingArmy.Should().BeEmpty();
+            result.DefendingArmy.Should().BeEmpty();
+        }
+
+        [Test]
+        public void ResolveCombat_Test_NoAmbiguousBehavior()
+        {
+            var firstArmyDescending = genericMiddleArmy.OrderByDescending(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+            var firstArmyAscending = genericMiddleArmy.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+
+            var secondArmy = genericSmallArmy;
+
+            var firstResult = Combat.Resolve(new ArmiesPair(firstArmyAscending, genericSmallArmy));
+            var secondResult = Combat.Resolve(new ArmiesPair(firstArmyDescending, genericSmallArmy));
+
+            firstResult.AttackingArmy.ShouldBeEquivalentTo(secondResult.AttackingArmy);
+            firstResult.DefendingArmy.ShouldBeEquivalentTo(secondResult.DefendingArmy);
+        }
     }
 }

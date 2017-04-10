@@ -135,10 +135,12 @@ h2 {
 }
 
 .team-result.pair-draw:nth-child(odd) {
+     background-color: #999;
      border-radius: 0 0 0 12px; 
 }
 
-.team-result.pair-draw:nth-child(odd) {
+.team-result.pair-draw:nth-child(even) {
+     background-color: #999;
      border-radius: 0 0 12px 0; 
 }
 

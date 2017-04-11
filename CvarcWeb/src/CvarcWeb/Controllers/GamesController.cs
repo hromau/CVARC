@@ -13,7 +13,6 @@ namespace CvarcWeb.Controllers
 {
     public class GamesController : Controller
     {
-        private static readonly Random random = new Random(0);
         private readonly UserDbContext context;
         private const int GamesPerPage = 30;
 
@@ -32,7 +31,8 @@ namespace CvarcWeb.Controllers
         {
             var games = GetGames(filters);
             var total = games.Count();
-            return new JsonResult(new { games = GetPage(filters, games), total },
+            var gamesPage = GetPage(filters, games);
+            return new JsonResult(new { games = gamesPage, total },
                 new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
         }
 
@@ -60,29 +60,24 @@ namespace CvarcWeb.Controllers
 
         private IQueryable<Game> GetGames(GameFilterModel filters)
         {
-            IQueryable<Game> games;
             var filterTeamName = filters.TeamName;
             if (string.IsNullOrEmpty(filterTeamName))
-                games = context.Games;
-            else
-            {
-                var gamesIds = context.TeamGameResults.Include(tr => tr.Game).Include(tr => tr.Team)
-                    .Where(tr => !string.IsNullOrEmpty(tr.Team.Name) && 
-                        tr.Team.Name.StartsWith(filterTeamName, StringComparison.CurrentCultureIgnoreCase))
-                    .Select(tr => tr.Game.GameId)
-                    .Distinct()
-                    .ToArray();
-                games = context.Games.Where(g => gamesIds.Contains(g.GameId));
-            }
-            
-            return games.Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Team)
-                .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Results)
-                .OrderByDescending(g => g.GameId);
+                return context.Games;
+            var gamesIds = context.TeamGameResults.Include(tr => tr.Game).Include(tr => tr.Team)
+                .Where(tr => !string.IsNullOrEmpty(tr.Team.Name) && 
+                             tr.Team.Name.StartsWith(filterTeamName, StringComparison.CurrentCultureIgnoreCase))
+                .Select(tr => tr.Game.GameId)
+                .Distinct()
+                .ToArray();
+            return context.Games.Where(g => gamesIds.Contains(g.GameId));
         }
 
         private static Game[] GetPage(GameFilterModel model, IQueryable<Game> filteredGames) =>
             filteredGames.Skip(model.Page * GamesPerPage)
                          .Take(GamesPerPage)
+                         .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Team)
+                         .Include(g => g.TeamGameResults).ThenInclude(cgr => cgr.Results)
+                         .OrderByDescending(g => g.GameId)
                          .ToArray()
                          .Select(g =>
                          {

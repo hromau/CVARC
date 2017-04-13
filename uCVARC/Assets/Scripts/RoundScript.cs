@@ -26,11 +26,13 @@ public partial class RoundScript : PlayScript
 
         world = Dispatcher.CurrentWorld;
         timeLimit = Dispatcher.CurrentWorld.Configuration.TimeLimit;
-        
+
         if (world != null)
             Debugger.Log("World loaded");
         else
             Debugger.Log("Fail. World not loaded");
+
+        scoreProvider = new RoundScoreProvider(world);
 
         gameOver = false;
     }
@@ -51,34 +53,6 @@ public partial class RoundScript : PlayScript
         }
 
         UpdateScores();
-    }
-
-    void UpdateScores()
-    {
-        foreach (var player in world.Scores.GetSumByType())
-        {
-            var playerName = player.Key;
-            var playerScores = player.Value;
-
-            UpdateScoresForPlayer(playerName, playerScores);
-        }
-    }
-
-    void UpdateScoresForPlayer(string playerName, Dictionary<string, int> scores)
-    {
-        var stringBuilder = new StringBuilder();
-
-        stringBuilder.AppendLine(playerName + " scores:");
-
-        foreach (var record in scores.OrderBy(x => x.Key))
-        {
-            var type = record.Key;
-            var count = record.Value;
-
-            stringBuilder.AppendLine(type + " " + count);
-        }
-
-        (playerName == "Left" ? scoresTextLeft : scoresTextRight).text = stringBuilder.ToString();
     }
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс

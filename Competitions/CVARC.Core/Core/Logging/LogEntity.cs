@@ -43,12 +43,14 @@ namespace CVARC.V2
 
     public class ScoresUpdate
     {
-        public int Added { get; internal set; }
+        // некоторые поля были internal, из-за этого jsonconvert просто херачил в них null
+
+        public int Added { get; set; }
         public string ControllerId { get; set; }
-        public string Reason { get; internal set; }
+        public string Reason { get; set; }
         public int Scores { get; set; }
-        public object Total { get; internal set; }
-        public string Type { get; internal set; }
+        public object Total { get; set; }
+        public string Type { get; set; }
     }
 
     public class GameLogEntry

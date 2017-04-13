@@ -1,4 +1,9 @@
-﻿using UnityCommons;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using CVARC.V2;
+using UnityCommons;
 using UnityEngine;
 
 namespace Assets
@@ -8,6 +13,8 @@ namespace Assets
         protected GUIText scoresTextLeft;
         protected GUIText scoresTextRight;
         protected GameObject myCamera;
+
+        protected IScoreProvider scoreProvider;
 
         protected abstract void Initialization();
 
@@ -53,6 +60,37 @@ namespace Assets
             scoresTextRight.pixelOffset = new Vector2(2, 2);
             scoresTextRight.text = "Right Scores: 0";
             scoresTextRight.transform.position = new Vector3(0.88f, 1, 0);
+        }
+
+        protected void UpdateScores()
+        {
+            if (scoreProvider == null)
+                throw new Exception("Score provider must not be null");
+
+            foreach (var player in scoreProvider.GetScores().GetSumByType())
+            {
+                var playerName = player.Key;
+                var playerScores = player.Value;
+
+                UpdateScoresForPlayer(playerName, playerScores);
+            }
+        }
+
+        void UpdateScoresForPlayer(string playerName, Dictionary<string, int> scores)
+        {
+            var stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine(playerName + " scores:");
+
+            foreach (var record in scores.OrderBy(x => x.Key))
+            {
+                var type = record.Key;
+                var count = record.Value;
+
+                stringBuilder.AppendLine(type + " " + count);
+            }
+
+            (playerName == "Left" ? scoresTextLeft : scoresTextRight).text = stringBuilder.ToString();
         }
     }
 }

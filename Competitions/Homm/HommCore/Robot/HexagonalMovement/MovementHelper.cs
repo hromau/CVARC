@@ -1,6 +1,6 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
-using HoMM.Rules;
 using HoMM.World;
 using System.Linq;
 
@@ -8,17 +8,17 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class MovementHelper
     {
-        Location newLocation;
-        IHommEngine hommEngine;
+        readonly Location newLocation;
+        readonly IHommEngine hommEngine;
         ICommonEngine commonEngine;
-        HommWorld world;
-        Player player;
-        Map map;
-        IHommRobot robot;
-        double movementDuration;
-        Direction movementDirection;
+        readonly HommWorld world;
+        readonly Player player;
+        readonly Map map;
+        readonly HommRobot robot;
+        readonly double movementDuration;
+        readonly Direction movementDirection;
 
-        public MovementHelper(IHommRobot robot, Direction movementDirection)
+        public MovementHelper(HommRobot robot, Direction movementDirection)
         {
             this.robot = robot;
             this.movementDirection = movementDirection;
@@ -90,55 +90,70 @@ namespace HoMM.Robot.HexagonalMovement
             return HommRules.Current.CombatDuration;
         }
 
-        private IHommRobot CheckOtherRobot()
+        private HommRobot CheckOtherRobot()
         {
             return world.Actors
-                .Where(x => x is IHommRobot)
-                .Cast<IHommRobot>()
+                .Where(x => x is HommRobot)
+                .Cast<HommRobot>()
+                .Where(x => !x.IsDead)
                 .Where(x => x.Player.Location == newLocation)
                 .FirstOrDefault();
         }
 
-        private double HandleOtherRobot(IHommRobot otherRobot)
+        private double HandleOtherRobot(HommRobot otherRobot)
         {
-            BeginCombat(otherRobot.Player, map[robot.Player.Location], map[newLocation]);
+            var combatTriggerTime = BeginCombat(otherRobot.Player, map[robot.Player.Location], map[newLocation]);
+            otherRobot.ControlTrigger.ScheduledTime = combatTriggerTime + 0.01;
             return HommRules.Current.CombatDuration;
         }
 
-        private IHommRobot CheckMovementCollision()
+        private HommRobot CheckMovementCollision()
         {
             return world.Actors
-                .Where(x => x is IHommRobot)
-                .Cast<IHommRobot>()
+                .Where(x => x is HommRobot)
+                .Cast<HommRobot>()
+                .Where(x => !x.IsDead)
                 .Where(x => x.Player.DisiredLocation == newLocation)
                 .FirstOrDefault();
         }
 
-        private double HandleMovementCollision(IHommRobot collisionRobot)
+        private double HandleMovementCollision(HommRobot collisionRobot)
         {
             robot.World.Clocks.AddTrigger(new OneTimeTrigger(collisionRobot.ControlTrigger.ScheduledTime,
-                () => BeginCombat(collisionRobot.Player, map[robot.Player.Location], map[newLocation])));
+                () =>
+                {
+                    var combatTriggerTime = BeginCombat(collisionRobot.Player, map[robot.Player.Location], map[newLocation]);
+                    collisionRobot.ControlTrigger.ScheduledTime = combatTriggerTime + 0.01;
+                }));
 
-            collisionRobot.ControlTrigger.ScheduledTime += HommRules.Current.CombatDuration;
+            collisionRobot.ControlTrigger.ScheduledTime = double.PositiveInfinity;
 
             return double.PositiveInfinity;
         }
 
-        private void BeginCombat(ICombatable other, Tile robotTile, Tile otherTile)
+        private double BeginCombat(ICombatable other, Tile robotTile, Tile otherTile)
         {
-            new CombatHelper(robot).BeginCombat(other, robotTile, otherTile, () =>
+            return new CombatHelper(robot).BeginCombat(other, robotTile, otherTile, () =>
             {
                 robot.ControlTrigger.ScheduledTime = world.Clocks.CurrentTime + movementDuration + 0.001;
                 MakeTurn(robot);
             });
         }
 
-        private void MakeTurn(IHommRobot robot)
+        private void MakeTurn(HommRobot robot)
         {
+            hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
+
+            if (world.IsEnemySpawn(newLocation, robot.ControllerId))
+            {
+                hommEngine.SetAnimation(robot.ControllerId, Animation.Idle);
+                hommEngine.Freeze(robot.ControllerId);
+                return;
+            }
+
             player.DisiredLocation = newLocation;
 
             hommEngine.SetAnimation(robot.ControllerId, Animation.Gallop);
-            hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
             hommEngine.Move(robot.Player.Name, movementDirection, movementDuration);
 
             world.Clocks.AddTrigger(new LocationTrigger(robot.World.Clocks.CurrentTime,

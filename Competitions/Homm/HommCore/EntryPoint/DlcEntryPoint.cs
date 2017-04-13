@@ -3,6 +3,9 @@ using HoMM.Engine;
 using Infrastructure;
 using System.Collections.Generic;
 using UnityCommons;
+using System;
+using UnityEngine;
+using System.Linq;
 
 namespace HoMM
 {
@@ -10,11 +13,16 @@ namespace HoMM
     {
         public IEnumerable<Competitions> GetLevels()
         {
-            yield return new Competitions("homm", "level1", new HommLogicPartHelper(1),
-                () => new UKeyboard(), CreateEngines);
+            yield return Competitions(HommLevel.Level1, new HommLogicPartHelper(playersCount: 1, limitView: false));
 
-            yield return new Competitions("homm", "level2", new HommLogicPartHelper(2),
-                () => new UKeyboard(), CreateEngines);
+            yield return Competitions(HommLevel.Level2, new HommLogicPartHelper(playersCount: 2, limitView: false));
+
+            yield return Competitions(HommLevel.Level3, new HommLogicPartHelper(playersCount: 2, limitView: true));
+        }
+
+        private static Competitions Competitions(HommLevel level, HommLogicPartHelper logicPartHelper)
+        {
+            return new Competitions("homm", level.ToString(), logicPartHelper, () => new UKeyboard(), CreateEngines);
         }
 
         private static List<IEngine> CreateEngines(GameSettings settings)
@@ -25,5 +33,9 @@ namespace HoMM
                 new HommUserInterfaceEngine(),
             };
         }
+
+        public Texture MenuBackground => AssetLoader.LoadAsset<Texture>("homm", "bg.jpg");
+
+        public string FullCompetitionsName => "Heroes of Might and Magic";
     }
 }

@@ -1,28 +1,30 @@
 ﻿using CVARC.V2;
 using HoMM.ClientClasses;
 using HoMM.Robot;
+using Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace HoMM.Sensors
 {
-    public class MapSensor : Sensor<MapData, IHommRobot>
+    public class MapSensor : Sensor<MapData, HommRobot>
     {
         public override  MapData Measure()
         {
-            var players = Actor.World.Players;
+            var players = Actor.World.Players
+                .Where(p => p.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius);
 
             var objects = Actor.World.Round.Map
+                .Where(x => x.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius)
                 .Select(tile => BuildMapInfo(tile, players.Where(x => x.Location == tile.Location).FirstOrDefault()));
 
-            var data = new MapData();
-
-            data.Objects=objects.ToList();
-            data.Width = Actor.World.Round.Map.Width;
-            data.Height = Actor.World.Round.Map.Height;
-
-            return data;
+            return new MapData()
+            {
+                Objects = objects.ToList(),
+                Width = Actor.World.Round.Map.Width,
+                Height = Actor.World.Round.Map.Height
+            };
         }
 
         private static MapObjectData BuildMapInfo(Tile tile, Player player)
@@ -39,7 +41,7 @@ namespace HoMM.Sensors
                 if (obj is CapturableObject)
                 {
                     var capt = (CapturableObject)obj;
-                    owner = capt.Owner == null ? null : capt.Owner.Name;
+                    owner = capt.Owner?.Name;
                 }
 
                 if (obj is Wall)
@@ -57,7 +59,7 @@ namespace HoMM.Sensors
                 if (obj is Dwelling)
                 {
                     var dw = (Dwelling)obj;
-                    mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits);
+                    mapInfo.Dwelling = new ClientClasses.Dwelling(dw.Recruit.UnitType, dw.AvailableUnits, owner);
                 }
 
                 if (obj is ResourcePile)

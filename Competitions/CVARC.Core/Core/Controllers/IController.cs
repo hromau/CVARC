@@ -10,5 +10,6 @@ namespace CVARC.V2
         void Initialize(IActor controllableActor);
         ICommand GetCommand();
         void SendSensorData(object sensorData);
+        void SendError(Exception e);
     }
 }

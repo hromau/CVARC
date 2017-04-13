@@ -124,5 +124,10 @@ namespace Pudge.Player
             }
             return result;
         }
+
+        public void SendError(Exception e)
+        {
+            
+        }
     }
 }

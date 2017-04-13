@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 using System.Collections.Generic;
 
 namespace HoMM
@@ -29,7 +30,7 @@ namespace HoMM
         {
             if (p != Owner)
             {
-                Combat.ResolveBattle(p, this);
+                Combat.Resolve(p, this);
                 if (this.HasNoArmy())
                     Owner = p;
             }

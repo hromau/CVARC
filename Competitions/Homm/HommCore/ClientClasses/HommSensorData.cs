@@ -19,6 +19,11 @@ namespace HoMM.ClientClasses
         [FromSensor(typeof(ArmySensor))]
         public Dictionary<UnitType, int> MyArmy { get; set; }
 
+        [FromSensor(typeof(TimeSensor))]
+        public double WorldCurrentTime { get; set; } 
+
+        [FromSensor(typeof(ActorIdSensor))]
+        public string MyRespawnSide { get; set; }
 
         [FromSensor(typeof(TreasurySensor))]
         public Dictionary<Resource,int> MyTreasury { get; set; }

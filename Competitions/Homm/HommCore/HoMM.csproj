@@ -71,6 +71,7 @@
     <Compile Include="Engine\BaseHommEngine.cs" />
     <Compile Include="Generators\Spawners\SimpleSpawner.cs" />
     <Compile Include="HommClient.cs" />
+    <Compile Include="HommLevel.cs" />
     <Compile Include="Model\Tile\TileObjects\IBuilding.cs" />
     <Compile Include="Robot\GarrisonInterface\GarrisonBuilderUnit.cs" />
     <Compile Include="Robot\GarrisonInterface\IArmyInterfaceCommand.cs" />
@@ -125,7 +126,7 @@
     <Compile Include="Model\Units\UnitFactory.cs" />
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
-    <Compile Include="Robot\HommRules.cs" />
+    <Compile Include="HommRules.cs" />
     <Compile Include="Sensors\TreasurySensor.cs" />
     <Compile Include="Sensors\ArmySensor.cs" />
     <Compile Include="ClientClasses\HommSensorData.cs" />
@@ -133,10 +134,9 @@
     <Compile Include="Robot\ArmyInterface\IArmyInterfaceCommand.cs" />
     <Compile Include="Robot\ArmyInterface\ArmyInterfaceUnit.cs" />
     <Compile Include="Common\Direction.cs" />
-    <Compile Include="Robot\ArmyInterface\PurchaseOrder.cs" />
+    <Compile Include="Robot\ArmyInterface\HireOrder.cs" />
     <Compile Include="Robot\HexagonalMovement\IHexMovCommand.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovUnit.cs" />
-    <Compile Include="Robot\IHommRobot.cs" />
     <Compile Include="Robot\HexagonalMovement\HexMovement.cs" />
     <Compile Include="Sensors\DeathSensor.cs" />
     <Compile Include="Sensors\LocationSensor.cs" />

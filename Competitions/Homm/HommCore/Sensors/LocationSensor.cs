@@ -4,7 +4,7 @@ using HoMM.Robot;
 
 namespace HoMM.Sensors
 {
-    public class LocationSensor : Sensor<LocationInfo, IHommRobot>
+    public class LocationSensor : Sensor<LocationInfo, HommRobot>
     {
         public override LocationInfo Measure() =>
             new LocationInfo(Actor.Player.Location.X, Actor.Player.Location.Y);

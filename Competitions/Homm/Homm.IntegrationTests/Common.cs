@@ -7,14 +7,14 @@ namespace Homm.IntegrationTests
 {
     public partial class Hero_should
     {
-        HommClient<HommSensorData> client;
+        HommClient client;
         HommSensorData sensorData;
         private const int PilePrice = 1000;
         private const int MaxResourceCount = 3000;
         [SetUp]
         public void Init()
         {
-            client = new HommClient<HommSensorData>();
+            client = new HommClient();
             sensorData = client.Configurate("127.0.0.1", 18700, Guid.Empty, operationalTimeLimit: 5, debugMap:true);
         }
 

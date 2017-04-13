@@ -42,7 +42,7 @@ namespace HoMM.Engine
         
         private static GameObject LoadPrefab(string name)
         {
-            return PrefabLoader.GetPrefab<GameObject>("homm", name);
+            return AssetLoader.LoadAsset<GameObject>("homm", name);
         }
     }
 }

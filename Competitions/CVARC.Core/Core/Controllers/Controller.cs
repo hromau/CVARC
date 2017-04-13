@@ -23,5 +23,8 @@ namespace CVARC.V2
         public virtual void SendSensorData(object sensorData)
         {
         }
+
+        public virtual void SendError(Exception e)
+        { }
     }
 }

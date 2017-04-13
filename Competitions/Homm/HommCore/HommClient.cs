@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Robot;
 using HoMM.Robot.ArmyInterface;
 using HoMM.Robot.HexagonalMovement;
@@ -12,54 +13,78 @@ using System.Text;
 
 namespace HoMM
 {
-    public class HommClient<TSensorData> : CvarcClient<TSensorData, HommCommand, HommWorldState>
-        where TSensorData : class
+    public class HommClient : CvarcClient<HommSensorData, HommCommand, HommWorldState>
     {
-
         public const string AssemblyName = "homm";
-        public string LevelName { get { return "level1"; } }
 
-
-        public TSensorData Configurate(string ip, int port, Guid cvarcTag,
-            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false, bool debugMap=false, bool spectacularView=true)
+        public HommSensorData Configurate(string ip, int port, Guid cvarcTag, HommLevel level = HommLevel.Level1, bool isOnLeftSide = true,
+            int timeLimit = 90, int operationalTimeLimit = 1000, int seed = 0, bool speedUp = false, bool debugMap = false, bool spectacularView = true)
         {
-            var configs = new GameSettings();
-            configs.LoadingData = new LoadingData();
-            configs.LoadingData.AssemblyName = AssemblyName;
-            configs.LoadingData.Level = LevelName;
-            configs.SpectacularView = spectacularView;
-            configs.SpeedUp = speedUp;
-            configs.ActorSettings = new List<ActorSettings>
+            var configs = new GameSettings
             {
-                new ActorSettings
+                LoadingData = new LoadingData
                 {
-                    ControllerId = TwoPlayersId.Left,
-                    IsBot=false,
-                    PlayerSettings=new PlayerSettings
+                    AssemblyName = AssemblyName,
+                    Level = level.ToString()
+                },
+
+                SpectacularView = spectacularView,
+                SpeedUp = speedUp,
+                TimeLimit = timeLimit,
+                OperationalTimeLimit = operationalTimeLimit,
+
+                ActorSettings = new List<ActorSettings>
+                {
+                    new ActorSettings
                     {
-                        CvarcTag =  cvarcTag
+                        ControllerId = isOnLeftSide ? TwoPlayersId.Left : TwoPlayersId.Right,
+                        IsBot = false,
+                        PlayerSettings = new PlayerSettings
+                        {
+                            CvarcTag =  cvarcTag
+                        }
+                    },
+
+                    new ActorSettings
+                    {
+                        ControllerId = isOnLeftSide ? TwoPlayersId.Right : TwoPlayersId.Left,
+                        IsBot = true,
+                        BotName = HommRules.StandingBotName
                     }
                 }
             };
 
-            configs.TimeLimit = timeLimit;
-            configs.OperationalTimeLimit = operationalTimeLimit;
             return Configurate(port, configs, new HommWorldState(seed, debugMap), ip);
         }
 
-        public TSensorData Move(Direction direction)
+        public HommSensorData Move(Direction movementDirection)
         {
-            return Act(new HommCommand { Movement = new HexMovement(direction) });
+            return Act(new HommCommand { Movement = new HexMovement(movementDirection) });
         }
 
-        public TSensorData PurchaseUnits(int count)
+        public HommSensorData Wait(double waitDurationInSeconds)
         {
-            return Act(new HommCommand { Order = new PurchaseOrder(count) });
+            if (waitDurationInSeconds <= 0)
+                throw new ArgumentException($"Parameter '{nameof(waitDurationInSeconds)}' should be greater than zero.");
+
+            return Act(new HommCommand { Movement = new HexMovement(waitDurationInSeconds) });
         }
 
-        public TSensorData BuildGarrison(Dictionary<UnitType, int> garrisonArmy)
+        public HommSensorData HireUnits(int amountOfUnitsToHire)
         {
-            return Act(new HommCommand { WaitInGarrison = garrisonArmy });
+            if (amountOfUnitsToHire <= 0)
+                throw new ArgumentException($"Parameter '{nameof(amountOfUnitsToHire)}' should be greater than zero. Cannot hire a negative amount of units.");
+
+            return Act(new HommCommand { Order = new HireOrder(amountOfUnitsToHire) });
+        }
+
+        public HommSensorData BuildGarrison(Dictionary<UnitType, int> armyToLeftInGarrison)
+        {
+            foreach (var kv in armyToLeftInGarrison)
+                if (kv.Value <= 0)
+                    throw new ArgumentException($"Units count in garrison should be greater than zero. Cannot create garrison from negative amount of units.");
+
+            return Act(new HommCommand { WaitInGarrison = armyToLeftInGarrison });
         }
     }
 }

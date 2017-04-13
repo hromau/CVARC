@@ -1,4 +1,5 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace HoMM
 
         public override void InteractWithPlayer(Player p)
         {
-            Combat.ResolveBattle(p, this);
+            Combat.Resolve(p, this);
             if (this.HasNoArmy())
                 OnRemove();
         }
@@ -39,17 +40,17 @@ namespace HoMM
             var dominatingUnitType = random.Choice<UnitType>();
             var dominationFraction = 0.7;
 
-            var dominatorCombatPower = UnitConstants.CombatPower[dominatingUnitType];
+            var dominatorCombatPower = HommRules.Current.Units.CombatPower[dominatingUnitType];
             var dominatingUnitsCount = (int)Math.Ceiling((armyStrength * dominationFraction) / dominatorCombatPower);
 
             var army = new Dictionary<UnitType, int> { { dominatingUnitType, dominatingUnitsCount } };
-            var currentStrength = dominatingUnitsCount * UnitConstants.CombatPower[dominatingUnitType];
+            var currentStrength = dominatingUnitsCount * HommRules.Current.Units.CombatPower[dominatingUnitType];
 
             while(currentStrength < armyStrength)
             {
                 var nextUnit = random.Choice<UnitType>();
                 army[nextUnit] = army.GetOrDefault(nextUnit, 0) + 1;
-                currentStrength += UnitConstants.CombatPower[nextUnit];
+                currentStrength += HommRules.Current.Units.CombatPower[nextUnit];
             }
 
             return new NeutralArmy(army, location);

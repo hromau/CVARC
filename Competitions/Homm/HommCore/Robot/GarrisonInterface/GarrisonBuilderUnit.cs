@@ -1,7 +1,7 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
 using HoMM.Robot;
-using HoMM.Rules;
 using Infrastructure;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ namespace HoMM.Robot.ArmyInterface
     {
         private static int lastId;
 
-        private IHommRobot actor;
+        private HommRobot actor;
 
-        public GarrisonBuilderUnit(IHommRobot actor)
+        public GarrisonBuilderUnit(HommRobot actor)
         {
             this.actor = actor;
         }
@@ -23,6 +23,8 @@ namespace HoMM.Robot.ArmyInterface
         {
             var armyForGarrison = Compatibility.Check<IGarrisonCommand>(this, command).WaitInGarrison;
             if (armyForGarrison == null) return UnitResponse.Denied();
+
+            if (actor.IsDead) return UnitResponse.Accepted(HommRules.Current.GarrisonBuildDuration);
 
             actor.World.HommEngine.Freeze(actor.ControllerId);
             actor.World.HommEngine.SetAnimation(actor.ControllerId, Animation.Idle);

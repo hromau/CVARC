@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
@@ -13,44 +14,75 @@ namespace MultiplayerProxy
 {
     public static class Pool
     {
-        private static readonly ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>> pool = 
+        private static readonly ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>> pool =
             new ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>>();
+
         private static bool needToCheck;
         private static readonly ILog log = LogManager.GetLogger(nameof(Pool));
+        private static readonly Dictionary<LoadingData, string[]> levelToControllerIds;
 
         static Pool()
         {
+            log.Info("Pool ctor call");
+            while (levelToControllerIds == null)
+            {
+                levelToControllerIds = GameServer.GetControllersIdList();
+                if (levelToControllerIds == null)
+                    Thread.Sleep(100);
+            }
+            log.Info("loaded keys: " + string.Join(", ", levelToControllerIds.Select(x => $"\n  {x.Key.ToString()} values: {string.Join("|", x.Value)}")));
             Task.Factory.StartNew(GameChecker, TaskCreationOptions.LongRunning);
             log.Info("Checker task started");
+            log.Info("Pool ctor success");
         }
 
         public static async Task CreatePlayerInPool(TcpClient client)
         {
             log.Debug("CreatePlayerInPool call");
-            var settings = await client.ReadJsonAsync<GameSettings>();
-            await client.ReadJsonAsync<JObject>(); // ignore worldstate
-            var levelName = settings.LoadingData;
-            var errorMessage = CheckForErrors(settings);
-            if (!string.IsNullOrEmpty(errorMessage))
+            try
             {
-                log.Warn($"Player got error: {errorMessage}");
-                PlayerMessageHelper.SendMessage(client, MessageType.Error, errorMessage);
-                return;
+                var settings = await client.ReadJsonAsync<GameSettings>();
+                await client.ReadJsonAsync<JObject>(); // ignore worldstate
+                var levelName = settings.LoadingData;
+                levelName.AssemblyName = levelName.AssemblyName.ToLower();
+                levelName.Level = levelName.Level.ToLower();
+                
+                var errorMessage = CheckForErrors(settings);
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    log.Warn($"Player got error: {errorMessage}");
+                    PlayerMessageHelper.SendMessage(client, MessageType.Error, errorMessage);
+                    return;
+                }
+
+                log.Info($"Has new player! LoadingData: {settings.LoadingData} CvarcTag: {settings.ActorSettings[0].PlayerSettings.CvarcTag}");
+
+                var actorSettings = settings.ActorSettings.Single(x => !x.IsBot);
+
+                pool.TryAdd(levelName, new ConcurrentQueue<ClientWithSettings>());
+
+                pool[levelName].Enqueue(new ClientWithSettings
+                {
+                    Client = client,
+                    Settings = actorSettings.PlayerSettings
+                });
+
+                
+
+                PlayerMessageHelper.SendMessage(client, MessageType.Info,
+                    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
+
+                log.Info(PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, GetByLoadingData(levelName).Length));
+
+                CheckGame();
             }
-            var actorSettings = settings.ActorSettings.Single(x => !x.IsBot);
-
-            pool.TryAdd(levelName, new ConcurrentQueue<ClientWithSettings>());
-
-            pool[levelName].Enqueue(new ClientWithSettings
+            catch (Exception e)
             {
-                Client = client,
-                Settings = actorSettings.PlayerSettings
-            });
-
-            //PlayerMessageHelper.SendMessage(client, MessageType.Info, 
-            //    PlayerMessageHelper.GetQueueMessage(pool[levelName].Count, MultiplayerProxyConfigurations.LevelToControllerIds[levelName].Length));
-
-            CheckGame();
+                log.Error("error while accept player", e);
+                PlayerMessageHelper.SendMessage(client, MessageType.Error,
+                    "something went wrong! please, contact administrator (fokychuk47@ya.ru)");
+                throw;
+            }
         }
 
         public static void CheckGame() => needToCheck = true;
@@ -60,7 +92,7 @@ namespace MultiplayerProxy
             log.Debug("TryStartGame call");
             foreach (var levelName in pool.Keys)
             {
-                var controllerIdsLength = GameServer.GetControllersIdList()[levelName].Length;
+                var controllerIdsLength = GetByLoadingData(levelName).Length;
                 if (pool[levelName].Count < controllerIdsLength)
                     continue;
                 var players = new List<ClientWithSettings>();
@@ -79,7 +111,8 @@ namespace MultiplayerProxy
 
         private static string CheckForErrors(GameSettings settings)
         {
-            if (!GameServer.GetControllersIdList().ContainsKey(settings.LoadingData))
+            // это не иф, а ебучий костыль. blame юра.
+            if (!levelToControllerIds.Keys.Any(k => k.ToString().Equals(settings.LoadingData.ToString(), StringComparison.CurrentCultureIgnoreCase)))
                 return $"This LoadingData doesn't exists in proxy settings: {settings.LoadingData}";
             var actorSettings = settings.ActorSettings.Where(x => !x.IsBot).ToArray();
             if (actorSettings.Length != 1)
@@ -88,13 +121,12 @@ namespace MultiplayerProxy
             if (playerSettings == null)
                 return "Player settings must be not null";
             if (!WebServer.CvarcTagExists(playerSettings.CvarcTag))
-                return "Unknown cvarctag! try to wait few minutes, if u changed it or create new account";
+                return $"Unknown cvarctag: {playerSettings.CvarcTag}. Try to wait few minutes, if u changed it or create new account";
             return null;
         }
 
         private static async Task GameChecker()
         {
-            
             while (true)
             {
                 if (!needToCheck)
@@ -105,6 +137,13 @@ namespace MultiplayerProxy
                 needToCheck = false;
                 await TryStartGame();
             }
+        }
+
+        private static string[] GetByLoadingData(LoadingData ld)
+        {
+            var value = levelToControllerIds.Keys.Single(
+                k => k.ToString().Equals(ld.ToString(), StringComparison.CurrentCultureIgnoreCase));
+            return levelToControllerIds[value];
         }
     }
 }

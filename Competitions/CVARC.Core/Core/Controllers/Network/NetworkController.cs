@@ -26,6 +26,11 @@ namespace CVARC.V2
         public void Initialize(IActor controllableActor)
         {
             OperationalTimeLimit = controllableActor.World.Configuration.OperationalTimeLimit;
+            controllableActor.World.Exit += () =>
+              {
+                  SendError(new Exception("Time limit exceed"));
+                  client.Close();
+              };
         }
 
         PlayerMessage playerMessage;
@@ -74,6 +79,8 @@ namespace CVARC.V2
                 return result.Item1;
             }
 
+            SendError(new Exception("Operational time limit exceed"));
+
             Thread.Sleep(100);//without this sleep, if computer performs badly and units contain multiple triggers, the server will be stopped before test client receives data, hence client will throw exception.
        
 			client.Close();
@@ -89,6 +96,20 @@ namespace CVARC.V2
                 MessageType = MessageType.SensorData,
                 Message = JObject.FromObject(sensorData)
             };
+        }
+
+        public void SendError(Exception e)
+        {
+            var msh = new PlayerMessage
+            {
+                MessageType = MessageType.Error,
+                Message = JObjectHelper.CreateSimple<string>(e.GetType().Name + ": " + e.Message)
+            };
+            try
+            {
+                client.WriteJson(msh);
+            }
+            catch { }
         }
     }
 }

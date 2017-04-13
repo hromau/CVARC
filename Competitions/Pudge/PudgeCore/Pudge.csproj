@@ -79,7 +79,6 @@
     <Compile Include="Player\Slardar.cs" />
     <Compile Include="Player\PathFinder.cs" />
     <Compile Include="Player\SlardarBot.cs" />
-    <Compile Include="Sensors\TimeSensor.cs" />
     <Compile Include="Sensors\WardSensor.cs" />
     <Compile Include="Units\HookUnit\HookCommandBuilderExtensions.cs" />
     <Compile Include="Units\HookUnit\IHookCommand.cs" />
@@ -87,7 +86,6 @@
     <Compile Include="Sensors\EventData.cs" />
     <Compile Include="Sensors\EventSensor.cs" />
     <Compile Include="Sensors\Map\MapSensor.cs" />
-    <Compile Include="Sensors\ScoreSensor.cs" />
     <Compile Include="Units\HookUnit\HookUnit.cs" />
     <Compile Include="Units\HookUnit\IHookRobot.cs" />
     <Compile Include="Units\HookUnit\IHookRules.cs" />

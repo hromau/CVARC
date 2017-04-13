@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 using System.Collections.Generic;
 
 namespace HoMM
@@ -7,10 +8,10 @@ namespace HoMM
     {
         public string UnitName { get; }
         public UnitType UnitType { get; }
-        public int CombatPower { get { return UnitConstants.CombatPower[UnitType]; } }
-        public int WeeklyGrowth { get { return UnitConstants.WeeklyGrowth[UnitType]; } }
-        public Dictionary<Resource, int> UnitCost { get {return UnitConstants.UnitCost[UnitType]; } }
-        public Dictionary<UnitType, double> CombatModAgainst { get { return UnitConstants.CombatMod[UnitType]; } }
+        public int CombatPower => HommRules.Current.Units.CombatPower[UnitType];
+        public int WeeklyGrowth => HommRules.Current.Units.WeeklyGrowth[UnitType];
+        public Dictionary<Resource, int> UnitCost => HommRules.Current.Units.UnitCost[UnitType];
+        public Dictionary<UnitType, double> CombatModAgainst => HommRules.Current.Units.CombatMod[UnitType];
 
         public Unit(string unitName, UnitType unitType)
         {

@@ -36,5 +36,22 @@ namespace CVARC.V2
 
             return factory;
         }
+
+        public static ActorFactory FromFunction<TWorld, TSensorsData, TCommand, TRules>
+                                               (Func<Robot<TWorld, TSensorsData, TCommand, TRules>> etalonRobot, IRules rules)
+                where TWorld : IWorld
+                where TSensorsData : new()
+                where TCommand : ICommand
+                where TRules : IRules
+        {
+            return new ActorFactory()
+            {
+                CreateNetworkController = () => new NetworkController<TCommand>(),
+                CreateKeyboardController = () => new KeyboardController<TCommand>(),
+                CreateCommandFilterSet = () => new CommandFilterSet(),
+                CreateRules = () => rules,
+                CreateActor = () => etalonRobot()
+            };
+        }
     }
 }

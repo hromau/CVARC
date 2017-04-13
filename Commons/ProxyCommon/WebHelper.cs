@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using Infrastructure;
 using log4net;
 using Newtonsoft.Json;
 
@@ -11,6 +13,14 @@ namespace ProxyCommon
     public static class WebHelper
     {
         private static ILog log = LogManager.GetLogger(nameof(WebHelper));
+
+        public static void PutAsync<T>(T obj, string url)
+        {
+            var content = Encoding.UTF8.GetBytes(Serializer.Serialize(obj));
+            log.Info($"Game end. Sending result to web: {content}");
+            using (var client = new WebClient())
+                client.UploadData(new Uri(url), "PUT", content);
+        }
 
         public static async Task<T> ReadFromUrlAsync<T>(string url)
         {

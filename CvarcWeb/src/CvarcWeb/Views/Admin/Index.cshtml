@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "IndexView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin page</h2>
+
+<form asp-action="ITPlanetRegistrationFromCSV" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>IT-planet regs</h4>
+        <hr/>
+        <input type="file" name="RegInfo" id="solution-picker" class="btn btn-default"/>
+        <input type="submit" value="Reg!" class="btn btn-default"/>
+    </div>
+</form>
+
+<hr />
+
+<form asp-action="MathMechRegistrationFromCSV" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>MathMechregs</h4>
+        <hr />
+        <input type="file" name="RegInfo" class="btn btn-default" />
+        <input type="submit" value="Reg!" class="btn btn-default" />
+    </div>
+</form>
+
+
+<form asp-action="ChangePassword" method="post" class="form-horizontal">
+    <div class="form-horizontal">
+        <h4>Change password</h4>
+        <hr/>
+        <input type="text" name="userName"/>
+        <input type="text" name="password"/>
+        <input type="submit" value="Change" class="btn btn-default"/>
+    </div>
+</form>
+
+<form asp-action="CreateTournament" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Create tournament</h4>
+        <hr />
+        <input type="text" name="name" />
+        <select name="type">
+            <option>Group</option>
+            <option>Olympic</option>
+        </select>
+        <input type="file" name="TournamentInfo" class="btn btn-default" />
+        <input type="submit" value="Create!" class="btn btn-default" />
+    </div>
+</form>
+
+<form asp-action="CreateManyGames" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Create Many games</h4>
+        <hr />
+        <input type="file" name="ManyGames" class="btn btn-default" />
+        <input type="submit" value="Create!" class="btn btn-default" />
+    </div>
+</form>

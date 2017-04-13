@@ -3,15 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HoMM
+namespace HoMM.ClientClasses
 {
-    public class ArmiesPair : Combat.CombatResult
+    public class ArmiesPair
     {
-        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
+        public Dictionary<UnitType, int> AttackingArmy { get; }
+        public Dictionary<UnitType, int> DefendingArmy { get; }
+
+        public ArmiesPair(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending)
+        {
+            AttackingArmy = attacking;
+            DefendingArmy = defending;
+        }
 
         internal bool BothAreNotEmpty()
         {
-            return AttackingArmy.Any(x => x.Value > 0) && DefendingArmy.Any(x => x.Value > 0);
+            return !IsEmpty(AttackingArmy) && !IsEmpty(DefendingArmy);
+        }
+
+        internal bool IsEmpty(Dictionary<UnitType, int> army)
+        {
+            return army.All(x => x.Value <= 0);
         }
 
         internal void Log(string combatState)
@@ -32,28 +44,24 @@ namespace HoMM
 
     public static class Combat
     {
-        public class CombatResult
+        public class CombatResult : ArmiesPair
         {
-            public Dictionary<UnitType, int> AttackingArmy { get; }
-            public Dictionary<UnitType, int> DefendingArmy { get; }
+            internal CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending) : base(attacking, defending) { }
 
-            protected CombatResult(Dictionary<UnitType, int> attacking, Dictionary<UnitType, int> defending)
-            {
-                AttackingArmy = attacking;
-                DefendingArmy = defending;
-            }
+            public bool IsAttackerWin => !IsEmpty(AttackingArmy) && IsEmpty(DefendingArmy);
+            public bool IsDefenderWin => !IsEmpty(DefendingArmy) && IsEmpty(AttackingArmy);
         }
 
-        internal static void ResolveBattle(ICombatable attacking, ICombatable defending)
+        internal static void Resolve(ICombatable attacking, ICombatable defending)
         {
-            var combatResult = ResolveBattle(new ArmiesPair(attacking.Army, defending.Army));
+            var combatResult = Resolve(new ArmiesPair(attacking.Army, defending.Army));
 
             attacking.SetArmy(combatResult.AttackingArmy);
             defending.SetArmy(combatResult.DefendingArmy);
         }
 
 
-        public static CombatResult ResolveBattle(ArmiesPair armies)
+        public static CombatResult Resolve(ArmiesPair armies)
         {
             armies.Log("Combat began");
 
@@ -67,12 +75,12 @@ namespace HoMM
                 armies.Log("Next turn");
             }
 
-            return armies;
+            return new CombatResult(armies.AttackingArmy, armies.DefendingArmy);
         }
 
         private static Dictionary<UnitType, int> ResolveOneTurn(Dictionary<UnitType, int> attackingArmy, Dictionary<UnitType, int> defendingArmy)
         {
-            foreach (var attackingUnit in attackingArmy.Where(u => u.Value > 0))
+            foreach (var attackingUnit in attackingArmy.Where(u => u.Value > 0).OrderBy(x => x.Value).ThenBy(x => x.Key))
             {
                 var attackerType = attackingUnit.Key;
                 var attackerCount = attackingUnit.Value;
@@ -88,6 +96,8 @@ namespace HoMM
                     })
                     .OrderByDescending(x => x.Loss)
                     .ThenByDescending(x => x.KilledInCombatCount)
+                    .ThenByDescending(x => HommRules.Current.Units.CombatMod[attackerType][x.UnitType])
+                    .ThenBy(x => x.UnitType)
                     .FirstOrDefault();
 
                 if (targetOfAttack != null)
@@ -100,13 +110,13 @@ namespace HoMM
 
         private static int CalculateArmyLossWhenTargetDies(UnitType targetType, int targetCount)
         {
-            return UnitConstants.CombatPower[targetType] * targetCount;
+            return HommRules.Current.Units.CombatPower[targetType] * targetCount;
         }
 
         private static int GetKilledUnitsCountForTarget(UnitType attackerType, int attackerCount, UnitType targetType, int targetCount)
         {
-            var producedDamage = UnitConstants.CombatPower[attackerType] * attackerCount * UnitConstants.CombatMod[attackerType][targetType];
-            var killedUnits = (int)Math.Floor(producedDamage / UnitConstants.CombatPower[targetType]);
+            var producedDamage = HommRules.Current.Units.CombatPower[attackerType] * attackerCount * HommRules.Current.Units.CombatMod[attackerType][targetType];
+            var killedUnits = (int)Math.Floor(producedDamage / HommRules.Current.Units.CombatPower[targetType]);
             return Math.Min(killedUnits, targetCount);
         }
     }

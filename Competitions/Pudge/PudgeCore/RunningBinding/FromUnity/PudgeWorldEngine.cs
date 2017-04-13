@@ -8,7 +8,7 @@ using Pudge.Player;
 using Pudge.World;
 using UnityCommons;
 using UnityEngine;
-using PrefabLoader = UnityCommons.PrefabLoader;
+using AssetLoader = UnityCommons.AssetLoader;
 
 namespace Pudge.RunningBinding.FromUnity
 {
@@ -28,13 +28,13 @@ namespace Pudge.RunningBinding.FromUnity
         {
             _commonEngine = commonEngine;
 
-            _treePrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "Tree");
-            _wardPrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "Ward");
-            _hookPrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "Hook");
-            _daggerExplosionPrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "DaggerExplosion");
-            _pudgePrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "PudgePrefab");
-            _slardarPrefab = PrefabLoader.GetPrefab<GameObject>("pudge", "Slardar");
-            _grassTexture = PrefabLoader.GetPrefab<Texture>("pudge", "GrassTexture");
+            _treePrefab = AssetLoader.LoadAsset<GameObject>("pudge", "Tree");
+            _wardPrefab = AssetLoader.LoadAsset<GameObject>("pudge", "Ward");
+            _hookPrefab = AssetLoader.LoadAsset<GameObject>("pudge", "Hook");
+            _daggerExplosionPrefab = AssetLoader.LoadAsset<GameObject>("pudge", "DaggerExplosion");
+            _pudgePrefab = AssetLoader.LoadAsset<GameObject>("pudge", "PudgePrefab");
+            _slardarPrefab = AssetLoader.LoadAsset<GameObject>("pudge", "Slardar");
+            _grassTexture = AssetLoader.LoadAsset<Texture>("pudge", "GrassTexture");
         }
 
         [ToLog]
@@ -143,7 +143,7 @@ namespace Pudge.RunningBinding.FromUnity
         {
             if (runesPrefabs.Keys.Count == 0)
                 foreach (var runeType in Enum.GetValues(typeof(RuneType)).Cast<RuneType>())
-                    runesPrefabs[runeType] = PrefabLoader.GetPrefab<GameObject>("pudge", runeType + "Rune");  //Resources.Load<GameObject>("Prefabs/" + runeType + "Rune");
+                    runesPrefabs[runeType] = AssetLoader.LoadAsset<GameObject>("pudge", runeType + "Rune");  //Resources.Load<GameObject>("Prefabs/" + runeType + "Rune");
         }
 
         [ToLog]

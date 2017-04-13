@@ -45,21 +45,29 @@ namespace CVARC.V2
 
         public override void Act(out double nextTime)
         {
-            if (!filterSet.CommandAvailable)
+            try
             {
-                Debugger.Log("No command in buffer, trying to get it");
-                if (!FillBuffer())
+                if (!filterSet.CommandAvailable)
                 {
-                    nextTime = double.PositiveInfinity;
-                    return;
+                    Debugger.Log("No command in buffer, trying to get it");
+                    if (!FillBuffer())
+                    {
+                        nextTime = double.PositiveInfinity;
+                        return;
+                    }
                 }
+                Debugger.Log("Command available");
+                var currentCommand = filterSet.GetNextCommand();
+                double duration;
+                Debugger.Log("Command goes to robot");
+                controllable.ExecuteCommand(currentCommand, out duration);
+                nextTime = base.ThisCall + duration;
             }
-            Debugger.Log("Command available");
-            var currentCommand = filterSet.GetNextCommand();
-            double duration;
-            Debugger.Log("Command goes to robot");
-            controllable.ExecuteCommand(currentCommand, out duration);
-            nextTime = base.ThisCall +  duration;
+            catch(Exception e)
+            {
+                controller.SendError(e);
+                nextTime = double.PositiveInfinity;
+            }
         }
     }
 }

@@ -68,14 +68,14 @@ namespace HoMM.Engine
         [ToLog]
         public void SetRotation(string id, float angleRad)
         {
-            this.Log($"{nameof(SetRotation)}", angleRad);
+            this.Log($"{nameof(SetRotation)}", id, angleRad);
             engine.SetRotation(ObjectsCache.FindGameObject(id), angleRad);
         }
 
         [ToLog]
         public void SetAnimation(string id, Animation animation)
         {
-            this.Log($"{nameof(SetAnimation)}", animation);
+            this.Log($"{nameof(SetAnimation)}", id, animation);
             engine.SetAnimation(ObjectsCache.FindGameObject(id), animation);
         }
     }

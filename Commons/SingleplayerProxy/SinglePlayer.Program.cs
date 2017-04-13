@@ -18,7 +18,10 @@ namespace SingleplayerProxy
         static void Main(string[] args)
         {
             if (args.Length == 1 && args[0] == "-d")
+            {
                 SingleplayerProxyConfigurations.DebugMode = true;
+                SingleplayerProxyConfigurations.UpdateEnabled = false;
+            }
 
             ReloadVersion();
 
@@ -84,7 +87,8 @@ namespace SingleplayerProxy
                     return;
                 }
                 Console.WriteLine("Update available! Start to download...");
-                KillUnity();
+                if (IsUnityUp())
+                    KillUnity();
                 Thread.Sleep(1000);
                 WebHelper.DownloadFile(SingleplayerProxyConfigurations.UrlToGetUpdate, "update.zip").Wait();
                 InstallUpdate("update.zip");
@@ -122,7 +126,9 @@ namespace SingleplayerProxy
                 var resultTask = mainConnection.ReadJsonAsync<GameResult>();
                 resultTask.ContinueWith(x =>
                 {
-                    Console.WriteLine(x.IsFaulted ? "Cant get game results." : "Game result is " + x.Result.Hehmeh);
+                    Console.WriteLine(x.IsFaulted 
+                        ? $"Cant get game results. Reason: {x.Exception}" 
+                        : "The game was finished with the following results:" + Environment.NewLine + x.Result.ToString());
                 });
             }
             catch (Exception e)

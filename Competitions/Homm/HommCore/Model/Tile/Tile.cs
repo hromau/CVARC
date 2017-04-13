@@ -45,7 +45,7 @@ namespace HoMM
             isCombat = true;
         }
 
-        public void EndFight()
+        public void EndCombat()
         {
             isCombat = false;
         }

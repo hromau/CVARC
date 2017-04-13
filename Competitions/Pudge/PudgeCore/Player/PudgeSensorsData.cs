@@ -18,7 +18,7 @@ namespace Pudge.Player
         public LocatorItem SelfLocation{ get; set; }
 
         [DataMember]
-        [FromSensor(typeof (SelfScoreSensor))]
+        [FromSensor(typeof (SelfScoresSensor))]
         public int SelfScores{ get; set; }
 
         [DataMember]

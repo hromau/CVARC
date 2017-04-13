@@ -1,6 +1,6 @@
 ﻿using CVARC.V2;
+using HoMM.ClientClasses;
 using HoMM.Engine;
-using HoMM.Rules;
 using HoMM.World;
 using Infrastructure;
 using System;
@@ -11,13 +11,13 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class CombatHelper
     {
-        IHommRobot robot;
-        HommWorld world;
-        Player player;
-        IHommEngine hommEngine;
+        readonly HommRobot robot;
+        readonly HommWorld world;
+        readonly Player player;
+        readonly IHommEngine hommEngine;
         ICommonEngine commonEngine;
 
-        public CombatHelper(IHommRobot robot)
+        public CombatHelper(HommRobot robot)
         {
             this.robot = robot;
             world = robot.World;
@@ -26,7 +26,7 @@ namespace HoMM.Robot.HexagonalMovement
             commonEngine = world.CommonEngine;
         }
 
-        public void BeginCombat(ICombatable other, Tile robotTile, Tile otherTile, Action onPlayerWin)
+        public double BeginCombat(ICombatable other, Tile robotTile, Tile otherTile, Action onPlayerWin)
         {
             robotTile.BeginCombat();
             otherTile.BeginCombat();
@@ -46,7 +46,7 @@ namespace HoMM.Robot.HexagonalMovement
             {
                 var initialOtherArmy = new Dictionary<UnitType, int>(other.Army);
 
-                Combat.ResolveBattle(player, other);
+                Combat.Resolve(player, other);
 
                 var armies = new ArmiesPair(player.Army, other.Army);
                 armies.Log("after Combat.ResolveBattle");
@@ -60,7 +60,6 @@ namespace HoMM.Robot.HexagonalMovement
                         Debugger.Log("other is tile object, delete it");
 
                         ((TileObject)other).OnRemove();
-                        player.OnVictoryAchieved(other, initialOtherArmy);
                     }
 
                     if (other is Player)
@@ -68,14 +67,14 @@ namespace HoMM.Robot.HexagonalMovement
                         var otherPlayer = other as Player;
 
                         world.Actors
-                            .Where(x => x is IHommRobot)
-                            .Cast<IHommRobot>()
+                            .Where(x => x is HommRobot)
+                            .Cast<HommRobot>()
                             .Where(x => x.Player.Name == otherPlayer.Name)
                             .Single()
                             .Die();
-
-                        player.OnVictoryAchieved(otherPlayer, otherPlayer.Army);
                     }
+
+                    player.OnVictoryAchieved(other, initialOtherArmy);
                 }
                 else
                 {
@@ -91,9 +90,11 @@ namespace HoMM.Robot.HexagonalMovement
                     onPlayerWin();
                 }
 
-                robotTile.EndFight();
-                otherTile.EndFight();
+                robotTile.EndCombat();
+                otherTile.EndCombat();
             }));
+
+            return combatTriggerTime;
         }
     }
 }

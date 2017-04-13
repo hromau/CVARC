@@ -3,6 +3,7 @@ using FluentAssertions;
 using HoMM;
 using NUnit.Framework;
 using Dwelling = HoMM.ClientClasses.Dwelling;
+using HoMM.ClientClasses;
 
 namespace Homm.IntegrationTests
 {
@@ -20,7 +21,7 @@ namespace Homm.IntegrationTests
         public void DontBuy_WhenCurrentLocationIsEmpty()
         {
             GainAllResources();
-            sensorData = client.PurchaseUnits(100);
+            sensorData = client.HireUnits(100);
             sensorData.MyTreasury.Values.All(val => val == MaxResourceCount).Should().BeTrue();
             sensorData.MyArmy.Values.All(val => val == 0).Should().BeTrue();
         }
@@ -63,7 +64,7 @@ namespace Homm.IntegrationTests
             dwelling.UnitType.Should().Be(requestedUnitType);
             var requestedCount = dwelling.AvailableToBuyCount;
 
-            sensorData = client.PurchaseUnits(requestedCount);
+            sensorData = client.HireUnits(requestedCount);
             CheckUnitsCount(dwelling, requestedCount);
             CheckTreasuryAfterUnitBuying(dwelling, requestedCount);
         }
@@ -76,7 +77,7 @@ namespace Homm.IntegrationTests
 
         private void CheckTreasuryAfterUnitBuying(Dwelling dwelling, int requestedCount)
         {
-            var unitCost = UnitConstants.UnitCost[dwelling.UnitType];
+            var unitCost = UnitsConstants.Current.UnitCost[dwelling.UnitType];
             sensorData.MyTreasury.Where(res => !unitCost.ContainsKey(res.Key) && res.Value == MaxResourceCount)
                                  .Should().HaveCount(4 - unitCost.Keys.Count);
 

@@ -40,7 +40,7 @@ namespace Homm.IntegrationTests
             foreach (var direction in sequenceDirections)
             {
                 MoveHero(direction);
-                sensorData = client.PurchaseUnits(unitsCount);
+                sensorData = client.HireUnits(unitsCount);
             }
         }
 

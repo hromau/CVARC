@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HoMM.ClientClasses;
+using System;
 
 namespace HoMM
 {
@@ -36,7 +37,7 @@ namespace HoMM
         
         public void AddWeeklyGrowth()
         {
-            AvailableUnits += Recruit.WeeklyGrowth;
+            AvailableUnits = Math.Min(Recruit.WeeklyGrowth + AvailableUnits, HommRules.Current.DwellingCapacity);
         }
         public void RemoveBoughtUnits(int amount)
         {
@@ -48,7 +49,6 @@ namespace HoMM
             if (p == Owner) return;
 
             Owner = p;
-            p.OnDwellingCaptured(this);
         }
     }
 }

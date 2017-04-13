@@ -3,7 +3,7 @@ using System.Linq;
 using CVARC.V2;
 using HoMM.Engine;
 using Infrastructure;
-using HoMM.Rules;
+using HoMM.ClientClasses;
 
 namespace HoMM.World
 {
@@ -64,6 +64,15 @@ namespace HoMM.World
             player.Location = GetRespawnLocation(controllerId, map);
             ScoresConnector.Connect(Scores, player);
             return player;
+        }
+
+        public bool IsEnemySpawn(Location location, string controllerId)
+        {
+            if (Players.Length == 1) return false;
+
+            var enemySpawn = GetRespawnLocation(TwoPlayersId.Ids.First(id => id != controllerId), Round.Map);
+
+            return location == enemySpawn;
         }
     }
 }

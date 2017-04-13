@@ -44,7 +44,9 @@ namespace HoMM.Engine
             return () =>
             {
                 var obj = GameObject.CreatePrimitive(primitive);
-                obj.GetComponent<MeshRenderer>().material.color = color;
+
+                obj.GetComponent<Renderer>().material = new Material(Shader.Find("Diffuse")) { color = color }; ;
+
                 obj.transform.localScale *= 0.5f;
                 return obj;
             };

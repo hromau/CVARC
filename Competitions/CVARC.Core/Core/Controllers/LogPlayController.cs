@@ -36,5 +36,10 @@ namespace CVARC.V2
         {
            
         }
+
+        public void SendError(Exception e)
+        {
+            
+        }
     }
 }

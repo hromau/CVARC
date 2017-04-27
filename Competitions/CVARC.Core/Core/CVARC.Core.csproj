@@ -176,6 +176,9 @@
     <Compile Include="World\IdGenerator.cs" />
     <Compile Include="World\IWorld.cs" />
     <Compile Include="World\Robot.cs" />
+    <Compile Include="World\Scores\IScoreProvider.cs" />
+    <Compile Include="World\Scores\LogScoreProvider.cs" />
+    <Compile Include="World\Scores\RoundScoreProvider.cs" />
     <Compile Include="World\Scores\ScoreRecord.cs" />
     <Compile Include="World\Scores\Scores.cs" />
     <Compile Include="World\World.cs" />

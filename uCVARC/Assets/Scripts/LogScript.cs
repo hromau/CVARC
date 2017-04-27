@@ -17,7 +17,8 @@ public partial class LogScript : PlayScript
 
     protected override void Initialization()
     {
-        reader = new LogPlayer(Dispatcher.LogModel);
+        scoreProvider = new LogScoreProvider();
+        reader = new LogPlayer(Dispatcher.LogModel, (LogScoreProvider)scoreProvider);
 
         var engines = Dispatcher.Loader
             .GetCompetitions(reader.GameSettings.LoadingData)
@@ -37,6 +38,7 @@ public partial class LogScript : PlayScript
         //этот метод нужно вызывать отсюда, потому что FixedUpdate вызывается еще много раз после SwitchScene, 
         //что повлечет за собой многократный вызов SwitchScene, что все поломает.
         Dispatcher.RoundTick();
+        UpdateScores();
     }
 
     void FixedUpdate() //только физика и строгие расчеты. вызывается строго каждые 20 мс

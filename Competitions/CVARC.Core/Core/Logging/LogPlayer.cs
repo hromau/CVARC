@@ -13,6 +13,7 @@ namespace CVARC.V2
 {
     public class LogPlayer
     {
+        public LogScoreProvider ScoreProvider;
         Dictionary<string, IEngine> engines = new Dictionary<string, IEngine>();
 
         ICommonEngine commonEngine;
@@ -29,7 +30,7 @@ namespace CVARC.V2
             zip.Dispose();
         }
 
-        public LogPlayer(string pathToZipFile)
+        public LogPlayer(string pathToZipFile, LogScoreProvider scoreProvider)
         {
             zip = ZipFile.Read(pathToZipFile);
             Debugger.Log("replay file found");
@@ -47,6 +48,9 @@ namespace CVARC.V2
                 finished = true;
                 throw new Exception("Replay is empty");
             }
+
+            ScoreProvider = scoreProvider;
+
             Debugger.Log("Replay is opened to reading");
         }
 
@@ -77,9 +81,9 @@ namespace CVARC.V2
         public bool Play(double currentTime)
         {
             if (finished) return false;
-            while(true)
+            while (true)
             {
-                
+
                 var obj = JsonConvert.DeserializeObject<GameLogEntry>(lines.Current);
                 if (obj.Time <= currentTime)
                 {
@@ -106,12 +110,13 @@ namespace CVARC.V2
                 var method = engines[obj.EngineInvocation.EngineName].GetType().GetMethod(obj.EngineInvocation.MethodName);
                 if (method == null)
                     throw new Exception("Can not find method " + obj.EngineInvocation.MethodName + " in the engine " + obj.EngineInvocation.EngineName);
-                object[] arguments = ParseArguments(obj.EngineInvocation.MethodName,obj.EngineInvocation.Arguments, method.GetParameters());
+                object[] arguments = ParseArguments(obj.EngineInvocation.MethodName, obj.EngineInvocation.Arguments, method.GetParameters());
                 method.Invoke(engines[obj.EngineInvocation.EngineName], arguments);
             }
+
             if (obj.Type == GameLogEntryType.LocationCorrection)
             {
-                if (obj.LocationCorrection==null)
+                if (obj.LocationCorrection == null)
                     throw new Exception("Line type is LocationCorrection, but the section LocationCorrection was empty");
                 foreach (var e in obj.LocationCorrection.Locations)
                     if (!commonEngine.ContainBody(e.Key))
@@ -121,12 +126,20 @@ namespace CVARC.V2
                         commonEngine.SetAbsoluteLocation(e.Key, e.Value);
                     }
             }
+
+            if (obj.Type == GameLogEntryType.ScoresUpdate)
+            {
+                if (obj.ScoresUpdate == null)
+                    throw new Exception("Line type is ScoresUpdate, but the section ScoresUpdate was empty");
+
+                ScoreProvider.UpdateScores(obj.ScoresUpdate);
+            }
         }
 
         private object[] ParseArguments(string methodName, string[] arguments, ParameterInfo[] parameterInfo)
         {
             if (arguments.Length != parameterInfo.Length)
-                throw new Exception("Wrong count of arguments for method "+methodName+": expected " + parameterInfo.Length + " but was " + arguments.Length);
+                throw new Exception("Wrong count of arguments for method " + methodName + ": expected " + parameterInfo.Length + " but was " + arguments.Length);
             var result = new object[arguments.Length];
             for (int i = 0; i < result.Length; i++)
                 result[i] = Parse(arguments[i], parameterInfo[i].ParameterType, methodName, i);
@@ -142,7 +155,7 @@ namespace CVARC.V2
             if (parameterType == typeof(double)) return double.Parse(v);
             if (parameterType == typeof(Single)) return Single.Parse(v);
             if (parameterType == typeof(bool)) return bool.Parse(v);
-            throw new Exception("Parameter type " + parameterType.Name + " is not supported. Method "+methodName+", index "+index);
+            throw new Exception("Parameter type " + parameterType.Name + " is not supported. Method " + methodName + ", index " + index);
         }
     }
 }

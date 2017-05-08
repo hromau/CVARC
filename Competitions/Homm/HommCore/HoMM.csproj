@@ -57,9 +57,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseHommClient.cs" />
+    <Compile Include="ClientClasses\MapObjectData.cs" />
+    <Compile Include="ClientClasses\RealisticArmy.cs" />
     <Compile Include="ClientClasses\LocationInfo.cs" />
     <Compile Include="ClientClasses\MapData.cs" />
-    <Compile Include="ClientClasses\MapInfo.cs" />
+    <Compile Include="ClientClasses\MapObjects.cs" />
+    <Compile Include="ClientClasses\RoughQuantity.cs" />
+    <Compile Include="ClientClasses\SimpleArmy.cs" />
+    <Compile Include="ClientClasses\Terrain.cs" />
     <Compile Include="Engine\Animation.cs" />
     <Compile Include="Engine\FancyHommEngine.cs" />
     <Compile Include="Engine\HommPrefabs.cs" />
@@ -127,6 +133,8 @@
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
     <Compile Include="HommRules.cs" />
+    <Compile Include="Sensors\BaseMapSensor.cs" />
+    <Compile Include="Sensors\RealisticMapSensor.cs" />
     <Compile Include="Sensors\TreasurySensor.cs" />
     <Compile Include="Sensors\ArmySensor.cs" />
     <Compile Include="ClientClasses\HommSensorData.cs" />

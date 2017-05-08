@@ -20,7 +20,7 @@ namespace Homm.Client
             var ip = args[0];
             var port = int.Parse(args[1]);
 
-            var client = new HommClient();
+            var client = new HommFinalLevelClient();
 
             client.OnSensorDataReceived += Print;
             client.OnInfo += OnInfo;
@@ -41,8 +41,6 @@ namespace Homm.Client
 
                 debugMap: false,            // Вы можете использовать отладочную простую карту, чтобы лучше понять, как устроен игоровой мир.
 
-                level: HommLevel.Level1,    // Здесь можно выбрать уровень. На уровне два на карте присутствует оппонент.
-
                 isOnLeftSide: true          // Вы можете указать, с какой стороны будет находиться замок героя при игре на втором уровне.
                                             // Помните, что на сервере выбор стороны осуществляется случайным образом, поэтому ваш код
                                             // должен работать одинаково хорошо в обоих случаях.
@@ -57,7 +55,7 @@ namespace Homm.Client
         }
 
 
-        static void Print(HommSensorData data)
+        static void Print(HommFinalSensorData data)
         {
             Console.WriteLine("---------------------------------");
 
@@ -86,13 +84,14 @@ namespace Homm.Client
             Console.WriteLine(GetObjectAt(data.Map, location.NeighborAt(Direction.LeftUp)));
         }
 
-        static string GetObjectAt(MapData map, Location location)
+        static string GetObjectAt(MapData<RoughQuantity> map, Location location)
         {
             if (location.X < 0 || location.X >= map.Width || location.Y < 0 || location.Y >= map.Height)
                 return "Outside";
-            return map.Objects.
-                Where(x => x.Location.X == location.X && x.Location.Y == location.Y)
-                .FirstOrDefault()?.ToString() ?? "Nothing";
+
+            return map.Objects
+                .FirstOrDefault(x => x.Location.X == location.X && x.Location.Y == location.Y)?
+                .ToString() ?? "Nothing";
         }
 
 

@@ -29,7 +29,7 @@ namespace Homm.IntegrationTests
             }
         }
 
-        private MapObjectData GetObjectDataAt(int x, int y)
+        private MapObjectData<int> GetObjectDataAt(int x, int y)
         {
             return sensorData.Map.Objects.FirstOrDefault(obj => obj.Location.X == x && obj.Location.Y == y);
         }

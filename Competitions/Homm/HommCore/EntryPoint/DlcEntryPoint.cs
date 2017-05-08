@@ -13,11 +13,13 @@ namespace HoMM
     {
         public IEnumerable<Competitions> GetLevels()
         {
-            yield return Competitions(HommLevel.Level1, new HommLogicPartHelper(playersCount: 1, limitView: false));
+            yield return Competitions(HommLevel.Level1, new HommLogicPartHelper(playersCount: 1));
 
-            yield return Competitions(HommLevel.Level2, new HommLogicPartHelper(playersCount: 2, limitView: false));
+            yield return Competitions(HommLevel.Level2, new HommLogicPartHelper(playersCount: 2));
 
             yield return Competitions(HommLevel.Level3, new HommLogicPartHelper(playersCount: 2, limitView: true));
+
+            yield return Competitions(HommLevel.Final, new HommLogicPartHelper(playersCount: 2, limitView: true, useRoughQuantities:true));
         }
 
         private static Competitions Competitions(HommLevel level, HommLogicPartHelper logicPartHelper)

@@ -8,9 +8,9 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class HexMovUnit : IUnit
     {
-        private HommRobot actor;
+        private IHommRobot actor;
 
-        public HexMovUnit(HommRobot actor)
+        public HexMovUnit(IHommRobot actor)
         {
             this.actor = actor;
         }

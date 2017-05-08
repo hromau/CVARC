@@ -12,7 +12,19 @@ using HoMM.ClientClasses;
 
 namespace HoMM.Robot
 {
-    public class HommRobot : Robot<HommWorld, HommSensorData, HommCommand, HommRules>
+    public interface IHommRobot : IActor
+    {
+        new HommWorld World { get; }
+        Player Player { get; }
+        Map Map { get; }
+        IHommEngine HommEngine { get; }
+        double ViewRadius { get; }
+        bool IsDead { get; }
+        void Die();
+    }
+
+    public class HommRobot<TSensorData> : Robot<HommWorld, TSensorData, HommCommand, HommRules>, IHommRobot
+        where TSensorData : new()
     {
         public override IEnumerable<IUnit> Units { get; }
 

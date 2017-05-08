@@ -13,8 +13,9 @@ namespace HoMM
 {
     public class HommLogicPartHelper : LogicPartHelper
     {
-        int playersCount;
-        bool limitView;
+        private readonly int playersCount;
+        private readonly bool limitView;
+        private readonly bool useRoughQuantities;
 
         static string[] pids = new string[]
         {
@@ -22,7 +23,7 @@ namespace HoMM
             TwoPlayersId.Right,
         };
 
-        public HommLogicPartHelper(int playersCount, bool limitView)
+        public HommLogicPartHelper(int playersCount, bool limitView=false, bool useRoughQuantities=false)
         {
             if (playersCount <= 0 && playersCount > pids.Length)
                 throw new ArgumentOutOfRangeException(
@@ -30,6 +31,7 @@ namespace HoMM
 
             this.playersCount = playersCount;
             this.limitView = limitView;
+            this.useRoughQuantities = useRoughQuantities;
         }
 
         public override LogicPart Create()
@@ -50,8 +52,12 @@ namespace HoMM
 
             logicPart.PredefinedWorldStates.Add("debug");
 
-            var actorFactory = ActorFactory.FromFunction(() => new HommRobot(limitView ? rules.HeroViewRadius : Double.PositiveInfinity), rules);
-            
+            var visibilityRadius = limitView ? rules.HeroViewRadius : Double.PositiveInfinity;
+
+            var actorFactory = useRoughQuantities
+                ? ActorFactory.FromFunction(() => new HommRobot<HommFinalSensorData>(visibilityRadius), rules)
+                : ActorFactory.FromFunction(() => new HommRobot<HommSensorData>(visibilityRadius), rules);
+
             foreach (var pid in pids.Take(playersCount))
                 logicPart.Actors[pid] = actorFactory;
 

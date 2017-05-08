@@ -11,13 +11,13 @@ namespace HoMM.Robot.HexagonalMovement
 {
     class CombatHelper
     {
-        readonly HommRobot robot;
+        readonly IHommRobot robot;
         readonly HommWorld world;
         readonly Player player;
         readonly IHommEngine hommEngine;
         ICommonEngine commonEngine;
 
-        public CombatHelper(HommRobot robot)
+        public CombatHelper(IHommRobot robot)
         {
             this.robot = robot;
             world = robot.World;
@@ -67,10 +67,9 @@ namespace HoMM.Robot.HexagonalMovement
                         var otherPlayer = other as Player;
 
                         world.Actors
-                            .Where(x => x is HommRobot)
-                            .Cast<HommRobot>()
-                            .Where(x => x.Player.Name == otherPlayer.Name)
-                            .Single()
+                            .Where(x => x is IHommRobot)
+                            .Cast<IHommRobot>()
+                            .Single(x => x.Player.Name == otherPlayer.Name)
                             .Die();
                     }
 

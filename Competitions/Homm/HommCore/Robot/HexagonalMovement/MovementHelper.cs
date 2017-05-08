@@ -14,11 +14,11 @@ namespace HoMM.Robot.HexagonalMovement
         readonly HommWorld world;
         readonly Player player;
         readonly Map map;
-        readonly HommRobot robot;
+        readonly IHommRobot robot;
         readonly double movementDuration;
         readonly Direction movementDirection;
 
-        public MovementHelper(HommRobot robot, Direction movementDirection)
+        public MovementHelper(IHommRobot robot, Direction movementDirection)
         {
             this.robot = robot;
             this.movementDirection = movementDirection;
@@ -90,34 +90,32 @@ namespace HoMM.Robot.HexagonalMovement
             return HommRules.Current.CombatDuration;
         }
 
-        private HommRobot CheckOtherRobot()
+        private IHommRobot CheckOtherRobot()
         {
             return world.Actors
-                .Where(x => x is HommRobot)
-                .Cast<HommRobot>()
+                .Where(x => x is IHommRobot)
+                .Cast<IHommRobot>()
                 .Where(x => !x.IsDead)
-                .Where(x => x.Player.Location == newLocation)
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Player.Location == newLocation);
         }
 
-        private double HandleOtherRobot(HommRobot otherRobot)
+        private double HandleOtherRobot(IHommRobot otherRobot)
         {
             var combatTriggerTime = BeginCombat(otherRobot.Player, map[robot.Player.Location], map[newLocation]);
             otherRobot.ControlTrigger.ScheduledTime = combatTriggerTime + 0.01;
             return HommRules.Current.CombatDuration;
         }
 
-        private HommRobot CheckMovementCollision()
+        private IHommRobot CheckMovementCollision()
         {
             return world.Actors
-                .Where(x => x is HommRobot)
-                .Cast<HommRobot>()
+                .Where(x => x is IHommRobot)
+                .Cast<IHommRobot>()
                 .Where(x => !x.IsDead)
-                .Where(x => x.Player.DisiredLocation == newLocation)
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Player.DisiredLocation == newLocation);
         }
 
-        private double HandleMovementCollision(HommRobot collisionRobot)
+        private double HandleMovementCollision(IHommRobot collisionRobot)
         {
             robot.World.Clocks.AddTrigger(new OneTimeTrigger(collisionRobot.ControlTrigger.ScheduledTime,
                 () =>
@@ -140,7 +138,7 @@ namespace HoMM.Robot.HexagonalMovement
             });
         }
 
-        private void MakeTurn(HommRobot robot)
+        private void MakeTurn(IHommRobot robot)
         {
             hommEngine.SetRotation(robot.ControllerId, movementDirection.ToUnityAngle());
 

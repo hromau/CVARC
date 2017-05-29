@@ -72,7 +72,7 @@ namespace HoMM.Robot
             World.Clocks.AddTrigger(new OneTimeTrigger(respawnTime, () =>
             {
                 Player.Location = World.GetRespawnLocation(ControllerId, World.Round.Map);
-                Player.DisiredLocation = Player.Location;
+                Player.DesiredLocation = Player.Location;
 
                 World.HommEngine.CreateObject(ControllerId, MapObject.Hero, Player.Location.X, Player.Location.Y);
 

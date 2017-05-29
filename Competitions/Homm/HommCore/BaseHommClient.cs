@@ -7,6 +7,7 @@ using HoMM.ClientClasses;
 using HoMM.Robot;
 using HoMM.Robot.ArmyInterface;
 using HoMM.Robot.HexagonalMovement;
+using HoMM.Robot.ScoutInterface;
 using HoMM.World;
 using Infrastructure;
 
@@ -92,21 +93,31 @@ namespace HoMM
             return Act(new HommCommand {Movement = new HexMovement(waitDurationInSeconds)});
         }
 
+        public TSensorData ScoutTile(LocationInfo locationToScan)
+        {
+            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutTileOrder(locationToScan) });
+        }
+
+        public TSensorData ScoutHero()
+        {
+            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutHeroOrder() });
+        }
+
         public TSensorData HireUnits(int amountOfUnitsToHire)
         {
             if (amountOfUnitsToHire <= 0)
                 throw new ArgumentException($"Parameter '{nameof(amountOfUnitsToHire)}' should be greater than zero. Cannot hire a negative amount of units.");
 
-            return Act(new HommCommand {Order = new HireOrder(amountOfUnitsToHire)});
+            return Act(new HommCommand {HireOrder = new HireOrder(amountOfUnitsToHire)});
         }
 
-        public TSensorData BuildGarrison(Dictionary<UnitType, int> armyToLeftInGarrison)
+        public TSensorData BuildGarrison(Dictionary<UnitType, int> armyToLeaveInGarrison)
         {
-            foreach (var kv in armyToLeftInGarrison)
+            foreach (var kv in armyToLeaveInGarrison)
                 if (kv.Value <= 0)
                     throw new ArgumentException("Units count in garrison should be greater than zero. Cannot create garrison from negative amount of units.");
 
-            return Act(new HommCommand {WaitInGarrison = armyToLeftInGarrison});
+            return Act(new HommCommand {WaitInGarrison = armyToLeaveInGarrison});
         }
     }
 }

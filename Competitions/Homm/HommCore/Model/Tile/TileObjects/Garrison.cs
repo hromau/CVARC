@@ -15,7 +15,7 @@ namespace HoMM
             Owner = owner;
         }
 
-        public void Pupulate(Dictionary<UnitType, int> additionalArmy)
+        public void Populate(Dictionary<UnitType, int> additionalArmy)
         {
             foreach (var kv in additionalArmy)
             {

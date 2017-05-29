@@ -39,7 +39,7 @@ namespace HoMM.Robot.ArmyInterface
             if (garrison == null)
                 garrison = CreateGarrison(armyForGarrison, actor.Player);
             else
-                garrison.Pupulate(armyForGarrison);
+                garrison.Populate(armyForGarrison);
 
             Debug(garrison);
 

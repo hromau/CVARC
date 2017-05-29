@@ -29,7 +29,7 @@ namespace HoMM.Sensors
 
         protected abstract Dictionary<UnitType, TUnitsCount> ConvertArmy(Dictionary<UnitType, int> internalRepresentation);
 
-        private MapObjectData<TUnitsCount> BuildMapInfo(Tile tile, Player player)
+        protected MapObjectData<TUnitsCount> BuildMapInfo(Tile tile, Player player)
         {
             var mapObjectData = new MapObjectData<TUnitsCount>
             {

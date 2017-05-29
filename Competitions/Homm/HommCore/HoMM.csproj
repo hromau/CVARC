@@ -133,6 +133,9 @@
     <Compile Include="Model\Units\UnitType.cs" />
     <Compile Include="EntryPoint\HommLogicPartHelper.cs" />
     <Compile Include="HommRules.cs" />
+    <Compile Include="Robot\ScoutInterface\IScoutOrderCommand.cs" />
+    <Compile Include="Robot\ScoutInterface\ScoutInterfaceUnit.cs" />
+    <Compile Include="Robot\ScoutInterface\ScoutOrder.cs" />
     <Compile Include="Sensors\BaseMapSensor.cs" />
     <Compile Include="Sensors\RealisticMapSensor.cs" />
     <Compile Include="Sensors\TreasurySensor.cs" />

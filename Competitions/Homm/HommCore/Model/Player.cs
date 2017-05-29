@@ -13,8 +13,11 @@ namespace HoMM
         private Map map;
         public Dictionary<Resource, int> Resources { get; }
         public Location Location { get; set; }
-        public Location DisiredLocation { get; set; }
+        public Location DesiredLocation { get; set; }
         public Dictionary<UnitType, int> Army { get; }
+        public bool IsScoutingTile { get; set; }
+        public bool IsScoutingHero { get; set; }
+        public Location TileBeingScouted { get; set; }
 
         public string UnityId => Name;
 

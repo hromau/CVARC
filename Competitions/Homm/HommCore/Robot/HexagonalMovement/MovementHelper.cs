@@ -112,7 +112,7 @@ namespace HoMM.Robot.HexagonalMovement
                 .Where(x => x is IHommRobot)
                 .Cast<IHommRobot>()
                 .Where(x => !x.IsDead)
-                .FirstOrDefault(x => x.Player.DisiredLocation == newLocation);
+                .FirstOrDefault(x => x.Player.DesiredLocation == newLocation);
         }
 
         private double HandleMovementCollision(IHommRobot collisionRobot)
@@ -149,7 +149,7 @@ namespace HoMM.Robot.HexagonalMovement
                 return;
             }
 
-            player.DisiredLocation = newLocation;
+            player.DesiredLocation = newLocation;
 
             hommEngine.SetAnimation(robot.ControllerId, Animation.Gallop);
             hommEngine.Move(robot.Player.Name, movementDirection, movementDuration);

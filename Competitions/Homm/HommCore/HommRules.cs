@@ -26,7 +26,7 @@ namespace HoMM.ClientClasses
                 pool.Add(Keys.Q, () => new HommCommand { Movement = new HexMovement(Direction.LeftUp) });
                 pool.Add(Keys.E, () => new HommCommand { Movement = new HexMovement(Direction.RightUp) });
 
-                pool.Add(Keys.Space, () => new HommCommand { Order = new HireOrder(5) });
+                pool.Add(Keys.Space, () => new HommCommand { HireOrder = new HireOrder(5) });
 
                 pool.Add(Keys.X, () => new HommCommand
                 {
@@ -42,7 +42,7 @@ namespace HoMM.ClientClasses
                 pool.Add(Keys.U, () => new HommCommand { Movement = new HexMovement(Direction.LeftUp) });
                 pool.Add(Keys.O, () => new HommCommand { Movement = new HexMovement(Direction.RightUp) });
 
-                pool.Add(Keys.Enter, () => new HommCommand { Order = new HireOrder(5) });
+                pool.Add(Keys.Enter, () => new HommCommand { HireOrder = new HireOrder(5) });
 
                 pool.Add(Keys.M, () => new HommCommand
                 {
@@ -57,6 +57,8 @@ namespace HoMM.ClientClasses
         public double MovementFailsDuration => 0.1;
         public double UnitsHireDuration => MovementDuration;
         public double GarrisonBuildDuration => MovementDuration;
+        public double ScoutingDuration => MovementDuration;
+        public double ScoutingCooldown => 5;
         public double CombatDuration => 2;
         public double DailyTickInterval => 5;
         public double RespawnInterval => 2;
@@ -68,6 +70,7 @@ namespace HoMM.ClientClasses
         public int DwellingCapacity => 32;
 
         public double HeroViewRadius => 5;
+        public double ScoutRadius => 2;
 
         internal UnitsConstants Units { get; } = new UnitsConstants();
     }

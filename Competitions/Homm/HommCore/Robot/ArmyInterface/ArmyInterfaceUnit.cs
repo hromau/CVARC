@@ -17,7 +17,7 @@ namespace HoMM.Robot.ArmyInterface
 
         public UnitResponse ProcessCommand(object command)
         {
-            var order = Compatibility.Check<IArmyInterfaceCommand>(this, command).Order;
+            var order = Compatibility.Check<IArmyInterfaceCommand>(this, command).HireOrder;
             if (order == null) return UnitResponse.Denied();
 
             if (actor.IsDead) return UnitResponse.Accepted(HommRules.Current.UnitsHireDuration);

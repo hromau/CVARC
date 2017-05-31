@@ -17,7 +17,7 @@ namespace Homm.IntegrationTests
 
         public static int[][] ConversionsExamples = new int[][]
         {
-            // precice count, from , to
+            // precise count, from , to
             new int[] {0, 0, 1},
             new int[] {1, 1, 4},
             new int[] {2, 1, 4},
@@ -49,9 +49,9 @@ namespace Homm.IntegrationTests
 
         [Test]
         [TestCaseSource(nameof(ConversionsExamples))]
-        public void RealisticArmy_TestConversion(int preciceCount, int expectedFrom, int expectedTo)
+        public void RealisticArmy_TestConversion(int preciseCount, int expectedFrom, int expectedTo)
         {
-            var army = Army(preciceCount);
+            var army = Army(preciseCount);
             army[anyType].From.Should().Be(expectedFrom);
             army[anyType].To.Should().Be(expectedTo);
         }

@@ -59,9 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RealisticArmyTest.cs" />
+    <Compile Include="ScoutingGameplayTest.cs" />
+    <Compile Include="SimpleMapSensorArmiesTest.cs" />
     <Compile Include="BuyingUnits.cs" />
     <Compile Include="CheckDead.cs" />
     <Compile Include="FightingWithOtherArmy.cs" />
+    <Compile Include="RealisticMapSensorArmiesTest.cs" />
     <Compile Include="GarrisonBuilding.cs" />
     <Compile Include="MineСapturing.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Movements.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="GainingResources.cs" />
+    <Compile Include="RealisticMapSensorScoutingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

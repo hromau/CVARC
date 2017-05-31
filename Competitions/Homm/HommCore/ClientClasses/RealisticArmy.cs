@@ -8,7 +8,9 @@ namespace HoMM.ClientClasses
         private static readonly int[] Bounds = {1, 5, 10, 20, 40, 60, 80};
         private static readonly int OutOfRangeStep = 25;
 
-        internal RealisticArmy(Dictionary<UnitType, int> army)
+        public RealisticArmy() { }
+
+        public RealisticArmy(Dictionary<UnitType, int> army)
         { 
             foreach (var unitType in army.Keys)
             {
@@ -25,10 +27,12 @@ namespace HoMM.ClientClasses
 
         private int DistortUp(int number)
         {
+            if (number == 0) return 1;
+
             foreach (var bound in Bounds)
                 if (bound > number) return bound - 1;
 
-            return number - number % OutOfRangeStep + OutOfRangeStep - 1;
+            return number - (number - Bounds[Bounds.Length -1]) % OutOfRangeStep + OutOfRangeStep - 1;
         }
 
         private int DistortDown(int number)
@@ -36,7 +40,7 @@ namespace HoMM.ClientClasses
             if (number == 0) return 0;
 
             if (number > Bounds[Bounds.Length - 1])
-                return number - number % OutOfRangeStep;
+                return number - (number - Bounds[Bounds.Length - 1]) % OutOfRangeStep;
 
             for (var i = Bounds.Length - 1; i >= 0; --i)
                 if (Bounds[i] <= number) return Bounds[i];

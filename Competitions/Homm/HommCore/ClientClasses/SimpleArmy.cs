@@ -2,5 +2,5 @@
 
 namespace HoMM.ClientClasses
 {
-    class SimpleArmy : Dictionary<UnitType, int> { }
+    public class SimpleArmy : Dictionary<UnitType, int> { }
 }

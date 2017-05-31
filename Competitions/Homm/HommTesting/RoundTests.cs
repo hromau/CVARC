@@ -4,6 +4,7 @@ using System.Linq;
 
 using NUnit.Framework;
 using HoMM;
+using CVARC.V2;
 
 namespace HexModelTesting
 {
@@ -15,7 +16,7 @@ namespace HexModelTesting
         [SetUp]
         public void PrepareGoodMap()
         {
-            round = new Round("TestMaps\\goodMap.txt", new string[] { "First", "Second" });
+            round = new Round("TestMaps\\goodMap.txt", new WorldClocks(), new string[] { "First", "Second" });
             round.UpdateTick(new Location[] { new Location(0, 0), new Location(1, 2) });
         }
 

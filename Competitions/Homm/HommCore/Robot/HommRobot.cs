@@ -9,6 +9,7 @@ using System.Linq;
 using System;
 using Infrastructure;
 using HoMM.ClientClasses;
+using HoMM.Robot.ScoutInterface;
 
 namespace HoMM.Robot
 {
@@ -44,6 +45,7 @@ namespace HoMM.Robot
                 new HexMovUnit(this),
                 new ArmyInterfaceUnit(this),
                 new GarrisonBuilderUnit(this),
+                new ScoutInterfaceUnit(this),
             };
         }
 

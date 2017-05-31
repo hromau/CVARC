@@ -17,8 +17,9 @@ namespace HoMM.Sensors
                 .ToArray();
 
             var objects = Actor.World.Round.Map
-                .Where(tile => TileFilter(tile, Actor))
-                .Select(tile => BuildMapInfo(tile, players.FirstOrDefault(x => x.Location == tile.Location)));
+                .Select(tile => new { Tile = tile, Player = players.FirstOrDefault(x => x.Location == tile.Location) })
+                .Where(z => TileFilter(z.Tile, Actor, z.Player))
+                .Select(z => BuildMapInfo(z.Tile, z.Player));
 
             return new MapData<TUnitsCount>
             {
@@ -31,7 +32,7 @@ namespace HoMM.Sensors
         protected virtual bool PlayerFilter(Player player, IHommRobot robot) => 
             player.Location.EuclideanDistance(robot.Player.Location) <= robot.ViewRadius;
 
-        protected virtual bool TileFilter(Tile tile, IHommRobot actor) =>
+        protected virtual bool TileFilter(Tile tile, IHommRobot actor, Player playerOnTile) =>
             tile.Location.EuclideanDistance(actor.Player.Location) <= actor.ViewRadius;
 
         protected abstract Dictionary<UnitType, TUnitsCount> ConvertArmy(Dictionary<UnitType, int> internalRepresentation);

@@ -22,6 +22,9 @@ namespace HoMM.Robot.ScoutInterface
             if (!scoutOrder.ScoutHero ^ scoutOrder.ScoutTile)
                 throw new ArgumentException("Please scout either hero or tile at one time.");
 
+            if (scoutOrder.ScoutTile && !scoutOrder.TileToScout.ToLocation().IsInside(actor.Map.Size))
+                throw new ArgumentException("Tile to scout is out of map bounds.");
+
             if (!actor.Player.Scout.IsAvailable())
                 throw new InvalidOperationException("Scouting is not available at a time. " +
                     "Please wait `HommRules.ScoutingCooldown` before sending a new scout.");

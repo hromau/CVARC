@@ -20,17 +20,23 @@ namespace HoMM.Sensors
 
         protected override bool PlayerFilter(Player player, IHommRobot robot)
         {
-            return robot.Player.Scout.IsScoutingHero || base.PlayerFilter(player, robot);
+            return robot.Player.Scout.IsScoutingHero || robot.Player.Scout.IsScoutingTile || base.PlayerFilter(player, robot);
         }
 
-        protected override bool TileFilter(Tile tile, IHommRobot actor)
+        protected override bool TileFilter(Tile tile, IHommRobot actor, Player playerOnTile)
         {
             var scout = actor.Player.Scout;
             var scoutRadius = HommRules.Current.ScoutRadius;
-            var tileIsObservableByScout = scout.IsScoutingTile 
-                && tile.Location.EuclideanDistance(scout.TileBeingScouted) <= scoutRadius;
 
-            return tileIsObservableByScout || base.TileFilter(tile, actor);
+            var tileIsObservableByTileScout = 
+                scout.IsScoutingTile && tile.Location.EuclideanDistance(scout.TileBeingScouted) <= scoutRadius;
+
+            var tileIsObservableByHeroScout =
+                scout.IsScoutingHero && playerOnTile != null;
+
+            var tileIsObservableByScout = tileIsObservableByTileScout || tileIsObservableByHeroScout;
+
+            return tileIsObservableByScout || base.TileFilter(tile, actor, playerOnTile);
         }
     }
 }

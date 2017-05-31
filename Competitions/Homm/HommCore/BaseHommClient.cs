@@ -93,16 +93,6 @@ namespace HoMM
             return Act(new HommCommand {Movement = new HexMovement(waitDurationInSeconds)});
         }
 
-        public TSensorData ScoutTile(LocationInfo locationToScan)
-        {
-            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutTileOrder(locationToScan) });
-        }
-
-        public TSensorData ScoutHero()
-        {
-            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutHeroOrder() });
-        }
-
         public TSensorData HireUnits(int amountOfUnitsToHire)
         {
             if (amountOfUnitsToHire <= 0)

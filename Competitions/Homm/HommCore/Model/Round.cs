@@ -18,10 +18,10 @@ namespace HoMM
             Players = players;
         }
 
-        public Round(string filename, params string[] playerNames)
+        public Round(string filename, WorldClocks clocks, params string[] playerNames)
         {
             Map = new Map(filename);
-            Players = playerNames.Select(name => new Player(name, Map)).ToArray();
+            Players = playerNames.Select(name => new Player(name, Map, clocks)).ToArray();
         }
 
         public void UpdateTick(params Location[] playerPositions)

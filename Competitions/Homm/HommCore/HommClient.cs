@@ -1,5 +1,7 @@
 ﻿using System;
 using HoMM.ClientClasses;
+using HoMM.Robot;
+using HoMM.Robot.ScoutInterface;
 
 namespace HoMM
 {
@@ -20,6 +22,17 @@ namespace HoMM
     public sealed class HommFinalLevelClient : BaseHommClient<HommFinalSensorData>
     {
         protected override HommLevel Level => HommLevel.Final;
+
+        public HommFinalSensorData ScoutTile(LocationInfo locationToScan)
+        {
+            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutTileOrder(locationToScan) });
+        }
+
+        public HommFinalSensorData ScoutHero()
+        {
+            return Act(new HommCommand { ScoutOrder = ScoutOrder.ScoutHeroOrder() });
+        }
+
     }
 
     public sealed class HommClient : BaseHommClient<HommSensorData>
@@ -37,6 +50,8 @@ namespace HoMM
             bool debugMap = false,
             bool spectacularView = true)
         {
+            if (level == HommLevel.Final) throw new ArgumentException("Should use HommFinalLevelClient to launch final level.");
+
             return base.Configurate(ip, port, cvarcTag, level, isOnLeftSide, timeLimit, 
                 operationalTimeLimit, seed, speedUp, debugMap, spectacularView);
         }

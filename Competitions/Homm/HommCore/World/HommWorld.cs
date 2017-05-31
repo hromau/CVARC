@@ -60,7 +60,7 @@ namespace HoMM.World
 
         private Player CreatePlayer(string controllerId, Map map)
         {
-            var player = new Player(controllerId, map);
+            var player = new Player(controllerId, map, Clocks);
             player.Location = GetRespawnLocation(controllerId, map);
             ScoresConnector.Connect(Scores, player);
             return player;

@@ -13,10 +13,11 @@ namespace HoMM.Sensors
         public override MapData<TUnitsCount> Measure()
         {
             var players = Actor.World.Players
-                .Where(p => p.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius);
+                .Where(player => PlayerFilter(player, Actor))
+                .ToArray();
 
             var objects = Actor.World.Round.Map
-                .Where(x => x.Location.EuclideanDistance(Actor.Player.Location) <= Actor.ViewRadius)
+                .Where(tile => TileFilter(tile, Actor))
                 .Select(tile => BuildMapInfo(tile, players.FirstOrDefault(x => x.Location == tile.Location)));
 
             return new MapData<TUnitsCount>
@@ -26,6 +27,12 @@ namespace HoMM.Sensors
                 Height = Actor.World.Round.Map.Height
             };
         }
+
+        protected virtual bool PlayerFilter(Player player, IHommRobot robot) => 
+            player.Location.EuclideanDistance(robot.Player.Location) <= robot.ViewRadius;
+
+        protected virtual bool TileFilter(Tile tile, IHommRobot actor) =>
+            tile.Location.EuclideanDistance(actor.Player.Location) <= actor.ViewRadius;
 
         protected abstract Dictionary<UnitType, TUnitsCount> ConvertArmy(Dictionary<UnitType, int> internalRepresentation);
 

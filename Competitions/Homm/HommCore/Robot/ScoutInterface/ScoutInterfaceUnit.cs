@@ -1,6 +1,4 @@
-﻿using HoMM.ClientClasses;
-using HoMM.Engine;
-using CVARC.V2;
+﻿using CVARC.V2;
 using System;
 
 namespace HoMM.Robot.ScoutInterface
@@ -17,24 +15,18 @@ namespace HoMM.Robot.ScoutInterface
         public UnitResponse ProcessCommand(object command)
         {
             var scoutOrder = Compatibility.Check<IScoutCommand>(this, command).ScoutOrder;
-            if (scoutOrder == null) return UnitResponse.Denied();
+
+            if (scoutOrder == null)
+                return UnitResponse.Denied();
 
             if (!scoutOrder.ScoutHero ^ scoutOrder.ScoutTile)
-                throw new ArgumentException("Please scout either hero or tile at one time");
-            if (scoutOrder.ScoutTile)
-            {
-                if (!scoutOrder.TileToScout.ToLocation().IsInside(actor.World.Round.Map.Size))
-                    throw new ArgumentException("Scouted tile is out of map bounds");
-                actor.Player.IsScoutingTile = true;
-                actor.Player.TileBeingScouted = scoutOrder.TileToScout.ToLocation();
-                return UnitResponse.Accepted(HommRules.Current.ScoutingDuration);
-            }
-            if (scoutOrder.ScoutHero)
-            {
-                actor.Player.IsScoutingHero = true;
-                return UnitResponse.Accepted(HommRules.Current.ScoutingDuration);
-            }
-            throw new NotImplementedException("Not supposed to execute this");
+                throw new ArgumentException("Please scout either hero or tile at one time.");
+
+            if (!actor.Player.Scout.IsAvailable())
+                throw new InvalidOperationException("Scouting is not available at a time. " +
+                    "Please wait `HommRules.ScoutingCooldown` before sending a new scout.");
+
+            return UnitResponse.Accepted(actor.Player.Scout.Execute(scoutOrder));
         }
     }
 }

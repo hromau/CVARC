@@ -15,13 +15,11 @@ namespace HoMM
         public Location Location { get; set; }
         public Location DesiredLocation { get; set; }
         public Dictionary<UnitType, int> Army { get; }
-        public bool IsScoutingTile { get; set; }
-        public bool IsScoutingHero { get; set; }
-        public Location TileBeingScouted { get; set; }
+        public Scout Scout { get; }
 
         public string UnityId => Name;
 
-        public Player(string name, Map map)
+        public Player(string name, Map map, WorldClocks clocks)
         {
             Name = name;
             Resources = new Dictionary<Resource, int>();
@@ -31,6 +29,7 @@ namespace HoMM
             foreach (UnitType t in Enum.GetValues(typeof(UnitType)))
                 Army.Add(t, 0);
             this.map = map;
+            Scout = new Scout(clocks);
         }
 
 

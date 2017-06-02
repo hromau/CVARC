@@ -20,7 +20,7 @@ namespace TournamentProxyNamespace
 
         static void Main(string[] args)
         {
-            Environment.CurrentDirectory = @"C:\Solutions\commandFolder";
+            Environment.CurrentDirectory = @"D:\itplanetfinal\data";
             var tasks = Json.Read<List<TournamentTask>>("tournament.json");
             var results = new List<TournamentGameResult>();
             if (File.Exists("results.json"))

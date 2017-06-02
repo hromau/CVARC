@@ -14,6 +14,25 @@ namespace TournamentPreview
     {
         static void Main(string[] args)
         {
+            Environment.CurrentDirectory = @"D:\itplanetfinal\data";
+
+            new SolutionsExtracter().Extract(new DirectoryInfo("D:\\itplanetfinal\\solutions"));
+            new SolutionsExtracter().Control(new DirectoryInfo("D:\\itplanetfinal\\solutions"));
+            new SolutionsExtracter().Print();
+            new TournamentVerifier().VerifyAndSave("Final");
+            TournamentVerifier.Print();
+            new GroupCompetitionPlanner().Plan(
+                GetLevel3GameSettings(),
+                new[] { 6, 6, 7 },
+                GetLevel3WorldStates(),
+                142);
+            using (var wr = new StreamWriter("groups.txt"))
+                GroupCompetitionPlanner.Show(wr);
+        }
+
+
+        static void SomeOld(string[] args)
+        {
             Environment.CurrentDirectory = @"C:\Solutions\commandFolder";
             //new GroupCompetitionPlanner().Plan(
             //    GetLevel3GameSettings(),

@@ -1,9 +1,5 @@
-﻿using Infrastructure;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Infrastructure
 {
@@ -44,5 +40,4 @@ namespace Infrastructure
         public TournamentTask Task { get; set; }
         public GameResult Result { get; set; }
     }
-
 }

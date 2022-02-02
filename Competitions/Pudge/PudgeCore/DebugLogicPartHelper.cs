@@ -1,5 +1,4 @@
-﻿using AIRLab;
-using AIRLab.Mathematics;
+﻿using AIRLab.Mathematics;
 using CVARC.V2;
 using Pudge.Player;
 using Pudge.Units.WADUnit;
@@ -8,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Infrastructure;
+using Tuple = Infrastructure.Tuple;
 
 namespace Pudge
 {

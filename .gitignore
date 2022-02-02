@@ -2,7 +2,7 @@ obj
 bin
 *.suo
 packages
-
+**/.idea
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Ll]ibrary/
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Tt]emp/
 

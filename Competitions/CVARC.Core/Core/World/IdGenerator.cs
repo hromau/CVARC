@@ -54,14 +54,14 @@ namespace CVARC.V2
             return idToKey[id] is TKey;
         }
 
-        public IEnumerable<Tuple<object, string>> GetAllPairs()
+        public IEnumerable<Infrastructure.Tuple<object, string>> GetAllPairs()
         {
-            return idToKey.Select(z => new Tuple<object, string>(z.Value, z.Key));
+            return idToKey.Select(z => new Infrastructure.Tuple<object, string>(z.Value, z.Key));
         }
 
-        public IEnumerable<Tuple<T, string>> GetAllPairsOfType<T>()
+        public IEnumerable<Infrastructure.Tuple<T, string>> GetAllPairsOfType<T>()
         {
-            return GetAllPairs().Where(z => z.Item1 is T).Select(z => new Tuple<T, string>((T)z.Item1, z.Item2));
+            return GetAllPairs().Where(z => z.Item1 is T).Select(z => new Infrastructure.Tuple<T, string>((T)z.Item1, z.Item2));
         }
 
 

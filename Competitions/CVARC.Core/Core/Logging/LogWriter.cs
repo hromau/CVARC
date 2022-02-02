@@ -1,12 +1,11 @@
-﻿using AIRLab.Mathematics;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Infrastructure;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Ionic.Zip;
+using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
 {
@@ -84,13 +83,13 @@ namespace CVARC.V2
                              var writer = new StreamWriter(stream, System.Text.Encoding.UTF8);
                              foreach (var e in log)
                              {
-                                 writer.WriteLine(JsonConvert.SerializeObject(e));
+                                 writer.WriteLine(Serializer.Serialize(e));
                              }
                              writer.Close();
 
                          });
-                        zip.AddEntry(LogNames.GameSettings, JsonConvert.SerializeObject(configuration));
-                        zip.AddEntry(LogNames.WorldState, JsonConvert.SerializeObject(worldState));
+                        zip.AddEntry(LogNames.GameSettings, Serializer.Serialize(configuration));
+                        zip.AddEntry(LogNames.WorldState, Serializer.Serialize(worldState));
                         zip.Save(logFileName);
                     }
                 }
@@ -156,7 +155,7 @@ namespace CVARC.V2
                 Type = GameLogEntryType.IncomingCommand,
                 IncomingCommand = new IncomingCommandLogEntry
                 {
-                    Command = JObject.FromObject(command),
+                    Command = new JObject(command),
                     ControllerId = controllerId
                 }
             };
@@ -172,7 +171,7 @@ namespace CVARC.V2
                 OutgoingSensorData = new OutgoingSensorDataCommandLogEntry
                 {
                     ControllerId = controllerId,
-                    SensorData = JObject.FromObject(sensorData)
+                    SensorData = new JObject(sensorData)
                 }
             };
             AddEntry(entry);

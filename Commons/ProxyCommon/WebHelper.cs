@@ -1,12 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.IO;
 using System.Net;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
-using Newtonsoft.Json;
 
 namespace ProxyCommon
 {
@@ -35,7 +34,7 @@ namespace ProxyCommon
                     return default(T);
                 }
                 using (var reader = new StreamReader(responseStream, Encoding.UTF8))
-                    return JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
+                    return Serializer.Deserialize<T>(reader.ReadToEnd());
             }
             catch (Exception e)
             {

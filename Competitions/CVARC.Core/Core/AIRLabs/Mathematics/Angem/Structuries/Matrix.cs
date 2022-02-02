@@ -61,7 +61,7 @@ namespace AIRLab.Mathematics
         ///   translate matrix to row echelon(переводит матрицу в ступенчатый вид)
         /// </summary>
         /// <returns> returns matrix and amount of swappings </returns>
-        public Tuple<Matrix, int> ToRowEchelon()
+        public Infrastructure.Tuple<Matrix, int> ToRowEchelon()
         {
             int swapings = 0;
             var matrix1 = new double[RowCount][];
@@ -121,14 +121,14 @@ namespace AIRLab.Mathematics
                     newMatrix[i, j] = matrix1[i][j];
                 }
             }
-            return new Tuple<Matrix, int>(newMatrix, swapings);
+            return new Infrastructure.Tuple<Matrix, int>(newMatrix, swapings);
         }
 
         public double GetDeterminant()
         {
             if (ColumnCount != RowCount)
                 throw new Exception("Матрица должна быть квадратной.");
-            Tuple<Matrix, int> triangleMatrix = ToRowEchelon();
+            Infrastructure.Tuple<Matrix, int> triangleMatrix = ToRowEchelon();
 
             double determinant = ((triangleMatrix.Item2 & 1) == 1 ? -1 : 1);
             for (int i = 0; i < RowCount; i++)

@@ -1,10 +1,7 @@
-﻿using Infrastructure;
-using Newtonsoft.Json.Linq;
-using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Infrastructure;
+using Newtonsoft.Json.Linq;
 
 namespace TournamentPreview
 {
@@ -24,7 +21,7 @@ namespace TournamentPreview
                         Id = i.ToString() + "-" + e.Id,
                         Participants = new List<TournamentParticipant> { e },
                         GameSettings = settings,
-                        WorldState = JObject.FromObject(state)
+                        WorldState = new JObject(state)
                     };
                     list.Add(task);
                 }

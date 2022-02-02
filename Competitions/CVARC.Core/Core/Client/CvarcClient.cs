@@ -1,7 +1,6 @@
-﻿using Infrastructure;
-using System;
+﻿using System;
 using System.Net.Sockets;
-using Newtonsoft.Json.Linq;
+using Infrastructure;
 
 namespace CVARC.V2
 {
@@ -32,7 +31,7 @@ namespace CVARC.V2
 		    }
 
 			client.WriteJson(configuration);
-			client.WriteJson(JObject.FromObject(state));
+			client.WriteJson(Serializer.Serialize(state));
             return ReadSensorData();
 		}
 
@@ -49,7 +48,7 @@ namespace CVARC.V2
 
             if (message.MessageType == MessageType.SensorData)
             {
-                var sensorData = message.Message.ToObject<TSensorData>();
+	            TSensorData sensorData = Serializer.Deserialize<TSensorData>(message.Message.ToString());
                 if (OnSensorDataReceived != null)
                     OnSensorDataReceived(sensorData);
                 return sensorData;

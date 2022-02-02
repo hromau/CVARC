@@ -1,12 +1,10 @@
-﻿using Infrastructure;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Infrastructure;
+using Newtonsoft.Json.Linq;
 
 namespace TournamentPreview
 {
@@ -90,7 +88,7 @@ namespace TournamentPreview
             var teams = File.ReadLines("teams.csv")
                 .Select(z => z.Split(';'))
                 .ToDictionary(z => int.Parse(z[0]), z => z[1]);
-            var results = File.ReadLines("results.json").Select(JsonConvert.DeserializeObject<TournamentGameResult>).ToList();
+            var results = File.ReadLines("results.json").Select(Serializer.Deserialize<TournamentGameResult>).ToList();
             foreach(var e in results)
             {
                 r.SafeGet(e.Task.Participants[0].Id).Add(GetScores(e, "Left"));
@@ -112,7 +110,7 @@ namespace TournamentPreview
             if (wr == null)
                 wr = Console.Out;
             var gr = Json.Read<List<TournamentTask[,]>>("groups.json");
-            var results = File.ReadLines("results.json").Select(JsonConvert.DeserializeObject<TournamentGameResult>).ToList();
+            var results = File.ReadLines("results.json").Select(Serializer.Deserialize<TournamentGameResult>).ToList();
 
             for (int i = 0; i < gr.Count; i++)
             {
@@ -168,7 +166,7 @@ namespace TournamentPreview
                         {
                             Id = stateCounter + "-" + p1.Id + "-" + p2.Id,
                             GameSettings = settings,
-                            WorldState = JObject.FromObject(state),
+                            WorldState = new JObject(state),
                             Participants = new List<TournamentParticipant>
                                {
                                    p1,

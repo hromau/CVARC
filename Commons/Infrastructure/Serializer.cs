@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace Infrastructure
 {
@@ -7,17 +6,17 @@ namespace Infrastructure
     {
         public static string Serialize(object obj)
         {
-            return JsonConvert.SerializeObject(obj);
+            return Serializer.Serialize(obj);
         }
 
         public static T Deserialize<T>(string obj)
         {
-            return JsonConvert.DeserializeObject<T>(obj);
+            return Serializer.Deserialize<T>(obj);
         }
 
         public static object Deserialize(string obj, Type type)
         {
-            return JsonConvert.DeserializeObject(obj, type);
+            return Serializer.Deserialize(obj, type);
         }
     }
 }

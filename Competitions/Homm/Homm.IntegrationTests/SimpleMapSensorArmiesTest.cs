@@ -4,6 +4,7 @@ using HoMM.ClientClasses;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Homm.IntegrationTests
 {
@@ -79,7 +80,7 @@ namespace Homm.IntegrationTests
         {
             var data = client.Wait(0.1);
             var actualArmy = data.Map.Objects.Single(x => x.Location.ToLocation() == location).NeutralArmy;
-            actualArmy.Army.ShouldAllBeEquivalentTo(expectedArmy);
+            Assert.Equals(actualArmy.Army,(expectedArmy));
         }
     }
 }

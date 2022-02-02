@@ -48,7 +48,8 @@ namespace Homm.IntegrationTests
             client.ScoutHero();
 
             Action scout = () => client.ScoutHero();
-            scout.ShouldThrow<ClientException>();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldThrow<ClientException>();
         }
 
         [Test]
@@ -57,7 +58,8 @@ namespace Homm.IntegrationTests
             client.ScoutTile(new LocationInfo(0, 0));
 
             Action scout = () => client.ScoutTile(new LocationInfo(0, 0));
-            scout.ShouldThrow<ClientException>();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldThrow<ClientException>();
         }
 
         [Test]
@@ -66,7 +68,8 @@ namespace Homm.IntegrationTests
             client.ScoutHero();
 
             Action scout = () => client.ScoutTile(new LocationInfo(0, 0));
-            scout.ShouldThrow<ClientException>();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldThrow<ClientException>();
         }
 
         [Test]
@@ -75,14 +78,16 @@ namespace Homm.IntegrationTests
             client.ScoutTile(new LocationInfo(0, 0));
 
             Action scout = () => client.ScoutHero();
-            scout.ShouldThrow<ClientException>();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldThrow<ClientException>();
         }
 
         [Test]
         public void Scouting_ShouldThrowException_WhenLocationIsOutOfMapBounds()
         {
             Action scout = () => client.ScoutTile(new LocationInfo(-1, -1));
-            scout.ShouldThrow<ClientException>();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldThrow<ClientException>();
         }
 
         [Test]
@@ -92,7 +97,8 @@ namespace Homm.IntegrationTests
             client.Wait(HommRules.Current.ScoutingCooldown);
 
             Action scout = () => client.ScoutHero();
-            scout.ShouldNotThrow();
+            Assert.Throws<ClientException>(scout.Invoke);
+            // scout.ShouldNotThrow();
         }
     }
 }

@@ -19,7 +19,8 @@ namespace Infrastructure
     public static class PlayerMessageHelper
     {
         public static string GetQueueMessage(int length, int needToPlay) =>
-            needToPlay <= length? "You ready to start. Wait other people or current game ends..."
+            needToPlay <= length
+                ? "You ready to start. Wait other people or current game ends..."
                 : $"You {length} in queue.";
 
         public static void SendMessage(TcpClient client, MessageType type, object message)
@@ -27,7 +28,7 @@ namespace Infrastructure
             client.WriteJson(new PlayerMessage
             {
                 MessageType = type,
-                Message = JObjectHelper.CreateSimple(message)
+                Message = new JObject(message)
             });
             if (type == MessageType.Error)
                 client.Close();

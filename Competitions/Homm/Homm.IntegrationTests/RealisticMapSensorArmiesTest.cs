@@ -86,7 +86,7 @@ namespace Homm.IntegrationTests
             var data = client.Move(Direction.RightUp);
 
             var actualArmy = data.Map.Objects.Single(x => x.Location.ToLocation() == location).NeutralArmy;
-            actualArmy.Army.ShouldAllBeEquivalentTo(expectedArmy);
+            Assert.AreEqual(actualArmy.Army,(expectedArmy));
         }
     }
 }

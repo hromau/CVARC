@@ -6,7 +6,7 @@ namespace MultiplayerProxy
 {
     public class Program
     {
-        private static readonly ILog log = LogManager.GetLogger(nameof(Program));
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
 
         public static void Main()
         {

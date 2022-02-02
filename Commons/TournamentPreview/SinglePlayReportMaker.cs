@@ -1,12 +1,9 @@
-﻿using Infrastructure;
-using Newtonsoft.Json;
-using System;
+﻿
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Infrastructure;
 
 namespace TournamentPreview
 {
@@ -38,7 +35,7 @@ namespace TournamentPreview
             var verify = Json.Read<List<TournamentVerificationResult>>("verify.json")
                 .ToDictionary(z => z.Participant.Id, z => z);
 
-            var results = File.ReadLines("results.json").Select(JsonConvert.DeserializeObject<TournamentGameResult>)
+            var results = File.ReadLines("results.json").Select(Serializer.Deserialize<TournamentGameResult>)
                 .GroupBy(z => z.Task.Participants[0].Id)
                 .ToDictionary(z => z.Key, z => z);
 

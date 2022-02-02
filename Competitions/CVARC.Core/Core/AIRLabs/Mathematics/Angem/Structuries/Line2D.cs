@@ -2,6 +2,7 @@
 using AIRLab.Mathematics;
 using Newtonsoft.Json;
 
+
 namespace AIRLab.Mathematics
 {
     [Serializable]

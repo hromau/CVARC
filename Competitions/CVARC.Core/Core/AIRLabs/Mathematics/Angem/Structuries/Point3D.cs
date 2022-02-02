@@ -1,5 +1,5 @@
-﻿using System;
-using AIRLab.Mathematics;
+﻿
+using System;
 using Newtonsoft.Json;
 
 namespace AIRLab.Mathematics

@@ -1,12 +1,6 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Drawing;
-using AIRLab.Mathematics;
 using Newtonsoft.Json;
-//using NUnit.Framework;
-
-#endregion
 
 namespace AIRLab.Mathematics
 {

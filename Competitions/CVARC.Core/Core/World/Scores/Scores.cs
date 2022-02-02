@@ -33,9 +33,9 @@ namespace CVARC.V2
             }
         }
         
-        public IEnumerable<Tuple<string, int>> GetAllScores()
+        public IEnumerable<Infrastructure.Tuple<string, int>> GetAllScores()
         {
-            return Records.Keys.Select(z => new Tuple<string, int>(z, Records[z].Sum(x => x.Count)));
+            return Records.Keys.Select(z => new Infrastructure.Tuple<string, int>(z, Records[z].Sum(x => x.Count)));
         }
         
 

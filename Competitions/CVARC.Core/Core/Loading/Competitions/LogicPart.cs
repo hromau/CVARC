@@ -11,8 +11,8 @@ namespace CVARC.V2
 
         public readonly Dictionary<string, ActorFactory> Actors = new Dictionary<string, ActorFactory>();
 
-        public readonly List<Tuple<string, ActorFactory, Func<IActor, IController>>> NPC =
-            new List<Tuple<string, ActorFactory, Func<IActor, IController>>>();
+        public readonly List<Infrastructure.Tuple<string, ActorFactory, Func<IActor, IController>>> NPC =
+            new List<Infrastructure.Tuple<string, ActorFactory, Func<IActor, IController>>>();
 
         public readonly List<string> PredefinedWorldStates = new List<string>();
 

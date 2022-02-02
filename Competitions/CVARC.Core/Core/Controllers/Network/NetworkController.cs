@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
+using System;
+using System.Net.Sockets;
 using System.Threading;
 using Infrastructure;
-using System.Net.Sockets;
 using Newtonsoft.Json.Linq;
 
 namespace CVARC.V2
@@ -36,17 +34,17 @@ namespace CVARC.V2
         PlayerMessage playerMessage;
         bool active = true;
 
-        Tuple<ICommand, Exception> GetCommandInternally(Type commandType)
+        Infrastructure.Tuple<ICommand, Exception> GetCommandInternally(Type commandType)
         {
             try
             {
                 client.WriteJson(playerMessage);
                 var command = (ICommand)client.ReadJson(commandType);
-			    return new Tuple<ICommand,Exception>(command,null);
+			    return new Infrastructure.Tuple<ICommand,Exception>(command,null);
             }
             catch (Exception e)
             {
-                return new Tuple<ICommand,Exception>(null,e);
+                return new Infrastructure.Tuple<ICommand,Exception>(null,e);
             }
         }
 
@@ -54,7 +52,7 @@ namespace CVARC.V2
         {
             if (!active) return null;
 
-            var @delegate = new Func<Type, Tuple<ICommand, Exception>>(GetCommandInternally);
+            var @delegate = new Func<Type, Infrastructure.Tuple<ICommand, Exception>>(GetCommandInternally);
 
             var async = @delegate.BeginInvoke(typeof(TCommand), null, null);
 
@@ -94,7 +92,7 @@ namespace CVARC.V2
             this.playerMessage = new PlayerMessage
             {
                 MessageType = MessageType.SensorData,
-                Message = JObject.FromObject(sensorData)
+                Message = new JObject(sensorData)
             };
         }
 
@@ -103,7 +101,7 @@ namespace CVARC.V2
             var msh = new PlayerMessage
             {
                 MessageType = MessageType.Error,
-                Message = JObjectHelper.CreateSimple<string>(e.GetType().Name + ": " + e.Message)
+                Message = new JObject(e.GetType().Name + ": " + e.Message)
             };
             try
             {

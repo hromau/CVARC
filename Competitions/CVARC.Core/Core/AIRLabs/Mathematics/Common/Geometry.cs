@@ -95,12 +95,12 @@ namespace AIRLab.Mathematics
             return new Point3D(x, y, z)*r;
         }
 
-        public static Tuple<Angle, Angle, Double> FromOrthonormToSpheric(Point3D point)
+        public static Infrastructure.Tuple<Angle, Angle, Double> FromOrthonormToSpheric(Point3D point)
         {
             double r = Math.Sqrt(point.X*point.X + point.Y*point.Y + point.Z*point.Z);
             Angle psi = Acos(point.Z/r);
             Angle phi = Atan2(point.Y, point.X);
-            return new Tuple<Angle, Angle, double>(phi, psi, r);
+            return new Infrastructure.Tuple<Angle, Angle, double>(phi, psi, r);
         }
 
         public static bool IsParallel(Line3D line1, Line3D line2)

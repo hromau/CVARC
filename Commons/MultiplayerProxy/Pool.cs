@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Infrastructure;
 using log4net;
-using Newtonsoft.Json.Linq;
 using ProxyCommon;
 
 namespace MultiplayerProxy
@@ -18,7 +17,7 @@ namespace MultiplayerProxy
             new ConcurrentDictionary<LoadingData, ConcurrentQueue<ClientWithSettings>>();
 
         private static bool needToCheck;
-        private static readonly ILog log = LogManager.GetLogger(nameof(Pool));
+        private static readonly ILog log = LogManager.GetLogger(typeof(Pool));
         private static readonly Dictionary<LoadingData, string[]> levelToControllerIds;
 
         static Pool()
@@ -42,7 +41,7 @@ namespace MultiplayerProxy
             try
             {
                 var settings = await client.ReadJsonAsync<GameSettings>();
-                await client.ReadJsonAsync<JObject>(); // ignore worldstate
+                // await client.ReadJsonAsync<JObject>(); // ignore worldstate
                 var levelName = settings.LoadingData;
                 levelName.AssemblyName = levelName.AssemblyName.ToLower();
                 levelName.Level = levelName.Level.ToLower();

@@ -38,9 +38,9 @@ namespace Pudge
 
             var slardarFactory = ActorFactory.FromRobot(new Player.Slardar(), new SlardarRules());
             List<Frame3D> slardarTrajectory = GetSlardarTrajectory();
-            logicPart.NPC.Add(new Tuple<string, ActorFactory, Func<IActor, IController>>(
+            logicPart.NPC.Add(new Infrastructure.Tuple<string, ActorFactory, Func<IActor, IController>>(
                 SlardarId.LeftTop, slardarFactory, CreateSlardarBot(slardarTrajectory, SlardarId.LeftTop)));
-            logicPart.NPC.Add(new Tuple<string, ActorFactory, Func<IActor, IController>>(
+            logicPart.NPC.Add(new Infrastructure.Tuple<string, ActorFactory, Func<IActor, IController>>(
                 SlardarId.RightBottom, slardarFactory, CreateSlardarBot(slardarTrajectory, SlardarId.RightBottom)));
 
             logicPart.Bots[PudgeRules.StandingBotName] = () => rules.CreateStandingBot();

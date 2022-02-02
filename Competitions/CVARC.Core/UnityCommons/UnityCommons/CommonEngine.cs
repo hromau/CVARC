@@ -160,7 +160,7 @@ namespace UnityCommons
         }
 
 
-        Dictionary<GameObject, Tuple<float, float>> attachedParams = new Dictionary<GameObject, Tuple<float, float>>();
+        Dictionary<GameObject, Infrastructure.Tuple<float, float>> attachedParams = new Dictionary<GameObject, Infrastructure.Tuple<float, float>>();
 
         public LogWriter LogWriter { get; set; }
 
@@ -186,7 +186,7 @@ namespace UnityCommons
             joint.breakForce = Single.PositiveInfinity;
             joint.enablePreprocessing = false;
 
-            attachedParams.Add(attachment, new Tuple<float, float>(attachment.GetComponent<Rigidbody>().drag, attachment.GetComponent<Rigidbody>().angularDrag));
+            attachedParams.Add(attachment, new Infrastructure.Tuple<float, float>(attachment.GetComponent<Rigidbody>().drag, attachment.GetComponent<Rigidbody>().angularDrag));
             attachment.GetComponent<Rigidbody>().drag = attachment.GetComponent<Rigidbody>().angularDrag = 0;
         }
 

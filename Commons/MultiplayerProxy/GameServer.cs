@@ -4,16 +4,15 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Infrastructure;
-using log4net;
 using ProxyCommon;
 using CVARC.V2;
-using Newtonsoft.Json;
+using log4net;
 
 namespace MultiplayerProxy
 {
     public static class GameServer
     {
-        private static readonly ILog log = LogManager.GetLogger(nameof(GameServer));
+        private static readonly ILog log = LogManager.GetLogger(typeof(GameServer));
         private static Dictionary<LoadingData, string[]> LevelToControllerIds;
 
         public static async Task StartGame(ClientWithSettings[] clientsWithSettings, LoadingData levelName)
@@ -24,14 +23,14 @@ namespace MultiplayerProxy
             try
             {
                 var mainConnection = ConnnectToServer();
-                log.Info(JsonConvert.SerializeObject(settings));
+                log.Info(Serializer.Serialize(settings));
                 mainConnection.WriteJson(settings);
                 mainConnection.WriteJson(WorldState.MakeUndefined());
 
                 foreach (var client in clientsWithSettings.Select(c => c.Client))
                     CreateConnectionBetweenPlayerAndServer(client);
 
-                await GetResultAndSendToWeb(mainConnection, settings);
+                GetResultAndSendToWeb(mainConnection, settings);
             }
             catch (SocketException e)
             {
@@ -84,9 +83,9 @@ namespace MultiplayerProxy
             Proxy.CreateChainAndStart(client, server);
         }
 
-        private static async Task GetResultAndSendToWeb(TcpClient mainConnection, GameSettings settings)
+        private static void GetResultAndSendToWeb(TcpClient mainConnection, GameSettings settings)
         {
-            var result = await mainConnection.ReadJsonAsync<GameResult>();
+            var result = mainConnection.ReadJson<GameResult>();
             var webResult = new WebCommonResults();
             webResult.GameName = settings.LoadingData.ToString();
             webResult.PathToLog = result.PathToLogFile;
@@ -107,9 +106,9 @@ namespace MultiplayerProxy
                 var service = new TcpClient();
                 service.Connect(MultiplayerProxyConfigurations.ServiceEndPoint);
                 service.WriteJson(ServiceUnityCommand.GetCompetitionsList);
-                LevelToControllerIds = 
+                LevelToControllerIds =
                     service.ReadJson<Dictionary<string, string[]>>()
-                    .ToDictionary(kvp => LoadingData.Parse(kvp.Key), kvp => kvp.Value);
+                        .ToDictionary(kvp => LoadingData.Parse(kvp.Key), kvp => kvp.Value);
                 return LevelToControllerIds;
             }
             catch (Exception e)
@@ -117,7 +116,6 @@ namespace MultiplayerProxy
                 log.Error("cant load list of controllers id", e);
                 return null;
             }
-            
         }
     }
 }

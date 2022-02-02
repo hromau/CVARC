@@ -48,6 +48,7 @@ namespace SingleplayerProxy
                     StartUnity();
                     tasks[0] = WaitUntillUnityClosed();
                 }
+
                 var client = ((Task<TcpClient>) tasks[1]).Result;
                 PlayGame(client);
             }
@@ -55,7 +56,8 @@ namespace SingleplayerProxy
 
         static bool IsUnityUp() =>
             SingleplayerProxyConfigurations.DebugMode ||
-            !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromMilliseconds(500)));
+            !string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping,
+                TimeSpan.FromMilliseconds(500)));
 
         static void KillUnity() =>
             TrySendUnityCommand<string>(ServiceUnityCommand.Shutdown, TimeSpan.FromSeconds(5));
@@ -68,7 +70,8 @@ namespace SingleplayerProxy
         {
             if (!SingleplayerProxyConfigurations.DebugMode)
                 Process.Start(SingleplayerProxyConfigurations.UnityExePath);
-            while (string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping, TimeSpan.FromSeconds(20))))
+            while (string.IsNullOrEmpty(TrySendUnityCommand<string>(ServiceUnityCommand.Ping,
+                       TimeSpan.FromSeconds(20))))
             {
                 Console.WriteLine("Cant get answer from unity! Timeout. If its actually started, close it");
                 if (!SingleplayerProxyConfigurations.DebugMode)
@@ -86,6 +89,7 @@ namespace SingleplayerProxy
                     Console.WriteLine("You use actual version");
                     return;
                 }
+
                 Console.WriteLine("Update available! Start to download...");
                 if (IsUnityUp())
                     KillUnity();
@@ -116,7 +120,7 @@ namespace SingleplayerProxy
                 client.WriteJson(new PlayerMessage
                 {
                     MessageType = MessageType.Info,
-                    Message = JObjectHelper.CreateSimple("Hello, hero! welcome to the grand tournament")
+                    Message = new JObject("Hello, hero! welcome to the grand tournament")
                 });
                 var mainConnection = ConnectToServer();
                 mainConnection.WriteJson(gameSettings);
@@ -126,9 +130,10 @@ namespace SingleplayerProxy
                 var resultTask = mainConnection.ReadJsonAsync<GameResult>();
                 resultTask.ContinueWith(x =>
                 {
-                    Console.WriteLine(x.IsFaulted 
-                        ? $"Cant get game results. Reason: {x.Exception}" 
-                        : "The game was finished with the following results:" + Environment.NewLine + x.Result.ToString());
+                    Console.WriteLine(x.IsFaulted
+                        ? $"Cant get game results. Reason: {x.Exception}"
+                        : "The game was finished with the following results:" + Environment.NewLine +
+                          x.Result.ToString());
                 });
             }
             catch (Exception e)
@@ -136,7 +141,6 @@ namespace SingleplayerProxy
                 Console.WriteLine("something went wrong...");
                 Console.WriteLine(e.ToString());
             }
-
         }
 
         static TcpClient ConnectToServer()
@@ -177,8 +181,10 @@ namespace SingleplayerProxy
                     {
                         continue;
                     }
+
                     break;
                 }
+
                 await client.WriteJsonAsync(command);
 
                 return await client.ReadJsonAsync<T>();

@@ -80,7 +80,7 @@ namespace HexModelTesting
         {
             var result = Combat.Resolve(new ArmiesPair(attacking: twoInfantry, defending: oneInfantry));
 
-            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
+            result.AttackingArmy.SequenceEqual(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
             result.DefendingArmy.Should().BeEmpty();
         }
 
@@ -90,7 +90,7 @@ namespace HexModelTesting
             var result = Combat.Resolve(new ArmiesPair(attacking: oneInfantry, defending: twoInfantry));
 
             result.AttackingArmy.Should().BeEmpty();
-            result.DefendingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
+            result.DefendingArmy.SequenceEqual(new Dictionary<UnitType, int> { { UnitType.Infantry, 1 } });
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace HexModelTesting
             var result = Combat.Resolve(new ArmiesPair(attacking: tenRanged, defending: tenInfantry));
             var countLeft = 10 - (int)Math.Floor(10 * UnitsConstants.Current.CombatMod[UnitType.Infantry][UnitType.Ranged]);
 
-            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Ranged, countLeft } });
+            result.AttackingArmy.SequenceEqual(new Dictionary<UnitType, int> { { UnitType.Ranged, countLeft } });
             result.DefendingArmy.Should().BeEmpty();
         }
 
@@ -110,7 +110,7 @@ namespace HexModelTesting
             var countLeft = 10 - (int)Math.Floor(5 * UnitsConstants.Current.CombatMod[UnitType.Cavalry][UnitType.Infantry]
                 * UnitsConstants.Current.CombatPower[UnitType.Cavalry] / UnitsConstants.Current.CombatPower[UnitType.Infantry]);
 
-            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Infantry, countLeft } });
+            result.AttackingArmy.SequenceEqual(new Dictionary<UnitType, int> { { UnitType.Infantry, countLeft } });
             result.DefendingArmy.Should().BeEmpty();
         }
 
@@ -122,7 +122,7 @@ namespace HexModelTesting
             var countLeft = 5 - (int)Math.Floor(10 * UnitsConstants.Current.CombatMod[UnitType.Ranged][UnitType.Cavalry]
                 * UnitsConstants.Current.CombatPower[UnitType.Ranged] / UnitsConstants.Current.CombatPower[UnitType.Cavalry]);
 
-            result.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { { UnitType.Cavalry, countLeft } });
+            result.AttackingArmy.SequenceEqual(new Dictionary<UnitType, int> { { UnitType.Cavalry, countLeft } });
             result.DefendingArmy.Should().BeEmpty();
         }
 
@@ -204,11 +204,11 @@ namespace HexModelTesting
             var firstEmpty = Combat.Resolve(new ArmiesPair(new Dictionary<UnitType, int>(), oneInfantry));
 
             firstEmpty.AttackingArmy.Should().BeEmpty();
-            firstEmpty.DefendingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
+            firstEmpty.DefendingArmy.SequenceEqual(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
 
             var secondEmpty = Combat.Resolve(new ArmiesPair(oneInfantry, new Dictionary<UnitType, int>()));
 
-            secondEmpty.AttackingArmy.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
+            secondEmpty.AttackingArmy.SequenceEqual(new Dictionary<UnitType, int> { {UnitType.Infantry, 1} });
             secondEmpty.DefendingArmy.Should().BeEmpty();
 
             var bothEmpty = Combat.Resolve(new ArmiesPair(new Dictionary<UnitType, int>(), new Dictionary<UnitType, int>()));
@@ -222,8 +222,8 @@ namespace HexModelTesting
         {
             Combat.Resolve(new ArmiesPair(oneInfantry, twoInfantry));
 
-            oneInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 1 } });
-            twoInfantry.ShouldAllBeEquivalentTo(new Dictionary<UnitType, int> { {UnitType.Infantry, 2} });
+            oneInfantry.SequenceEqual(new Dictionary<UnitType, int> { {UnitType.Infantry, 1 } });
+            twoInfantry.SequenceEqual(new Dictionary<UnitType, int> { {UnitType.Infantry, 2} });
         }
 
         [Test]
@@ -258,8 +258,8 @@ namespace HexModelTesting
             var firstResult = Combat.Resolve(new ArmiesPair(firstArmyAscending, genericSmallArmy));
             var secondResult = Combat.Resolve(new ArmiesPair(firstArmyDescending, genericSmallArmy));
 
-            firstResult.AttackingArmy.ShouldBeEquivalentTo(secondResult.AttackingArmy);
-            firstResult.DefendingArmy.ShouldBeEquivalentTo(secondResult.DefendingArmy);
+            firstResult.AttackingArmy.SequenceEqual(secondResult.AttackingArmy);
+            firstResult.DefendingArmy.SequenceEqual(secondResult.DefendingArmy);
         }
     }
 }

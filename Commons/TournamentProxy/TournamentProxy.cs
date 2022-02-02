@@ -1,17 +1,15 @@
-﻿using Infrastructure;
-using MultiplayerProxy;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using ProxyCommon;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using Infrastructure;
+using MultiplayerProxy;
+using Newtonsoft.Json.Linq;
+using ProxyCommon;
 
 namespace TournamentProxyNamespace
 {
@@ -57,7 +55,7 @@ namespace TournamentProxyNamespace
                     Result = result
                 };
 
-                File.AppendAllText("results.json", JsonConvert.SerializeObject(toWrite, Formatting.None) + "\n");
+                File.AppendAllText("results.json", Serializer.Serialize(toWrite) + "\n");
 
                 Thread.Sleep(1000);
             }

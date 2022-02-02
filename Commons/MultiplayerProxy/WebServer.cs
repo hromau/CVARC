@@ -9,7 +9,7 @@ namespace MultiplayerProxy
 {
     public static class WebServer
     {
-        private static readonly ILog log = LogManager.GetLogger(nameof(WebServer));
+        private static readonly ILog log = LogManager.GetLogger(typeof(WebServer));
         private static Guid[] playerGuids = new Guid[0];
 
         public static void SendResult(WebCommonResults result)

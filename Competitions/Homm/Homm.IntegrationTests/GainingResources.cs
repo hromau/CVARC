@@ -23,7 +23,7 @@ namespace Homm.IntegrationTests
             for (var i = 0; i < 4; i++)
             {
                 var detectedPile = GetObjectDataAt(0, 2 + i).ResourcePile;
-                detectedPile.Resource.ShouldBeEquivalentTo(i);
+                Assert.AreEqual(detectedPile.Resource,(i));
                 sensorData = client.Move(Direction.Down);
                 sensorData.MyTreasury.Values.Where(value => value == PilePrice).Should().HaveCount(i+1);
             }

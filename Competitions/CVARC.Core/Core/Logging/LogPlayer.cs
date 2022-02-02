@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Reflection;
+using System.Text;
 using AIRLab.Mathematics;
 using Infrastructure;
 using Ionic.Zip;
-using System.IO;
 
 namespace CVARC.V2
 {
@@ -37,7 +37,7 @@ namespace CVARC.V2
             var settings = zip.Where(z => z.FileName == LogNames.GameSettings).SingleOrDefault();
             if (settings == null)
                 throw new Exception("No " + LogNames.GameSettings + " file is inside archive");
-            GameSettings = JsonConvert.DeserializeObject<GameSettings>(Encoding.UTF8.GetString(settings.OpenReader().ReadToEnd()));
+            GameSettings = Serializer.Deserialize<GameSettings>(Encoding.UTF8.GetString(settings.OpenReader().ReadToEnd()));
             Debugger.Log("Settings are read");
             var replay = zip.Where(z => z.FileName == LogNames.Replay).SingleOrDefault();
             if (replay == null)
@@ -84,7 +84,7 @@ namespace CVARC.V2
             while (true)
             {
 
-                var obj = JsonConvert.DeserializeObject<GameLogEntry>(lines.Current);
+                var obj = Serializer.Deserialize<GameLogEntry>(lines.Current);
                 if (obj.Time <= currentTime)
                 {
                     Play(obj);

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,16 +11,16 @@ namespace TournamentPreview
     {
         static void Main(string[] args)
         {
-            Environment.CurrentDirectory = @"D:\itplanetfinal\data";
+            Environment.CurrentDirectory = @"C:\itplanetfinal\data";
 
-            new SolutionsExtracter().Extract(new DirectoryInfo("D:\\itplanetfinal\\solutions"));
-            new SolutionsExtracter().Control(new DirectoryInfo("D:\\itplanetfinal\\solutions"));
+            new SolutionsExtracter().Extract(new DirectoryInfo("C:\\itplanetfinal\\solutions"));
+            new SolutionsExtracter().Control(new DirectoryInfo("C:\\itplanetfinal\\solutions"));
             new SolutionsExtracter().Print();
             new TournamentVerifier().VerifyAndSave("Final");
             TournamentVerifier.Print();
             new GroupCompetitionPlanner().Plan(
                 GetLevel3GameSettings(),
-                new[] { 6, 6, 7 },
+                new[] {6, 6, 7},
                 GetLevel3WorldStates(),
                 142);
             using (var wr = new StreamWriter("groups.txt"))
@@ -54,7 +53,7 @@ namespace TournamentPreview
             //new SolutionsExtracter().Extract(new DirectoryInfo("C:\\Solutions"));
             //new SolutionsExtracter().Control(new DirectoryInfo("C:\\Solutions"));
             //new SolutionsExtracter().Print();
-           //TournamentVerifier.Print();
+            //TournamentVerifier.Print();
             //new SingleRunCompetitionPlanner().Plan(GetLevel1GameSettings(), GetLevel1WorldStates());
             //SinglePlayReportMaker.MakeReport();
         }
@@ -77,7 +76,7 @@ namespace TournamentPreview
                 .ToArray();
         }
 
-        
+
         static GameSettings GetLevel1GameSettings()
         {
             var GameSettings = new GameSettings
@@ -88,17 +87,17 @@ namespace TournamentPreview
                     Level = "level1"
                 },
                 ActorSettings = new List<ActorSettings>
+                {
+                    new ActorSettings
                     {
-                        new ActorSettings
+                        ControllerId = "Left",
+                        IsBot = false,
+                        PlayerSettings = new PlayerSettings
                         {
-                             ControllerId="Left",
-                              IsBot=false,
-                               PlayerSettings=new PlayerSettings
-                               {
-                                    CvarcTag=Guid.Empty
-                               }
+                            CvarcTag = Guid.Empty
                         }
-                    },
+                    }
+                },
                 SpectacularView = false,
                 OperationalTimeLimit = 10,
                 TimeLimit = 90,
@@ -118,25 +117,25 @@ namespace TournamentPreview
                     Level = "level3"
                 },
                 ActorSettings = new List<ActorSettings>
+                {
+                    new ActorSettings
                     {
-                        new ActorSettings
+                        ControllerId = "Left",
+                        IsBot = false,
+                        PlayerSettings = new PlayerSettings
                         {
-                             ControllerId="Left",
-                              IsBot=false,
-                               PlayerSettings=new PlayerSettings
-                               {
-                                    CvarcTag=Guid.Empty
-                               }
-                        },
-                         new ActorSettings
-                        {
-                             ControllerId="Right",
-                              IsBot=false,
-                               PlayerSettings=new PlayerSettings
-                               {
-                                    CvarcTag=Guid.Empty
-                               }
+                            CvarcTag = Guid.Empty
                         }
+                    },
+                    new ActorSettings
+                    {
+                        ControllerId = "Right",
+                        IsBot = false,
+                        PlayerSettings = new PlayerSettings
+                        {
+                            CvarcTag = Guid.Empty
+                        }
+                    }
                 },
                 SpectacularView = false,
                 OperationalTimeLimit = 25,

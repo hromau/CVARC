@@ -12,14 +12,13 @@ namespace TournamentProxyNamespace
     {
         static void Main(string[] args)
         {
-            Environment.CurrentDirectory = @"D:\itplanetfinal\data";
+            Environment.CurrentDirectory = @"C:\itplanetfinal\data";
             var tasks = Json.Read<List<TournamentTask>>("tournament.json");
             var results = new List<TournamentGameResult>();
             if (File.Exists("results.json"))
                 results = File.ReadLines("results.json").Select(Serializer.Deserialize<TournamentGameResult>).ToList();
             new TournamentProxy().Run(tasks, results);
         }
-
 
         static void MakeJsonExample()
         {
@@ -32,7 +31,8 @@ namespace TournamentProxyNamespace
                         new TournamentParticipant
                         {
                             Id = 1,
-                            PathToExe = "C:\\Repos\\CVARC\\Competitions\\Homm\\Homm.Client\\bin\\Debug\\Homm.Client.exe"
+                            PathToExe =
+                                "C:\\Projects\\CVARC\\Competitions\\Homm\\Homm.Client\\bin\\Debug\\Homm.Client.exe"
                         }
                     },
                     GameSettings = new GameSettings

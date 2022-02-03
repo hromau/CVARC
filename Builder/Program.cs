@@ -8,9 +8,9 @@ namespace Builder
 {
     class Program
     {
-        const string UnityEditorPath = @"C:\Program Files\Unity\Editor\Unity.exe";
+        const string UnityEditorPath = @"C:\Program Files\Unity\Hub\Editor\2021.2.9f1\Editor\Unity.exe";
         const string SevenZ = @"C:\Program Files\7-Zip\7z.exe";
-        const string I18Source = @"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity";
+        const string I18Source = @"C:\Program Files\Unity\Hub\Editor\2021.2.9f1\Editor\Data\MonoBleedingEdge\lib\mono\unity";
 
         const string Release = "Release";
         const string BinariesName = "Binaries";

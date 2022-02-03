@@ -10,8 +10,8 @@ namespace Assets
 {
     public abstract class PlayScript : MonoBehaviour
     {
-        protected GUIText scoresTextLeft;
-        protected GUIText scoresTextRight;
+        protected UI.Text scoresTextLeft;
+        protected UI.Text scoresTextRight;
         protected GameObject myCamera;
 
         protected IScoreProvider scoreProvider;

@@ -3,6 +3,7 @@ bin
 *.suo
 packages
 **/.idea
+.vs
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Ll]ibrary/
 /Competitions/Pudge/PudgeUnityBundleBuilder/[Tt]emp/
 
